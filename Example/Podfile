@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'GPXKit_Example' do
+  pod 'GPXKit', :path => '../'
+
+  target 'GPXKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

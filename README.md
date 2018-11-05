@@ -1,0 +1,29 @@
+# GPXKit
+
+[![CI Status](https://img.shields.io/travis/vincentneo/GPXKit.svg?style=flat)](https://travis-ci.org/vincentneo/GPXKit)
+[![Version](https://img.shields.io/cocoapods/v/GPXKit.svg?style=flat)](https://cocoapods.org/pods/GPXKit)
+[![License](https://img.shields.io/cocoapods/l/GPXKit.svg?style=flat)](https://cocoapods.org/pods/GPXKit)
+[![Platform](https://img.shields.io/cocoapods/p/GPXKit.svg?style=flat)](https://cocoapods.org/pods/GPXKit)
+
+## Example
+
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+## Requirements
+
+## Installation
+
+GPXKit is available through [CocoaPods](https://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'GPXKit'
+```
+
+## Author
+
+vincentneo, 23420208+vincentneo@users.noreply.github.com
+
+## License
+
+GPXKit is available under the MIT license. See the LICENSE file for more info.
