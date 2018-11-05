@@ -1,0 +1,22 @@
+{
+  "name": "GPXKit",
+  "version": "0.1.0",
+  "summary": "A short description of GPXKit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/vincentneo/GPXKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "vincentneo": "23420208+vincentneo@users.noreply.github.com"
+  },
+  "source": {
+    "git": "https://github.com/vincentneo/GPXKit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "GPXKit/Classes/**/*"
+}

@@ -1,0 +1,16 @@
+PODS:
+  - GPXKit (0.1.0)
+
+DEPENDENCIES:
+  - GPXKit (from `../`)
+
+EXTERNAL SOURCES:
+  GPXKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  GPXKit: 0600ffbd2405f19955bb442f36d108a099d1f3a0
+
+PODFILE CHECKSUM: 8a32a3f9dd9bad529d650f7a04d51689d0db8eca
+
+COCOAPODS: 1.5.3
