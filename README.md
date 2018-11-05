@@ -5,11 +5,15 @@
 [![License](https://img.shields.io/cocoapods/l/GPXKit.svg?style=flat)](https://cocoapods.org/pods/GPXKit)
 [![Platform](https://img.shields.io/cocoapods/p/GPXKit.svg?style=flat)](https://cocoapods.org/pods/GPXKit)
 
+### *** WORK IN PROGRESS ***
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+
+iOS
 
 ## Installation
 
@@ -19,10 +23,6 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'GPXKit'
 ```
-
-## Author
-
-vincentneo, 23420208+vincentneo@users.noreply.github.com
 
 ## License
 
