@@ -4,3 +4,8 @@ framework module GPXKit {
   export *
   module * { export * }
 }
+
+module TBXML [system] {
+    header "TBXML.h"
+    export *
+}

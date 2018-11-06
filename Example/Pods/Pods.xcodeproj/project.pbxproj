@@ -13,8 +13,16 @@
 		2F609B0A3267096914406953B718E1E9 /* Pods-GPXKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 39858D8C355D9478CE7F0393428A58D1 /* Pods-GPXKit_Example-dummy.m */; };
 		6E9816A6EF9C00518B333F311A06B3C6 /* Pods-GPXKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DFEA1BBFED7761C54E34533C845E52D /* Pods-GPXKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96955EAE494B6042139110C5B8E5B365 /* Pods-GPXKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F92DE730BA2208830EB6528858CA83E /* Pods-GPXKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BF502A682191D8B400ACE2EE /* TBXML+Compression.h in Headers */ = {isa = PBXBuildFile; fileRef = BF502A652191D8B400ACE2EE /* TBXML+Compression.h */; };
+		BF502A692191D8B400ACE2EE /* TBXML+HTTP.h in Headers */ = {isa = PBXBuildFile; fileRef = BF502A662191D8B400ACE2EE /* TBXML+HTTP.h */; };
+		BF502A6A2191D8B400ACE2EE /* TBXML.h in Headers */ = {isa = PBXBuildFile; fileRef = BF502A672191D8B400ACE2EE /* TBXML.h */; };
+		BF502A6F2191D8BC00ACE2EE /* TBXML+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = BF502A6C2191D8BC00ACE2EE /* TBXML+Compression.m */; };
+		BF502A702191D8BC00ACE2EE /* TBXML+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = BF502A6D2191D8BC00ACE2EE /* TBXML+HTTP.m */; };
+		BF502A712191D8BC00ACE2EE /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = BF502A6E2191D8BC00ACE2EE /* TBXML.m */; };
 		BFBFE8122190596300F82D7A /* GPXParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBFE8102190596300F82D7A /* GPXParser.swift */; };
 		BFBFE8132190596300F82D7A /* GPXType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBFE8112190596300F82D7A /* GPXType.swift */; };
+		BFBFE81621906D5000F82D7A /* GPXRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBFE81521906D5000F82D7A /* GPXRoot.swift */; };
+		BFBFE8182190764500F82D7A /* GPXElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBFE8172190764500F82D7A /* GPXElement.swift */; };
 		D33D32FC42D279C493269EFF512B05DD /* GPXKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A79C3D6DC7025848B6FD7B545968A8 /* GPXKit-dummy.m */; };
 		D6F1B584B9A7B9D483CF8CBD2A9F8A24 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
 		E2030311E8F4799D477870DC85D91156 /* GPXKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B95823793A70C1B571CCD2CF059F4DB /* GPXKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -70,8 +78,17 @@
 		BBEDEF26F99AAF0981DCCB2F83633264 /* GPXKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GPXKit.xcconfig; sourceTree = "<group>"; };
 		BC7D2EDE611456AF8F6E998253730BE1 /* Pods-GPXKit_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GPXKit_Example-resources.sh"; sourceTree = "<group>"; };
 		BE890264AF60CC7BEF186CF89CF2A067 /* Pods-GPXKit_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GPXKit_Tests-dummy.m"; sourceTree = "<group>"; };
+		BF502A652191D8B400ACE2EE /* TBXML+Compression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TBXML+Compression.h"; sourceTree = "<group>"; };
+		BF502A662191D8B400ACE2EE /* TBXML+HTTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TBXML+HTTP.h"; sourceTree = "<group>"; };
+		BF502A672191D8B400ACE2EE /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
+		BF502A6C2191D8BC00ACE2EE /* TBXML+Compression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TBXML+Compression.m"; sourceTree = "<group>"; };
+		BF502A6D2191D8BC00ACE2EE /* TBXML+HTTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TBXML+HTTP.m"; sourceTree = "<group>"; };
+		BF502A6E2191D8BC00ACE2EE /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
+		BF502A722191D8E700ACE2EE /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
 		BFBFE8102190596300F82D7A /* GPXParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXParser.swift; sourceTree = "<group>"; };
 		BFBFE8112190596300F82D7A /* GPXType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXType.swift; sourceTree = "<group>"; };
+		BFBFE81521906D5000F82D7A /* GPXRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXRoot.swift; sourceTree = "<group>"; };
+		BFBFE8172190764500F82D7A /* GPXElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXElement.swift; sourceTree = "<group>"; };
 		C267DDDF80D9966856744E15BAC5A9E4 /* Pods-GPXKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GPXKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		F84932B3297613D4ED6B0C58E1B46D56 /* Pods-GPXKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GPXKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				BFBFE8142190596F00F82D7A /* Classes */,
+				BFBFE819219082C800F82D7A /* Dependencies */,
 				E445484AA308E32E533DC32164F6E733 /* Pod */,
 				C0B2C8FEE607CAEFABBE648728830354 /* Support Files */,
 			);
@@ -170,13 +188,53 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BF502A642191D8B400ACE2EE /* TBXML-Headers */ = {
+			isa = PBXGroup;
+			children = (
+				BF502A652191D8B400ACE2EE /* TBXML+Compression.h */,
+				BF502A662191D8B400ACE2EE /* TBXML+HTTP.h */,
+				BF502A672191D8B400ACE2EE /* TBXML.h */,
+			);
+			path = "TBXML-Headers";
+			sourceTree = "<group>";
+		};
+		BF502A6B2191D8BC00ACE2EE /* TBXML-Code */ = {
+			isa = PBXGroup;
+			children = (
+				BF502A6C2191D8BC00ACE2EE /* TBXML+Compression.m */,
+				BF502A6D2191D8BC00ACE2EE /* TBXML+HTTP.m */,
+				BF502A6E2191D8BC00ACE2EE /* TBXML.m */,
+			);
+			path = "TBXML-Code";
+			sourceTree = "<group>";
+		};
+		BF502A732191D8F800ACE2EE /* TBXML */ = {
+			isa = PBXGroup;
+			children = (
+				BF502A722191D8E700ACE2EE /* README.markdown */,
+				BF502A6B2191D8BC00ACE2EE /* TBXML-Code */,
+				BF502A642191D8B400ACE2EE /* TBXML-Headers */,
+			);
+			path = TBXML;
+			sourceTree = "<group>";
+		};
 		BFBFE8142190596F00F82D7A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				BFBFE8102190596300F82D7A /* GPXParser.swift */,
 				BFBFE8112190596300F82D7A /* GPXType.swift */,
+				BFBFE81521906D5000F82D7A /* GPXRoot.swift */,
+				BFBFE8172190764500F82D7A /* GPXElement.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		BFBFE819219082C800F82D7A /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				BF502A732191D8F800ACE2EE /* TBXML */,
+			);
+			path = Dependencies;
 			sourceTree = "<group>";
 		};
 		C0B2C8FEE607CAEFABBE648728830354 /* Support Files */ = {
@@ -245,7 +303,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF502A6A2191D8B400ACE2EE /* TBXML.h in Headers */,
 				E2030311E8F4799D477870DC85D91156 /* GPXKit-umbrella.h in Headers */,
+				BF502A692191D8B400ACE2EE /* TBXML+HTTP.h in Headers */,
+				BF502A682191D8B400ACE2EE /* TBXML+Compression.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,9 +420,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFBFE8182190764500F82D7A /* GPXElement.swift in Sources */,
+				BF502A712191D8BC00ACE2EE /* TBXML.m in Sources */,
 				BFBFE8122190596300F82D7A /* GPXParser.swift in Sources */,
 				BFBFE8132190596300F82D7A /* GPXType.swift in Sources */,
 				D33D32FC42D279C493269EFF512B05DD /* GPXKit-dummy.m in Sources */,
+				BF502A702191D8BC00ACE2EE /* TBXML+HTTP.m in Sources */,
+				BF502A6F2191D8BC00ACE2EE /* TBXML+Compression.m in Sources */,
+				BFBFE81621906D5000F82D7A /* GPXRoot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +523,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -622,6 +689,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
