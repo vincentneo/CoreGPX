@@ -1,9 +1,11 @@
 # GPXKit
 
 [![CI Status](https://travis-ci.com/vincentneo/GPXKit.svg?branch=master)](https://travis-ci.com/vincentneo/GPXKit)
-[![Version](https://img.shields.io/cocoapods/v/GPXKit.svg?style=flat)](https://cocoapods.org/pods/GPXKit)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
+<!---
 [![Platform](https://img.shields.io/cocoapods/p/GPXKit.svg?style=flat)](https://cocoapods.org/pods/GPXKit)
+[![Version](https://img.shields.io/cocoapods/v/GPXKit.svg?style=flat)](https://cocoapods.org/pods/GPXKit)
+-->
 
 ### *** WORK IN PROGRESS ***
 
