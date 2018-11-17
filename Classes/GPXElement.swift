@@ -9,6 +9,4 @@ import UIKit
 
 class GPXElement: NSObject {
     
-    //func value(OfAttribute name: String, xmlElement: TBXML)
-
 }

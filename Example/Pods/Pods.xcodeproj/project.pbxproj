@@ -13,9 +13,9 @@
 		2F609B0A3267096914406953B718E1E9 /* Pods-GPXKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 39858D8C355D9478CE7F0393428A58D1 /* Pods-GPXKit_Example-dummy.m */; };
 		6E9816A6EF9C00518B333F311A06B3C6 /* Pods-GPXKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DFEA1BBFED7761C54E34533C845E52D /* Pods-GPXKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96955EAE494B6042139110C5B8E5B365 /* Pods-GPXKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F92DE730BA2208830EB6528858CA83E /* Pods-GPXKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BF502A682191D8B400ACE2EE /* TBXML+Compression.h in Headers */ = {isa = PBXBuildFile; fileRef = BF502A652191D8B400ACE2EE /* TBXML+Compression.h */; };
-		BF502A692191D8B400ACE2EE /* TBXML+HTTP.h in Headers */ = {isa = PBXBuildFile; fileRef = BF502A662191D8B400ACE2EE /* TBXML+HTTP.h */; };
-		BF502A6A2191D8B400ACE2EE /* TBXML.h in Headers */ = {isa = PBXBuildFile; fileRef = BF502A672191D8B400ACE2EE /* TBXML.h */; };
+		BF502A682191D8B400ACE2EE /* TBXML+Compression.h in Headers */ = {isa = PBXBuildFile; fileRef = BF502A652191D8B400ACE2EE /* TBXML+Compression.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BF502A692191D8B400ACE2EE /* TBXML+HTTP.h in Headers */ = {isa = PBXBuildFile; fileRef = BF502A662191D8B400ACE2EE /* TBXML+HTTP.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BF502A6A2191D8B400ACE2EE /* TBXML.h in Headers */ = {isa = PBXBuildFile; fileRef = BF502A672191D8B400ACE2EE /* TBXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF502A6F2191D8BC00ACE2EE /* TBXML+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = BF502A6C2191D8BC00ACE2EE /* TBXML+Compression.m */; };
 		BF502A702191D8BC00ACE2EE /* TBXML+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = BF502A6D2191D8BC00ACE2EE /* TBXML+HTTP.m */; };
 		BF502A712191D8BC00ACE2EE /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = BF502A6E2191D8BC00ACE2EE /* TBXML.m */; };
@@ -150,8 +150,8 @@
 		6ED05F319F226303E19CCA3DC8B00138 /* GPXKit */ = {
 			isa = PBXGroup;
 			children = (
-				BFBFE8142190596F00F82D7A /* Classes */,
 				BFBFE819219082C800F82D7A /* Dependencies */,
+				BFBFE8142190596F00F82D7A /* Classes */,
 				E445484AA308E32E533DC32164F6E733 /* Pod */,
 				C0B2C8FEE607CAEFABBE648728830354 /* Support Files */,
 			);
@@ -188,32 +188,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BF502A642191D8B400ACE2EE /* TBXML-Headers */ = {
-			isa = PBXGroup;
-			children = (
-				BF502A652191D8B400ACE2EE /* TBXML+Compression.h */,
-				BF502A662191D8B400ACE2EE /* TBXML+HTTP.h */,
-				BF502A672191D8B400ACE2EE /* TBXML.h */,
-			);
-			path = "TBXML-Headers";
-			sourceTree = "<group>";
-		};
-		BF502A6B2191D8BC00ACE2EE /* TBXML-Code */ = {
-			isa = PBXGroup;
-			children = (
-				BF502A6C2191D8BC00ACE2EE /* TBXML+Compression.m */,
-				BF502A6D2191D8BC00ACE2EE /* TBXML+HTTP.m */,
-				BF502A6E2191D8BC00ACE2EE /* TBXML.m */,
-			);
-			path = "TBXML-Code";
-			sourceTree = "<group>";
-		};
 		BF502A732191D8F800ACE2EE /* TBXML */ = {
 			isa = PBXGroup;
 			children = (
 				BF502A722191D8E700ACE2EE /* README.markdown */,
-				BF502A6B2191D8BC00ACE2EE /* TBXML-Code */,
-				BF502A642191D8B400ACE2EE /* TBXML-Headers */,
+				BF502A652191D8B400ACE2EE /* TBXML+Compression.h */,
+				BF502A662191D8B400ACE2EE /* TBXML+HTTP.h */,
+				BF502A672191D8B400ACE2EE /* TBXML.h */,
+				BF502A6C2191D8BC00ACE2EE /* TBXML+Compression.m */,
+				BF502A6D2191D8BC00ACE2EE /* TBXML+HTTP.m */,
+				BF502A6E2191D8BC00ACE2EE /* TBXML.m */,
 			);
 			path = TBXML;
 			sourceTree = "<group>";
@@ -303,8 +287,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF502A6A2191D8B400ACE2EE /* TBXML.h in Headers */,
 				E2030311E8F4799D477870DC85D91156 /* GPXKit-umbrella.h in Headers */,
+				BF502A6A2191D8B400ACE2EE /* TBXML.h in Headers */,
 				BF502A692191D8B400ACE2EE /* TBXML+HTTP.h in Headers */,
 				BF502A682191D8B400ACE2EE /* TBXML+Compression.h in Headers */,
 			);
@@ -502,6 +486,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BBEDEF26F99AAF0981DCCB2F83633264 /* GPXKit.xcconfig */;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -513,20 +498,24 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_PREFIX_HEADER = "Target Support Files/GPXKit/GPXKit-prefix.pch";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Target Support Files/GPXKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				MODULEMAP_FILE = "Target Support Files/GPXKit/GPXKit.modulemap";
 				PRODUCT_MODULE_NAME = GPXKit;
 				PRODUCT_NAME = GPXKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INCLUDE_PATHS = "Target Support Files/GPXKit/Dependencies/TBXML";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -668,6 +657,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BBEDEF26F99AAF0981DCCB2F83633264 /* GPXKit.xcconfig */;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -679,20 +669,24 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_PREFIX_HEADER = "Target Support Files/GPXKit/GPXKit-prefix.pch";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Target Support Files/GPXKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				MODULEMAP_FILE = "Target Support Files/GPXKit/GPXKit.modulemap";
 				PRODUCT_MODULE_NAME = GPXKit;
 				PRODUCT_NAME = GPXKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INCLUDE_PATHS = "Target Support Files/GPXKit/Dependencies/TBXML";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

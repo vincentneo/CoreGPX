@@ -9,7 +9,9 @@ import UIKit
 
 class GPXType: NSObject {
     
-   open func latitude(_ value: String?) -> CGFloat {
+    static let shared = GPXType()
+    
+    open func latitude(_ value: String?) -> CGFloat {
         
         let f = CGFloat(Float(value ?? "") ?? 0.0)
         if -90.0 <= f && f <= 90.0 {
