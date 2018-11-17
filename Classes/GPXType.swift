@@ -9,8 +9,6 @@ import UIKit
 
 class GPXType: NSObject {
     
-    static let shared = GPXType()
-    
     open func latitude(_ value: String?) -> CGFloat {
         
         let f = CGFloat(Float(value ?? "") ?? 0.0)
