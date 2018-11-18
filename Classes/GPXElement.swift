@@ -45,7 +45,7 @@ class GPXElement: NSObject {
         
         if value != nil && required == true {
             
-            let description = "\(GPXElement.tagName ?? "") element require \(name ?? "") attribute."
+            let description = String(format: "%@ element require %@ attribute.", GPXElement.tagName, name ?? "")
             
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: kGPXInvalidGPXFormatNotification), object: self, userInfo: [kGPXDescriptionKey : description])
         }
@@ -65,7 +65,7 @@ class GPXElement: NSObject {
         }
         else {
             if required {
-                let description = "\(GPXElement.tagName ?? "") element require \(name ?? "") element."
+                let description = String(format: "%@ element require %@ element.", GPXElement.tagName, name ?? "")
                 
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: kGPXInvalidGPXFormatNotification), object: self, userInfo: [kGPXDescriptionKey : description])
             }
@@ -90,7 +90,7 @@ class GPXElement: NSObject {
             
             let secondElement: UnsafeMutablePointer<TBXMLElement>? = TBXML.nextSiblingNamed(GPXElement.tagName, searchFrom: element)
             if secondElement != nil {
-                let description = "\(GPXElement.tagName ?? "") element require \(GPXElement.tagName ?? "") element."
+                let description = String(format: "%@ element has more than two %@ elements.", GPXElement.tagName, GPXElement.tagName)
                 
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: kGPXInvalidGPXFormatNotification), object: self, userInfo: [kGPXDescriptionKey : description])
             }
@@ -98,7 +98,7 @@ class GPXElement: NSObject {
         
         if required {
             if firstElement == nil {
-                let description = "\(GPXElement.tagName ?? "") element require \(GPXElement.tagName ?? "") element."
+                let description = String(format: "%@ element require %@ element.", GPXElement.tagName, GPXElement.tagName)
                 
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: kGPXInvalidGPXFormatNotification), object: self, userInfo: [kGPXDescriptionKey : description])
             }
@@ -121,7 +121,7 @@ class GPXElement: NSObject {
             
             let secondElement: UnsafeMutablePointer<TBXMLElement>? = TBXML.nextSiblingNamed(name, searchFrom: element)
             if secondElement != nil {
-                let description = "\(GPXElement.tagName ?? "") element has more than two \(GPXElement.tagName ?? "") element."
+                let description = String(format: "%@ element has more than two %@ elements.", GPXElement.tagName, GPXElement.tagName)
                 
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: kGPXInvalidGPXFormatNotification), object: self, userInfo: [kGPXDescriptionKey : description])
             }
@@ -129,7 +129,7 @@ class GPXElement: NSObject {
         
         if required {
             if firstElement == nil {
-                let description = "\(GPXElement.tagName ?? "") element require \(GPXElement.tagName ?? "") element."
+                let description = String(format: "%@ element require %@ element.", GPXElement.tagName, GPXElement.tagName)
                 
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: kGPXInvalidGPXFormatNotification), object: self, userInfo: [kGPXDescriptionKey : description])
             }
