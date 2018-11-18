@@ -17,7 +17,7 @@ class GPXElement: NSObject {
     let kGPXDescriptionKey = "kGPXDescriptionKey"
 
     
-    //MARK:- Tag
+    // MARK:- Tag
     
     class var tagName: String! {
         return nil
@@ -37,7 +37,7 @@ class GPXElement: NSObject {
     // MARK:- Elements
     
     func value(ofAttribute name: String?, xmlElement: UnsafeMutablePointer<TBXMLElement>) -> String? {
-        return value(ofAttribute: name, xmlElement: xmlElement)
+        return value(ofAttribute: name, xmlElement: xmlElement, required: false)
     }
     
     func value(ofAttribute name: String?, xmlElement: UnsafeMutablePointer<TBXMLElement>, required: Bool) -> String? {
@@ -149,6 +149,74 @@ class GPXElement: NSObject {
     
     // MARK:- GPX
    
-    // Coming soon....
+    func gpx() -> String {
+        let gpx: NSMutableString = ""
+        self.gpx(gpx, indentationLevel: 0)
+        return gpx as String
+    }
     
+    func gpx(_ gpx: NSMutableString, indentationLevel: Int) {
+        self.addOpenTag(toGPX: gpx, indentationLevel: indentationLevel)
+        self.addChildTag(toGPX: gpx, indentationLevel: indentationLevel + 1)
+        self.addCloseTag(toGPX: gpx, indentationLevel: indentationLevel)
+    }
+    
+    func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+        gpx.append(String(format: "%@<%@>\r\n", indent(forIndentationLevel: indentationLevel), GPXElement.tagName))
+    }
+    
+    func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+        // Override to subclasses
+    }
+    
+    func addCloseTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+        gpx.append(String(format: "%@<%@>\r\n", indent(forIndentationLevel: indentationLevel), GPXElement.tagName))
+    }
+    
+    func addProperty(forValue value: NSString?, gpx: NSMutableString, tagName: NSString, indentationLevel: Int) {
+        addProperty(forValue: value, gpx: gpx, tagName: tagName, indentationLevel: indentationLevel, defaultValue: nil, attribute: nil)
+    }
+    
+    func addProperty(forValue value: NSString?, gpx: NSMutableString, tagName: NSString, indentationLevel: Int, attribute: String?) {
+        addProperty(forValue: value, gpx: gpx, tagName: tagName, indentationLevel: indentationLevel, defaultValue: nil, attribute: attribute)
+    }
+    
+    func addProperty(forValue value: NSString?, gpx: NSMutableString, tagName: NSString, indentationLevel: Int, defaultValue: NSString?) {
+        addProperty(forValue: value, gpx: gpx, tagName: tagName, indentationLevel: indentationLevel, defaultValue: defaultValue, attribute: nil)
+    }
+    
+    func addProperty(forValue value: NSString?, gpx: NSMutableString, tagName: NSString, indentationLevel: Int, defaultValue: NSString?, attribute: String?) {
+        if value == nil || value == "" {
+            return
+        }
+        
+        if defaultValue != nil && value == defaultValue {
+            return
+        }
+        
+        var outputCDMA: Bool = false
+        
+        let match: NSRange = (value?.range(of: "[^a-zA-Z0-9.,+-/*!='\"()\\[\\]{}!$%@?_;: #\t\r\n]", options: .regularExpression))!
+        
+        if match.location != NSNotFound {
+            outputCDMA = true
+        }
+        
+        if outputCDMA {
+            gpx.appendFormat("%@<%@%@><![CDATA[%@]]></%@>\r\n", indent(forIndentationLevel: indentationLevel), tagName, (attribute != nil) ? " ".appending(attribute!): "", value?.replacingOccurrences(of: "]]>", with: "]]&gt;") ?? "", tagName)
+        }
+        else {
+            gpx.appendFormat("%@<%@%@>%@</%@>\r\n", indent(forIndentationLevel: indentationLevel), tagName, (attribute != nil) ? " ".appending(attribute!): "", value ?? "", tagName)
+        }
+    }
+    
+    func indent(forIndentationLevel indentationLevel: Int) -> NSMutableString {
+        let result: NSMutableString = ""
+        
+        for _ in 0..<indentationLevel {
+            result.append("\t")
+        }
+        
+        return result
+    }
 }
