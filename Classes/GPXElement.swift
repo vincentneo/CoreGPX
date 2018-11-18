@@ -10,6 +10,7 @@ import UIKit
 class GPXElement: NSObject {
     
     var parent: GPXElement
+    var element: TBXMLElement
     
     //from GPXConst
     let kGPXInvalidGPXFormatNotification = "kGPXInvalidGPXFormatNotification"
@@ -27,9 +28,22 @@ class GPXElement: NSObject {
     }
     
     // MARK:- Instance
-    
-    init(XMLElement element: UnsafeMutablePointer<TBXMLElement>, parent: GPXElement?) {
+    /*
+    convenience init(XMLElement element: UnsafeMutablePointer<TBXMLElement>, parent: GPXElement?) {
+        self.init(XMLElement: element, parent: parent)
         self.parent = parent!
+    }
+ */
+    override init() {
+        self.parent = GPXElement()
+        self.element = TBXMLElement()
+        super.init()
+    }
+    
+    
+    init(XMLElement element: TBXMLElement, parent: GPXElement?) {
+        self.parent = parent!
+        self.element = element
         super.init()
         
     }
@@ -81,9 +95,9 @@ class GPXElement: NSObject {
     
     func childElement(ofClass Class: AnyClass, xmlElement: UnsafeMutablePointer<TBXMLElement>, required: Bool) -> GPXElement? {
         let firstElement: GPXElement?
-        let element: UnsafeMutablePointer<TBXMLElement>? = TBXML.childElementNamed(self.tagName(), parentElement: xmlElement)
+        let element: TBXMLElement? = TBXML.childElementNamed(self.tagName(), parentElement: xmlElement)
         
-        firstElement = GPXElement.init(XMLElement: element!, parent: self)
+        firstElement = GPXElement.init(XMLElement: element, parent: self)
         
         if element != nil {
             

@@ -23,6 +23,10 @@ class GPXLink: GPXElement {
    
     // MARK:- Instance
     
+    override init() {
+        
+    }
+    
     override init(XMLElement element: UnsafeMutablePointer<TBXMLElement>, parent: GPXElement?) {
         self.text = String()
         self.mimetype = String()
