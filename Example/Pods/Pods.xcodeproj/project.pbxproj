@@ -20,6 +20,8 @@
 		BF502A702191D8BC00ACE2EE /* TBXML+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = BF502A6D2191D8BC00ACE2EE /* TBXML+HTTP.m */; };
 		BF502A712191D8BC00ACE2EE /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = BF502A6E2191D8BC00ACE2EE /* TBXML.m */; };
 		BF5E183921A15E0F0062444F /* GPXExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5E183821A15E0F0062444F /* GPXExtensions.swift */; };
+		BF5E183B21A163B90062444F /* GPXPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5E183A21A163B90062444F /* GPXPerson.swift */; };
+		BF5E183D21A163F70062444F /* GPXLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5E183C21A163F70062444F /* GPXLink.swift */; };
 		BFBFE8122190596300F82D7A /* GPXParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBFE8102190596300F82D7A /* GPXParser.swift */; };
 		BFBFE8132190596300F82D7A /* GPXType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBFE8112190596300F82D7A /* GPXType.swift */; };
 		BFBFE81621906D5000F82D7A /* GPXRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBFE81521906D5000F82D7A /* GPXRoot.swift */; };
@@ -87,6 +89,8 @@
 		BF502A6E2191D8BC00ACE2EE /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
 		BF502A722191D8E700ACE2EE /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
 		BF5E183821A15E0F0062444F /* GPXExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXExtensions.swift; sourceTree = "<group>"; };
+		BF5E183A21A163B90062444F /* GPXPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXPerson.swift; sourceTree = "<group>"; };
+		BF5E183C21A163F70062444F /* GPXLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXLink.swift; sourceTree = "<group>"; };
 		BFBFE8102190596300F82D7A /* GPXParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXParser.swift; sourceTree = "<group>"; };
 		BFBFE8112190596300F82D7A /* GPXType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXType.swift; sourceTree = "<group>"; };
 		BFBFE81521906D5000F82D7A /* GPXRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXRoot.swift; sourceTree = "<group>"; };
@@ -212,6 +216,8 @@
 				BFBFE81521906D5000F82D7A /* GPXRoot.swift */,
 				BFBFE8172190764500F82D7A /* GPXElement.swift */,
 				BF5E183821A15E0F0062444F /* GPXExtensions.swift */,
+				BF5E183A21A163B90062444F /* GPXPerson.swift */,
+				BF5E183C21A163F70062444F /* GPXLink.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -409,6 +415,8 @@
 			files = (
 				BFBFE8182190764500F82D7A /* GPXElement.swift in Sources */,
 				BF502A712191D8BC00ACE2EE /* TBXML.m in Sources */,
+				BF5E183D21A163F70062444F /* GPXLink.swift in Sources */,
+				BF5E183B21A163B90062444F /* GPXPerson.swift in Sources */,
 				BFBFE8122190596300F82D7A /* GPXParser.swift in Sources */,
 				BFBFE8132190596300F82D7A /* GPXType.swift in Sources */,
 				D33D32FC42D279C493269EFF512B05DD /* GPXKit-dummy.m in Sources */,
