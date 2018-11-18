@@ -19,10 +19,10 @@ class GPXElement: NSObject {
     
     // MARK:- Tag
     
-    class var tagName: String! {
+    func tagName() -> String! {
         return nil
     }
-    class var implementClasses:Array<Any>! {
+    func implementClasses() -> Array<Any>! {
         return nil
     }
     
@@ -45,7 +45,7 @@ class GPXElement: NSObject {
         
         if value != nil && required == true {
             
-            let description = String(format: "%@ element require %@ attribute.", GPXElement.tagName, name ?? "")
+            let description = String(format: "%@ element require %@ attribute.", self.tagName(), name ?? "")
             
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: kGPXInvalidGPXFormatNotification), object: self, userInfo: [kGPXDescriptionKey : description])
         }
@@ -65,7 +65,7 @@ class GPXElement: NSObject {
         }
         else {
             if required {
-                let description = String(format: "%@ element require %@ element.", GPXElement.tagName, name ?? "")
+                let description = String(format: "%@ element require %@ element.", self.tagName(), name ?? "")
                 
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: kGPXInvalidGPXFormatNotification), object: self, userInfo: [kGPXDescriptionKey : description])
             }
@@ -81,16 +81,16 @@ class GPXElement: NSObject {
     
     func childElement(ofClass Class: AnyClass, xmlElement: UnsafeMutablePointer<TBXMLElement>, required: Bool) -> GPXElement? {
         let firstElement: GPXElement?
-        let element: UnsafeMutablePointer<TBXMLElement>? = TBXML.childElementNamed(GPXElement.tagName, parentElement: xmlElement)
+        let element: UnsafeMutablePointer<TBXMLElement>? = TBXML.childElementNamed(self.tagName(), parentElement: xmlElement)
         
         firstElement = GPXElement.init(XMLElement: element!, parent: self)
         
         if element != nil {
             
             
-            let secondElement: UnsafeMutablePointer<TBXMLElement>? = TBXML.nextSiblingNamed(GPXElement.tagName, searchFrom: element)
+            let secondElement: UnsafeMutablePointer<TBXMLElement>? = TBXML.nextSiblingNamed(self.tagName(), searchFrom: element)
             if secondElement != nil {
-                let description = String(format: "%@ element has more than two %@ elements.", GPXElement.tagName, GPXElement.tagName)
+                let description = String(format: "%@ element has more than two %@ elements.", self.tagName(), self.tagName())
                 
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: kGPXInvalidGPXFormatNotification), object: self, userInfo: [kGPXDescriptionKey : description])
             }
@@ -98,7 +98,7 @@ class GPXElement: NSObject {
         
         if required {
             if firstElement == nil {
-                let description = String(format: "%@ element require %@ element.", GPXElement.tagName, GPXElement.tagName)
+                let description = String(format: "%@ element require %@ element.", self.tagName(), self.tagName())
                 
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: kGPXInvalidGPXFormatNotification), object: self, userInfo: [kGPXDescriptionKey : description])
             }
@@ -121,7 +121,7 @@ class GPXElement: NSObject {
             
             let secondElement: UnsafeMutablePointer<TBXMLElement>? = TBXML.nextSiblingNamed(name, searchFrom: element)
             if secondElement != nil {
-                let description = String(format: "%@ element has more than two %@ elements.", GPXElement.tagName, GPXElement.tagName)
+                let description = String(format: "%@ element has more than two %@ elements.", self.tagName(), self.tagName())
                 
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: kGPXInvalidGPXFormatNotification), object: self, userInfo: [kGPXDescriptionKey : description])
             }
@@ -129,7 +129,7 @@ class GPXElement: NSObject {
         
         if required {
             if firstElement == nil {
-                let description = String(format: "%@ element require %@ element.", GPXElement.tagName, GPXElement.tagName)
+                let description = String(format: "%@ element require %@ element.", self.tagName(), self.tagName())
                 
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: kGPXInvalidGPXFormatNotification), object: self, userInfo: [kGPXDescriptionKey : description])
             }
@@ -139,11 +139,11 @@ class GPXElement: NSObject {
     }
     
     func childElement(ofClass Class:AnyClass, xmlElement: UnsafeMutablePointer<TBXMLElement>, eachBlock: @escaping (_ element: GPXElement?) -> Void) {
-        var element: UnsafeMutablePointer<TBXMLElement>? = TBXML.childElementNamed(GPXElement.tagName, parentElement: xmlElement)
+        var element: UnsafeMutablePointer<TBXMLElement>? = TBXML.childElementNamed(self.tagName(), parentElement: xmlElement)
         
         while element != nil {
             eachBlock(GPXElement.init(XMLElement: element!, parent: self))
-            element = TBXML.nextSiblingNamed(GPXElement.tagName, searchFrom: element)
+            element = TBXML.nextSiblingNamed(self.tagName(), searchFrom: element)
         }
     }
     
@@ -162,7 +162,7 @@ class GPXElement: NSObject {
     }
     
     func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        gpx.append(String(format: "%@<%@>\r\n", indent(forIndentationLevel: indentationLevel), GPXElement.tagName))
+        gpx.append(String(format: "%@<%@>\r\n", indent(forIndentationLevel: indentationLevel), self.tagName()))
     }
     
     func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
@@ -170,7 +170,7 @@ class GPXElement: NSObject {
     }
     
     func addCloseTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        gpx.append(String(format: "%@<%@>\r\n", indent(forIndentationLevel: indentationLevel), GPXElement.tagName))
+        gpx.append(String(format: "%@<%@>\r\n", indent(forIndentationLevel: indentationLevel), self.tagName()))
     }
     
     func addProperty(forValue value: NSString?, gpx: NSMutableString, tagName: NSString, indentationLevel: Int) {
