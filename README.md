@@ -9,7 +9,7 @@
 -->
 
 ## *** WORK IN PROGRESS ***
-Current status: Working on resolving initializers issues on GPXElement and its subclasses.
+Current status: Porting...
 
 ## Aim
 This project aims to update/port iOS-GPX-Framework to Swift language, due to its original code being seemingly abandoned.
