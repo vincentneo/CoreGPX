@@ -1,4 +1,12 @@
-Copyright (c) 2018 vincentneo <23420208+vincentneo@users.noreply.github.com>
+MIT License
+
+GPXKit
+Copyright (c) 2018 Vincent Neo
+
+
+NOTE: GPXKit is a ported and updated project of iOS-GPX-Framework.
+The following is the information of the original project, which is also licensed under MIT License:
+Copyright (c) 2012 NextBusinessSystem Co., Ltd.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
