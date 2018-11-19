@@ -10,20 +10,25 @@ import UIKit
 class GPXPerson: GPXElement {
     var name: String
     var email: GPXEmail?
-    var link: GPXLink
+    var link: GPXLink?
+    
     
     // MARK:- Instance
-    override init(XMLElement element: UnsafeMutablePointer<TBXMLElement>, parent: GPXElement?) {
+    override init(XMLElement element: UnsafeMutablePointer<TBXMLElement>?, parent: GPXElement?) {
         name = String()
         email = GPXEmail()
         link = GPXLink()
         
-        super.init()
+        super.init(XMLElement: element, parent: parent)
         
         name = text(forSingleChildElement: "name", xmlElement: element)
-        email = childElement(ofClass: GPXEmail, xmlElement: element)
-        link = childElement(ofClass: GPXLink, xmlElement: element)
+        email = childElement(ofClass: GPXEmail.self, xmlElement: element) as! GPXEmail?
+        link = childElement(ofClass: GPXLink.self, xmlElement: element) as! GPXLink?
     }
+    
+    // MARK:- Public Methods
+    
+    
     
     // MARK:- Tag
     override func tagName() -> String! {
@@ -31,4 +36,19 @@ class GPXPerson: GPXElement {
     }
     
     // MARK:- GPX
+    
+    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
+        
+        self.addProperty(forValue: name as NSString, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
+        
+        if email != nil {
+            self.email?.gpx(gpx, indentationLevel: indentationLevel)
+        }
+        
+        if link != nil {
+            self.link?.gpx(gpx, indentationLevel: indentationLevel)
+        }
+        
+    }
 }

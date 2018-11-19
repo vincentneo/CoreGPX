@@ -10,7 +10,7 @@ import UIKit
 class GPXExtensions: GPXElement {
     
     // MARK:- Instance
-    override init(XMLElement element: UnsafeMutablePointer<TBXMLElement>, parent: GPXElement?) {
+    override init(XMLElement element: UnsafeMutablePointer<TBXMLElement>?, parent: GPXElement?) {
         super.init(XMLElement: element, parent: parent)
     }
     
@@ -25,4 +25,5 @@ class GPXExtensions: GPXElement {
     override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
     }
+ 
 }

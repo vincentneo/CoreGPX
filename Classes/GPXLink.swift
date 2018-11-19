@@ -24,10 +24,13 @@ class GPXLink: GPXElement {
     // MARK:- Instance
     
     override init() {
-        
+        self.text = String()
+        self.mimetype = String()
+        self.href = String()
+        super.init()
     }
     
-    override init(XMLElement element: UnsafeMutablePointer<TBXMLElement>, parent: GPXElement?) {
+    override init(XMLElement element: UnsafeMutablePointer<TBXMLElement>?, parent: GPXElement?) {
         self.text = String()
         self.mimetype = String()
         self.href = String()
@@ -42,19 +45,17 @@ class GPXLink: GPXElement {
     /// ---------------------------------
     /// @name Create Link
     /// ---------------------------------
-
+    
     /** Creates and returns a new link element.
      @param href URL of hyperlink
      @return A newly created link element.
      */
-    
-    /*
-     convenience init(href: String?) {
-     let link = GPXLink(href: href)
-     link.href = href ?? ""
-     
-     }
-     */
+    func link(with href: String) -> GPXLink {
+        let link = GPXLink()
+        link.href = href
+        
+        return link
+    }
     
     // MARK:- Public Methods
     

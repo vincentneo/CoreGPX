@@ -15,17 +15,26 @@ class GPXEmail: GPXElement {
     // MARK:- Instance
     
     override init() {
-        emailID = String()
-        domain = String()
-        
+        self.emailID = String()
+        self.domain = String()
         super.init()
-        emailID = self.value(ofAttribute: "id", xmlElement: &element, required: true)
-        domain = self.value(ofAttribute: "domain", xmlElement: &element, required: true)
     }
     
-    func emailWith(ID emailID: String, domain: String) {
+    override init(XMLElement element: UnsafeMutablePointer<TBXMLElement>?, parent: GPXElement?) {
+        self.emailID = String()
+        self.domain = String()
+        
+        super.init(XMLElement: element, parent: parent)
+        
+        self.emailID = value(ofAttribute: "id", xmlElement: element, required: true)
+        self.domain = value(ofAttribute: "domain", xmlElement: element, required: true)
+    }
+   
+    func emailWith(ID emailID: String, domain: String) -> GPXEmail {
         let email = GPXEmail()
         email.emailID = emailID
+        email.domain = domain
+        return email
     }
     
     // MARK:- Tag
@@ -45,4 +54,5 @@ class GPXEmail: GPXElement {
         }
         gpx.appendFormat("%@<%@%@>\r\n", indent(forIndentationLevel: indentationLevel), self.tagName(), attribute)
     }
+ 
 }
