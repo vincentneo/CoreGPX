@@ -9,7 +9,7 @@ import UIKit
 
 class GPXElement: NSObject {
     
-    var parent: GPXElement
+    var parent: GPXElement?
     var element: TBXMLElement
     
     //from GPXConst

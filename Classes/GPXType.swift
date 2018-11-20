@@ -111,7 +111,7 @@ class GPXType: NSObject {
         }
     }
     
-    func value(for dgpsStation: Int) -> String {
+    func value(forDgpsStation dgpsStation: Int) -> String {
         if 0 <= dgpsStation && dgpsStation <= 360 {
             return String(format: "%ld", Int32(dgpsStation))
         }
@@ -124,7 +124,7 @@ class GPXType: NSObject {
         return CGFloat(Float(value ?? "") ?? 0.0)
     }
     
-    func value(for decimal: CGFloat) -> String {
+    func value(forDecimal decimal: CGFloat) -> String {
         return String(format: "%f", decimal)
     }
     
