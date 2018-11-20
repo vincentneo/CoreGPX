@@ -101,20 +101,82 @@ class GPXType: NSObject {
         }
     }
     
-    /*
-    func dateTime(value: String) -> Date {
-        var date: Date
+    func dgpsStation(_ value: String?) -> Int {
+        let i = Int(value ?? "") ?? 0
+        if 0 <= i && i <= 1023 {
+            return i
+        }
+        else {
+            return 0
+        }
+    }
+    
+    func value(for dgpsStation: Int) -> String {
+        if 0 <= dgpsStation && dgpsStation <= 360 {
+            return String(format: "%ld", Int32(dgpsStation))
+        }
+        else {
+            return "0"
+        }
+    }
+    
+    func decimal(_ value: String?) -> CGFloat {
+        return CGFloat(Float(value ?? "") ?? 0.0)
+    }
+    
+    func value(for decimal: CGFloat) -> String {
+        return String(format: "%f", decimal)
+    }
+    
+    
+    func dateTime(value: String) -> Date? {
+      //  var date: Date
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         
         // dateTime（YYYY-MM-DDThh:mm:ssZ)
         formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
-        //date = formatter.date(from: value ?? "")
-        if date != nil {
+        if let date = formatter.date(from: value) {
             return date
         }
+        
+        // dateTime（YYYY-MM-DDThh:mm:ss.SSSZ）
+        formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'SSS'Z'"
+        if let date = formatter.date(from: value) {
+            return date
+        }
+        
+        // dateTime（YYYY-MM-DDThh:mm:sszzzzzz)
+        if value.count >= 22 {
+            formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'sszzzz"
+            let v = (value as NSString).replacingOccurrences(of: ":", with: "", options: [], range: NSMakeRange(22, 1))
+            if let date = formatter.date(from: v) {
+                return date
+            }
+        }
+        
+        // date
+        formatter.dateFormat = "yyyy'-'MM'-'dd'"
+        if let date = formatter.date(from: value) {
+            return date
+        }
+        
+        // gYearMonth
+        formatter.dateFormat = "yyyy'-'MM'"
+        if let date = formatter.date(from: value) {
+            return date
+        }
+        
+        // gYear
+        formatter.dateFormat = "yyyy'"
+        if let date = formatter.date(from: value) {
+            return date
+        }
+        
+        return nil
+        
     }
-    */
+    
     
     func value(forDateTime date: Date) -> String {
         let formatter = DateFormatter()
@@ -126,7 +188,7 @@ class GPXType: NSObject {
         return formatter.string(from: date)
     }
     
-    func nonNegativeIntFrom( string: String) -> Int {
+    func nonNegativeInt(_ string: String) -> Int {
         if let i = Int(string) {
             if i >= 0 {
                 return i
@@ -137,7 +199,7 @@ class GPXType: NSObject {
     
     func value(forNonNegativeInt int: Int) -> String {
         if int >= 0 {
-            return String(format: "%ld", int)
+            return String(format: "%ld", Int32(int))
         }
         return "0"
     }
