@@ -41,8 +41,8 @@ class GPXWaypoint: GPXElement {
     var ageofDGPSData = CGFloat()
     var DGPSid = Int()
     var extensions: GPXExtensions
-    //var latitude = CGFloat()
-    //var longitude = CGFloat()
+    var latitude = CGFloat()
+    var longitude = CGFloat()
     
     override init() {
         self.extensions = GPXExtensions()
@@ -79,6 +79,9 @@ class GPXWaypoint: GPXElement {
         
         self.latitudeValue = value(ofAttribute: "lat", xmlElement: element, required: true)!
         self.longitudeValue = value(ofAttribute: "lon", xmlElement: element, required: true)!
+        
+        self.latitude = GPXType().latitude(latitudeValue)
+        self.longitude =  GPXType().longitude(longitudeValue)
         
     }
     
@@ -201,16 +204,8 @@ class GPXWaypoint: GPXElement {
         DGPSidValue = GPXType().value(forDgpsStation: DGPSid)
     }
     
-    var latitude: CGFloat {
-        return GPXType().latitude(latitudeValue)
-    }
-    
     func set(Latitude: CGFloat) {
         latitudeValue = GPXType().value(forLatitude: Latitude)
-    }
-    
-    var longitude: CGFloat {
-        return GPXType().longitude(longitudeValue)
     }
     
     func set(Longitude: CGFloat) {
