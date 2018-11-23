@@ -9,10 +9,10 @@ import UIKit
 
 class GPXPoint: GPXElement {
 
-    var elevationValue = String()
-    var timeValue = String()
-    var latitudeValue = String()
-    var longitudeValue = String()
+    var elevationValue: String?
+    var timeValue: String?
+    var latitudeValue: String?
+    var longitudeValue: String?
     
     var elevation: CGFloat?
     var time: Date?
@@ -34,7 +34,7 @@ class GPXPoint: GPXElement {
         longitudeValue = text(forSingleChildElement: "lon", xmlElement: element, required: true)
         
         elevation = GPXType().decimal(elevationValue)
-        time = GPXType().dateTime(value: timeValue)
+        time = GPXType().dateTime(value: timeValue!)
         latitude = GPXType().latitude(latitudeValue)
         longitude = GPXType().longitude(longitudeValue)
 
@@ -78,10 +78,10 @@ class GPXPoint: GPXElement {
     override func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         let attribute: NSMutableString = ""
         if latitudeValue != nil {
-            attribute.appendFormat(" lat=\"%@\"", latitudeValue)
+            attribute.appendFormat(" lat=\"%@\"", latitudeValue!)
         }
         if longitudeValue != nil {
-            attribute.appendFormat(" lon=\"%@\"", longitudeValue)
+            attribute.appendFormat(" lon=\"%@\"", longitudeValue!)
         }
         
         gpx.appendFormat("%@<%@%@>\r\n", indent(forIndentationLevel: indentationLevel), self.tagName(), attribute)
@@ -90,8 +90,8 @@ class GPXPoint: GPXElement {
     override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
         
-        self.addProperty(forValue: elevationValue as NSString, gpx: gpx, tagName: "ele", indentationLevel: indentationLevel)
-        self.addProperty(forValue: timeValue, gpx: gpx, tagName: "time", indentationLevel: indentationLevel)
+        self.addProperty(forValue: elevationValue as NSString?, gpx: gpx, tagName: "ele", indentationLevel: indentationLevel)
+        self.addProperty(forValue: timeValue as NSString?, gpx: gpx, tagName: "time", indentationLevel: indentationLevel)
     }
     
 }
