@@ -64,7 +64,8 @@ class GPXCopyright: GPXElement {
     
     override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
-        self.addProperty(forValue: yearValue, gpx: gpx, tagName: "year", indentationLevel: indentationLevel)
-        self.addProperty(forValue: license, gpx: gpx, tagName: "license", indentationLevel: indentationLevel)
+        self.addProperty(forValue: yearValue as NSString, gpx: gpx, tagName: "year", indentationLevel: indentationLevel)
+        self.addProperty(forValue: license as NSString?, gpx: gpx, tagName: "license", indentationLevel: indentationLevel)
     }
+    
 }
