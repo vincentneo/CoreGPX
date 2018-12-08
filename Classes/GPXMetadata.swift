@@ -24,6 +24,8 @@ class GPXMetadata: GPXElement {
     
     override init(XMLElement element: UnsafeMutablePointer<TBXMLElement>?, parent: GPXElement?) {
         author = GPXAuthor()
+        timeValue = String()
+        
         super.init(XMLElement: element, parent: parent)
         
         name = text(forSingleChildElement: "name", xmlElement: element)
