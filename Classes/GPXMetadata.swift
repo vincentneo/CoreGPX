@@ -75,7 +75,7 @@ class GPXMetadata: GPXElement {
         }
         
         addProperty(forValue: timeValue as NSString, gpx: gpx, tagName: "time", indentationLevel: indentationLevel, defaultValue: "0")
-        addProperty(forValue: keyword as NSString, gpx: gpx, tagName: "keyword", indentationLevel: indentationLevel)
+        addProperty(forValue: keyword as NSString?, gpx: gpx, tagName: "keyword", indentationLevel: indentationLevel)
         
         if bounds != nil {
             self.bounds?.gpx(gpx, indentationLevel: indentationLevel)
