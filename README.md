@@ -9,7 +9,7 @@
 -->
 
 ## *** WORK IN PROGRESS ***
-Current status: Short break!
+Current status: slower progress
 
 ## Aim
 This project aims to update/port iOS-GPX-Framework to Swift language, due to its original code being seemingly abandoned.
