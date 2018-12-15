@@ -39,7 +39,7 @@ class GPXTrack: GPXElement {
         
         numberValue = text(forSingleChildElement: "number", xmlElement: element)
         type = text(forSingleChildElement: "type", xmlElement: element)
-        extensions = childElement(ofClass: GPXExtensions.self, xmlElement: element) as! GPXExtensions
+        extensions = childElement(ofClass: GPXExtensions.self, xmlElement: element) as? GPXExtensions
         
         self.childElement(ofClass: GPXTrackSegment.self, xmlElement: element, eachBlock: { element in
             if element != nil {
@@ -87,7 +87,7 @@ class GPXTrack: GPXElement {
         }
     }
     
-    func newTrackSegment() -> GPXTrackSegment? {
+    func newTrackSegment() -> GPXTrackSegment {
         let tracksegment = GPXTrackSegment()
         self.add(trackSegment: tracksegment)
         return tracksegment

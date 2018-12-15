@@ -237,8 +237,8 @@
 		BFBFE8142190596F00F82D7A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				BFBFE81521906D5000F82D7A /* GPXRoot.swift */,
 				BFBFE8102190596300F82D7A /* GPXParser.swift */,
+				BFBFE81521906D5000F82D7A /* GPXRoot.swift */,
 				BFBFE8112190596300F82D7A /* GPXType.swift */,
 				BF63962421BC0AF700D8B90E /* GPXRoute.swift */,
 				BF6854CE21A2F5A100C93D39 /* GPXRoutePoint.swift */,

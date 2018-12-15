@@ -22,6 +22,13 @@ class GPXMetadata: GPXElement {
     
     // MARK:- Instance
     
+    override init() {
+        author = GPXAuthor()
+        timeValue = String()
+        
+        super.init()
+    }
+    
     override init(XMLElement element: UnsafeMutablePointer<TBXMLElement>?, parent: GPXElement?) {
         author = GPXAuthor()
         timeValue = String()
