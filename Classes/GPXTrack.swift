@@ -121,6 +121,7 @@ class GPXTrack: GPXElement {
         var tracksegment: GPXTrackSegment
         
         if tracksegments.count == 0 {
+            _ = self.newTrackSegment()
             self.newTrackSegment()
         }
         
