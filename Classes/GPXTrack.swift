@@ -122,7 +122,6 @@ class GPXTrack: GPXElement {
         
         if tracksegments.count == 0 {
             _ = self.newTrackSegment()
-            self.newTrackSegment()
         }
         
         tracksegment = tracksegments.lastObject as! GPXTrackSegment
