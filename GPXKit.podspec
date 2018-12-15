@@ -30,7 +30,7 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'Classes'
+  s.source_files = 'Classes', 'Classes/Dependencies/TBXML/*.h'
   
   # s.resource_bundles = {
   #   'GPXKit' => ['GPXKit/Assets/*.png']
