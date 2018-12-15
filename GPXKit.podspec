@@ -30,13 +30,13 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'Classes', 'Classes/Dependencies/TBXML/*.h'
+  s.source_files = 'Classes', 'Classes/Dependencies/TBXML/'
   
   # s.resource_bundles = {
   #   'GPXKit' => ['GPXKit/Assets/*.png']
   # }
 
-  s.public_header_files = 'Classes/Dependencies/TBXML/*.h'
+  s.public_header_files = 'Classes/Dependencies/TBXML/'
   # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'TBXML'
   # s.dependency 'AFNetworking', '~> 2.3'
