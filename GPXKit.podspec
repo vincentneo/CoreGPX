@@ -38,6 +38,6 @@ TODO: Add long description of the pod here.
 
   s.public_header_files = 'Classes/Dependencies/TBXML/'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'TBXML'
+  # s.dependency 'TBXML'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
