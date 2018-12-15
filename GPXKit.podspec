@@ -36,7 +36,7 @@ TODO: Add long description of the pod here.
   #   'GPXKit' => ['GPXKit/Assets/*.png']
   # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
+  s.public_header_files = 'Classes/Dependencies/TBXML/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'TBXML'
   # s.dependency 'AFNetworking', '~> 2.3'
