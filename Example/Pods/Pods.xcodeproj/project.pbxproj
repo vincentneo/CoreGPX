@@ -101,6 +101,7 @@
 		BF502A6D2191D8BC00ACE2EE /* TBXML+HTTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TBXML+HTTP.m"; sourceTree = "<group>"; };
 		BF502A6E2191D8BC00ACE2EE /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
 		BF502A722191D8E700ACE2EE /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
+		BF51F54821C54F74000A32A6 /* TBXML-LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "TBXML-LICENSE"; path = "../../../../../../Desktop/TBXML-LICENSE"; sourceTree = "<group>"; };
 		BF5E183821A15E0F0062444F /* GPXExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXExtensions.swift; sourceTree = "<group>"; };
 		BF5E183A21A163B90062444F /* GPXPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXPerson.swift; sourceTree = "<group>"; };
 		BF5E183C21A163F70062444F /* GPXLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXLink.swift; sourceTree = "<group>"; };
@@ -222,6 +223,7 @@
 		BF502A732191D8F800ACE2EE /* TBXML */ = {
 			isa = PBXGroup;
 			children = (
+				BF51F54821C54F74000A32A6 /* TBXML-LICENSE */,
 				BF502A722191D8E700ACE2EE /* README.markdown */,
 				BF502A652191D8B400ACE2EE /* TBXML+Compression.h */,
 				BF502A662191D8B400ACE2EE /* TBXML+HTTP.h */,
