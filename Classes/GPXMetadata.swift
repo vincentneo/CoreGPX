@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GPXMetadata: GPXElement {
+open class GPXMetadata: GPXElement {
     var timeValue: String
     var name: String?
     var desc: String?

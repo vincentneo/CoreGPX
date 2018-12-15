@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GPXPointSegment: GPXElement {
+open class GPXPointSegment: GPXElement {
     
     var points = NSMutableArray()
     

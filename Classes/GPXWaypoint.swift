@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GPXWaypoint: GPXElement {
+open class GPXWaypoint: GPXElement {
     var elevationValue = String()
     var timeValue = String()
     var magneticVariationValue = String()

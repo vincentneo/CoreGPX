@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GPXPerson: GPXElement {
+open class GPXPerson: GPXElement {
     var name: String
     var email: GPXEmail?
     var link: GPXLink?

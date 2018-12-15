@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GPXExtensions: GPXElement {
+open class GPXExtensions: GPXElement {
     
     // MARK:- Instance
     override init() {

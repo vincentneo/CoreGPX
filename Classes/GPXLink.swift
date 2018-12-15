@@ -8,7 +8,7 @@
 import UIKit
 
 /// A link to an external resource (Web page, digital photo, video clip, etc) with additional information.
-class GPXLink: GPXElement {
+open class GPXLink: GPXElement {
     
     // MARK:- Accessing Properties
 

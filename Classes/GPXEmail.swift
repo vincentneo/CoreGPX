@@ -8,7 +8,7 @@
 import UIKit
 
 /// An email address. Broken into two parts (id and domain) to help prevent email harvesting.
-class GPXEmail: GPXElement {
+open class GPXEmail: GPXElement {
     var emailID: String?
     var domain: String?
     

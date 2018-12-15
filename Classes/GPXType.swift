@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GPXType: NSObject {
+open class GPXType: NSObject {
     
     open func latitude(_ value: String?) -> CGFloat {
         

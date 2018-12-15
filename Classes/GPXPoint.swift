@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GPXPoint: GPXElement {
+open class GPXPoint: GPXElement {
 
     var elevationValue: String?
     var timeValue: String?

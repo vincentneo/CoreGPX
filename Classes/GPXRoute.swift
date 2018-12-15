@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GPXRoute: GPXElement {
+open class GPXRoute: GPXElement {
     
     var name = String()
     var comment = String()

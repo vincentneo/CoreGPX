@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GPXCopyright: GPXElement {
+open class GPXCopyright: GPXElement {
     var yearValue = String()
     
     //var year:NSDate?

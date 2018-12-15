@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GPXAuthor: GPXPerson {
+open class GPXAuthor: GPXPerson {
     
     // MARK: Tag
     override func tagName() -> String! {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GPXBounds: GPXElement {
+open class GPXBounds: GPXElement {
 
     var minLatitudeValue: String?
     var minLongitudeValue: String?

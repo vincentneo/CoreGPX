@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GPXRoutePoint: GPXWaypoint {
+open class GPXRoutePoint: GPXWaypoint {
     
     // MARK:- Instance
     

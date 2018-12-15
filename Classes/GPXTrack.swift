@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GPXTrack: GPXElement {
+open class GPXTrack: GPXElement {
     var links = NSMutableArray()
     var tracksegments = NSMutableArray()
     var numberValue = String()

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GPXParser: NSObject {
+open class GPXParser: NSObject {
 
     // MARK: Instance
     

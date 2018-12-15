@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GPXTrackSegment: GPXElement {
+open class GPXTrackSegment: GPXElement {
     
     let trackpoints = NSMutableArray()
     var extensions: GPXExtensions?

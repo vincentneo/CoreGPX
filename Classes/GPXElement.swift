@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GPXElement: NSObject {
+open class GPXElement: NSObject {
     
     var parent: GPXElement?
     var element: TBXMLElement

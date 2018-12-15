@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GPXRoot: GPXElement {
+open class GPXRoot: GPXElement {
 
     //var schema = String()
     var version: String?
