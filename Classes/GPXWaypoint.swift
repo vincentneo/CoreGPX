@@ -25,24 +25,24 @@ open class GPXWaypoint: GPXElement {
     
     //var elevation = CGFloat()
     //var time = Date()
-    var magneticvariation = CGFloat()
+    //public var magneticVariation = CGFloat()
     //var geoidHeight = CGFloat()
-    var name = String()
-    var comment = String()
-    var desc = String()
-    var source = String()
+    public var name = String()
+    public var comment = String()
+    public var desc = String()
+    public var source = String()
     //var links = NSArray()
-    var symbol = String()
-    var type = String()
+    public var symbol = String()
+    public var type = String()
     //var fix = Int()
     //var satellites = Int()
     //var horizontalDilution = CGFloat()
     //var positionDilution = CGFloat()
-    var ageofDGPSData = CGFloat()
-    var DGPSid = Int()
-    var extensions: GPXExtensions?
-    var latitude = CGFloat()
-    var longitude = CGFloat()
+    public var ageofDGPSData = CGFloat()
+    public var DGPSid = Int()
+    public var extensions: GPXExtensions?
+    public var latitude = CGFloat()
+    public var longitude = CGFloat()
     
     override init() {
         self.extensions = GPXExtensions()
@@ -85,7 +85,7 @@ open class GPXWaypoint: GPXElement {
         
     }
     
-    func waypoint(With latitude: CGFloat, longitude: CGFloat) -> GPXWaypoint {
+    open func waypoint(With latitude: CGFloat, longitude: CGFloat) -> GPXWaypoint {
         let waypoint = GPXWaypoint()
         waypoint.latitude = latitude
         waypoint.longitude = longitude
@@ -94,7 +94,7 @@ open class GPXWaypoint: GPXElement {
     
     // MARK:- Public Methods
     
-    var elevation: CGFloat {
+    public var elevation: CGFloat {
         return GPXType().decimal(elevationValue)
     }
     
@@ -102,7 +102,7 @@ open class GPXWaypoint: GPXElement {
         elevationValue = GPXType().value(forDecimal: elevation)
     }
     
-    var time: Date? {
+    public var time: Date? {
         return GPXType().dateTime(value: timeValue)
     }
     
@@ -110,7 +110,7 @@ open class GPXWaypoint: GPXElement {
         timeValue = GPXType().value(forDateTime: time)
     }
     
-    var magneticVariation: CGFloat {
+    public var magneticVariation: CGFloat {
         return GPXType().degrees(magneticVariationValue)
     }
     
@@ -118,7 +118,7 @@ open class GPXWaypoint: GPXElement {
         magneticVariationValue = GPXType().value(forDegrees: magneticVariation)
     }
     
-    var geoidHeight: CGFloat {
+    public var geoidHeight: CGFloat {
         return GPXType().decimal(geoidHeightValue)
     }
     
@@ -126,12 +126,12 @@ open class GPXWaypoint: GPXElement {
         geoidHeightValue = GPXType().value(forDecimal: geoidHeight)
     }
     
-    func newLink(withHref href: String) -> GPXLink {
+    open func newLink(withHref href: String) -> GPXLink {
         let link: GPXLink = GPXLink().link(with: href)
         return link
     }
     
-    func add(Link link: GPXLink?) {
+    open func add(Link link: GPXLink?) {
         if link != nil {
             let index = links.index(of: link!)
             if index == NSNotFound {
@@ -141,13 +141,13 @@ open class GPXWaypoint: GPXElement {
         }
     }
     
-    func add(Links array: NSArray) {
+    open func add(Links array: NSArray) {
         for case let link as GPXLink in array {
             add(Link: link)
         }
     }
     
-    func remove(Link link: GPXLink) {
+    open func remove(Link link: GPXLink) {
         let index = links.index(of: link)
         
         if index != NSNotFound {
@@ -156,7 +156,7 @@ open class GPXWaypoint: GPXElement {
         }
     }
     
-    var fix: Int { // maybe GPXFix would be better?
+    public var fix: Int { // maybe GPXFix would be better?
         return GPXType().fix(value: fixValue).rawValue
     }
     
@@ -164,7 +164,7 @@ open class GPXWaypoint: GPXElement {
         fixValue = GPXType().value(forFix: GPXFix(rawValue: Fix) ?? .none)
     }
     
-    var satellites: Int {
+    public var satellites: Int {
         return GPXType().nonNegativeInt(satellitesValue)
     }
     
@@ -172,7 +172,7 @@ open class GPXWaypoint: GPXElement {
         satellitesValue = GPXType().value(forNonNegativeInt: Satellites)
     }
     
-    var horizontalDilution: CGFloat {
+    public var horizontalDilution: CGFloat {
         return GPXType().decimal(horizontalDilutionValue)
     }
     
@@ -180,7 +180,7 @@ open class GPXWaypoint: GPXElement {
         horizontalDilutionValue = GPXType().value(forDecimal: HorizontalDilution)
     }
     
-    var verticalDilution: CGFloat {
+    public var verticalDilution: CGFloat {
         return GPXType().decimal(horizontalDilutionValue)
     }
     
@@ -188,7 +188,7 @@ open class GPXWaypoint: GPXElement {
         verticalDilutionValue = GPXType().value(forDecimal: VerticalDilution)
     }
     
-    var positionDilution: CGFloat {
+    public var positionDilution: CGFloat {
         return GPXType().decimal(positionDilutionValue)
     }
     
@@ -196,7 +196,7 @@ open class GPXWaypoint: GPXElement {
         positionDilutionValue = GPXType().value(forDecimal: PositionDilution)
     }
     
-    var ageOfDGPSData: CGFloat {
+    public var ageOfDGPSData: CGFloat {
         return GPXType().decimal(ageOfDGPSDataValue)
     }
     
