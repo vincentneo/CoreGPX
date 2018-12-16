@@ -9,7 +9,8 @@
 -->
 
 ## *** WORK IN PROGRESS ***
-Current status: ported probably everything; untested. Will start testing.
+Current status: access control issues needs fixing.
+Ported probably everything; untested. Will start testing. 
 
 ## Aim
 This project aims to update/port iOS-GPX-Framework to Swift language, due to its original code being seemingly abandoned.
