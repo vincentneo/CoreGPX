@@ -8,19 +8,20 @@
 import UIKit
 
 open class GPXTrack: GPXElement {
-    var links = NSMutableArray()
-    var tracksegments = NSMutableArray()
-    var numberValue = String()
-    var name = String()
-    var comment = String()
-    var desc = String()
-    var source = String()
-    //var number = Int()
-    var type = String()
-    var extensions: GPXExtensions?
+    
+    public var links = NSMutableArray()
+    public var tracksegments = NSMutableArray()
+    public var numberValue = String()
+    public var name = String()
+    public var comment = String()
+    public var desc = String()
+    public var source = String()
+    public var number = Int()
+    public var type = String()
+    public var extensions: GPXExtensions?
 
     
-    override init() {
+    public override init() {
         super.init()
     }
     
@@ -45,13 +46,17 @@ open class GPXTrack: GPXElement {
             if element != nil {
                 self.tracksegments.add(element!)
             } })
+        
+        self.number = GPXType().nonNegativeInt(numberValue)
     }
     
     // MARK:- Public Methods
     
+    /*
     var number: Int {
         return GPXType().nonNegativeInt(numberValue)
     }
+    */
     
     func set(number: Int) {
         numberValue = GPXType().value(forNonNegativeInt: number)

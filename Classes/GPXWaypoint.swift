@@ -27,9 +27,9 @@ open class GPXWaypoint: GPXElement {
     public var time: Date?
     public var magneticVariation = CGFloat()
     public var geoidHeight = CGFloat()
-    public var name = String()
+    public var name: String?
     public var comment = String()
-    public var desc = String()
+    public var desc: String?
     public var source = String()
     //public var links = NSArray()
     public var symbol = String()
