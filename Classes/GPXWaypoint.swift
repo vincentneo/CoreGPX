@@ -271,8 +271,8 @@ open class GPXWaypoint: GPXElement {
         self.addProperty(forValue: timeValue as NSString, gpx: gpx, tagName: "time", indentationLevel: indentationLevel)
         self.addProperty(forValue: magneticVariationValue as NSString, gpx: gpx, tagName: "magvar", indentationLevel: indentationLevel)
         self.addProperty(forValue: geoidHeightValue as NSString, gpx: gpx, tagName: "geoidheight", indentationLevel: indentationLevel)
-        self.addProperty(forValue: name as NSString, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
-        self.addProperty(forValue: desc as NSString, gpx: gpx, tagName: "desc", indentationLevel: indentationLevel)
+        self.addProperty(forValue: name as NSString?, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
+        self.addProperty(forValue: desc as NSString?, gpx: gpx, tagName: "desc", indentationLevel: indentationLevel)
         self.addProperty(forValue: source as NSString, gpx: gpx, tagName: "source", indentationLevel: indentationLevel)
         
         for case let link as GPXLink in self.links {
