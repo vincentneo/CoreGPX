@@ -96,11 +96,10 @@ open class GPXWaypoint: GPXElement {
         self.ageofDGPSData = GPXType().decimal(ageOfDGPSDataValue)
     }
     
-    open func waypoint(With latitude: CGFloat, longitude: CGFloat) -> GPXWaypoint {
-        let waypoint = GPXWaypoint()
-        waypoint.latitude = latitude
-        waypoint.longitude = longitude
-        return waypoint
+    public convenience init (latitude: CGFloat, longitude: CGFloat) {
+        self.init()
+        self.latitude = latitude
+        self.longitude = longitude
     }
     
     // MARK:- Public Methods
