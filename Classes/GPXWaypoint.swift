@@ -45,7 +45,7 @@ open class GPXWaypoint: GPXElement {
     public var latitude = CGFloat()
     public var longitude = CGFloat()
     
-    override init() {
+    public override init() {
         self.extensions = GPXExtensions()
         self.time = Date()
         super.init()

@@ -10,17 +10,17 @@ import UIKit
 open class GPXRoot: GPXElement {
 
     //var schema = String()
-    var version: String?
-    var creator: String?
-    var metadata: GPXMetadata?
-    var waypoints = NSMutableArray()
-    var routes = NSMutableArray()
-    var tracks = NSMutableArray()
-    var extensions: GPXExtensions?
+    public var version: String?
+    public var creator: String?
+    public var metadata: GPXMetadata?
+    public var waypoints = NSMutableArray()
+    public var routes = NSMutableArray()
+    public var tracks = NSMutableArray()
+    public var extensions: GPXExtensions?
     
     // MARK:- Instance
     
-    override init() {
+    public override init() {
         super.init()
         
         version = "1.1"
@@ -69,7 +69,7 @@ open class GPXRoot: GPXElement {
         return "http://www.topografix.com/GPX/1/1"
     }
     
-    func newWaypointWith(latitude: CGFloat, longitude: CGFloat) -> GPXWaypoint {
+    public func newWaypointWith(latitude: CGFloat, longitude: CGFloat) -> GPXWaypoint {
         let waypoint = GPXWaypoint().waypoint(With: latitude, longitude: longitude)
         
         self.add(waypoint: waypoint)
@@ -77,7 +77,7 @@ open class GPXRoot: GPXElement {
         return waypoint
     }
     
-    func add(waypoint: GPXWaypoint?) {
+    public func add(waypoint: GPXWaypoint?) {
         if waypoint != nil {
             let index: Int = waypoints.index(of: waypoint!)
             
