@@ -58,16 +58,16 @@ open class GPXTrack: GPXElement {
     }
     */
     
-    func set(number: Int) {
+    open func set(number: Int) {
         numberValue = GPXType().value(forNonNegativeInt: number)
     }
     
-    func newLink(withHref href: String) -> GPXLink {
+    open func newLink(withHref href: String) -> GPXLink {
         let link: GPXLink = GPXLink().link(with: href)
         return link
     }
     
-    func add(Link link: GPXLink?) {
+    open func add(Link link: GPXLink?) {
         if link != nil {
             let index = links.index(of: link!)
             if index == NSNotFound {
@@ -77,13 +77,13 @@ open class GPXTrack: GPXElement {
         }
     }
     
-    func add(Links array: NSArray) {
+    open func add(Links array: NSArray) {
         for case let link as GPXLink in array {
             add(Link: link)
         }
     }
     
-    func remove(Link link: GPXLink) {
+    open func remove(Link link: GPXLink) {
         let index = links.index(of: link)
         
         if index != NSNotFound {
@@ -92,13 +92,13 @@ open class GPXTrack: GPXElement {
         }
     }
     
-    func newTrackSegment() -> GPXTrackSegment {
+    open func newTrackSegment() -> GPXTrackSegment {
         let tracksegment = GPXTrackSegment()
         self.add(trackSegment: tracksegment)
         return tracksegment
     }
     
-    func add(trackSegment: GPXTrackSegment?) {
+    open func add(trackSegment: GPXTrackSegment?) {
         if trackSegment != nil {
             let index = tracksegments.index(of: trackSegment!)
             if index == NSNotFound {
@@ -108,13 +108,13 @@ open class GPXTrack: GPXElement {
         }
     }
     
-    func add(trackSegments: NSArray) {
+    open func add(trackSegments: NSArray) {
         for case let tracksegment as GPXTrackSegment in trackSegments {
             self.add(trackSegment: tracksegment)
         }
     }
     
-    func remove(trackSegment: GPXTrackSegment) {
+    open func remove(trackSegment: GPXTrackSegment) {
         let index = tracksegments.index(of: trackSegment)
         if index != NSNotFound {
             trackSegment.parent = nil
@@ -122,7 +122,7 @@ open class GPXTrack: GPXElement {
         }
     }
     
-    func newTrackPointWith(latitude: CGFloat, longitude: CGFloat) -> GPXTrackPoint {
+    open func newTrackPointWith(latitude: CGFloat, longitude: CGFloat) -> GPXTrackPoint {
         var tracksegment: GPXTrackSegment
         
         if tracksegments.count == 0 {
