@@ -96,8 +96,8 @@ open class GPXWaypoint: GPXElement {
         self.ageofDGPSData = GPXType().decimal(ageOfDGPSDataValue)
     }
     
-    public convenience init (latitude: CGFloat, longitude: CGFloat) {
-        self.init()
+    public init(latitude: CGFloat, longitude: CGFloat) {
+        super.init()
         self.latitude = latitude
         self.longitude = longitude
     }
