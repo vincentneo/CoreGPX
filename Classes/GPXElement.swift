@@ -9,7 +9,7 @@ import UIKit
 
 open class GPXElement: NSObject {
     
-    public var parent: GPXElement?
+    public weak var parent: GPXElement?
     public var element: TBXMLElement
     
     //from GPXConst
@@ -50,9 +50,6 @@ open class GPXElement: NSObject {
         
     }
     
-    deinit {
-        self.parent = nil
-    }
     
     // MARK:- Elements
     
