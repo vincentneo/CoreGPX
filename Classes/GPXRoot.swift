@@ -86,8 +86,8 @@ open class GPXRoot: GPXElement {
         }
     }
     
-    public func add(waypoints: NSArray) {
-        for case let waypoint as GPXWaypoint in waypoints {
+    public func add(waypoints: [GPXWaypoint]) {
+        for waypoint in waypoints {
             self.add(waypoint: waypoint)
         }
     }
@@ -119,8 +119,8 @@ open class GPXRoot: GPXElement {
         }
     }
     
-    public func add(routes: NSArray) {
-        for case let route as GPXRoute in routes {
+    public func add(routes: [GPXRoute]) {
+        for route in routes {
             self.add(route: route)
         }
     }
@@ -150,8 +150,8 @@ open class GPXRoot: GPXElement {
         }
     }
     
-    public func add(tracks: NSArray) {
-        for case let track as GPXTrack in tracks {
+    public func add(tracks: [GPXTrack]) {
+        for track in tracks {
             self.add(track: track)
         }
     }

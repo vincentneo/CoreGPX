@@ -148,7 +148,7 @@ open class GPXWaypoint: GPXElement {
         return link
     }
     
-    open func add(Link link: GPXLink?) {
+    open func add(link: GPXLink?) {
         if link != nil {
             let index = links.index(of: link!)
             if index == NSNotFound {
@@ -158,9 +158,9 @@ open class GPXWaypoint: GPXElement {
         }
     }
     
-    open func add(Links array: NSArray) {
-        for case let link as GPXLink in array {
-            add(Link: link)
+    open func add(links: [GPXLink]) {
+        for link in links {
+            add(link: link)
         }
     }
     

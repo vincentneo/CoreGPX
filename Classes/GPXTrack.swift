@@ -67,7 +67,7 @@ open class GPXTrack: GPXElement {
         return link
     }
     
-    open func add(Link link: GPXLink?) {
+    open func add(link: GPXLink?) {
         if link != nil {
             let index = links.index(of: link!)
             if index == NSNotFound {
@@ -77,9 +77,9 @@ open class GPXTrack: GPXElement {
         }
     }
     
-    open func add(Links array: NSArray) {
-        for case let link as GPXLink in array {
-            add(Link: link)
+    open func add(links: [GPXLink]) {
+        for link in links {
+            add(link: link)
         }
     }
     
@@ -108,7 +108,7 @@ open class GPXTrack: GPXElement {
         }
     }
     
-    open func add(trackSegments: NSArray) {
+    open func add(trackSegments: [GPXTrackSegment]) {
         for case let tracksegment as GPXTrackSegment in trackSegments {
             self.add(trackSegment: tracksegment)
         }

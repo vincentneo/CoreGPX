@@ -50,8 +50,8 @@ open class GPXTrackSegment: GPXElement {
         }
     }
     
-    open func add(trackpoints: NSArray) {
-        for case let trackpoint as GPXTrackPoint in trackpoints {
+    open func add(trackpoints: [GPXTrackPoint]) {
+        for trackpoint in trackpoints {
             self.add(trackpoint: trackpoint)
         }
     }
