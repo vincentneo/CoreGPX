@@ -70,7 +70,8 @@ open class GPXRoot: GPXElement {
     }
     
     public func newWaypointWith(latitude: CGFloat, longitude: CGFloat) -> GPXWaypoint {
-        let waypoint = GPXWaypoint().waypoint(With: latitude, longitude: longitude)
+        //let waypoint = GPXWaypoint().waypoint(With: latitude, longitude: longitude)
+        let waypoint = GPXWaypoint.init(latitude: latitude, longitude: longitude)
         
         self.add(waypoint: waypoint)
         
