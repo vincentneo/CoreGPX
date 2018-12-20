@@ -165,7 +165,7 @@ open class GPXElement: NSObject {
     
     // MARK:- GPX
    
-    func gpx() -> String {
+    open func gpx() -> String {
         let gpx: NSMutableString = ""
         self.gpx(gpx, indentationLevel: 0)
         return gpx as String

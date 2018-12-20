@@ -109,7 +109,7 @@ open class GPXTrack: GPXElement {
     }
     
     open func add(trackSegments: [GPXTrackSegment]) {
-        for case let tracksegment as GPXTrackSegment in trackSegments {
+        for tracksegment in trackSegments {
             self.add(trackSegment: tracksegment)
         }
     }
