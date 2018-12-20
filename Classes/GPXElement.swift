@@ -35,7 +35,7 @@ open class GPXElement: NSObject {
     }
  */
     public override init() {
-        self.parent = GPXElement()
+        //self.parent = GPXElement()
         self.element = TBXMLElement()
         super.init()
     }
