@@ -9,7 +9,7 @@ import UIKit
 
 open class GPXElement: NSObject {
     
-    public weak var parent: GPXElement?
+    public var parent: GPXElement? = nil
     public var element: TBXMLElement
     
     //from GPXConst
