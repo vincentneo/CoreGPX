@@ -9,7 +9,7 @@ import UIKit
 
 open class GPXElement: NSObject {
     
-    public var parent: GPXElement? = nil
+    public var parent: GPXElement?
     public var element: TBXMLElement
     
     //from GPXConst
@@ -42,10 +42,11 @@ open class GPXElement: NSObject {
     
     
     init(XMLElement element: UnsafeMutablePointer<TBXMLElement>?, parent: GPXElement?) {
-        self.parent = parent!
         self.element = TBXMLElement()
-       
+    
         super.init()
+    
+        self.parent = self
         element?.initialize(to: self.element)
         
     }
