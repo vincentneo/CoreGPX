@@ -34,7 +34,7 @@ open class GPXRoot: GPXElement {
         version = value(ofAttribute: "version", xmlElement: element, required: true) ?? ""
         creator = value(ofAttribute: "creator", xmlElement: element, required: true) ?? ""
         
-        metadata = childElement(ofClass: GPXMetadata.self, xmlElement: element) as! GPXMetadata?
+        metadata = childElement(ofClass: GPXMetadata.self, xmlElement: element) as? GPXMetadata
         
         self.childElement(ofClass: GPXWaypoint.self, xmlElement: element, eachBlock: { element in
             if element != nil {
