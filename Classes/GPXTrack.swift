@@ -21,7 +21,7 @@ open class GPXTrack: GPXElement {
     public var extensions: GPXExtensions?
 
     
-    public override init() {
+    public required init() {
         super.init()
     }
     

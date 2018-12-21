@@ -21,7 +21,7 @@ open class GPXPoint: GPXElement {
     
     // MARK:- Instance
     
-    override init() {
+    required public init() {
         super.init()
     }
     

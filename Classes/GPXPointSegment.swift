@@ -13,7 +13,7 @@ open class GPXPointSegment: GPXElement {
     
     // MARK:- Instance
     
-    override init() {
+    public required init() {
         super.init()
     }
     

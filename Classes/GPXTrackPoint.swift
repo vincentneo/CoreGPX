@@ -9,7 +9,7 @@ import UIKit
 
 open class GPXTrackPoint: GPXWaypoint {
     
-    public override init() {
+    public required init() {
         super.init()
     }
     

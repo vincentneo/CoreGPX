@@ -34,7 +34,7 @@ open class GPXElement: NSObject {
         self.parent = parent!
     }
  */
-    public override init() {
+    public required override init() {
         //self.parent = GPXElement()
         self.element = TBXMLElement()
         super.init()
@@ -100,6 +100,7 @@ open class GPXElement: NSObject {
     func childElement(ofClass Class: AnyClass, xmlElement: UnsafeMutablePointer<TBXMLElement>?, required: Bool) -> GPXElement? {
         let firstElement: GPXElement?
         let element: UnsafeMutablePointer<TBXMLElement>? = TBXML.childElementNamed(self.tagName(), parentElement: xmlElement)
+        
         
         firstElement = GPXElement.init(XMLElement: element, parent: self)
         

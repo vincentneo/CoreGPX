@@ -20,7 +20,7 @@ open class GPXRoot: GPXElement {
     
     // MARK:- Instance
     
-    public override init() {
+    public required init() {
         super.init()
         
         version = "1.1"

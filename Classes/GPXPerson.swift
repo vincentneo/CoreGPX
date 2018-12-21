@@ -15,7 +15,7 @@ open class GPXPerson: GPXElement {
     
     // MARK:- Instance
     
-    override init() {
+    public required init() {
         name = String()
         email = GPXEmail()
         link = GPXLink()

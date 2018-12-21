@@ -22,7 +22,7 @@ open class GPXMetadata: GPXElement {
     
     // MARK:- Instance
     
-    override init() {
+    required public init() {
         author = GPXAuthor()
         timeValue = String()
         

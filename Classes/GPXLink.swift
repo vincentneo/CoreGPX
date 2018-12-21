@@ -23,7 +23,7 @@ open class GPXLink: GPXElement {
    
     // MARK:- Instance
     
-    override init() {
+    public required init() {
         self.text = String()
         self.mimetype = String()
         self.href = String()

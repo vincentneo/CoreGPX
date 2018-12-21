@@ -14,7 +14,7 @@ open class GPXEmail: GPXElement {
     
     // MARK:- Instance
     
-    override init() {
+    public required init() {
         self.emailID = String()
         self.domain = String()
         super.init()
