@@ -41,12 +41,12 @@ open class GPXWaypoint: GPXElement {
     public var positionDilution = CGFloat()
     public var ageofDGPSData = CGFloat()
     public var DGPSid = Int()
-    public var extensions: GPXExtensions?
+    public var extensions: GPXExtensions? = GPXExtensions()
     public var latitude = CGFloat()
     public var longitude = CGFloat()
     
     public override init() {
-        self.extensions = GPXExtensions()
+        //self.extensions = GPXExtensions()
         self.time = Date()
         super.init()
     }
