@@ -28,7 +28,7 @@ open class GPXRoot: GPXElement {
         
     }
     
-    override init(XMLElement element: UnsafeMutablePointer<TBXMLElement>?, parent: GPXElement?) {
+    public required init(XMLElement element: UnsafeMutablePointer<TBXMLElement>?, parent: GPXElement?) {
         super.init(XMLElement: element, parent: parent)
         
         version = value(ofAttribute: "version", xmlElement: element, required: true) ?? ""

@@ -51,7 +51,7 @@ open class GPXWaypoint: GPXElement {
         super.init()
     }
     
-    override init(XMLElement element: UnsafeMutablePointer<TBXMLElement>?, parent: GPXElement?) {
+    public required init(XMLElement element: UnsafeMutablePointer<TBXMLElement>?, parent: GPXElement?) {
         self.extensions = GPXExtensions(XMLElement: element, parent: parent)
         
         super.init(XMLElement: element, parent: parent)

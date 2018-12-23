@@ -29,7 +29,7 @@ open class GPXMetadata: GPXElement {
         super.init()
     }
     
-    override init(XMLElement element: UnsafeMutablePointer<TBXMLElement>?, parent: GPXElement?) {
+    public required init(XMLElement element: UnsafeMutablePointer<TBXMLElement>?, parent: GPXElement?) {
         author = GPXAuthor()
         timeValue = String()
         

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'GPXKit'
-  s.version          = '0.1.6'
+  s.version          = '0.1.7'
   s.summary          = 'A library for reading and creation of GPX location log files.'
 
 # This description is used to generate tags and improve search results.
@@ -39,5 +39,4 @@ TODO: Add long description of the pod here.
   s.public_header_files = 'Classes/Dependencies/TBXML/'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'TBXML'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end

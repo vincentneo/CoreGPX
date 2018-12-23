@@ -20,7 +20,7 @@ open class GPXEmail: GPXElement {
         super.init()
     }
     
-    override init(XMLElement element: UnsafeMutablePointer<TBXMLElement>?, parent: GPXElement?) {
+    public required init(XMLElement element: UnsafeMutablePointer<TBXMLElement>?, parent: GPXElement?) {
         self.emailID = String()
         self.domain = String()
         

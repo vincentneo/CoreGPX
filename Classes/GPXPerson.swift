@@ -22,7 +22,7 @@ open class GPXPerson: GPXElement {
         super.init()
     }
     
-    override init(XMLElement element: UnsafeMutablePointer<TBXMLElement>?, parent: GPXElement?) {
+    public required init(XMLElement element: UnsafeMutablePointer<TBXMLElement>?, parent: GPXElement?) {
         name = String()
         email = GPXEmail()
         link = GPXLink()

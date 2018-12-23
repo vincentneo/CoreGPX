@@ -27,7 +27,7 @@ open class GPXRoute: GPXElement {
         super.init()
     }
     
-    override init(XMLElement element: UnsafeMutablePointer<TBXMLElement>?, parent: GPXElement?) {
+    public required init(XMLElement element: UnsafeMutablePointer<TBXMLElement>?, parent: GPXElement?) {
         
         super.init(XMLElement: element, parent: parent)
         
