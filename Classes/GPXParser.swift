@@ -30,7 +30,7 @@ open class GPXParser: NSObject {
     
     public func parseGPXWith(string: String) -> GPXRoot? {
         
-        let xml = try? TBXML(xmlString: string, error: ())
+        let xml = try? TBXML(xmlString: string, error: print())
 
         if xml?.rootXMLElement != nil {
             return GPXRoot(XMLElement: xml!.rootXMLElement, parent: nil)
@@ -40,7 +40,7 @@ open class GPXParser: NSObject {
     }
     
     public func parseGPXWith(data: Data) -> GPXRoot? {
-        let xml = try? TBXML(xmlData: data, error: ())
+        let xml = try? TBXML(xmlData: data, error: print())
         
         if xml?.rootXMLElement != nil {
             return GPXRoot(XMLElement: xml?.rootXMLElement, parent: nil)
