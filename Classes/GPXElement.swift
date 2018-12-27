@@ -101,7 +101,8 @@ open class GPXElement: NSObject {
     
     func childElement(ofClass Class: GPXElement.Type, xmlElement: UnsafeMutablePointer<TBXMLElement>?, required: Bool) -> GPXElement? {
         let firstElement: GPXElement?
-        print(Class.init().tagName())
+        let tagName = Class.init().tagName()
+        print(tagName)
         let element: UnsafeMutablePointer<TBXMLElement>? = TBXML.childElementNamed(Class.init().tagName(), parentElement: xmlElement)
         
         
