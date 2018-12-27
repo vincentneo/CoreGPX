@@ -10,7 +10,8 @@ import UIKit
 open class GPXElement: NSObject {
     
     public var parent: GPXElement?
-    public var element: TBXMLElement
+    //public var element: TBXMLElement
+    public var element: UnsafeMutablePointer<TBXMLElement>? = nil
     
     //from GPXConst
     let kGPXInvalidGPXFormatNotification = "kGPXInvalidGPXFormatNotification"
@@ -36,18 +37,19 @@ open class GPXElement: NSObject {
  */
     public required override init() {
         //self.parent = GPXElement()
-        self.element = TBXMLElement()
+        //self.element = TBXMLElement()
         super.init()
     }
     
     
     public required init(XMLElement element: UnsafeMutablePointer<TBXMLElement>?, parent: GPXElement?) {
-        self.element = TBXMLElement()
-    
+        //self.element = TBXMLElement()
+        self.element = element
+        
         super.init()
     
         self.parent = self
-        element?.initialize(to: self.element)
+        //element?.initialize(to: self.element)
         
     }
     
