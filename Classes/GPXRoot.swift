@@ -10,7 +10,7 @@ import UIKit
 open class GPXRoot: GPXElement {
 
     //var schema = String()
-    public var version: String?
+    public var version: String? = "1.1"
     public var creator: String?
     public var metadata: GPXMetadata?
     public var waypoints = NSMutableArray()
@@ -23,7 +23,6 @@ open class GPXRoot: GPXElement {
     public required init() {
         super.init()
         
-        version = "1.1"
         creator = "OSS Project"
         
     }

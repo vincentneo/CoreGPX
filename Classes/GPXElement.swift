@@ -101,8 +101,6 @@ open class GPXElement: NSObject {
     
     func childElement(ofClass Class: GPXElement.Type, xmlElement: UnsafeMutablePointer<TBXMLElement>?, required: Bool) -> GPXElement? {
         let firstElement: GPXElement?
-        let tagName = Class.init().tagName()
-        print(tagName)
         let element: UnsafeMutablePointer<TBXMLElement>? = TBXML.childElementNamed(Class.init().tagName(), parentElement: xmlElement)
         
         
@@ -192,7 +190,7 @@ open class GPXElement: NSObject {
     }
     
     func addCloseTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        gpx.append(String(format: "%@<%@>\r\n", indent(forIndentationLevel: indentationLevel), self.tagName()))
+        gpx.append(String(format: "%@</%@>\r\n", indent(forIndentationLevel: indentationLevel), self.tagName()))
     }
     
     func addProperty(forValue value: NSString?, gpx: NSMutableString, tagName: NSString, indentationLevel: Int) {
