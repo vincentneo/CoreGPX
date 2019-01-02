@@ -23,10 +23,10 @@ open class GPXWaypoint: GPXElement {
     var latitudeValue:String?
     var longitudeValue:String?
     
-    //public var elevation = CGFloat()
-    //public var time: Date?
-    //public var magneticVariation = CGFloat()
-    //public var geoidHeight = CGFloat()
+    public var elevation = CGFloat()
+    public var time: Date?
+    public var magneticVariation = CGFloat()
+    public var geoidHeight = CGFloat()
     public var name: String?
     public var comment = String()
     public var desc: String?
@@ -34,20 +34,20 @@ open class GPXWaypoint: GPXElement {
     //public var links = NSArray()
     public var symbol = String()
     public var type = String()
-    //public var fix = Int()
-    //public var satellites = Int()
-    //public var horizontalDilution = CGFloat()
-    //public var verticalDilution = CGFloat()
-    //public var positionDilution = CGFloat()
-    //public var ageofDGPSData = CGFloat()
-    //public var DGPSid = Int()
+    public var fix = Int()
+    public var satellites = Int()
+    public var horizontalDilution = CGFloat()
+    public var verticalDilution = CGFloat()
+    public var positionDilution = CGFloat()
+    public var ageofDGPSData = CGFloat()
+    public var DGPSid = Int()
     public var extensions: GPXExtensions? = GPXExtensions()
-    //public var latitude = CGFloat()
-    //public var longitude = CGFloat()
+    public var latitude = CGFloat()
+    public var longitude = CGFloat()
     
     public required init() {
         //self.extensions = GPXExtensions()
-        //self.time = Date()
+        self.time = Date()
         super.init()
     }
     
@@ -82,6 +82,18 @@ open class GPXWaypoint: GPXElement {
         self.latitudeValue = value(ofAttribute: "lat", xmlElement: element, required: true)!
         self.longitudeValue = value(ofAttribute: "lon", xmlElement: element, required: true)!
         
+        self.latitude = GPXType().latitude(latitudeValue)
+        self.longitude =  GPXType().longitude(longitudeValue)
+        self.elevation = GPXType().decimal(elevationValue)
+        self.time = GPXType().dateTime(value: timeValue)
+        self.magneticVariation = GPXType().degrees(magneticVariationValue)
+        self.geoidHeight = GPXType().decimal(geoidHeightValue)
+        self.fix = GPXType().fix(value: fixValue).rawValue
+        self.satellites = GPXType().nonNegativeInt(satellitesValue)
+        self.horizontalDilution = GPXType().decimal(horizontalDilutionValue)
+        self.verticalDilution = GPXType().decimal(verticalDilutionValue)
+        self.positionDilution = GPXType().decimal(positionDilutionValue)
+        self.ageofDGPSData = GPXType().decimal(ageOfDGPSDataValue)
     }
     
     public init(latitude: CGFloat, longitude: CGFloat) {
@@ -92,40 +104,40 @@ open class GPXWaypoint: GPXElement {
     
     // MARK:- Public Methods
     
-    
+    /*
     public var elevation: CGFloat {
         return GPXType().decimal(elevationValue)
     }
-    
+    */
     func set(Elevation elevation: CGFloat) {
         elevationValue = GPXType().value(forDecimal: elevation)
     }
     
-    
+    /*
     public var time: Date? {
         return GPXType().dateTime(value: timeValue)
     }
-    
+    */
     
     func set(Time time: Date) {
         timeValue = GPXType().value(forDateTime: time)
     }
     
-    
+    /*
     public var magneticVariation: CGFloat {
         return GPXType().degrees(magneticVariationValue)
     }
-    
+    */
     
     func set(MagneticVariation magneticVariation: CGFloat) {
         magneticVariationValue = GPXType().value(forDegrees: magneticVariation)
     }
     
-    
+    /*
     public var geoidHeight: CGFloat {
         return GPXType().decimal(geoidHeightValue)
     }
-    
+    */
     
     func set(GeoidHeight geoidHeight: CGFloat) {
         geoidHeightValue = GPXType().value(forDecimal: geoidHeight)
@@ -161,89 +173,68 @@ open class GPXWaypoint: GPXElement {
         }
     }
     
-    
+    /*
     public var fix: Int { // maybe GPXFix would be better?
         return GPXType().fix(value: fixValue).rawValue
     }
-    
+    */
     
     func set(Fix: Int) {
         fixValue = GPXType().value(forFix: GPXFix(rawValue: Fix) ?? .none)
     }
     
-    
+    /*
     public var satellites: Int {
         return GPXType().nonNegativeInt(satellitesValue)
     }
-    
+    */
     
     func set(Satellites: Int) {
         satellitesValue = GPXType().value(forNonNegativeInt: Satellites)
     }
     
-    
+    /*
     public var horizontalDilution: CGFloat {
         return GPXType().decimal(horizontalDilutionValue)
     }
-    
+    */
     
     func set(HorizontalDilution: CGFloat) {
         horizontalDilutionValue = GPXType().value(forDecimal: HorizontalDilution)
     }
     
-    
+    /*
     public var verticalDilution: CGFloat {
         return GPXType().decimal(horizontalDilutionValue)
     }
-    
+    */
     
     func set(VerticalDilution: CGFloat) {
         verticalDilutionValue = GPXType().value(forDecimal: VerticalDilution)
     }
     
-    
+    /*
     public var positionDilution: CGFloat {
         return GPXType().decimal(positionDilutionValue)
     }
-    
+    */
     
     func set(PositionDilution: CGFloat) {
         positionDilutionValue = GPXType().value(forDecimal: PositionDilution)
     }
     
-    
+    /*
     public var ageOfDGPSData: CGFloat {
         return GPXType().decimal(ageOfDGPSDataValue)
     }
-    
-    func set(ageOfDGPSData: CGFloat) {
-        ageOfDGPSDataValue = GPXType().value(forDecimal: ageOfDGPSData)
-    }
-    
-    public var DGPSid: Int {
-        return GPXType().dgpsStation(DGPSidValue)
-    }
+    */
     
     func set(DGPSid: Int) {
         DGPSidValue = GPXType().value(forDgpsStation: DGPSid)
     }
     
-    public var latitude: CGFloat {
-        get {
-            return GPXType().latitude(latitudeValue)
-        }
-        set {}
-    }
-    
     func set(Latitude: CGFloat) {
         latitudeValue = GPXType().value(forLatitude: Latitude)
-    }
-    
-    public var longitude: CGFloat {
-        get {
-            return GPXType().longitude(longitudeValue)
-        }
-        set {}
     }
     
     func set(Longitude: CGFloat) {
