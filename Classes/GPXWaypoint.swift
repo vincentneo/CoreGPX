@@ -253,11 +253,11 @@ open class GPXWaypoint: GPXElement {
         let attribute: NSMutableString = ""
         
         if latitude != nil {
-            attribute.appendFormat(" lat=\"%@\"", latitude!)
+            attribute.appendFormat(" lat=\"%f\"", latitude!)
         }
         
         if longitude != nil {
-            attribute.appendFormat(" lon=\"%@\"", longitude!)
+            attribute.appendFormat(" lon=\"%f\"", longitude!)
         }
         
         gpx.appendFormat("%@<%@%@>\r\n", indent(forIndentationLevel: indentationLevel), self.tagName(), attribute)
