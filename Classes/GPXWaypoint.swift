@@ -94,10 +94,7 @@ open class GPXWaypoint: GPXElement {
     
     
     public var elevation: CGFloat {
-        get {
-            return GPXType().decimal(elevationValue)
-        }
-        set {}
+        return GPXType().decimal(elevationValue)
     }
     
     func set(Elevation elevation: CGFloat) {
@@ -106,10 +103,7 @@ open class GPXWaypoint: GPXElement {
     
     
     public var time: Date? {
-        get {
-            return GPXType().dateTime(value: timeValue)
-        }
-        set {}
+        return GPXType().dateTime(value: timeValue)
     }
     
     
@@ -119,10 +113,7 @@ open class GPXWaypoint: GPXElement {
     
     
     public var magneticVariation: CGFloat {
-        get {
-            return GPXType().degrees(magneticVariationValue)
-        }
-        set {}
+        return GPXType().degrees(magneticVariationValue)
     }
     
     
@@ -132,10 +123,7 @@ open class GPXWaypoint: GPXElement {
     
     
     public var geoidHeight: CGFloat {
-        get {
-            return GPXType().decimal(geoidHeightValue)
-        }
-        set {}
+        return GPXType().decimal(geoidHeightValue)
     }
     
     
@@ -175,10 +163,7 @@ open class GPXWaypoint: GPXElement {
     
     
     public var fix: Int { // maybe GPXFix would be better?
-        get {
-            return GPXType().fix(value: fixValue).rawValue
-        }
-        set {}
+        return GPXType().fix(value: fixValue).rawValue
     }
     
     
@@ -188,10 +173,7 @@ open class GPXWaypoint: GPXElement {
     
     
     public var satellites: Int {
-        get {
-            return GPXType().nonNegativeInt(satellitesValue)
-        }
-        set {}
+        return GPXType().nonNegativeInt(satellitesValue)
     }
     
     
@@ -201,10 +183,7 @@ open class GPXWaypoint: GPXElement {
     
     
     public var horizontalDilution: CGFloat {
-        get {
-            return GPXType().decimal(horizontalDilutionValue)
-        }
-        set {}
+        return GPXType().decimal(horizontalDilutionValue)
     }
     
     
@@ -214,10 +193,7 @@ open class GPXWaypoint: GPXElement {
     
     
     public var verticalDilution: CGFloat {
-        get {
-            return GPXType().decimal(horizontalDilutionValue)
-        }
-        set {}
+        return GPXType().decimal(horizontalDilutionValue)
     }
     
     
@@ -227,10 +203,7 @@ open class GPXWaypoint: GPXElement {
     
     
     public var positionDilution: CGFloat {
-        get {
-            return GPXType().decimal(positionDilutionValue)
-        }
-        set {}
+        return GPXType().decimal(positionDilutionValue)
     }
     
     
@@ -240,10 +213,7 @@ open class GPXWaypoint: GPXElement {
     
     
     public var ageOfDGPSData: CGFloat {
-        get {
-            return GPXType().decimal(ageOfDGPSDataValue)
-        }
-        set {}
+        return GPXType().decimal(ageOfDGPSDataValue)
     }
     
     func set(ageOfDGPSData: CGFloat) {
@@ -251,17 +221,14 @@ open class GPXWaypoint: GPXElement {
     }
     
     public var DGPSid: Int {
-        get {
-            return GPXType().dgpsStation(DGPSidValue)
-        }
-        set {}
+        return GPXType().dgpsStation(DGPSidValue)
     }
     
     func set(DGPSid: Int) {
         DGPSidValue = GPXType().value(forDgpsStation: DGPSid)
     }
     
-    public var latitude: CGFloat? {
+    public var latitude: CGFloat {
         get {
             return GPXType().latitude(latitudeValue)
         }
@@ -272,7 +239,7 @@ open class GPXWaypoint: GPXElement {
         latitudeValue = GPXType().value(forLatitude: Latitude)
     }
     
-    public var longitude: CGFloat? {
+    public var longitude: CGFloat {
         get {
             return GPXType().longitude(longitudeValue)
         }
@@ -294,12 +261,12 @@ open class GPXWaypoint: GPXElement {
     override func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         let attribute: NSMutableString = ""
         
-        if latitude != nil {
-            attribute.appendFormat(" lat=\"%@\"", latitude!)
+        if latitudeValue != nil {
+            attribute.appendFormat(" lat=\"%@\"", latitudeValue!)
         }
         
-        if longitude != nil {
-            attribute.appendFormat(" lon=\"%@\"", longitude!)
+        if longitudeValue != nil {
+            attribute.appendFormat(" lon=\"%@\"", longitudeValue!)
         }
         
         gpx.appendFormat("%@<%@%@>\r\n", indent(forIndentationLevel: indentationLevel), self.tagName(), attribute)
