@@ -216,7 +216,7 @@ open class GPXRoot: GPXElement {
         }
         
         if self.extensions != nil {
-            self.extensions!.gpx(gpx, indentationLevel: indentationLevel)
+            self.extensions?.gpx(gpx, indentationLevel: indentationLevel)
         }
     }
 }
