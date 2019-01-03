@@ -15,8 +15,11 @@
 - [ ] Parses GPX files
 - [ ] Migrate to native XMLParser
 - [ ] Documentation
+- [ ] Code optimisation
+- [ ] New features
 
 *time not supported yet, extra extensions tag
+
 ## Aim
 This project aims to update/port iOS-GPX-Framework to Swift language, due to its original code being seemingly abandoned.
 Once the project reaches stability (if it ever will), I will focus on attempting to optimise the code and/or to add new features.
