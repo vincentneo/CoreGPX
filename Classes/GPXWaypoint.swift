@@ -12,7 +12,7 @@ open class GPXWaypoint: GPXElement {
     var timeValue = String()
     var magneticVariationValue = String()
     var geoidHeightValue = String()
-    public var links = NSMutableArray()
+    public var links = [GPXLink]()
     var fixValue = String()
     var satellitesValue = String()
     var horizontalDilutionValue = String()
@@ -31,7 +31,6 @@ open class GPXWaypoint: GPXElement {
     public var comment = String()
     public var desc: String?
     public var source = String()
-    //public var links = NSArray()
     public var symbol = String()
     public var type = String()
     public var fix = Int()
@@ -46,7 +45,6 @@ open class GPXWaypoint: GPXElement {
     public var longitude: CGFloat?
     
     public required init() {
-        //self.extensions = GPXExtensions()
         self.time = Date()
         super.init()
     }
@@ -66,7 +64,7 @@ open class GPXWaypoint: GPXElement {
         self.source = text(forSingleChildElement: "src", xmlElement: element)
         self.childElement(ofClass: GPXLink.self, xmlElement: element, eachBlock: { element in
             if element != nil {
-                self.links.add(element!)
+                self.links.append(element! as! GPXLink)
             } })
         self.symbol = text(forSingleChildElement: "sym", xmlElement: element)
         self.type = text(forSingleChildElement: "type", xmlElement: element)
@@ -111,10 +109,10 @@ open class GPXWaypoint: GPXElement {
     
     open func add(link: GPXLink?) {
         if link != nil {
-            let index = links.index(of: link!)
-            if index == NSNotFound {
+            let contains = links.contains(link!)
+            if contains == false {
                 link?.parent = self
-                links.add(link!)
+                links.append(link!)
             }
         }
     }
@@ -126,11 +124,13 @@ open class GPXWaypoint: GPXElement {
     }
     
     open func remove(Link link: GPXLink) {
-        let index = links.index(of: link)
+        let contains = links.contains(link)
         
-        if index != NSNotFound {
+        if contains == true {
             link.parent = nil
-            links.remove(link)
+            if let index = links.firstIndex(of: link) {
+                links.remove(at: index)
+            }
         }
     }
 
@@ -167,7 +167,7 @@ open class GPXWaypoint: GPXElement {
         self.addProperty(forValue: desc as NSString?, gpx: gpx, tagName: "desc", indentationLevel: indentationLevel)
         self.addProperty(forValue: source as NSString, gpx: gpx, tagName: "source", indentationLevel: indentationLevel)
         
-        for case let link as GPXLink in self.links {
+        for link in links {
             link.gpx(gpx, indentationLevel: indentationLevel)
         }
         
