@@ -198,7 +198,7 @@ open class GPXElement: NSObject {
     }
     
     func addProperty(forNumberValue value: CGFloat?, gpx: NSMutableString, tagName: NSString, indentationLevel: Int) {
-        if value != nil {
+        if value != nil && value != 0 {
         addProperty(forValue: NSString(format: "%f", value!), gpx: gpx, tagName: tagName, indentationLevel: indentationLevel, defaultValue: nil, attribute: nil)
         }
     }
