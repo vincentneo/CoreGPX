@@ -15,7 +15,7 @@ open class GPXPoint: GPXElement {
     var longitudeValue: String?
     
     var elevation: CGFloat?
-    var time: Date?
+    var time: Date
     var latitude: CGFloat?
     var longitude: CGFloat?
     
@@ -77,11 +77,11 @@ open class GPXPoint: GPXElement {
     
     override func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         let attribute: NSMutableString = ""
-        if latitudeValue != nil {
-            attribute.appendFormat(" lat=\"%@\"", latitudeValue!)
+        if latitude != nil {
+            attribute.appendFormat(" lat=\"%f\"", latitude!)
         }
-        if longitudeValue != nil {
-            attribute.appendFormat(" lon=\"%@\"", longitudeValue!)
+        if longitude != nil {
+            attribute.appendFormat(" lon=\"%f\"", longitude!)
         }
         
         gpx.appendFormat("%@<%@%@>\r\n", indent(forIndentationLevel: indentationLevel), self.tagName(), attribute)
@@ -90,8 +90,8 @@ open class GPXPoint: GPXElement {
     override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
         
-        self.addProperty(forValue: elevationValue as NSString?, gpx: gpx, tagName: "ele", indentationLevel: indentationLevel)
-        self.addProperty(forValue: timeValue as NSString?, gpx: gpx, tagName: "time", indentationLevel: indentationLevel)
+        self.addProperty(forNumberValue: elevation, gpx: gpx, tagName: "ele", indentationLevel: indentationLevel)
+        self.addProperty(forValue: GPXType().value(forDateTime: time) as NSString?, gpx: gpx, tagName: "time", indentationLevel: indentationLevel)
     }
     
 }
