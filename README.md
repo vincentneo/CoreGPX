@@ -18,7 +18,7 @@
 - [ ] Code optimisation
 - [ ] New features
 
-*time not supported yet, extra extensions tag
+*extra extensions tag
 
 ## Aim
 This project aims to update/port iOS-GPX-Framework to Swift language, due to its original code being seemingly abandoned.
