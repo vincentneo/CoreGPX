@@ -24,7 +24,7 @@ open class GPXWaypoint: GPXElement {
     var longitudeValue:String?
     
     public var elevation = CGFloat()
-    public var time: Date?
+    public var time = Date()
     public var magneticVariation = CGFloat()
     public var geoidHeight = CGFloat()
     public var name: String?
@@ -83,7 +83,7 @@ open class GPXWaypoint: GPXElement {
         self.latitude = GPXType().latitude(latitudeValue)
         self.longitude =  GPXType().longitude(longitudeValue)
         self.elevation = GPXType().decimal(elevationValue)
-        self.time = GPXType().dateTime(value: timeValue)
+        //self.time = GPXType().dateTime(value: timeValue)
         self.magneticVariation = GPXType().degrees(magneticVariationValue)
         self.geoidHeight = GPXType().decimal(geoidHeightValue)
         self.fix = GPXType().fix(value: fixValue).rawValue
@@ -160,7 +160,7 @@ open class GPXWaypoint: GPXElement {
         super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
         
         self.addProperty(forNumberValue: elevation, gpx: gpx, tagName: "ele", indentationLevel: indentationLevel)
-        self.addProperty(forValue: timeValue as NSString, gpx: gpx, tagName: "time", indentationLevel: indentationLevel)
+        self.addProperty(forValue: GPXType().value(forDateTime: time) as NSString, gpx: gpx, tagName: "time", indentationLevel: indentationLevel)
         self.addProperty(forNumberValue: magneticVariation, gpx: gpx, tagName: "magvar", indentationLevel: indentationLevel)
         self.addProperty(forNumberValue: geoidHeight, gpx: gpx, tagName: "geoidheight", indentationLevel: indentationLevel)
         self.addProperty(forValue: name as NSString?, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
