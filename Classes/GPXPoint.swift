@@ -14,10 +14,10 @@ open class GPXPoint: GPXElement {
     var latitudeValue: String?
     var longitudeValue: String?
     
-    var elevation: CGFloat?
-    var time: Date
-    var latitude: CGFloat?
-    var longitude: CGFloat?
+    var elevation: CGFloat? = CGFloat()
+    var time: Date = Date()
+    var latitude: CGFloat? = CGFloat()
+    var longitude: CGFloat? = CGFloat()
     
     // MARK:- Instance
     
@@ -34,7 +34,7 @@ open class GPXPoint: GPXElement {
         longitudeValue = text(forSingleChildElement: "lon", xmlElement: element, required: true)
         
         elevation = GPXType().decimal(elevationValue)
-        time = GPXType().dateTime(value: timeValue!)
+        //time = GPXType().dateTime(value: timeValue!)
         latitude = GPXType().latitude(latitudeValue)
         longitude = GPXType().longitude(longitudeValue)
 
