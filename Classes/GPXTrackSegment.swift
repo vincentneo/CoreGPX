@@ -10,7 +10,7 @@ import UIKit
 open class GPXTrackSegment: GPXElement {
     
     public var trackpoints = [GPXTrackPoint]()
-    //public var extensions: GPXExtensions?
+    public var extensions: GPXExtensions?
     
     
     // MARK:- Instance
@@ -22,7 +22,7 @@ open class GPXTrackSegment: GPXElement {
     public required init(XMLElement element: UnsafeMutablePointer<TBXMLElement>?, parent: GPXElement?) {
         super.init(XMLElement: element, parent: parent)
         
-        //extensions = childElement(ofClass: GPXExtensions.self, xmlElement: element) as! GPXExtensions?
+        extensions = childElement(ofClass: GPXExtensions.self, xmlElement: element) as? GPXExtensions
         
         self.childElement(ofClass: GPXTrackPoint.self, xmlElement: element, eachBlock: { element in
             if element != nil {
@@ -75,11 +75,11 @@ open class GPXTrackSegment: GPXElement {
     
     override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
-        /*
+        
         if self.extensions != nil {
             self.extensions?.gpx(gpx, indentationLevel: indentationLevel)
         }
-        */
+        
         for trackpoint in trackpoints {
             trackpoint.gpx(gpx, indentationLevel: indentationLevel)
         }

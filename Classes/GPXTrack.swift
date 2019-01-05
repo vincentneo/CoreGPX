@@ -18,7 +18,7 @@ open class GPXTrack: GPXElement {
     public var source = String()
     public var number = Int()
     public var type = String()
-    //public var extensions: GPXExtensions?
+    public var extensions: GPXExtensions?
 
     
     public required init() {
@@ -40,7 +40,7 @@ open class GPXTrack: GPXElement {
         
         numberValue = text(forSingleChildElement: "number", xmlElement: element)
         type = text(forSingleChildElement: "type", xmlElement: element)
-        //extensions = childElement(ofClass: GPXExtensions.self, xmlElement: element) as? GPXExtensions
+        extensions = childElement(ofClass: GPXExtensions.self, xmlElement: element) as? GPXExtensions
         
         self.childElement(ofClass: GPXTrackSegment.self, xmlElement: element, eachBlock: { element in
             if element != nil {
@@ -151,11 +151,11 @@ open class GPXTrack: GPXElement {
         
         self.addProperty(forValue: numberValue as NSString, gpx: gpx, tagName: "number", indentationLevel: indentationLevel)
         self.addProperty(forValue: type as NSString, gpx: gpx, tagName: "number", indentationLevel: indentationLevel)
-        /*
+        
         if extensions != nil {
             self.extensions?.gpx(gpx, indentationLevel: indentationLevel)
         }
-        */
+        
         for tracksegment in tracksegments {
             tracksegment.gpx(gpx, indentationLevel: indentationLevel)
         }

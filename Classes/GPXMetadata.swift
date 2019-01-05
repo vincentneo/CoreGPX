@@ -17,7 +17,7 @@ open class GPXMetadata: GPXElement {
     var time = Date()
     var keyword: String?
     var bounds: GPXBounds?
-    //var extensions: GPXExtensions?
+    var extensions: GPXExtensions?
     
     
     // MARK:- Instance
@@ -40,7 +40,7 @@ open class GPXMetadata: GPXElement {
         link = childElement(ofClass: GPXLink.self, xmlElement: element) as? GPXLink
         keyword = text(forSingleChildElement: "keyword", xmlElement: element)
         bounds = childElement(ofClass: GPXBounds.self, xmlElement: element) as? GPXBounds
-        //extensions = childElement(ofClass: GPXExtensions.self, xmlElement: element) as? GPXExtensions
+        extensions = childElement(ofClass: GPXExtensions.self, xmlElement: element) as? GPXExtensions
         
     }
     
@@ -79,11 +79,11 @@ open class GPXMetadata: GPXElement {
         if bounds != nil {
             self.bounds?.gpx(gpx, indentationLevel: indentationLevel)
         }
-        /*
+        
         if extensions != nil {
             self.extensions?.gpx(gpx, indentationLevel: indentationLevel)
         }
-        */
+        
     }
     
 }
