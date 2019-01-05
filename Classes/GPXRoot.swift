@@ -16,7 +16,7 @@ open class GPXRoot: GPXElement {
     public var waypoints = [GPXWaypoint]()
     public var routes = [GPXRoute]()
     public var tracks = [GPXTrack]()
-    public var extensions: GPXExtensions?
+   //public var extensions: GPXExtensions?
     
     // MARK:- Instance
     
@@ -51,7 +51,7 @@ open class GPXRoot: GPXElement {
                 self.tracks.append(element as! GPXTrack)
             } })
         
-        extensions = childElement(ofClass: GPXExtensions.self, xmlElement: element) as! GPXExtensions?
+        //extensions = childElement(ofClass: GPXExtensions.self, xmlElement: element) as! GPXExtensions?
         
     }
     
@@ -214,10 +214,11 @@ open class GPXRoot: GPXElement {
         for track in tracks {
             track.gpx(gpx, indentationLevel: indentationLevel)
         }
-        
+        /*
         if self.extensions != nil {
             self.extensions?.gpx(gpx, indentationLevel: indentationLevel)
         }
+ */
     }
 }
 

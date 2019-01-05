@@ -6,7 +6,8 @@
 //
 
 import UIKit
-
+/* This class might be removed in near future if found useless.
+ 
 open class GPXExtensions: GPXElement {
     
     // MARK:- Instance
@@ -31,3 +32,4 @@ open class GPXExtensions: GPXElement {
     }
  
 }
+*/

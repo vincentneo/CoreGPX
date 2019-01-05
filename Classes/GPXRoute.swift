@@ -15,7 +15,7 @@ open class GPXRoute: GPXElement {
     var source = String()
     var links = [GPXLink]()
     var type = String()
-    var extensions: GPXExtensions?
+    //var extensions: GPXExtensions?
     var routepoints = [GPXRoutePoint]()
     var numberValue = String()
     
@@ -43,7 +43,7 @@ open class GPXRoute: GPXElement {
         
         type = text(forSingleChildElement: "type", xmlElement: element)
         
-        extensions = childElement(ofClass: GPXExtensions.self, xmlElement: element) as? GPXExtensions
+        //extensions = childElement(ofClass: GPXExtensions.self, xmlElement: element) as? GPXExtensions
         
         self.childElement(ofClass: GPXRoutePoint.self, xmlElement: element, eachBlock: { element in
             if element != nil {
@@ -152,11 +152,11 @@ open class GPXRoute: GPXElement {
         
         self.addProperty(forValue: numberValue as NSString, gpx: gpx, tagName: "number", indentationLevel: indentationLevel)
         self.addProperty(forValue: type as NSString, gpx: gpx, tagName: "type", indentationLevel: indentationLevel)
-        
+        /*
         if self.extensions != nil {
             self.extensions?.gpx(gpx, indentationLevel: indentationLevel)
         }
-        
+        */
         for routepoint in routepoints {
             routepoint.gpx(gpx, indentationLevel: indentationLevel)
         }

@@ -40,7 +40,7 @@ open class GPXWaypoint: GPXElement {
     public var positionDilution = CGFloat()
     public var ageofDGPSData = CGFloat()
     public var DGPSid = Int()
-    public var extensions: GPXExtensions? = GPXExtensions()
+    //public var extensions: GPXExtensions? = GPXExtensions()
     public var latitude: CGFloat?
     public var longitude: CGFloat?
     
@@ -50,7 +50,7 @@ open class GPXWaypoint: GPXElement {
     }
     
     public required init(XMLElement element: UnsafeMutablePointer<TBXMLElement>?, parent: GPXElement?) {
-        self.extensions = GPXExtensions(XMLElement: element, parent: parent)
+        //self.extensions = GPXExtensions(XMLElement: element, parent: parent)
         
         super.init(XMLElement: element, parent: parent)
         
@@ -75,7 +75,7 @@ open class GPXWaypoint: GPXElement {
         self.positionDilutionValue = text(forSingleChildElement: "pdop", xmlElement: element)
         self.ageOfDGPSDataValue = text(forSingleChildElement: "ageofdgpsdata", xmlElement: element)
         self.DGPSidValue = text(forSingleChildElement: "dgpsid", xmlElement: element)
-        self.extensions = childElement(ofClass: GPXExtensions.self, xmlElement: element) as? GPXExtensions
+        //self.extensions = childElement(ofClass: GPXExtensions.self, xmlElement: element) as? GPXExtensions
         
         self.latitudeValue = value(ofAttribute: "lat", xmlElement: element, required: true)!
         self.longitudeValue = value(ofAttribute: "lon", xmlElement: element, required: true)!
@@ -180,11 +180,11 @@ open class GPXWaypoint: GPXElement {
         self.addProperty(forNumberValue: positionDilution, gpx: gpx, tagName: "pdop", indentationLevel: indentationLevel)
         self.addProperty(forNumberValue: ageofDGPSData, gpx: gpx, tagName: "ageofdgpsdata", indentationLevel: indentationLevel)
         self.addProperty(forNumberValue: CGFloat(DGPSid), gpx: gpx, tagName: "dgpsid", indentationLevel: indentationLevel)
-        
+        /*
         if self.extensions != nil {
             self.extensions?.gpx(gpx, indentationLevel: indentationLevel)
         }
-        
+        */
     }
     
 }
