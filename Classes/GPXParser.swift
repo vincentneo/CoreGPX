@@ -11,6 +11,9 @@ open class GPXParser: NSObject, XMLParserDelegate {
     
     var parser: XMLParser
     var element = String()
+    var dictonary = Dictionary<String,String>()
+    var latitude = CGFloat()
+    var longitude = CGFloat()
     
     public var metadata: GPXMetadata? = GPXMetadata()
     public var waypoints = [GPXWaypoint]()
@@ -75,6 +78,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
             isMetadata = true
         case "wpt":
             isWaypoint = true
+            latitude = attributeDict ["lat:"]
         case "rte":
             isRoute = true
         case "trk":
@@ -87,7 +91,9 @@ open class GPXParser: NSObject, XMLParserDelegate {
     }
     
     public func parser(_ parser: XMLParser, foundCharacters string: String) {
-        
+        if element == "wpt" {
+            
+        }
     }
     
     public func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
