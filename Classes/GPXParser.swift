@@ -12,11 +12,11 @@ open class GPXParser: NSObject, XMLParserDelegate {
     var parser: XMLParser
     var element = String()
     var dictonary = Dictionary<String,String>()
-    var latitude = CGFloat()
-    var longitude = CGFloat()
+    var latitude: CGFloat? = CGFloat()
+    var longitude: CGFloat? = CGFloat()
     
     public var metadata: GPXMetadata? = GPXMetadata()
-    public var waypoints = [GPXWaypoint]()
+    public var waypoint = GPXWaypoint()
     public var routes = [GPXRoute]()
     public var tracks = [GPXTrack]()
     public var extensions: GPXExtensions? = GPXExtensions()
@@ -70,6 +70,15 @@ open class GPXParser: NSObject, XMLParserDelegate {
     var isTrack: Bool = false
     var isExtension: Bool = false
     
+    func coordinates(from string: String?) -> CGFloat {
+        if string != nil {
+            if let number = NumberFormatter().number(from: string!) {
+                return CGFloat(number.doubleValue)
+            }
+        }
+        return 0
+    }
+
     public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         element = elementName
         
@@ -78,7 +87,8 @@ open class GPXParser: NSObject, XMLParserDelegate {
             isMetadata = true
         case "wpt":
             isWaypoint = true
-            latitude = attributeDict ["lat:"]
+            latitude = coordinates(from: attributeDict ["lat"])
+            longitude = coordinates(from: attributeDict ["lon"])
         case "rte":
             isRoute = true
         case "trk":
@@ -87,6 +97,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
             isExtension = true
         default: ()
         }
+        
         print(element)
     }
     
