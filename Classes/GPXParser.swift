@@ -16,7 +16,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
     var longitude: CGFloat? = CGFloat()
     
 
-    //public var waypoint = GPXWaypoint()
+    public var waypoint = GPXWaypoint()
     public var route = GPXRoute()
     public var track = GPXTrack()
     
@@ -106,43 +106,45 @@ open class GPXParser: NSObject, XMLParserDelegate {
             isExtension = true
         default: ()
         }
-        
-        //print(element)
+
     }
     
     public func parser(_ parser: XMLParser, foundCharacters string: String) {
         if isWaypoint {
-            let waypoint = GPXWaypoint()
             waypoint.latitude = latitude
             waypoint.longitude = longitude
             switch element {
             case "ele":
-                waypoint.elevation = value(from: string)!
+                self.waypoint.elevation = value(from: string)!
+            case "time":
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
+                self.waypoint.time = dateFormatter.date(from: string)!
             case "magvar":
-                waypoint.magneticVariation = value(from: string)!
+                self.waypoint.magneticVariation = value(from: string)!
             case "geoidheight":
-                waypoint.geoidHeight = value(from: string)!
+                self.waypoint.geoidHeight = value(from: string)!
             case "name":
-                waypoint.name = string
+                self.waypoint.name = string
             case "desc":
-                waypoint.desc = string
+                self.waypoint.desc = string
             case "source":
-                waypoint.source = string
+                self.waypoint.source = string
             case "sat":
-                waypoint.satellites = Int(value(from: string)!)
+                self.waypoint.satellites = Int(value(from: string)!)
             case "hdop":
-                waypoint.horizontalDilution = value(from: string)!
+                self.waypoint.horizontalDilution = value(from: string)!
             case "vdop":
-                waypoint.verticalDilution = value(from: string)!
+                self.waypoint.verticalDilution = value(from: string)!
             case "pdop":
-                waypoint.positionDilution = value(from: string)!
+                self.waypoint.positionDilution = value(from: string)!
             case "ageofdgpsdata":
-                waypoint.ageofDGPSData = value(from: string)!
+                self.waypoint.ageofDGPSData = value(from: string)!
             case "dgpsid":
-                waypoint.DGPSid = Int(value(from: string)!)
+                self.waypoint.DGPSid = Int(value(from: string)!)
             default: ()
             }
-            waypoints.append(waypoint)
+            //waypoints.append(waypoint)
         }
     }
     
@@ -151,9 +153,32 @@ open class GPXParser: NSObject, XMLParserDelegate {
         case "metadata":
             isMetadata = false
         case "wpt":
+            let tempWaypoint = GPXWaypoint()
+            
+            // copy values
+            tempWaypoint.elevation = self.waypoint.elevation
+            tempWaypoint.time = self.waypoint.time
+            tempWaypoint.magneticVariation = self.waypoint.magneticVariation
+            tempWaypoint.geoidHeight = self.waypoint.geoidHeight
+            tempWaypoint.name = self.waypoint.name
+            tempWaypoint.desc = self.waypoint.desc
+            tempWaypoint.source = self.waypoint.source
+            tempWaypoint.satellites = self.waypoint.satellites
+            tempWaypoint.horizontalDilution = self.waypoint.horizontalDilution
+            tempWaypoint.verticalDilution = self.waypoint.verticalDilution
+            tempWaypoint.positionDilution = self.waypoint.positionDilution
+            tempWaypoint.ageofDGPSData = self.waypoint.ageofDGPSData
+            tempWaypoint.DGPSid = self.waypoint.DGPSid
+            tempWaypoint.latitude = self.waypoint.latitude
+            tempWaypoint.longitude = self.waypoint.longitude
+            
+            self.waypoints.append(tempWaypoint)
+            
+            // clear values
             isWaypoint = false
             latitude = nil
             longitude = nil
+            
         case "rte":
             isRoute = false
         case "trk":
