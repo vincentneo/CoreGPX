@@ -1,7 +1,7 @@
 {
   "name": "GPXKit",
-  "version": "0.1.0",
-  "summary": "A short description of GPXKit.",
+  "version": "0.2.2",
+  "summary": "A library for reading and creation of GPX location log files.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/vincentneo/GPXKit",
   "license": {
@@ -13,10 +13,14 @@
   },
   "source": {
     "git": "https://github.com/vincentneo/GPXKit.git",
-    "tag": "0.1.0"
+    "tag": "0.2.2"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "GPXKit/Classes/**/*"
+  "source_files": [
+    "Classes",
+    "Classes/Dependencies/TBXML/"
+  ],
+  "public_header_files": "Classes/Dependencies/TBXML/"
 }
