@@ -12,30 +12,39 @@ import GPXKit
 class ViewController: UIViewController {
     
     var tracks = [GPXTrack]()
+    var waypoints = [GPXWaypoint]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let url:String="https://gist.githubusercontent.com/cly/bab1a4f982d43bcc53ff32d4708b8a77/raw////68f4f73aa30a7bdc4100395e8bf18bf81e1f6377/sample.gpx"
-        let urlTrack : String = "https://raw.githubusercontent.com/gps-touring/sample-gpx/master/BrittanyJura/Courgenay_Ballon-DAlsace.gpx"
         
-        //let urlpath     = Bundle.main.path(forResource: "test", ofType: "gpx")
-        let urlToSend: URL = URL(string: urlTrack)!
+        // Example of parsing a GPX file from a sample URL
         
-        self.tracks = GPXParser(withURL: urlToSend).parsedData().tracks
+        let urlString : String = "https://raw.githubusercontent.com/gps-touring/sample-gpx/master/BrittanyJura/Courgenay_Ballon-DAlsace.gpx"
+        let url: URL = URL(string: urlString)!
+        
+        // GPXRoot object that contains all the data parsed from GPXParser.
+        let gpx = GPXParser(withURL: url).parsedData()
+        
+        self.tracks = gpx.tracks
+        self.waypoints = gpx.waypoints
+        
+        // This example prints all the waypoints's latitude, longitude and date from the GPX file.
+        for waypoint in self.waypoints {
+            print("waypoint-latitude: \(waypoint.latitude!)")
+            print("waypoint-longitude: \(waypoint.longitude!)")
+            print("waypoint-date: \(waypoint.time)")
+        }
+        
+        // This example prints all the trackpoint's latitude, longitude and date from the GPX file.
         for track in self.tracks {
             for tracksegment in track.tracksegments {
                 for trackpoint in tracksegment.trackpoints {
-                    print(trackpoint.latitude)
+                    print("trackpoint-latitude: \(trackpoint.latitude!)")
+                    print("trackpoint-longitude: \(trackpoint.longitude!)")
+                    print("trackpoint-date: \(trackpoint.time)")
                 }
             }
         }
-        
-        /*
-        for waypoint in self.waypoints {
-            print(waypoint.latitude)
-        }
-        */
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
