@@ -117,77 +117,85 @@ open class GPXParser: NSObject, XMLParserDelegate {
     }
     
     public func parser(_ parser: XMLParser, foundCharacters string: String) {
+        
+        let foundString = string.trimmingCharacters(in: .whitespacesAndNewlines)
+        
         if isWaypoint {
             waypoint.latitude = latitude
             waypoint.longitude = longitude
-            switch element {
-            case "ele":
-                self.waypoint.elevation = value(from: string)!
-            case "time":
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
-                self.waypoint.time = dateFormatter.date(from: string)!
-            case "magvar":
-                self.waypoint.magneticVariation = value(from: string)!
-            case "geoidheight":
-                self.waypoint.geoidHeight = value(from: string)!
-            case "name":
-                self.waypoint.name = string
-            case "desc":
-                self.waypoint.desc = string
-            case "source":
-                self.waypoint.source = string
-            case "sat":
-                self.waypoint.satellites = Int(value(from: string)!)
-            case "hdop":
-                self.waypoint.horizontalDilution = value(from: string)!
-            case "vdop":
-                self.waypoint.verticalDilution = value(from: string)!
-            case "pdop":
-                self.waypoint.positionDilution = value(from: string)!
-            case "ageofdgpsdata":
-                self.waypoint.ageofDGPSData = value(from: string)!
-            case "dgpsid":
-                self.waypoint.DGPSid = Int(value(from: string)!)
-            default: ()
+            if foundString.isEmpty == false {
+                switch element {
+                case "ele":
+                    self.waypoint.elevation = value(from: foundString)!
+                case "time":
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
+                    self.waypoint.time = dateFormatter.date(from: foundString)!
+                case "magvar":
+                    self.waypoint.magneticVariation = value(from: foundString)!
+                case "geoidheight":
+                    self.waypoint.geoidHeight = value(from: foundString)!
+                case "name":
+                    self.waypoint.name = foundString
+                case "desc":
+                    self.waypoint.desc = foundString
+                case "source":
+                    self.waypoint.source = foundString
+                case "sat":
+                    self.waypoint.satellites = Int(value(from: foundString)!)
+                case "hdop":
+                    self.waypoint.horizontalDilution = value(from: foundString)!
+                case "vdop":
+                    self.waypoint.verticalDilution = value(from: foundString)!
+                case "pdop":
+                    self.waypoint.positionDilution = value(from: foundString)!
+                case "ageofdgpsdata":
+                    self.waypoint.ageofDGPSData = value(from: foundString)!
+                case "dgpsid":
+                    self.waypoint.DGPSid = Int(value(from: foundString)!)
+                default: ()
+                }
             }
         }
         
         if isTrackPoint {
             trackpoint.latitude = latitude
             trackpoint.longitude = longitude
-            switch element {
-            case "ele":
-                self.trackpoint.elevation = value(from: string)!
-            case "time":
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
-                self.trackpoint.time = dateFormatter.date(from: string)!
-            case "magvar":
-                self.trackpoint.magneticVariation = value(from: string)!
-            case "geoidheight":
-                self.trackpoint.geoidHeight = value(from: string)!
-            case "name":
-                self.trackpoint.name = string
-            case "desc":
-                self.trackpoint.desc = string
-            case "source":
-                self.trackpoint.source = string
-            case "sat":
-                self.trackpoint.satellites = Int(value(from: string)!)
-            case "hdop":
-                self.trackpoint.horizontalDilution = value(from: string)!
-            case "vdop":
-                self.trackpoint.verticalDilution = value(from: string)!
-            case "pdop":
-                self.trackpoint.positionDilution = value(from: string)!
-            case "ageofdgpsdata":
-                self.trackpoint.ageofDGPSData = value(from: string)!
-            case "dgpsid":
-                self.trackpoint.DGPSid = Int(value(from: string)!)
-            default: ()
+            if foundString.isEmpty == false {
+                switch element {
+                case "ele":
+                    self.trackpoint.elevation = value(from: foundString)!
+                case "time":
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
+                    self.trackpoint.time = dateFormatter.date(from: foundString)!
+                case "magvar":
+                    self.trackpoint.magneticVariation = value(from: foundString)!
+                case "geoidheight":
+                    self.trackpoint.geoidHeight = value(from: foundString)!
+                case "name":
+                    self.trackpoint.name = foundString
+                case "desc":
+                    self.trackpoint.desc = foundString
+                case "source":
+                    self.trackpoint.source = foundString
+                case "sat":
+                    self.trackpoint.satellites = Int(value(from: foundString)!)
+                case "hdop":
+                    self.trackpoint.horizontalDilution = value(from: foundString)!
+                case "vdop":
+                    self.trackpoint.verticalDilution = value(from: foundString)!
+                case "pdop":
+                    self.trackpoint.positionDilution = value(from: foundString)!
+                case "ageofdgpsdata":
+                    self.trackpoint.ageofDGPSData = value(from: foundString)!
+                case "dgpsid":
+                    self.trackpoint.DGPSid = Int(value(from: foundString)!)
+                default: ()
+                }
             }
         }
+ 
     }
     
     public func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
@@ -245,21 +253,21 @@ open class GPXParser: NSObject, XMLParserDelegate {
             let tempTrackPoint = GPXTrackPoint()
             
             // copy values
-            tempTrackPoint.elevation = self.waypoint.elevation
-            tempTrackPoint.time = self.waypoint.time
-            tempTrackPoint.magneticVariation = self.waypoint.magneticVariation
-            tempTrackPoint.geoidHeight = self.waypoint.geoidHeight
-            tempTrackPoint.name = self.waypoint.name
-            tempTrackPoint.desc = self.waypoint.desc
-            tempTrackPoint.source = self.waypoint.source
-            tempTrackPoint.satellites = self.waypoint.satellites
-            tempTrackPoint.horizontalDilution = self.waypoint.horizontalDilution
-            tempTrackPoint.verticalDilution = self.waypoint.verticalDilution
-            tempTrackPoint.positionDilution = self.waypoint.positionDilution
-            tempTrackPoint.ageofDGPSData = self.waypoint.ageofDGPSData
-            tempTrackPoint.DGPSid = self.waypoint.DGPSid
-            tempTrackPoint.latitude = self.waypoint.latitude
-            tempTrackPoint.longitude = self.waypoint.longitude
+            tempTrackPoint.elevation = self.trackpoint.elevation
+            tempTrackPoint.time = self.trackpoint.time
+            tempTrackPoint.magneticVariation = self.trackpoint.magneticVariation
+            tempTrackPoint.geoidHeight = self.trackpoint.geoidHeight
+            tempTrackPoint.name = self.trackpoint.name
+            tempTrackPoint.desc = self.trackpoint.desc
+            tempTrackPoint.source = self.trackpoint.source
+            tempTrackPoint.satellites = self.trackpoint.satellites
+            tempTrackPoint.horizontalDilution = self.trackpoint.horizontalDilution
+            tempTrackPoint.verticalDilution = self.trackpoint.verticalDilution
+            tempTrackPoint.positionDilution = self.trackpoint.positionDilution
+            tempTrackPoint.ageofDGPSData = self.trackpoint.ageofDGPSData
+            tempTrackPoint.DGPSid = self.trackpoint.DGPSid
+            tempTrackPoint.latitude = self.trackpoint.latitude
+            tempTrackPoint.longitude = self.trackpoint.longitude
             
             self.trackpoints.append(tempTrackPoint)
             
