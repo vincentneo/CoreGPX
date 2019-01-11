@@ -144,7 +144,6 @@ open class GPXParser: NSObject, XMLParserDelegate {
                 self.waypoint.DGPSid = Int(value(from: string)!)
             default: ()
             }
-            //waypoints.append(waypoint)
         }
     }
     
@@ -192,45 +191,4 @@ open class GPXParser: NSObject, XMLParserDelegate {
         }
     }
 
-    /* MARK: Instance
-    
-    public func parseGPXAt(url: URL) -> GPXRoot? {
-        do {
-            let data = try Data(contentsOf: url)
-            return self.parseGPXWith(data: data)
-        }
-        catch {
-            print(error)
-        }
-        return nil
-    }
-    
-    public func parseGPXAt(path: String) -> GPXRoot? {
-        
-        let url = URL(fileURLWithPath: path)
-        return GPXParser().parseGPXAt(url: url)
-    }
-    
-    public func parseGPXWith(string: String) -> GPXRoot? {
-        
-        let xml = try? TBXML(xmlString: string, error: ())
-
-        if xml?.rootXMLElement != nil {
-            return GPXRoot(XMLElement: xml!.rootXMLElement, parent: nil)
-        }
-        
-        return nil
-    }
-    
-    public func parseGPXWith(data: Data) -> GPXRoot? {
-     
-        let xml = try? TBXML(xmlData: data, error: ())
-     
-        if xml?.rootXMLElement != nil {
-            return GPXRoot(XMLElement: xml?.rootXMLElement, parent: nil)
-        }
-
-        return nil
-    }
-    */
 }
