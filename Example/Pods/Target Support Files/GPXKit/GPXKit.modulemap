@@ -1,9 +1,6 @@
 framework module GPXKit {
   umbrella header "GPXKit-umbrella.h"
-  header "TBXML.h"
-  header "TBXML+HTTP.h"
-  header "TBXML+Compression.h"
-  
+
   export *
   module * { export * }
 }

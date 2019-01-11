@@ -16,7 +16,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
     var longitude: CGFloat? = CGFloat()
     
 
-    public var waypoint = GPXWaypoint()
+    //public var waypoint = GPXWaypoint()
     public var route = GPXRoute()
     public var track = GPXTrack()
     
@@ -27,7 +27,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
     public var metadata: GPXMetadata? = GPXMetadata()
     public var extensions: GPXExtensions? = GPXExtensions()
     
-    init(withData data: Data) {
+    public init(withData data: Data) {
         
         self.parser = XMLParser(data: data)
         super.init()
@@ -35,7 +35,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
         parser.parse()
     }
     
-    init(withPath path: String) {
+    public init(withPath path: String) {
         self.parser = XMLParser()
         super.init()
         let url = URL(fileURLWithPath: path)
@@ -50,7 +50,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
         }
     }
     
-    init(withURL url: URL) {
+    public init(withURL url: URL) {
         self.parser = XMLParser()
         super.init()
         do {
@@ -64,9 +64,9 @@ open class GPXParser: NSObject, XMLParserDelegate {
         }
     }
     
-    func parsedData() -> GPXRoot {
+    open func parsedData() -> GPXRoot {
         let root = GPXRoot()
-        
+        root.add(waypoints: waypoints)
         return root
     }
     
@@ -107,11 +107,14 @@ open class GPXParser: NSObject, XMLParserDelegate {
         default: ()
         }
         
-        print(element)
+        //print(element)
     }
     
     public func parser(_ parser: XMLParser, foundCharacters string: String) {
         if isWaypoint {
+            let waypoint = GPXWaypoint()
+            waypoint.latitude = latitude
+            waypoint.longitude = longitude
             switch element {
             case "ele":
                 waypoint.elevation = value(from: string)!
@@ -126,29 +129,20 @@ open class GPXParser: NSObject, XMLParserDelegate {
             case "source":
                 waypoint.source = string
             case "sat":
-                waypoint.satellites = value(from: string)!
+                waypoint.satellites = Int(value(from: string)!)
             case "hdop":
+                waypoint.horizontalDilution = value(from: string)!
             case "vdop":
+                waypoint.verticalDilution = value(from: string)!
             case "pdop":
+                waypoint.positionDilution = value(from: string)!
             case "ageofdgpsdata":
+                waypoint.ageofDGPSData = value(from: string)!
             case "dgpsid":
+                waypoint.DGPSid = Int(value(from: string)!)
+            default: ()
             }
-            /*
-            <ele>0.000000</ele>
-            <magvar>0.000000</magvar>
-            <geoidheight>0.000000</geoidheight>
-            <name>8:02:35 pm</name>
-            <desc>3 Jan 2019 at 8:02:35 pm</desc>
-            <source>0.000000</source>
-            <sat>0.000000</sat>
-            <hdop>0.000000</hdop>
-            <vdop>0.000000</vdop>
-            <pdop>0.000000</pdop>
-            <ageofdgpsdata>0.000000</ageofdgpsdata>
-            <dgpsid>0.000000</dgpsid>
-            <extensions>
-            </extensions>
- */
+            waypoints.append(waypoint)
         }
     }
     

@@ -1,5 +1,5 @@
 PODS:
-  - GPXKit (0.1.0)
+  - GPXKit (0.2.0)
 
 DEPENDENCIES:
   - GPXKit (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  GPXKit: 0600ffbd2405f19955bb442f36d108a099d1f3a0
+  GPXKit: dd16c3f2e59a16e633131b8f1f9422593a7217e1
 
 PODFILE CHECKSUM: 8a32a3f9dd9bad529d650f7a04d51689d0db8eca
 
