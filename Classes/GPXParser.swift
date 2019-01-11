@@ -59,10 +59,15 @@ open class GPXParser: NSObject, XMLParserDelegate {
     var waypoint = GPXWaypoint()
     var route = GPXRoute()
     var track = GPXTrack()
+    var tracksegment = GPXTrackSegment()
+    var trackpoint = GPXTrackPoint()
     
+    // Arrays
     var waypoints = [GPXWaypoint]()
     var routes = [GPXRoute]()
     var tracks = [GPXTrack]()
+    var tracksegements = [GPXTrackSegment]()
+    var trackpoints = [GPXTrackPoint]()
     
     var metadata: GPXMetadata? = GPXMetadata()
     var extensions: GPXExtensions? = GPXExtensions()
@@ -71,6 +76,8 @@ open class GPXParser: NSObject, XMLParserDelegate {
     var isMetadata: Bool = false
     var isRoute: Bool = false
     var isTrack: Bool = false
+    var isTrackSegment: Bool = false
+    var isTrackPoint: Bool = false
     var isExtension: Bool = false
     
     func value(from string: String?) -> CGFloat? {
@@ -96,7 +103,10 @@ open class GPXParser: NSObject, XMLParserDelegate {
             isRoute = true
         case "trk":
             isTrack = true
+        case "trkseg":
+            isTrackSegment = true
         case "trkpt":
+            isTrackPoint = true
             latitude = value(from: attributeDict ["lat"])
             longitude = value(from: attributeDict ["lon"])
         case "extensions":
@@ -142,6 +152,42 @@ open class GPXParser: NSObject, XMLParserDelegate {
             default: ()
             }
         }
+        
+        if isTrackPoint {
+            trackpoint.latitude = latitude
+            trackpoint.longitude = longitude
+            switch element {
+            case "ele":
+                self.trackpoint.elevation = value(from: string)!
+            case "time":
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
+                self.trackpoint.time = dateFormatter.date(from: string)!
+            case "magvar":
+                self.trackpoint.magneticVariation = value(from: string)!
+            case "geoidheight":
+                self.trackpoint.geoidHeight = value(from: string)!
+            case "name":
+                self.trackpoint.name = string
+            case "desc":
+                self.trackpoint.desc = string
+            case "source":
+                self.trackpoint.source = string
+            case "sat":
+                self.trackpoint.satellites = Int(value(from: string)!)
+            case "hdop":
+                self.trackpoint.horizontalDilution = value(from: string)!
+            case "vdop":
+                self.trackpoint.verticalDilution = value(from: string)!
+            case "pdop":
+                self.trackpoint.positionDilution = value(from: string)!
+            case "ageofdgpsdata":
+                self.trackpoint.ageofDGPSData = value(from: string)!
+            case "dgpsid":
+                self.trackpoint.DGPSid = Int(value(from: string)!)
+            default: ()
+            }
+        }
     }
     
     public func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
@@ -169,7 +215,6 @@ open class GPXParser: NSObject, XMLParserDelegate {
             tempWaypoint.longitude = self.waypoint.longitude
             
             self.waypoints.append(tempWaypoint)
-            
             // clear values
             isWaypoint = false
             latitude = nil
@@ -178,8 +223,48 @@ open class GPXParser: NSObject, XMLParserDelegate {
         case "rte":
             isRoute = false
         case "trk":
+            self.track.add(trackSegments: tracksegements)
+            
+            let tempTrack = GPXTrack()
+            tempTrack.tracksegments = self.track.tracksegments
+            self.tracks.append(tempTrack)
+            
+            //clear values
             isTrack = false
+        case "trkseg":
+            self.tracksegment.add(trackpoints: trackpoints)
+            
+            let tempTrackSegment = GPXTrackSegment()
+            tempTrackSegment.trackpoints = self.tracksegment.trackpoints
+            self.tracksegements.append(tempTrackSegment)
+            
+            // clear values
+            isTrackSegment = false
         case "trkpt":
+            
+            let tempTrackPoint = GPXTrackPoint()
+            
+            // copy values
+            tempTrackPoint.elevation = self.waypoint.elevation
+            tempTrackPoint.time = self.waypoint.time
+            tempTrackPoint.magneticVariation = self.waypoint.magneticVariation
+            tempTrackPoint.geoidHeight = self.waypoint.geoidHeight
+            tempTrackPoint.name = self.waypoint.name
+            tempTrackPoint.desc = self.waypoint.desc
+            tempTrackPoint.source = self.waypoint.source
+            tempTrackPoint.satellites = self.waypoint.satellites
+            tempTrackPoint.horizontalDilution = self.waypoint.horizontalDilution
+            tempTrackPoint.verticalDilution = self.waypoint.verticalDilution
+            tempTrackPoint.positionDilution = self.waypoint.positionDilution
+            tempTrackPoint.ageofDGPSData = self.waypoint.ageofDGPSData
+            tempTrackPoint.DGPSid = self.waypoint.DGPSid
+            tempTrackPoint.latitude = self.waypoint.latitude
+            tempTrackPoint.longitude = self.waypoint.longitude
+            
+            self.trackpoints.append(tempTrackPoint)
+            
+            // clear values
+            isTrackPoint = false
             latitude = nil
             longitude = nil
         case "extensions":

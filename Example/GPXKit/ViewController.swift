@@ -11,18 +11,28 @@ import GPXKit
 
 class ViewController: UIViewController {
     
-    var waypoints = [GPXWaypoint]()
+    var tracks = [GPXTrack]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url:String="https://gist.githubusercontent.com/cly/bab1a4f982d43bcc53ff32d4708b8a77/raw/68f4f73aa30a7bdc4100395e8bf18bf81e1f6377/sample.gpx"
+        //let url:String="https://gist.githubusercontent.com/cly/bab1a4f982d43bcc53ff32d4708b8a77/raw////68f4f73aa30a7bdc4100395e8bf18bf81e1f6377/sample.gpx"
+        let url : String = "https://gist.githubusercontent.com/billday/1927672/raw/80fdeac358406cd03e632209cbd519eaf9a048e0/Example%2520Health%2520Graph%2520data%2520export%2520GPX"
         let urlToSend: URL = URL(string: url)!
         
-        self.waypoints = GPXParser(withURL: urlToSend).parsedData().waypoints
+        self.tracks = GPXParser(withURL: urlToSend).parsedData().tracks
+        for track in self.tracks {
+            for tracksegment in track.tracksegments {
+                for trackpoint in tracksegment.trackpoints {
+                    print(trackpoint.latitude)
+                }
+            }
+        }
         
+        /*
         for waypoint in self.waypoints {
             print(waypoint.latitude)
         }
+        */
         // Do any additional setup after loading the view, typically from a nib.
     }
 
