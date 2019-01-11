@@ -10,22 +10,8 @@ import UIKit
 open class GPXParser: NSObject, XMLParserDelegate {
     
     var parser: XMLParser
-    var element = String()
-    var dictonary = Dictionary<String,String>()
-    var latitude: CGFloat? = CGFloat()
-    var longitude: CGFloat? = CGFloat()
     
-
-    public var waypoint = GPXWaypoint()
-    public var route = GPXRoute()
-    public var track = GPXTrack()
-    
-    public var waypoints = [GPXWaypoint]()
-    public var routes = [GPXRoute]()
-    public var tracks = [GPXTrack]()
-    
-    public var metadata: GPXMetadata? = GPXMetadata()
-    public var extensions: GPXExtensions? = GPXExtensions()
+    // MARK:- Init
     
     public init(withData data: Data) {
         
@@ -64,11 +50,22 @@ open class GPXParser: NSObject, XMLParserDelegate {
         }
     }
     
-    open func parsedData() -> GPXRoot {
-        let root = GPXRoot()
-        root.add(waypoints: waypoints)
-        return root
-    }
+    // MARK:- GPX Parsing
+    
+    var element = String()
+    var latitude: CGFloat? = CGFloat()
+    var longitude: CGFloat? = CGFloat()
+    
+    var waypoint = GPXWaypoint()
+    var route = GPXRoute()
+    var track = GPXTrack()
+    
+    var waypoints = [GPXWaypoint]()
+    var routes = [GPXRoute]()
+    var tracks = [GPXTrack]()
+    
+    var metadata: GPXMetadata? = GPXMetadata()
+    var extensions: GPXExtensions? = GPXExtensions()
     
     var isWaypoint: Bool = false
     var isMetadata: Bool = false
@@ -189,6 +186,16 @@ open class GPXParser: NSObject, XMLParserDelegate {
             isExtension = false
         default: ()
         }
+    }
+    
+    // MARK:- Export parsed data
+    
+    open func parsedData() -> GPXRoot {
+        let root = GPXRoot()
+        root.add(waypoints: waypoints)
+        root.add(routes: routes)
+        root.add(tracks: tracks)
+        return root
     }
 
 }
