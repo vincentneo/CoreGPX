@@ -164,6 +164,24 @@ open class GPXParser: NSObject, XMLParserDelegate {
                 }
             }
         }
+        if isMetadata {
+            if foundString.isEmpty != false {
+                switch element {
+                case "name":
+                    self.metadata!.name = foundString
+                case "desc":
+                    self.metadata!.desc = foundString
+                case "time":
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
+                    self.metadata!.time = dateFormatter.date(from: foundString)!
+                case "keyword":
+                    self.metadata!.keyword = foundString
+                // author, copyright, link, bounds, extensions not implemented.
+                default: ()
+                }
+            }
+        }
     }
     
     public func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
@@ -289,6 +307,8 @@ open class GPXParser: NSObject, XMLParserDelegate {
     
     open func parsedData() -> GPXRoot {
         let root = GPXRoot()
+        root.metadata = metadata // partially implemented
+        root.extensions = extensions // not implemented
         root.add(waypoints: waypoints)
         root.add(routes: routes)
         root.add(tracks: tracks)
