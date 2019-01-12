@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'CoreGPX'
+  s.name             = 'GPXKit'
   s.version          = '0.3.0'
   s.summary          = 'A library for reading and creation of GPX location log files.'
 
