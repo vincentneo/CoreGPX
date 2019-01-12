@@ -2,23 +2,24 @@
 
 [![CI Status](https://travis-ci.com/vincentneo/GPXKit.svg?branch=master)](https://travis-ci.com/vincentneo/GPXKit)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
-[![Platform](https://img.shields.io/badge/platform-iOS-orange.svg)](https://www.apple.com/ios/)
+[![Platform](https://img.shields.io/cocoapods/p/CoreGPX.svg?style=flat)](https://cocoapods.org/pods/CoreGPX)
+[![Version](https://img.shields.io/cocoapods/v/CoreGPX.svg?style=flat)](https://cocoapods.org/pods/CoreGPX)
 <!---
-[![Platform](https://img.shields.io/cocoapods/p/GPXKit.svg?style=flat)](https://cocoapods.org/pods/GPXKit)
-[![Version](https://img.shields.io/cocoapods/v/GPXKit.svg?style=flat)](https://cocoapods.org/pods/GPXKit)
+[![Platform](https://img.shields.io/badge/platform-iOS-orange.svg)](https://www.apple.com/ios/)
 -->
 
-### WORK IN PROGRESS!
-
-## Progress Checklist / What works
-- [x] Successfully outputs string that can be packaged into a GPX file *
+## What works
+- [x] Successfully outputs string that can be packaged into a GPX file
 - [x] Parses GPX files
 - [x] Migrate to native XMLParser
+
+## TO DO Checklist
 - [ ] Documentation
 - [ ] Code optimisation
 - [ ] New features
 
-*extra empty extensions tag
+## How to use
+Coming soon!
 
 ## Aim
 This project aims to update/port iOS-GPX-Framework to Swift language, due to its original code being seemingly abandoned.
