@@ -24,7 +24,7 @@ open class GPXWaypoint: GPXElement {
     var longitudeValue:String?
     
     public var elevation = CGFloat()
-    public var time = Date()
+    public var time: Date
     public var magneticVariation = CGFloat()
     public var geoidHeight = CGFloat()
     public var name: String?
@@ -50,6 +50,7 @@ open class GPXWaypoint: GPXElement {
     }
      
     public init(latitude: CGFloat, longitude: CGFloat) {
+        self.time = Date()
         super.init()
         self.latitude = latitude
         self.longitude = longitude

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5DAB2B117979C2FAFF69B1E0 /* Pods_GPXKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DFC2EEC7E2A15A8A7115766 /* Pods_GPXKit_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -15,8 +14,8 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		8DB72704FC242BCF27592BDE /* Pods_CoreGPX_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7835104F033F117BB9802240 /* Pods_CoreGPX_Tests.framework */; };
+		BFD4523D21E9F17A002ECA3A /* ParseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4523C21E9F17A002ECA3A /* ParseViewController.swift */; };
 		D2FE0F1B39CAD071986EF792 /* Pods_CoreGPX_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1199081F763AEFCB013E8280 /* Pods_CoreGPX_Example.framework */; };
-		EFA4D80AF0FA527198876FCD /* Pods_GPXKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266EFD96DD576DC3F2165B5B /* Pods_GPXKit_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,9 +31,7 @@
 /* Begin PBXFileReference section */
 		075668C73FF16AA0431AF1CD /* Pods-CoreGPX_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreGPX_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreGPX_Tests/Pods-CoreGPX_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		1199081F763AEFCB013E8280 /* Pods_CoreGPX_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreGPX_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1DFC2EEC7E2A15A8A7115766 /* Pods_GPXKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPXKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		25FD7EB183A4A9CE3963AB4F /* Pods-CoreGPX_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreGPX_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreGPX_Example/Pods-CoreGPX_Example.release.xcconfig"; sourceTree = "<group>"; };
-		266EFD96DD576DC3F2165B5B /* Pods_GPXKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPXKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		505B15A1181144CFF96772E1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* CoreGPX_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreGPX_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +46,7 @@
 		7835104F033F117BB9802240 /* Pods_CoreGPX_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreGPX_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		820FB2B530C75127A6FBEC73 /* Pods-CoreGPX_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreGPX_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreGPX_Tests/Pods-CoreGPX_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B1FA67C144CC465C6B228AB8 /* GPXKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GPXKit.podspec; path = ../GPXKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BFD4523C21E9F17A002ECA3A /* ParseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseViewController.swift; sourceTree = "<group>"; };
 		E4C0F7E2E749B02F23048D43 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		FC31721A2B8A45B5DADF76C5 /* Pods-CoreGPX_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreGPX_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreGPX_Example/Pods-CoreGPX_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,7 +56,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DAB2B117979C2FAFF69B1E0 /* Pods_GPXKit_Example.framework in Frameworks */,
 				D2FE0F1B39CAD071986EF792 /* Pods_CoreGPX_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,7 +64,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFA4D80AF0FA527198876FCD /* Pods_GPXKit_Tests.framework in Frameworks */,
 				8DB72704FC242BCF27592BDE /* Pods_CoreGPX_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +97,7 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				BFD4523C21E9F17A002ECA3A /* ParseViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -148,8 +145,6 @@
 		BEB73F74A1ABC3429EC390AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1DFC2EEC7E2A15A8A7115766 /* Pods_GPXKit_Example.framework */,
-				266EFD96DD576DC3F2165B5B /* Pods_GPXKit_Tests.framework */,
 				1199081F763AEFCB013E8280 /* Pods_CoreGPX_Example.framework */,
 				7835104F033F117BB9802240 /* Pods_CoreGPX_Tests.framework */,
 			);
@@ -331,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				BFD4523D21E9F17A002ECA3A /* ParseViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

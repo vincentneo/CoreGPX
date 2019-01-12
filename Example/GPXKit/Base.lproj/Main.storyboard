@@ -1,18 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="y2H-x0-QPp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="3cm-gF-9Hz">
+            <objects>
+                <navigationController id="y2H-x0-QPp" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pxA-EL-gby">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="Cex-fu-0JG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HiM-fy-ANR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-66" y="287"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="GPXKit_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="CoreGPX_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -20,11 +36,100 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1KS-xU-Za0">
+                                <rect key="frame" x="0.0" y="230" width="375" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="WWB-OW-TuW"/>
+                                </constraints>
+                                <state key="normal" title="Create GPX file"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unS-f9-l9e">
+                                <rect key="frame" x="0.0" y="402" width="375" height="30"/>
+                                <state key="normal" title="Parse GPX file from URL"/>
+                                <connections>
+                                    <segue destination="bPz-MR-iTH" kind="show" id="Tjx-M1-rh1"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1KS-xU-Za0" firstAttribute="leading" secondItem="unS-f9-l9e" secondAttribute="leading" id="2p4-YV-D4h"/>
+                            <constraint firstAttribute="trailing" secondItem="1KS-xU-Za0" secondAttribute="trailing" id="6BN-oI-kjQ"/>
+                            <constraint firstItem="1KS-xU-Za0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Mcw-db-k9c"/>
+                            <constraint firstItem="1KS-xU-Za0" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="166" id="VAC-cB-G1c"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="unS-f9-l9e" secondAttribute="bottom" constant="235" id="ay9-hY-Jvs"/>
+                            <constraint firstItem="1KS-xU-Za0" firstAttribute="trailing" secondItem="unS-f9-l9e" secondAttribute="trailing" id="ehl-hQ-pA7"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ObE-8k-Y58"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="781.60000000000002" y="286.50674662668666"/>
+        </scene>
+        <!--Parse View Controller-->
+        <scene sceneID="A6J-Cw-ryp">
+            <objects>
+                <viewController id="bPz-MR-iTH" customClass="ParseViewController" customModule="CoreGPX_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I2O-fn-GMw"/>
+                        <viewControllerLayoutGuide type="bottom" id="xu7-MX-MAC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="G5f-gy-iwO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="931-0t-FyX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="rVh-dr-LOE">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rVh-dr-LOE" id="PxN-y1-OzW">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="bPz-MR-iTH" id="Vqz-oY-Zx8"/>
+                                    <outlet property="delegate" destination="bPz-MR-iTH" id="8uY-Hy-dxn"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="931-0t-FyX" firstAttribute="leading" secondItem="G5f-gy-iwO" secondAttribute="leading" id="5kB-yN-xaH"/>
+                            <constraint firstItem="931-0t-FyX" firstAttribute="bottom" secondItem="xu7-MX-MAC" secondAttribute="top" id="7Zw-wI-s9V"/>
+                            <constraint firstItem="931-0t-FyX" firstAttribute="top" secondItem="G5f-gy-iwO" secondAttribute="top" id="oDd-x1-V1j"/>
+                            <constraint firstAttribute="trailing" secondItem="931-0t-FyX" secondAttribute="trailing" id="s0a-zR-WUP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="siK-Le-UZE">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="https://raw.githubusercontent.com/gps-touring/sample-gpx/master/BrittanyJura/Courgenay_Ballon-DAlsace.gpx" borderStyle="roundedRect" placeholder="URL of a GPX file here" minimumFontSize="17" id="LR0-KI-hFh">
+                            <rect key="frame" x="50" y="7" width="260" height="30"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <barButtonItem key="rightBarButtonItem" title="Parse" id="pOQ-MW-r9P">
+                            <connections>
+                                <action selector="onPress:" destination="bPz-MR-iTH" id="mnJ-Qx-rZe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="inputTextField" destination="LR0-KI-hFh" id="liW-BH-0If"/>
+                        <outlet property="tableView" destination="931-0t-FyX" id="Uvd-Nt-bx7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zHd-hs-fKp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1616.8" y="286.50674662668666"/>
         </scene>
     </scenes>
 </document>

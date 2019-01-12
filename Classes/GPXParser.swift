@@ -137,6 +137,8 @@ open class GPXParser: NSObject, XMLParserDelegate {
                 case "time":
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
+                    dateFormatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
+                    dateFormatter.locale = Locale(identifier: "en_US_POSIX")
                     self.waypoint.time = dateFormatter.date(from: foundString)!
                 case "magvar":
                     self.waypoint.magneticVariation = value(from: foundString)!
@@ -173,7 +175,9 @@ open class GPXParser: NSObject, XMLParserDelegate {
                     self.metadata!.desc = foundString
                 case "time":
                     let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
+                    dateFormatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
+                    dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+                    dateFormatter.dateFormat = "yyyy-MM-ddTHH:mm:ssZ"
                     self.metadata!.time = dateFormatter.date(from: foundString)!
                 case "keyword":
                     self.metadata!.keyword = foundString

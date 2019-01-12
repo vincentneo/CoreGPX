@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1010"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C967987317C2F8751FC5BF98A0FE0288"
-               BuildableName = "GPXKit.framework"
-               BlueprintName = "GPXKit"
+               BlueprintIdentifier = "1FF6BE2AF737A7CF5E77D983FE99CC8E"
+               BuildableName = "CoreGPX.framework"
+               BlueprintName = "CoreGPX"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C967987317C2F8751FC5BF98A0FE0288"
-            BuildableName = "GPXKit.framework"
-            BlueprintName = "GPXKit"
+            BlueprintIdentifier = "1FF6BE2AF737A7CF5E77D983FE99CC8E"
+            BuildableName = "CoreGPX.framework"
+            BlueprintName = "CoreGPX"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -60,15 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C967987317C2F8751FC5BF98A0FE0288"
-            BuildableName = "GPXKit.framework"
-            BlueprintName = "GPXKit"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
