@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import GPXKit
+import CoreGPX
 
 class ViewController: UIViewController {
     

@@ -1,5 +1,5 @@
 import XCTest
-import GPXKit
+import CoreGPX
 
 class Tests: XCTestCase {
     

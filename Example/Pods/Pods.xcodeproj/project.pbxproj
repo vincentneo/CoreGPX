@@ -7,173 +7,195 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00BDDFE079223BD05F5EDC763D99165F /* GPXRoutePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03A9075C48A59C16F37A22686DF047 /* GPXRoutePoint.swift */; };
-		016F0B695D538C5EFD93F59DCA2E3102 /* GPXLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A5E7277108A5560C851AD18D1D94CD /* GPXLink.swift */; };
-		03A108E1CBF4576302896DB253BC979B /* GPXPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A5D88B0AFFB112E70CD031F04E3280 /* GPXPerson.swift */; };
-		1272EA5B61DB6BCA024F6DE1CBBD7009 /* GPXTrackSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75112F04BC8CE896C34D32BA6AF42976 /* GPXTrackSegment.swift */; };
-		145326A6F2827546BC219B88F672E601 /* GPXCopyright.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380B0FE0688B164B8E324A91454BA12 /* GPXCopyright.swift */; };
-		170C8A384B9EB02A98E9CDBB55F1F664 /* Pods-GPXKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BE890264AF60CC7BEF186CF89CF2A067 /* Pods-GPXKit_Tests-dummy.m */; };
-		1E3428CC05277D40FC6BE43F035330C8 /* GPXEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F99B4D6C311C2367AEFBA474C8243 /* GPXEmail.swift */; };
-		1E48D9041E9050A8A2E16B6E2E7670C4 /* GPXType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953083364CCA59543D9FB7CF332F13EB /* GPXType.swift */; };
-		24AB0251EDC1B983DDB35E5C22DECE27 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
-		2F609B0A3267096914406953B718E1E9 /* Pods-GPXKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 39858D8C355D9478CE7F0393428A58D1 /* Pods-GPXKit_Example-dummy.m */; };
-		350F63DE55707E4882546BEF7626B25F /* GPXMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA02AF0F58AC10D556779F69CB2BC3D6 /* GPXMetadata.swift */; };
-		369AF87783519218A946FF5C09601E92 /* GPXElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDB95A17A5EDE7C3C4485FC55A3F666 /* GPXElement.swift */; };
-		3D9F57B1664338AB7BB9637160F35DC8 /* GPXKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 92FCF298E9C7B929009EACD30F15D316 /* GPXKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		468BC4E2E307AC450B87E047E0296034 /* GPXRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18965A87A53ED2A646CE888BE10481EC /* GPXRoot.swift */; };
-		470BE17AF5444A8EC5F7DDCA2BD4BA73 /* GPXWaypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7948C2E0156D808404D58D2C04030857 /* GPXWaypoint.swift */; };
-		5AD0C3B14F1A6A330FFB471260AD66EB /* GPXAuthor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2A41D0297B26C19BB9A052ADEAC4AF /* GPXAuthor.swift */; };
-		6E9816A6EF9C00518B333F311A06B3C6 /* Pods-GPXKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DFEA1BBFED7761C54E34533C845E52D /* Pods-GPXKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7C7E9F8CED8E5289E9DA200A57C75C0F /* GPXKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EC38C75E7B18026EE341B8FC21B9E50E /* GPXKit-dummy.m */; };
-		8FCF1084A84F0AD48EB1DB8ADE93484A /* GPXParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13090AD0EFC9C26737959142E49C502F /* GPXParser.swift */; };
-		96955EAE494B6042139110C5B8E5B365 /* Pods-GPXKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F92DE730BA2208830EB6528858CA83E /* Pods-GPXKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		98D2031B5E99FC4686ED9D10DFA6977E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
-		A69227623744CFD257C35BA743A8ECA1 /* GPXExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B3B831B4C253220016A2366FCF8B03 /* GPXExtensions.swift */; };
-		C3B42DC84C537345248F52809A88E214 /* GPXRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCEA4DACCC881B46B3A65D7D713CF92 /* GPXRoute.swift */; };
-		CCF862BF0F302DDD3031047AF7FC95D7 /* GPXPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552B30309CEBE5B7019F6FD1CF14B8A6 /* GPXPoint.swift */; };
-		D6B487B680ED8B9CB98C8238D50E6F47 /* GPXTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780079F3279B02C3B3817218D02907B4 /* GPXTrack.swift */; };
-		D6F1B584B9A7B9D483CF8CBD2A9F8A24 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
-		E045B404D6E58FE8E8856A97E3DAB4E5 /* GPXPointSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F57D0555B8E7A4CBFA0447AFEC7542 /* GPXPointSegment.swift */; };
-		F1282D91486782F8217CAF1CD490E170 /* GPXBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D80810D68357BD34EA7A8E2EE22CAFE /* GPXBounds.swift */; };
-		FB86ED0424CBC87E6D8AD4B2AB45DAAF /* GPXTrackPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40ECB2C886183FEDAE956D8C19C1690 /* GPXTrackPoint.swift */; };
+		07834B15CF0306D2C4DD8E44CEC68C2B /* GPXAuthor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFE9B5F15EF40449A8A82D34D4C81A6 /* GPXAuthor.swift */; };
+		18F349D40EE13C89C63260076BFAED43 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		2267759FF0A171F668C7575CBCEBD6D6 /* GPXPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F06D38496EE021E5A0F77FE3C9866 /* GPXPoint.swift */; };
+		328C594ED09DD9C7F3DDE1A61CB24320 /* GPXPointSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A931BE67E28BADAA46DD76D551372D6 /* GPXPointSegment.swift */; };
+		35E4D9DB8D361BD7F90AB8C11A02CDA8 /* GPXElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC0DC9E6862E8F79D8AE36577B4C30 /* GPXElement.swift */; };
+		365F7933CCC915A830159FAA0BE33B4D /* Pods-CoreGPX_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C784FA25886F2D997440662E4D8BE68 /* Pods-CoreGPX_Tests-dummy.m */; };
+		3721E3A3DF2D89965973F8387E3032C9 /* GPXTrackPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5124232CCAE8C02FBF3D86B158D29923 /* GPXTrackPoint.swift */; };
+		3C52C17AC9BCA485AB5CEADE334F3B55 /* GPXRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CF2ED28FFD65C8E71D26B9C5422A14 /* GPXRoute.swift */; };
+		4593377380E79042C9216EFA56EB6577 /* GPXLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39158661B12C1C5E1CE517EB0F78E27D /* GPXLink.swift */; };
+		4732B1A1675B9649AAAACAD20652E8E3 /* GPXCopyright.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D19A9107BC3F54687D84FF3325966 /* GPXCopyright.swift */; };
+		477F0E104354D26BA8E3759E484AD553 /* CoreGPX-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B4A3357A6752306C07E751067D65C11 /* CoreGPX-dummy.m */; };
+		5236B2E3D97E344B7E32D5517E614BC1 /* GPXWaypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA16A124E1CE8C773AAF30C70A8C99 /* GPXWaypoint.swift */; };
+		54B649F79CD2FA8D719DF0CFBB265E0A /* Pods-CoreGPX_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EC737F06C1B2FD99296587404A056DC9 /* Pods-CoreGPX_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		583AB24901FAADBC8DE10524F90775A5 /* GPXTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA6859C0E5F5ECD779B7A966CF19136 /* GPXTrack.swift */; };
+		5CCF68DAA1D98BECBCA6510FFE7E7F70 /* GPXParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B414977B096EB39D462F5124214BABFE /* GPXParser.swift */; };
+		70C2AD85987CBB4DDD8B5ECDC0CC739C /* GPXExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F5E079FA10035626C48C67D4E5ED30 /* GPXExtensions.swift */; };
+		80CB66806B12615CE77A131766CF216B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		882F5B215566AEDB2A2FD702EB7D36B6 /* GPXEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8226A2AF2988FE6006D11A4DF1D5076 /* GPXEmail.swift */; };
+		8BC1E258921ED7FEAB87224B768A4420 /* GPXBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451989DDB8570D85FA5371D175A9C0F2 /* GPXBounds.swift */; };
+		8FE83BF3446F76AF9B3923D560C7F806 /* Pods-CoreGPX_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8560A482EC959D099876DC62FB903336 /* Pods-CoreGPX_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95F292BF87E9FFDC17AB554D11BEFCE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		961A8A93937095F25A6AC83A57C467D2 /* GPXTrackSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171B80D4BA423019BBC5DA54E387180A /* GPXTrackSegment.swift */; };
+		9FECD70DAFB2EC393F0293565E492B83 /* CoreGPX-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 06E95C5A2842B177852DDE7EF191CCAB /* CoreGPX-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A747EE957A27BF62DFD53F20F453081E /* GPXPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE08E6C8AFC4C61AB3EFECB99DEA77BD /* GPXPerson.swift */; };
+		AC613BE2782CB345D67CA6161D274529 /* GPXRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FC7E6D90521F471B7DF7C9C7719C19 /* GPXRoot.swift */; };
+		AF08350B73D09B7E2F4601E9C8173977 /* GPXMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42FE81053B5813BD472CFE7B19B3BA5 /* GPXMetadata.swift */; };
+		B2B43EAB18CA3EF9E0D1003115269631 /* GPXType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37941B65FCF9E06DD2336C3FD37996D0 /* GPXType.swift */; };
+		D795DF4C23442253917024503DCAF117 /* Pods-CoreGPX_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 867AB39A36AC9D8488B4BCB7FB43E28C /* Pods-CoreGPX_Example-dummy.m */; };
+		E55496502F1C3CC5F1958CF081A0F2A4 /* GPXRoutePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB56EE437C9A15EB06832BBDC235A1C /* GPXRoutePoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		7F88B7F97924AB216F0AC9F75D44C326 /* PBXContainerItemProxy */ = {
+		680928CBA9DF05525962F152F7C53F9B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C967987317C2F8751FC5BF98A0FE0288;
-			remoteInfo = GPXKit;
+			remoteGlobalIDString = 0D851909C24A61CD5DC2FE112328BE0F;
+			remoteInfo = "Pods-CoreGPX_Example";
 		};
-		9524455B4389AFB31CDF97088E897D85 /* PBXContainerItemProxy */ = {
+		B1DD7E7E7D9C5D877CC7349DEA4931C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5B505442E72805C9555E391AC5733B3C;
-			remoteInfo = "Pods-GPXKit_Example";
+			remoteGlobalIDString = 1FF6BE2AF737A7CF5E77D983FE99CC8E;
+			remoteInfo = CoreGPX;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		02760396C01459E8F901DCD8D3595E72 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		028604DAEEC6AA05A291FA910111ED67 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0380B0FE0688B164B8E324A91454BA12 /* GPXCopyright.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXCopyright.swift; path = Classes/GPXCopyright.swift; sourceTree = "<group>"; };
-		074AE5A7D8F25D49F884AC99652F61CD /* GPXKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GPXKit-prefix.pch"; sourceTree = "<group>"; };
-		083FBFC670158CD7B0E8B7EE73629CFD /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		0D2A41D0297B26C19BB9A052ADEAC4AF /* GPXAuthor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXAuthor.swift; path = Classes/GPXAuthor.swift; sourceTree = "<group>"; };
-		0DFEA1BBFED7761C54E34533C845E52D /* Pods-GPXKit_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GPXKit_Tests-umbrella.h"; sourceTree = "<group>"; };
-		0FE6DC5B30825964E7A83DD6DD4F91EE /* GPXKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GPXKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		107601E932239FC1DFF5985F3F2B6455 /* Pods-GPXKit_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-GPXKit_Tests.modulemap"; sourceTree = "<group>"; };
-		13090AD0EFC9C26737959142E49C502F /* GPXParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXParser.swift; path = Classes/GPXParser.swift; sourceTree = "<group>"; };
-		18965A87A53ED2A646CE888BE10481EC /* GPXRoot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXRoot.swift; path = Classes/GPXRoot.swift; sourceTree = "<group>"; };
-		2323244959724AB3799390D4FAD0ECAC /* Pods-GPXKit_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GPXKit_Tests-resources.sh"; sourceTree = "<group>"; };
-		377F99B4D6C311C2367AEFBA474C8243 /* GPXEmail.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXEmail.swift; path = Classes/GPXEmail.swift; sourceTree = "<group>"; };
-		37B3B831B4C253220016A2366FCF8B03 /* GPXExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXExtensions.swift; path = Classes/GPXExtensions.swift; sourceTree = "<group>"; };
-		39858D8C355D9478CE7F0393428A58D1 /* Pods-GPXKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GPXKit_Example-dummy.m"; sourceTree = "<group>"; };
-		449AB63040842129352BD970926897FD /* Pods-GPXKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GPXKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		48FEDD772072D62AA7758F339949F614 /* Pods-GPXKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GPXKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		552B30309CEBE5B7019F6FD1CF14B8A6 /* GPXPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXPoint.swift; path = Classes/GPXPoint.swift; sourceTree = "<group>"; };
+		00F0F353A2A50ADD440CE1D078B16908 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		06E95C5A2842B177852DDE7EF191CCAB /* CoreGPX-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CoreGPX-umbrella.h"; sourceTree = "<group>"; };
+		171B80D4BA423019BBC5DA54E387180A /* GPXTrackSegment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXTrackSegment.swift; path = Classes/GPXTrackSegment.swift; sourceTree = "<group>"; };
+		1D2E30143C1734DE1D811B70D043A405 /* CoreGPX-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CoreGPX-prefix.pch"; sourceTree = "<group>"; };
+		27D4563E6DE8F7E40ACEB108805D72A7 /* Pods-CoreGPX_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CoreGPX_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		35FF2B0AA8E162D85D47378BD07D45B4 /* Pods-CoreGPX_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CoreGPX_Tests-resources.sh"; sourceTree = "<group>"; };
+		37941B65FCF9E06DD2336C3FD37996D0 /* GPXType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXType.swift; path = Classes/GPXType.swift; sourceTree = "<group>"; };
+		38833BE920F9C399D9C5F1F6FBF942EC /* Pods_CoreGPX_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CoreGPX_Example.framework; path = "Pods-CoreGPX_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		39158661B12C1C5E1CE517EB0F78E27D /* GPXLink.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXLink.swift; path = Classes/GPXLink.swift; sourceTree = "<group>"; };
+		3B22141F70B56D11246CE9CB322CB2EC /* Pods-CoreGPX_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CoreGPX_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3B29951D0B54D950414AA93DB41FC7AD /* Pods-CoreGPX_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CoreGPX_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		3C784FA25886F2D997440662E4D8BE68 /* Pods-CoreGPX_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CoreGPX_Tests-dummy.m"; sourceTree = "<group>"; };
+		451989DDB8570D85FA5371D175A9C0F2 /* GPXBounds.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXBounds.swift; path = Classes/GPXBounds.swift; sourceTree = "<group>"; };
+		507AE1530EA0F62826EA2E41991CE60E /* Pods-CoreGPX_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CoreGPX_Example.release.xcconfig"; sourceTree = "<group>"; };
+		5124232CCAE8C02FBF3D86B158D29923 /* GPXTrackPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXTrackPoint.swift; path = Classes/GPXTrackPoint.swift; sourceTree = "<group>"; };
+		52F5E079FA10035626C48C67D4E5ED30 /* GPXExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXExtensions.swift; path = Classes/GPXExtensions.swift; sourceTree = "<group>"; };
 		5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		5D80810D68357BD34EA7A8E2EE22CAFE /* GPXBounds.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXBounds.swift; path = Classes/GPXBounds.swift; sourceTree = "<group>"; };
-		5F61B273A30C71DC020590EC71E2E971 /* Pods-GPXKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GPXKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		6788BE60564F93367C8A9592682AE746 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		69D78741D275AF4E9E8CE180426B5E9E /* Pods_GPXKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPXKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6D9B9F1E3D8BB2386A0023E915896E1B /* Pods-GPXKit_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GPXKit_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		7247CEF9EBC481E8E9FF55A530194B33 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		731D2D15EA4ADB2DF9616A083E214B28 /* GPXKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = GPXKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		75112F04BC8CE896C34D32BA6AF42976 /* GPXTrackSegment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXTrackSegment.swift; path = Classes/GPXTrackSegment.swift; sourceTree = "<group>"; };
-		780079F3279B02C3B3817218D02907B4 /* GPXTrack.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXTrack.swift; path = Classes/GPXTrack.swift; sourceTree = "<group>"; };
-		7948C2E0156D808404D58D2C04030857 /* GPXWaypoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXWaypoint.swift; path = Classes/GPXWaypoint.swift; sourceTree = "<group>"; };
-		796E643A1A01FFB4E1735C7FB09AE982 /* Pods-GPXKit_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-GPXKit_Example.modulemap"; sourceTree = "<group>"; };
-		8010F3D26243E0B37E9E3279D59CFEE5 /* Pods-GPXKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GPXKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		92FCF298E9C7B929009EACD30F15D316 /* GPXKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GPXKit-umbrella.h"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		93F7533E7EA3FB168C80ADFB93770FD1 /* Pods-GPXKit_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GPXKit_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		953083364CCA59543D9FB7CF332F13EB /* GPXType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXType.swift; path = Classes/GPXType.swift; sourceTree = "<group>"; };
-		9AF17497F29CAC8964BFBD324E8FBF46 /* Pods-GPXKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GPXKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9F92DE730BA2208830EB6528858CA83E /* Pods-GPXKit_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GPXKit_Example-umbrella.h"; sourceTree = "<group>"; };
-		A40ECB2C886183FEDAE956D8C19C1690 /* GPXTrackPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXTrackPoint.swift; path = Classes/GPXTrackPoint.swift; sourceTree = "<group>"; };
-		A4A5E7277108A5560C851AD18D1D94CD /* GPXLink.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXLink.swift; path = Classes/GPXLink.swift; sourceTree = "<group>"; };
-		B0FC78452F2611881FD0003416F5A1EB /* Pods-GPXKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GPXKit_Example-frameworks.sh"; sourceTree = "<group>"; };
-		B1F57D0555B8E7A4CBFA0447AFEC7542 /* GPXPointSegment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXPointSegment.swift; path = Classes/GPXPointSegment.swift; sourceTree = "<group>"; };
-		B37CBB4EA663289BFD19CEC1C5B8A596 /* Pods_GPXKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPXKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA03A9075C48A59C16F37A22686DF047 /* GPXRoutePoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXRoutePoint.swift; path = Classes/GPXRoutePoint.swift; sourceTree = "<group>"; };
-		BC7D2EDE611456AF8F6E998253730BE1 /* Pods-GPXKit_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GPXKit_Example-resources.sh"; sourceTree = "<group>"; };
-		BE890264AF60CC7BEF186CF89CF2A067 /* Pods-GPXKit_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GPXKit_Tests-dummy.m"; sourceTree = "<group>"; };
-		C267DDDF80D9966856744E15BAC5A9E4 /* Pods-GPXKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GPXKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		CEDB95A17A5EDE7C3C4485FC55A3F666 /* GPXElement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXElement.swift; path = Classes/GPXElement.swift; sourceTree = "<group>"; };
-		D53523A6C5D23A4BC0127097B557616D /* GPXKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GPXKit.xcconfig; sourceTree = "<group>"; };
-		EA02AF0F58AC10D556779F69CB2BC3D6 /* GPXMetadata.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXMetadata.swift; path = Classes/GPXMetadata.swift; sourceTree = "<group>"; };
-		EBCEA4DACCC881B46B3A65D7D713CF92 /* GPXRoute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXRoute.swift; path = Classes/GPXRoute.swift; sourceTree = "<group>"; };
-		EC38C75E7B18026EE341B8FC21B9E50E /* GPXKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GPXKit-dummy.m"; sourceTree = "<group>"; };
-		F2A5D88B0AFFB112E70CD031F04E3280 /* GPXPerson.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXPerson.swift; path = Classes/GPXPerson.swift; sourceTree = "<group>"; };
-		F84932B3297613D4ED6B0C58E1B46D56 /* Pods-GPXKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GPXKit_Example.release.xcconfig"; sourceTree = "<group>"; };
-		FE4A8AD67E98EA05280A5F7DB14F177E /* GPXKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GPXKit.modulemap; sourceTree = "<group>"; };
+		5A931BE67E28BADAA46DD76D551372D6 /* GPXPointSegment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXPointSegment.swift; path = Classes/GPXPointSegment.swift; sourceTree = "<group>"; };
+		5B4A3357A6752306C07E751067D65C11 /* CoreGPX-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CoreGPX-dummy.m"; sourceTree = "<group>"; };
+		5BDA16A124E1CE8C773AAF30C70A8C99 /* GPXWaypoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXWaypoint.swift; path = Classes/GPXWaypoint.swift; sourceTree = "<group>"; };
+		5F3F06D38496EE021E5A0F77FE3C9866 /* GPXPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXPoint.swift; path = Classes/GPXPoint.swift; sourceTree = "<group>"; };
+		65265DF4088FE30F80980748FC3990B9 /* Pods-CoreGPX_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CoreGPX_Example-resources.sh"; sourceTree = "<group>"; };
+		667444E7680CA4B76EDBB525CFC9CFBE /* Pods-CoreGPX_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CoreGPX_Example.modulemap"; sourceTree = "<group>"; };
+		686D19A9107BC3F54687D84FF3325966 /* GPXCopyright.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXCopyright.swift; path = Classes/GPXCopyright.swift; sourceTree = "<group>"; };
+		7B5DE58B073BAC11D27312D724089A7B /* Pods-CoreGPX_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CoreGPX_Example-frameworks.sh"; sourceTree = "<group>"; };
+		8560A482EC959D099876DC62FB903336 /* Pods-CoreGPX_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CoreGPX_Example-umbrella.h"; sourceTree = "<group>"; };
+		8601B99D007DD4CB01FE41571A600782 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		867AB39A36AC9D8488B4BCB7FB43E28C /* Pods-CoreGPX_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CoreGPX_Example-dummy.m"; sourceTree = "<group>"; };
+		8DEC0DC9E6862E8F79D8AE36577B4C30 /* GPXElement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXElement.swift; path = Classes/GPXElement.swift; sourceTree = "<group>"; };
+		92B0351A54A050E24F6CBEA577246FBF /* CoreGPX.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CoreGPX.xcconfig; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9B4B2243023B945D7F93518B10795C33 /* Pods-CoreGPX_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CoreGPX_Tests.modulemap"; sourceTree = "<group>"; };
+		9F238040FA300B3A63C80CF2E9CE81CD /* Pods-CoreGPX_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CoreGPX_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		A42FE81053B5813BD472CFE7B19B3BA5 /* GPXMetadata.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXMetadata.swift; path = Classes/GPXMetadata.swift; sourceTree = "<group>"; };
+		AA8534AB46BAA4D06FE361DC6BD52A6D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFA6859C0E5F5ECD779B7A966CF19136 /* GPXTrack.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXTrack.swift; path = Classes/GPXTrack.swift; sourceTree = "<group>"; };
+		B414977B096EB39D462F5124214BABFE /* GPXParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXParser.swift; path = Classes/GPXParser.swift; sourceTree = "<group>"; };
+		B89C566DDFE64E2FEE67AEBFC0F93C24 /* CoreGPX.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CoreGPX.modulemap; sourceTree = "<group>"; };
+		BB29F038FC4078FC2938D16DBC2946F3 /* CoreGPX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CoreGPX.framework; path = CoreGPX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD9A90D782E3DAE911978D689A4379A0 /* Pods-CoreGPX_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CoreGPX_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		C1528DF9C2E16DA52E83190564BFBBF1 /* Pods-CoreGPX_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CoreGPX_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		C8226A2AF2988FE6006D11A4DF1D5076 /* GPXEmail.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXEmail.swift; path = Classes/GPXEmail.swift; sourceTree = "<group>"; };
+		C831FD0ACCF5F902116F7A299DF93956 /* CoreGPX.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = CoreGPX.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C8FC7E6D90521F471B7DF7C9C7719C19 /* GPXRoot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXRoot.swift; path = Classes/GPXRoot.swift; sourceTree = "<group>"; };
+		CB2662C72CB5E937FE7DE83CEE76304F /* Pods_CoreGPX_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CoreGPX_Tests.framework; path = "Pods-CoreGPX_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE08E6C8AFC4C61AB3EFECB99DEA77BD /* GPXPerson.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXPerson.swift; path = Classes/GPXPerson.swift; sourceTree = "<group>"; };
+		D3356EB97966082C5D65B4DF29FCB82E /* Pods-CoreGPX_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CoreGPX_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		D59004ADF75AFBAA0DDB7ACBC2D09665 /* Pods-CoreGPX_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CoreGPX_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		DAFE9B5F15EF40449A8A82D34D4C81A6 /* GPXAuthor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXAuthor.swift; path = Classes/GPXAuthor.swift; sourceTree = "<group>"; };
+		DCB56EE437C9A15EB06832BBDC235A1C /* GPXRoutePoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXRoutePoint.swift; path = Classes/GPXRoutePoint.swift; sourceTree = "<group>"; };
+		DE5C575410A22823FCD89DD4D8175C70 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0CF2ED28FFD65C8E71D26B9C5422A14 /* GPXRoute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXRoute.swift; path = Classes/GPXRoute.swift; sourceTree = "<group>"; };
+		EC737F06C1B2FD99296587404A056DC9 /* Pods-CoreGPX_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CoreGPX_Tests-umbrella.h"; sourceTree = "<group>"; };
+		EC99DB3E533E9530640C8AEE39BE186E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		60BAE826D099374ADAFEB7CFB1F7F06F /* Frameworks */ = {
+		735C9FE8FB675966F9AF37B1B5DFFC12 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24AB0251EDC1B983DDB35E5C22DECE27 /* Foundation.framework in Frameworks */,
+				80CB66806B12615CE77A131766CF216B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A044B9BA2E0ED12DF38B6A72AF87239E /* Frameworks */ = {
+		89C2FD74B8CC71D624784DBD3B14B355 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6F1B584B9A7B9D483CF8CBD2A9F8A24 /* Foundation.framework in Frameworks */,
+				18F349D40EE13C89C63260076BFAED43 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ED5BF64B56C7ACB6E425EDA4FDD3213D /* Frameworks */ = {
+		C5A03B018BC2F4E682835192A103BCC3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98D2031B5E99FC4686ED9D10DFA6977E /* Foundation.framework in Frameworks */,
+				95F292BF87E9FFDC17AB554D11BEFCE3 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		295AD263E98E38F08FF21C2F066B7E8A /* Pods-GPXKit_Tests */ = {
+		13E2CBACE1AF75A1A31B6C368F9F5EB1 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				028604DAEEC6AA05A291FA910111ED67 /* Info.plist */,
-				107601E932239FC1DFF5985F3F2B6455 /* Pods-GPXKit_Tests.modulemap */,
-				9AF17497F29CAC8964BFBD324E8FBF46 /* Pods-GPXKit_Tests-acknowledgements.markdown */,
-				93F7533E7EA3FB168C80ADFB93770FD1 /* Pods-GPXKit_Tests-acknowledgements.plist */,
-				BE890264AF60CC7BEF186CF89CF2A067 /* Pods-GPXKit_Tests-dummy.m */,
-				6D9B9F1E3D8BB2386A0023E915896E1B /* Pods-GPXKit_Tests-frameworks.sh */,
-				2323244959724AB3799390D4FAD0ECAC /* Pods-GPXKit_Tests-resources.sh */,
-				0DFEA1BBFED7761C54E34533C845E52D /* Pods-GPXKit_Tests-umbrella.h */,
-				8010F3D26243E0B37E9E3279D59CFEE5 /* Pods-GPXKit_Tests.debug.xcconfig */,
-				449AB63040842129352BD970926897FD /* Pods-GPXKit_Tests.release.xcconfig */,
-			);
-			name = "Pods-GPXKit_Tests";
-			path = "Target Support Files/Pods-GPXKit_Tests";
-			sourceTree = "<group>";
-		};
-		40D73913103394907589FAA0E11D8857 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				731D2D15EA4ADB2DF9616A083E214B28 /* GPXKit.podspec */,
-				6788BE60564F93367C8A9592682AE746 /* LICENSE */,
-				083FBFC670158CD7B0E8B7EE73629CFD /* README.md */,
+				C831FD0ACCF5F902116F7A299DF93956 /* CoreGPX.podspec */,
+				8601B99D007DD4CB01FE41571A600782 /* LICENSE */,
+				00F0F353A2A50ADD440CE1D078B16908 /* README.md */,
 			);
 			name = Pod;
 			sourceTree = "<group>";
 		};
-		48B5B0E3CF821C26B511E6A7AB741282 /* Development Pods */ = {
+		3416BA7F07921A3DD0BABD458BEA7112 /* Pods-CoreGPX_Tests */ = {
 			isa = PBXGroup;
 			children = (
-				87A82BFE9D030C3BAFDF6B2BA8B3BE97 /* GPXKit */,
+				DE5C575410A22823FCD89DD4D8175C70 /* Info.plist */,
+				9B4B2243023B945D7F93518B10795C33 /* Pods-CoreGPX_Tests.modulemap */,
+				3B22141F70B56D11246CE9CB322CB2EC /* Pods-CoreGPX_Tests-acknowledgements.markdown */,
+				C1528DF9C2E16DA52E83190564BFBBF1 /* Pods-CoreGPX_Tests-acknowledgements.plist */,
+				3C784FA25886F2D997440662E4D8BE68 /* Pods-CoreGPX_Tests-dummy.m */,
+				27D4563E6DE8F7E40ACEB108805D72A7 /* Pods-CoreGPX_Tests-frameworks.sh */,
+				35FF2B0AA8E162D85D47378BD07D45B4 /* Pods-CoreGPX_Tests-resources.sh */,
+				EC737F06C1B2FD99296587404A056DC9 /* Pods-CoreGPX_Tests-umbrella.h */,
+				BD9A90D782E3DAE911978D689A4379A0 /* Pods-CoreGPX_Tests.debug.xcconfig */,
+				3B29951D0B54D950414AA93DB41FC7AD /* Pods-CoreGPX_Tests.release.xcconfig */,
 			);
-			name = "Development Pods";
+			name = "Pods-CoreGPX_Tests";
+			path = "Target Support Files/Pods-CoreGPX_Tests";
+			sourceTree = "<group>";
+		};
+		4871BABFAA5C3E53B01AA773DE4C2C65 /* CoreGPX */ = {
+			isa = PBXGroup;
+			children = (
+				DAFE9B5F15EF40449A8A82D34D4C81A6 /* GPXAuthor.swift */,
+				451989DDB8570D85FA5371D175A9C0F2 /* GPXBounds.swift */,
+				686D19A9107BC3F54687D84FF3325966 /* GPXCopyright.swift */,
+				8DEC0DC9E6862E8F79D8AE36577B4C30 /* GPXElement.swift */,
+				C8226A2AF2988FE6006D11A4DF1D5076 /* GPXEmail.swift */,
+				52F5E079FA10035626C48C67D4E5ED30 /* GPXExtensions.swift */,
+				39158661B12C1C5E1CE517EB0F78E27D /* GPXLink.swift */,
+				A42FE81053B5813BD472CFE7B19B3BA5 /* GPXMetadata.swift */,
+				B414977B096EB39D462F5124214BABFE /* GPXParser.swift */,
+				CE08E6C8AFC4C61AB3EFECB99DEA77BD /* GPXPerson.swift */,
+				5F3F06D38496EE021E5A0F77FE3C9866 /* GPXPoint.swift */,
+				5A931BE67E28BADAA46DD76D551372D6 /* GPXPointSegment.swift */,
+				C8FC7E6D90521F471B7DF7C9C7719C19 /* GPXRoot.swift */,
+				E0CF2ED28FFD65C8E71D26B9C5422A14 /* GPXRoute.swift */,
+				DCB56EE437C9A15EB06832BBDC235A1C /* GPXRoutePoint.swift */,
+				AFA6859C0E5F5ECD779B7A966CF19136 /* GPXTrack.swift */,
+				5124232CCAE8C02FBF3D86B158D29923 /* GPXTrackPoint.swift */,
+				171B80D4BA423019BBC5DA54E387180A /* GPXTrackSegment.swift */,
+				37941B65FCF9E06DD2336C3FD37996D0 /* GPXType.swift */,
+				5BDA16A124E1CE8C773AAF30C70A8C99 /* GPXWaypoint.swift */,
+				13E2CBACE1AF75A1A31B6C368F9F5EB1 /* Pod */,
+				DBC58D84A5ED8C67B7F8FCDEA83C9DD6 /* Support Files */,
+			);
+			name = CoreGPX;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		5E0D919E635D23B70123790B8308F8EF /* iOS */ = {
@@ -184,69 +206,60 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		700C5FD578396BAA97A990F7143F1890 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				93DD3FAC6CCBEFEB7892363712AB7E6E /* Pods-CoreGPX_Example */,
+				3416BA7F07921A3DD0BABD458BEA7112 /* Pods-CoreGPX_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				48B5B0E3CF821C26B511E6A7AB741282 /* Development Pods */,
+				B37918975A8318CFFCECF6BB5E9C395D /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				B86568509D5557859245E9E2C75D73DB /* Products */,
-				EAF6A161FE54BC506F41F937BD79AA3B /* Targets Support Files */,
+				8C7907287943666C529A48AE1F1E2C01 /* Products */,
+				700C5FD578396BAA97A990F7143F1890 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		87A82BFE9D030C3BAFDF6B2BA8B3BE97 /* GPXKit */ = {
+		8C7907287943666C529A48AE1F1E2C01 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0D2A41D0297B26C19BB9A052ADEAC4AF /* GPXAuthor.swift */,
-				5D80810D68357BD34EA7A8E2EE22CAFE /* GPXBounds.swift */,
-				0380B0FE0688B164B8E324A91454BA12 /* GPXCopyright.swift */,
-				CEDB95A17A5EDE7C3C4485FC55A3F666 /* GPXElement.swift */,
-				377F99B4D6C311C2367AEFBA474C8243 /* GPXEmail.swift */,
-				37B3B831B4C253220016A2366FCF8B03 /* GPXExtensions.swift */,
-				A4A5E7277108A5560C851AD18D1D94CD /* GPXLink.swift */,
-				EA02AF0F58AC10D556779F69CB2BC3D6 /* GPXMetadata.swift */,
-				13090AD0EFC9C26737959142E49C502F /* GPXParser.swift */,
-				F2A5D88B0AFFB112E70CD031F04E3280 /* GPXPerson.swift */,
-				552B30309CEBE5B7019F6FD1CF14B8A6 /* GPXPoint.swift */,
-				B1F57D0555B8E7A4CBFA0447AFEC7542 /* GPXPointSegment.swift */,
-				18965A87A53ED2A646CE888BE10481EC /* GPXRoot.swift */,
-				EBCEA4DACCC881B46B3A65D7D713CF92 /* GPXRoute.swift */,
-				BA03A9075C48A59C16F37A22686DF047 /* GPXRoutePoint.swift */,
-				780079F3279B02C3B3817218D02907B4 /* GPXTrack.swift */,
-				A40ECB2C886183FEDAE956D8C19C1690 /* GPXTrackPoint.swift */,
-				75112F04BC8CE896C34D32BA6AF42976 /* GPXTrackSegment.swift */,
-				953083364CCA59543D9FB7CF332F13EB /* GPXType.swift */,
-				7948C2E0156D808404D58D2C04030857 /* GPXWaypoint.swift */,
-				40D73913103394907589FAA0E11D8857 /* Pod */,
-				ADE20AE785DF450503E16F43BA17AE5F /* Support Files */,
-			);
-			name = GPXKit;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		ADE20AE785DF450503E16F43BA17AE5F /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				FE4A8AD67E98EA05280A5F7DB14F177E /* GPXKit.modulemap */,
-				D53523A6C5D23A4BC0127097B557616D /* GPXKit.xcconfig */,
-				EC38C75E7B18026EE341B8FC21B9E50E /* GPXKit-dummy.m */,
-				074AE5A7D8F25D49F884AC99652F61CD /* GPXKit-prefix.pch */,
-				92FCF298E9C7B929009EACD30F15D316 /* GPXKit-umbrella.h */,
-				02760396C01459E8F901DCD8D3595E72 /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/GPXKit";
-			sourceTree = "<group>";
-		};
-		B86568509D5557859245E9E2C75D73DB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				0FE6DC5B30825964E7A83DD6DD4F91EE /* GPXKit.framework */,
-				69D78741D275AF4E9E8CE180426B5E9E /* Pods_GPXKit_Example.framework */,
-				B37CBB4EA663289BFD19CEC1C5B8A596 /* Pods_GPXKit_Tests.framework */,
+				BB29F038FC4078FC2938D16DBC2946F3 /* CoreGPX.framework */,
+				38833BE920F9C399D9C5F1F6FBF942EC /* Pods_CoreGPX_Example.framework */,
+				CB2662C72CB5E937FE7DE83CEE76304F /* Pods_CoreGPX_Tests.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		93DD3FAC6CCBEFEB7892363712AB7E6E /* Pods-CoreGPX_Example */ = {
+			isa = PBXGroup;
+			children = (
+				AA8534AB46BAA4D06FE361DC6BD52A6D /* Info.plist */,
+				667444E7680CA4B76EDBB525CFC9CFBE /* Pods-CoreGPX_Example.modulemap */,
+				D3356EB97966082C5D65B4DF29FCB82E /* Pods-CoreGPX_Example-acknowledgements.markdown */,
+				9F238040FA300B3A63C80CF2E9CE81CD /* Pods-CoreGPX_Example-acknowledgements.plist */,
+				867AB39A36AC9D8488B4BCB7FB43E28C /* Pods-CoreGPX_Example-dummy.m */,
+				7B5DE58B073BAC11D27312D724089A7B /* Pods-CoreGPX_Example-frameworks.sh */,
+				65265DF4088FE30F80980748FC3990B9 /* Pods-CoreGPX_Example-resources.sh */,
+				8560A482EC959D099876DC62FB903336 /* Pods-CoreGPX_Example-umbrella.h */,
+				D59004ADF75AFBAA0DDB7ACBC2D09665 /* Pods-CoreGPX_Example.debug.xcconfig */,
+				507AE1530EA0F62826EA2E41991CE60E /* Pods-CoreGPX_Example.release.xcconfig */,
+			);
+			name = "Pods-CoreGPX_Example";
+			path = "Target Support Files/Pods-CoreGPX_Example";
+			sourceTree = "<group>";
+		};
+		B37918975A8318CFFCECF6BB5E9C395D /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4871BABFAA5C3E53B01AA773DE4C2C65 /* CoreGPX */,
+			);
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -257,114 +270,101 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EAF6A161FE54BC506F41F937BD79AA3B /* Targets Support Files */ = {
+		DBC58D84A5ED8C67B7F8FCDEA83C9DD6 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				F252AA8F96CE60C90D278B92B3A77E78 /* Pods-GPXKit_Example */,
-				295AD263E98E38F08FF21C2F066B7E8A /* Pods-GPXKit_Tests */,
+				B89C566DDFE64E2FEE67AEBFC0F93C24 /* CoreGPX.modulemap */,
+				92B0351A54A050E24F6CBEA577246FBF /* CoreGPX.xcconfig */,
+				5B4A3357A6752306C07E751067D65C11 /* CoreGPX-dummy.m */,
+				1D2E30143C1734DE1D811B70D043A405 /* CoreGPX-prefix.pch */,
+				06E95C5A2842B177852DDE7EF191CCAB /* CoreGPX-umbrella.h */,
+				EC99DB3E533E9530640C8AEE39BE186E /* Info.plist */,
 			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		F252AA8F96CE60C90D278B92B3A77E78 /* Pods-GPXKit_Example */ = {
-			isa = PBXGroup;
-			children = (
-				7247CEF9EBC481E8E9FF55A530194B33 /* Info.plist */,
-				796E643A1A01FFB4E1735C7FB09AE982 /* Pods-GPXKit_Example.modulemap */,
-				48FEDD772072D62AA7758F339949F614 /* Pods-GPXKit_Example-acknowledgements.markdown */,
-				C267DDDF80D9966856744E15BAC5A9E4 /* Pods-GPXKit_Example-acknowledgements.plist */,
-				39858D8C355D9478CE7F0393428A58D1 /* Pods-GPXKit_Example-dummy.m */,
-				B0FC78452F2611881FD0003416F5A1EB /* Pods-GPXKit_Example-frameworks.sh */,
-				BC7D2EDE611456AF8F6E998253730BE1 /* Pods-GPXKit_Example-resources.sh */,
-				9F92DE730BA2208830EB6528858CA83E /* Pods-GPXKit_Example-umbrella.h */,
-				5F61B273A30C71DC020590EC71E2E971 /* Pods-GPXKit_Example.debug.xcconfig */,
-				F84932B3297613D4ED6B0C58E1B46D56 /* Pods-GPXKit_Example.release.xcconfig */,
-			);
-			name = "Pods-GPXKit_Example";
-			path = "Target Support Files/Pods-GPXKit_Example";
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/CoreGPX";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		4D467C7EB06D1F928FBCB636BF4CE4E8 /* Headers */ = {
+		0988256414BAE4B553DA1FC554F394EE /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D9F57B1664338AB7BB9637160F35DC8 /* GPXKit-umbrella.h in Headers */,
+				9FECD70DAFB2EC393F0293565E492B83 /* CoreGPX-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8ACFD0F3365073791E4559D49D504DB8 /* Headers */ = {
+		923BA849AE9B38D8B1B729C2DF6D44A1 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96955EAE494B6042139110C5B8E5B365 /* Pods-GPXKit_Example-umbrella.h in Headers */,
+				8FE83BF3446F76AF9B3923D560C7F806 /* Pods-CoreGPX_Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B88840AF1A18B276A429F0324B553759 /* Headers */ = {
+		E551858696556CCC179B977117B64A3C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E9816A6EF9C00518B333F311A06B3C6 /* Pods-GPXKit_Tests-umbrella.h in Headers */,
+				54B649F79CD2FA8D719DF0CFBB265E0A /* Pods-CoreGPX_Tests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5B505442E72805C9555E391AC5733B3C /* Pods-GPXKit_Example */ = {
+		0D851909C24A61CD5DC2FE112328BE0F /* Pods-CoreGPX_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F84A7F164F1018F7FFB7C6443E4CF57D /* Build configuration list for PBXNativeTarget "Pods-GPXKit_Example" */;
+			buildConfigurationList = C87004C8C888ECFB3C27D2B11A758686 /* Build configuration list for PBXNativeTarget "Pods-CoreGPX_Example" */;
 			buildPhases = (
-				6CC3FEBB05D590162691C26AF897A835 /* Sources */,
-				A044B9BA2E0ED12DF38B6A72AF87239E /* Frameworks */,
-				8ACFD0F3365073791E4559D49D504DB8 /* Headers */,
+				359903C5F2FEC0BEE329FFD9A61E8370 /* Sources */,
+				735C9FE8FB675966F9AF37B1B5DFFC12 /* Frameworks */,
+				923BA849AE9B38D8B1B729C2DF6D44A1 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1012D5C074104D9217A656B22432387D /* PBXTargetDependency */,
+				BA54FF7FF98F22A1BC414721AD430B58 /* PBXTargetDependency */,
 			);
-			name = "Pods-GPXKit_Example";
-			productName = "Pods-GPXKit_Example";
-			productReference = 69D78741D275AF4E9E8CE180426B5E9E /* Pods_GPXKit_Example.framework */;
+			name = "Pods-CoreGPX_Example";
+			productName = "Pods-CoreGPX_Example";
+			productReference = 38833BE920F9C399D9C5F1F6FBF942EC /* Pods_CoreGPX_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		AFB83F7144F605D2388576F501F944D5 /* Pods-GPXKit_Tests */ = {
+		1FF6BE2AF737A7CF5E77D983FE99CC8E /* CoreGPX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8F16E3861D0C3AEC5A32794401366536 /* Build configuration list for PBXNativeTarget "Pods-GPXKit_Tests" */;
+			buildConfigurationList = D47E62276EADA1D4918C36A7027BED94 /* Build configuration list for PBXNativeTarget "CoreGPX" */;
 			buildPhases = (
-				D13A9BA2DC01CAD74BA6543A76AE94DF /* Sources */,
-				60BAE826D099374ADAFEB7CFB1F7F06F /* Frameworks */,
-				B88840AF1A18B276A429F0324B553759 /* Headers */,
+				72D735E63283D050621A9A0965D0997D /* Sources */,
+				C5A03B018BC2F4E682835192A103BCC3 /* Frameworks */,
+				0988256414BAE4B553DA1FC554F394EE /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E4134071BDB9E9732944AE9C0EE3BFFC /* PBXTargetDependency */,
 			);
-			name = "Pods-GPXKit_Tests";
-			productName = "Pods-GPXKit_Tests";
-			productReference = B37CBB4EA663289BFD19CEC1C5B8A596 /* Pods_GPXKit_Tests.framework */;
+			name = CoreGPX;
+			productName = CoreGPX;
+			productReference = BB29F038FC4078FC2938D16DBC2946F3 /* CoreGPX.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		C967987317C2F8751FC5BF98A0FE0288 /* GPXKit */ = {
+		727FF6C6A337ADFEF950A0D2A03B450C /* Pods-CoreGPX_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7E89B1FAC98D361E59EDD91738040255 /* Build configuration list for PBXNativeTarget "GPXKit" */;
+			buildConfigurationList = 593CFC6DF24322E512E86D8EB2E2DE87 /* Build configuration list for PBXNativeTarget "Pods-CoreGPX_Tests" */;
 			buildPhases = (
-				AE81E5CAAF3F40A8B3EB30E4B95470F2 /* Sources */,
-				ED5BF64B56C7ACB6E425EDA4FDD3213D /* Frameworks */,
-				4D467C7EB06D1F928FBCB636BF4CE4E8 /* Headers */,
+				C4D28A23EC4BCB53F5F0874C71EFDA0A /* Sources */,
+				89C2FD74B8CC71D624784DBD3B14B355 /* Frameworks */,
+				E551858696556CCC179B977117B64A3C /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				EE45C14D5A71F9919A21946304C48D04 /* PBXTargetDependency */,
 			);
-			name = GPXKit;
-			productName = GPXKit;
-			productReference = 0FE6DC5B30825964E7A83DD6DD4F91EE /* GPXKit.framework */;
+			name = "Pods-CoreGPX_Tests";
+			productName = "Pods-CoreGPX_Tests";
+			productReference = CB2662C72CB5E937FE7DE83CEE76304F /* Pods_CoreGPX_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -374,7 +374,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 0930;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -384,83 +384,83 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = B86568509D5557859245E9E2C75D73DB /* Products */;
+			productRefGroup = 8C7907287943666C529A48AE1F1E2C01 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C967987317C2F8751FC5BF98A0FE0288 /* GPXKit */,
-				5B505442E72805C9555E391AC5733B3C /* Pods-GPXKit_Example */,
-				AFB83F7144F605D2388576F501F944D5 /* Pods-GPXKit_Tests */,
+				1FF6BE2AF737A7CF5E77D983FE99CC8E /* CoreGPX */,
+				0D851909C24A61CD5DC2FE112328BE0F /* Pods-CoreGPX_Example */,
+				727FF6C6A337ADFEF950A0D2A03B450C /* Pods-CoreGPX_Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6CC3FEBB05D590162691C26AF897A835 /* Sources */ = {
+		359903C5F2FEC0BEE329FFD9A61E8370 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F609B0A3267096914406953B718E1E9 /* Pods-GPXKit_Example-dummy.m in Sources */,
+				D795DF4C23442253917024503DCAF117 /* Pods-CoreGPX_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AE81E5CAAF3F40A8B3EB30E4B95470F2 /* Sources */ = {
+		72D735E63283D050621A9A0965D0997D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AD0C3B14F1A6A330FFB471260AD66EB /* GPXAuthor.swift in Sources */,
-				F1282D91486782F8217CAF1CD490E170 /* GPXBounds.swift in Sources */,
-				145326A6F2827546BC219B88F672E601 /* GPXCopyright.swift in Sources */,
-				369AF87783519218A946FF5C09601E92 /* GPXElement.swift in Sources */,
-				1E3428CC05277D40FC6BE43F035330C8 /* GPXEmail.swift in Sources */,
-				A69227623744CFD257C35BA743A8ECA1 /* GPXExtensions.swift in Sources */,
-				7C7E9F8CED8E5289E9DA200A57C75C0F /* GPXKit-dummy.m in Sources */,
-				016F0B695D538C5EFD93F59DCA2E3102 /* GPXLink.swift in Sources */,
-				350F63DE55707E4882546BEF7626B25F /* GPXMetadata.swift in Sources */,
-				8FCF1084A84F0AD48EB1DB8ADE93484A /* GPXParser.swift in Sources */,
-				03A108E1CBF4576302896DB253BC979B /* GPXPerson.swift in Sources */,
-				CCF862BF0F302DDD3031047AF7FC95D7 /* GPXPoint.swift in Sources */,
-				E045B404D6E58FE8E8856A97E3DAB4E5 /* GPXPointSegment.swift in Sources */,
-				468BC4E2E307AC450B87E047E0296034 /* GPXRoot.swift in Sources */,
-				C3B42DC84C537345248F52809A88E214 /* GPXRoute.swift in Sources */,
-				00BDDFE079223BD05F5EDC763D99165F /* GPXRoutePoint.swift in Sources */,
-				D6B487B680ED8B9CB98C8238D50E6F47 /* GPXTrack.swift in Sources */,
-				FB86ED0424CBC87E6D8AD4B2AB45DAAF /* GPXTrackPoint.swift in Sources */,
-				1272EA5B61DB6BCA024F6DE1CBBD7009 /* GPXTrackSegment.swift in Sources */,
-				1E48D9041E9050A8A2E16B6E2E7670C4 /* GPXType.swift in Sources */,
-				470BE17AF5444A8EC5F7DDCA2BD4BA73 /* GPXWaypoint.swift in Sources */,
+				477F0E104354D26BA8E3759E484AD553 /* CoreGPX-dummy.m in Sources */,
+				07834B15CF0306D2C4DD8E44CEC68C2B /* GPXAuthor.swift in Sources */,
+				8BC1E258921ED7FEAB87224B768A4420 /* GPXBounds.swift in Sources */,
+				4732B1A1675B9649AAAACAD20652E8E3 /* GPXCopyright.swift in Sources */,
+				35E4D9DB8D361BD7F90AB8C11A02CDA8 /* GPXElement.swift in Sources */,
+				882F5B215566AEDB2A2FD702EB7D36B6 /* GPXEmail.swift in Sources */,
+				70C2AD85987CBB4DDD8B5ECDC0CC739C /* GPXExtensions.swift in Sources */,
+				4593377380E79042C9216EFA56EB6577 /* GPXLink.swift in Sources */,
+				AF08350B73D09B7E2F4601E9C8173977 /* GPXMetadata.swift in Sources */,
+				5CCF68DAA1D98BECBCA6510FFE7E7F70 /* GPXParser.swift in Sources */,
+				A747EE957A27BF62DFD53F20F453081E /* GPXPerson.swift in Sources */,
+				2267759FF0A171F668C7575CBCEBD6D6 /* GPXPoint.swift in Sources */,
+				328C594ED09DD9C7F3DDE1A61CB24320 /* GPXPointSegment.swift in Sources */,
+				AC613BE2782CB345D67CA6161D274529 /* GPXRoot.swift in Sources */,
+				3C52C17AC9BCA485AB5CEADE334F3B55 /* GPXRoute.swift in Sources */,
+				E55496502F1C3CC5F1958CF081A0F2A4 /* GPXRoutePoint.swift in Sources */,
+				583AB24901FAADBC8DE10524F90775A5 /* GPXTrack.swift in Sources */,
+				3721E3A3DF2D89965973F8387E3032C9 /* GPXTrackPoint.swift in Sources */,
+				961A8A93937095F25A6AC83A57C467D2 /* GPXTrackSegment.swift in Sources */,
+				B2B43EAB18CA3EF9E0D1003115269631 /* GPXType.swift in Sources */,
+				5236B2E3D97E344B7E32D5517E614BC1 /* GPXWaypoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D13A9BA2DC01CAD74BA6543A76AE94DF /* Sources */ = {
+		C4D28A23EC4BCB53F5F0874C71EFDA0A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				170C8A384B9EB02A98E9CDBB55F1F664 /* Pods-GPXKit_Tests-dummy.m in Sources */,
+				365F7933CCC915A830159FAA0BE33B4D /* Pods-CoreGPX_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1012D5C074104D9217A656B22432387D /* PBXTargetDependency */ = {
+		BA54FF7FF98F22A1BC414721AD430B58 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = GPXKit;
-			target = C967987317C2F8751FC5BF98A0FE0288 /* GPXKit */;
-			targetProxy = 7F88B7F97924AB216F0AC9F75D44C326 /* PBXContainerItemProxy */;
+			name = CoreGPX;
+			target = 1FF6BE2AF737A7CF5E77D983FE99CC8E /* CoreGPX */;
+			targetProxy = B1DD7E7E7D9C5D877CC7349DEA4931C7 /* PBXContainerItemProxy */;
 		};
-		E4134071BDB9E9732944AE9C0EE3BFFC /* PBXTargetDependency */ = {
+		EE45C14D5A71F9919A21946304C48D04 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-GPXKit_Example";
-			target = 5B505442E72805C9555E391AC5733B3C /* Pods-GPXKit_Example */;
-			targetProxy = 9524455B4389AFB31CDF97088E897D85 /* PBXContainerItemProxy */;
+			name = "Pods-CoreGPX_Example";
+			target = 0D851909C24A61CD5DC2FE112328BE0F /* Pods-CoreGPX_Example */;
+			targetProxy = 680928CBA9DF05525962F152F7C53F9B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		3FCAE3AA9E37C8D3F2BBD2364F35A160 /* Debug */ = {
+		0A2EDC6C112F2B4D7E779B5664FEAA6A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8010F3D26243E0B37E9E3279D59CFEE5 /* Pods-GPXKit_Tests.debug.xcconfig */;
+			baseConfigurationReference = BD9A90D782E3DAE911978D689A4379A0 /* Pods-CoreGPX_Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -472,12 +472,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-GPXKit_Tests/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-CoreGPX_Tests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-GPXKit_Tests/Pods-GPXKit_Tests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-CoreGPX_Tests/Pods-CoreGPX_Tests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -491,9 +491,9 @@
 			};
 			name = Debug;
 		};
-		6443C924B9BB51EE7EADADE3A326AF46 /* Release */ = {
+		18DD2336C06CA95B17E89B9CEA3DD8AA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 449AB63040842129352BD970926897FD /* Pods-GPXKit_Tests.release.xcconfig */;
+			baseConfigurationReference = 3B29951D0B54D950414AA93DB41FC7AD /* Pods-CoreGPX_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -505,12 +505,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-GPXKit_Tests/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-CoreGPX_Tests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-GPXKit_Tests/Pods-GPXKit_Tests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-CoreGPX_Tests/Pods-CoreGPX_Tests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -525,9 +525,42 @@
 			};
 			name = Release;
 		};
-		801D650D1FB60E0989AF7B173AF91588 /* Release */ = {
+		33B552CFF708E8A030E080606B3948C3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F84932B3297613D4ED6B0C58E1B46D56 /* Pods-GPXKit_Example.release.xcconfig */;
+			baseConfigurationReference = 92B0351A54A050E24F6CBEA577246FBF /* CoreGPX.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CoreGPX/CoreGPX-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CoreGPX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/CoreGPX/CoreGPX.modulemap";
+				PRODUCT_MODULE_NAME = CoreGPX;
+				PRODUCT_NAME = CoreGPX;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3EF91A88B29E34CB535D5C6502AD93FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 507AE1530EA0F62826EA2E41991CE60E /* Pods-CoreGPX_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -539,12 +572,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-GPXKit_Example/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-CoreGPX_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-GPXKit_Example/Pods-GPXKit_Example.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-CoreGPX_Example/Pods-CoreGPX_Example.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -559,6 +592,41 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		55601A29DC91EA59313E3C787ACDB094 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D59004ADF75AFBAA0DDB7ACBC2D09665 /* Pods-CoreGPX_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CoreGPX_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CoreGPX_Example/Pods-CoreGPX_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		8B33C5230DE4A9DFA6D8F46505DD7AF7 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -623,6 +691,38 @@
 			};
 			name = Debug;
 		};
+		98E82620A147B552D24FC3EE47C15948 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92B0351A54A050E24F6CBEA577246FBF /* CoreGPX.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CoreGPX/CoreGPX-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CoreGPX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/CoreGPX/CoreGPX.modulemap";
+				PRODUCT_MODULE_NAME = CoreGPX;
+				PRODUCT_NAME = CoreGPX;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		B42B54097A876E8A982CBF5DAA91B1AB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -677,108 +777,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
-		};
-		D77C4FBB0951DB39CA64E15E57D3C83A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D53523A6C5D23A4BC0127097B557616D /* GPXKit.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/GPXKit/GPXKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/GPXKit/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/GPXKit/GPXKit.modulemap";
-				PRODUCT_MODULE_NAME = GPXKit;
-				PRODUCT_NAME = GPXKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		DCC383DA7F3B5E7B85368BDD7C075A15 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5F61B273A30C71DC020590EC71E2E971 /* Pods-GPXKit_Example.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-GPXKit_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-GPXKit_Example/Pods-GPXKit_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		E664D129C749B39108211813A8D24943 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D53523A6C5D23A4BC0127097B557616D /* GPXKit.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/GPXKit/GPXKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/GPXKit/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/GPXKit/GPXKit.modulemap";
-				PRODUCT_MODULE_NAME = GPXKit;
-				PRODUCT_NAME = GPXKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -794,29 +793,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7E89B1FAC98D361E59EDD91738040255 /* Build configuration list for PBXNativeTarget "GPXKit" */ = {
+		593CFC6DF24322E512E86D8EB2E2DE87 /* Build configuration list for PBXNativeTarget "Pods-CoreGPX_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D77C4FBB0951DB39CA64E15E57D3C83A /* Debug */,
-				E664D129C749B39108211813A8D24943 /* Release */,
+				0A2EDC6C112F2B4D7E779B5664FEAA6A /* Debug */,
+				18DD2336C06CA95B17E89B9CEA3DD8AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8F16E3861D0C3AEC5A32794401366536 /* Build configuration list for PBXNativeTarget "Pods-GPXKit_Tests" */ = {
+		C87004C8C888ECFB3C27D2B11A758686 /* Build configuration list for PBXNativeTarget "Pods-CoreGPX_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3FCAE3AA9E37C8D3F2BBD2364F35A160 /* Debug */,
-				6443C924B9BB51EE7EADADE3A326AF46 /* Release */,
+				55601A29DC91EA59313E3C787ACDB094 /* Debug */,
+				3EF91A88B29E34CB535D5C6502AD93FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F84A7F164F1018F7FFB7C6443E4CF57D /* Build configuration list for PBXNativeTarget "Pods-GPXKit_Example" */ = {
+		D47E62276EADA1D4918C36A7027BED94 /* Build configuration list for PBXNativeTarget "CoreGPX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DCC383DA7F3B5E7B85368BDD7C075A15 /* Debug */,
-				801D650D1FB60E0989AF7B173AF91588 /* Release */,
+				98E82620A147B552D24FC3EE47C15948 /* Debug */,
+				33B552CFF708E8A030E080606B3948C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

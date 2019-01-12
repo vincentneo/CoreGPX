@@ -7,8 +7,8 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'GPXKit'
-  s.version          = '0.3.0'
+  s.name             = 'CoreGPX'
+  s.version          = '0.3.1'
   s.summary          = 'A library for reading and creation of GPX location log files.'
 
 # This description is used to generate tags and improve search results.
@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 GPXKit is designed to replace the aging, and abandoned project, iOS-GPX-Framework. This pod will be able to help developers parse and create GPX files more easily. More features will be added to the future.
                        DESC
 
-  s.homepage         = 'https://github.com/vincentneo/GPXKit'
+  s.homepage         = 'https://github.com/vincentneo/CoreGPX'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'vincentneo' => '23420208+vincentneo@users.noreply.github.com' }
-  s.source           = { :git => 'https://github.com/vincentneo/GPXKit.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/vincentneo/CoreGPX.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/ivincentneo'
 
   s.ios.deployment_target = '8.0'

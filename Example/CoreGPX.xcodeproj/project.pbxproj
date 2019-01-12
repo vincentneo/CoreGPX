@@ -14,6 +14,8 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		8DB72704FC242BCF27592BDE /* Pods_CoreGPX_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7835104F033F117BB9802240 /* Pods_CoreGPX_Tests.framework */; };
+		D2FE0F1B39CAD071986EF792 /* Pods_CoreGPX_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1199081F763AEFCB013E8280 /* Pods_CoreGPX_Example.framework */; };
 		EFA4D80AF0FA527198876FCD /* Pods_GPXKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266EFD96DD576DC3F2165B5B /* Pods_GPXKit_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,25 +30,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		075668C73FF16AA0431AF1CD /* Pods-CoreGPX_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreGPX_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreGPX_Tests/Pods-CoreGPX_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		1199081F763AEFCB013E8280 /* Pods_CoreGPX_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreGPX_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DFC2EEC7E2A15A8A7115766 /* Pods_GPXKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPXKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1E6B22633C37B7D8CB2A72C4 /* Pods-GPXKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPXKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GPXKit_Tests/Pods-GPXKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		25FD7EB183A4A9CE3963AB4F /* Pods-CoreGPX_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreGPX_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreGPX_Example/Pods-CoreGPX_Example.release.xcconfig"; sourceTree = "<group>"; };
 		266EFD96DD576DC3F2165B5B /* Pods_GPXKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPXKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A2071C1E499936D2991D855 /* Pods-GPXKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPXKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPXKit_Example/Pods-GPXKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		505B15A1181144CFF96772E1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		607FACD01AFB9204008FA782 /* GPXKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPXKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACD01AFB9204008FA782 /* CoreGPX_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreGPX_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		607FACE51AFB9204008FA782 /* GPXKit_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPXKit_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACE51AFB9204008FA782 /* CoreGPX_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreGPX_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		73A6B34C7ECA0CE75A71F835 /* Pods-GPXKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPXKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GPXKit_Example/Pods-GPXKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		AA73C8669993F4283C0B9C1F /* Pods-GPXKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPXKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPXKit_Tests/Pods-GPXKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		7835104F033F117BB9802240 /* Pods_CoreGPX_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreGPX_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		820FB2B530C75127A6FBEC73 /* Pods-CoreGPX_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreGPX_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreGPX_Tests/Pods-CoreGPX_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B1FA67C144CC465C6B228AB8 /* GPXKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GPXKit.podspec; path = ../GPXKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E4C0F7E2E749B02F23048D43 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		FC31721A2B8A45B5DADF76C5 /* Pods-CoreGPX_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreGPX_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreGPX_Example/Pods-CoreGPX_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DAB2B117979C2FAFF69B1E0 /* Pods_GPXKit_Example.framework in Frameworks */,
+				D2FE0F1B39CAD071986EF792 /* Pods_CoreGPX_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +68,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFA4D80AF0FA527198876FCD /* Pods_GPXKit_Tests.framework in Frameworks */,
+				8DB72704FC242BCF27592BDE /* Pods_CoreGPX_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
-				607FACD21AFB9204008FA782 /* Example for GPXKit */,
+				607FACD21AFB9204008FA782 /* Example for CoreGPX */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				DC6991F3C02F464B211FCF33 /* Pods */,
@@ -84,13 +90,13 @@
 		607FACD11AFB9204008FA782 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD01AFB9204008FA782 /* GPXKit_Example.app */,
-				607FACE51AFB9204008FA782 /* GPXKit_Tests.xctest */,
+				607FACD01AFB9204008FA782 /* CoreGPX_Example.app */,
+				607FACE51AFB9204008FA782 /* CoreGPX_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		607FACD21AFB9204008FA782 /* Example for GPXKit */ = {
+		607FACD21AFB9204008FA782 /* Example for CoreGPX */ = {
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
@@ -100,7 +106,7 @@
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
-			name = "Example for GPXKit";
+			name = "Example for CoreGPX";
 			path = GPXKit;
 			sourceTree = "<group>";
 		};
@@ -144,6 +150,8 @@
 			children = (
 				1DFC2EEC7E2A15A8A7115766 /* Pods_GPXKit_Example.framework */,
 				266EFD96DD576DC3F2165B5B /* Pods_GPXKit_Tests.framework */,
+				1199081F763AEFCB013E8280 /* Pods_CoreGPX_Example.framework */,
+				7835104F033F117BB9802240 /* Pods_CoreGPX_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -151,10 +159,10 @@
 		DC6991F3C02F464B211FCF33 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				73A6B34C7ECA0CE75A71F835 /* Pods-GPXKit_Example.debug.xcconfig */,
-				4A2071C1E499936D2991D855 /* Pods-GPXKit_Example.release.xcconfig */,
-				1E6B22633C37B7D8CB2A72C4 /* Pods-GPXKit_Tests.debug.xcconfig */,
-				AA73C8669993F4283C0B9C1F /* Pods-GPXKit_Tests.release.xcconfig */,
+				FC31721A2B8A45B5DADF76C5 /* Pods-CoreGPX_Example.debug.xcconfig */,
+				25FD7EB183A4A9CE3963AB4F /* Pods-CoreGPX_Example.release.xcconfig */,
+				820FB2B530C75127A6FBEC73 /* Pods-CoreGPX_Tests.debug.xcconfig */,
+				075668C73FF16AA0431AF1CD /* Pods-CoreGPX_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -162,9 +170,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		607FACCF1AFB9204008FA782 /* GPXKit_Example */ = {
+		607FACCF1AFB9204008FA782 /* CoreGPX_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "GPXKit_Example" */;
+			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "CoreGPX_Example" */;
 			buildPhases = (
 				081F2721694BE9364C07598A /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
@@ -176,14 +184,14 @@
 			);
 			dependencies = (
 			);
-			name = GPXKit_Example;
+			name = CoreGPX_Example;
 			productName = GPXKit;
-			productReference = 607FACD01AFB9204008FA782 /* GPXKit_Example.app */;
+			productReference = 607FACD01AFB9204008FA782 /* CoreGPX_Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		607FACE41AFB9204008FA782 /* GPXKit_Tests */ = {
+		607FACE41AFB9204008FA782 /* CoreGPX_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "GPXKit_Tests" */;
+			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "CoreGPX_Tests" */;
 			buildPhases = (
 				5ACDBAEFC9EA96F460AAAAD4 /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
@@ -195,9 +203,9 @@
 			dependencies = (
 				607FACE71AFB9204008FA782 /* PBXTargetDependency */,
 			);
-			name = GPXKit_Tests;
+			name = CoreGPX_Tests;
 			productName = Tests;
-			productReference = 607FACE51AFB9204008FA782 /* GPXKit_Tests.xctest */;
+			productReference = 607FACE51AFB9204008FA782 /* CoreGPX_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -221,7 +229,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "GPXKit" */;
+			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "CoreGPX" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -234,8 +242,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				607FACCF1AFB9204008FA782 /* GPXKit_Example */,
-				607FACE41AFB9204008FA782 /* GPXKit_Tests */,
+				607FACCF1AFB9204008FA782 /* CoreGPX_Example */,
+				607FACE41AFB9204008FA782 /* CoreGPX_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -272,7 +280,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GPXKit_Example-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-CoreGPX_Example-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -290,7 +298,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GPXKit_Tests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-CoreGPX_Tests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -303,16 +311,16 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-GPXKit_Example/Pods-GPXKit_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GPXKit/GPXKit.framework",
+				"${SRCROOT}/Pods/Target Support Files/Pods-CoreGPX_Example/Pods-CoreGPX_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CoreGPX/CoreGPX.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GPXKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CoreGPX.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GPXKit_Example/Pods-GPXKit_Example-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreGPX_Example/Pods-CoreGPX_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -340,7 +348,7 @@
 /* Begin PBXTargetDependency section */
 		607FACE71AFB9204008FA782 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 607FACCF1AFB9204008FA782 /* GPXKit_Example */;
+			target = 607FACCF1AFB9204008FA782 /* CoreGPX_Example */;
 			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -470,7 +478,7 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 73A6B34C7ECA0CE75A71F835 /* Pods-GPXKit_Example.debug.xcconfig */;
+			baseConfigurationReference = FC31721A2B8A45B5DADF76C5 /* Pods-CoreGPX_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GPXKit/Info.plist;
@@ -485,7 +493,7 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A2071C1E499936D2991D855 /* Pods-GPXKit_Example.release.xcconfig */;
+			baseConfigurationReference = 25FD7EB183A4A9CE3963AB4F /* Pods-CoreGPX_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GPXKit/Info.plist;
@@ -500,7 +508,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E6B22633C37B7D8CB2A72C4 /* Pods-GPXKit_Tests.debug.xcconfig */;
+			baseConfigurationReference = 820FB2B530C75127A6FBEC73 /* Pods-CoreGPX_Tests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -515,13 +523,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GPXKit_Example.app/GPXKit_Example";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoreGPX_Example.app/CoreGPX_Example";
 			};
 			name = Debug;
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA73C8669993F4283C0B9C1F /* Pods-GPXKit_Tests.release.xcconfig */;
+			baseConfigurationReference = 075668C73FF16AA0431AF1CD /* Pods-CoreGPX_Tests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -532,14 +540,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GPXKit_Example.app/GPXKit_Example";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoreGPX_Example.app/CoreGPX_Example";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "GPXKit" */ = {
+		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "CoreGPX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				607FACED1AFB9204008FA782 /* Debug */,
@@ -548,7 +556,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "GPXKit_Example" */ = {
+		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "CoreGPX_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				607FACF01AFB9204008FA782 /* Debug */,
@@ -557,7 +565,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "GPXKit_Tests" */ = {
+		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "CoreGPX_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				607FACF31AFB9204008FA782 /* Debug */,

@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_GPXKit_TestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_GPXKit_TestsVersionString[];
+FOUNDATION_EXPORT double CoreGPXVersionNumber;
+FOUNDATION_EXPORT const unsigned char CoreGPXVersionString[];
 

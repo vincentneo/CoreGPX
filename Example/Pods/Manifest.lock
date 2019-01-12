@@ -1,16 +1,16 @@
 PODS:
-  - GPXKit (0.3.0)
+  - CoreGPX (0.3.0)
 
 DEPENDENCIES:
-  - GPXKit (from `../`)
+  - CoreGPX (from `../`)
 
 EXTERNAL SOURCES:
-  GPXKit:
+  CoreGPX:
     :path: "../"
 
 SPEC CHECKSUMS:
-  GPXKit: e9c0f7c3c936a6b101ae7320cc680bc0b2db54e6
+  CoreGPX: 69a0aa847c3dc55cc7f1a2ffd14f04025da70abf
 
-PODFILE CHECKSUM: 8a32a3f9dd9bad529d650f7a04d51689d0db8eca
+PODFILE CHECKSUM: 9e9439f92bdc308d731e2bf95a97be91265a86df
 
 COCOAPODS: 1.5.3

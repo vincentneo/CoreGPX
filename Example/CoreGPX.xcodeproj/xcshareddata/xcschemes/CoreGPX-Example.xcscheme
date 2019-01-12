@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-               BuildableName = "GPXKit_Example.app"
-               BlueprintName = "GPXKit_Example"
-               ReferencedContainer = "container:GPXKit.xcodeproj">
+               BuildableName = "CoreGPX_Example.app"
+               BlueprintName = "CoreGPX_Example"
+               ReferencedContainer = "container:CoreGPX.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "GPXKit_Tests.xctest"
-               BlueprintName = "GPXKit_Tests"
-               ReferencedContainer = "container:GPXKit.xcodeproj">
+               BuildableName = "CoreGPX_Tests.xctest"
+               BlueprintName = "CoreGPX_Tests"
+               ReferencedContainer = "container:CoreGPX.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "GPXKit_Tests.xctest"
-               BlueprintName = "GPXKit_Tests"
-               ReferencedContainer = "container:GPXKit.xcodeproj">
+               BuildableName = "CoreGPX_Tests.xctest"
+               BlueprintName = "CoreGPX_Tests"
+               ReferencedContainer = "container:CoreGPX.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "GPXKit_Example.app"
-            BlueprintName = "GPXKit_Example"
-            ReferencedContainer = "container:GPXKit.xcodeproj">
+            BuildableName = "CoreGPX_Example.app"
+            BlueprintName = "CoreGPX_Example"
+            ReferencedContainer = "container:CoreGPX.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "GPXKit_Example.app"
-            BlueprintName = "GPXKit_Example"
-            ReferencedContainer = "container:GPXKit.xcodeproj">
+            BuildableName = "CoreGPX_Example.app"
+            BlueprintName = "CoreGPX_Example"
+            ReferencedContainer = "container:CoreGPX.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -99,9 +99,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "GPXKit_Example.app"
-            BlueprintName = "GPXKit_Example"
-            ReferencedContainer = "container:GPXKit.xcodeproj">
+            BuildableName = "CoreGPX_Example.app"
+            BlueprintName = "CoreGPX_Example"
+            ReferencedContainer = "container:CoreGPX.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
