@@ -20,7 +20,8 @@ open class GPXPointSegment: GPXElement {
     // MARK:- Public Methods
     
     func newPoint(with latitude: CGFloat, longitude: CGFloat) -> GPXPoint {
-        let point: GPXPoint = GPXPoint().point(with: latitude, longitude: longitude)
+        //let point: GPXPoint = GPXPoint().point(with: latitude, longitude: longitude)
+        let point = GPXPoint(latitude: latitude, longitude: longitude)
         
         self.add(point: point)
         

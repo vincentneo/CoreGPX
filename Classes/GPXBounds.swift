@@ -9,15 +9,10 @@ import UIKit
 
 open class GPXBounds: GPXElement {
 
-    var minLatitudeValue: String?
-    var minLongitudeValue: String?
-    var maxLatitudeValue: String?
-    var maxLongitudeValue: String?
-    
-    var minLatitude = CGFloat()
-    var maxLatitude = CGFloat()
-    var minLongitude = CGFloat()
-    var maxLongitude = CGFloat()
+    var minLatitude: CGFloat? = CGFloat()
+    var maxLatitude: CGFloat? = CGFloat()
+    var minLongitude: CGFloat? = CGFloat()
+    var maxLongitude: CGFloat? = CGFloat()
     
     // MARK:- Instance
     
@@ -25,34 +20,12 @@ open class GPXBounds: GPXElement {
         super.init()
     }
     
-    func boundsWith(_ minLatitude: CGFloat, maxLatitude: CGFloat, minLongitude: CGFloat, maxLongitude: CGFloat) -> GPXBounds {
-        
-        let bounds = GPXBounds()
-        
-        bounds.minLatitude = minLatitude
-        bounds.maxLatitude = maxLatitude
-        bounds.minLongitude = minLongitude
-        bounds.maxLongitude = maxLongitude
-        
-        return bounds
-    }
-    
-    // MARK:- Public Methods
-    
-    func set(minLatitude: CGFloat) {
-        minLatitudeValue = GPXType().value(forLatitude: minLatitude)
-    }
-    
-    func set(minLongitude: CGFloat) {
-        minLongitudeValue = GPXType().value(forLongitude: minLongitude)
-    }
-    
-    func set(maxLatitude: CGFloat) {
-        maxLatitudeValue = GPXType().value(forLatitude: maxLatitude)
-    }
-    
-    func set(maxLongitude: CGFloat) {
-        maxLongitudeValue = GPXType().value(forLongitude: maxLongitude)
+    public init(minLatitude: CGFloat, maxLatitude: CGFloat, minLongitude: CGFloat, maxLongitude: CGFloat) {
+        super.init()
+        self.minLatitude = minLatitude
+        self.maxLatitude = maxLatitude
+        self.minLongitude = minLongitude
+        self.maxLongitude = maxLongitude
     }
     
     // MARK:- Tag
@@ -66,17 +39,17 @@ open class GPXBounds: GPXElement {
     override func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         let attribute: NSMutableString = ""
         
-        if minLatitudeValue != nil {
-            attribute.appendFormat(" minlat=\"%@\"", minLatitudeValue!)
+        if minLatitude != nil {
+        attribute.appendFormat(" minlat=\"%f\"", minLatitude!)
         }
-        if minLongitudeValue != nil {
-            attribute.appendFormat(" minlon=\"%@\"", minLongitudeValue!)
+        if minLongitude != nil {
+        attribute.appendFormat(" minlon=\"%f\"", minLongitude!)
         }
-        if maxLatitudeValue != nil {
-            attribute.appendFormat(" maxlat=\"%@\"", maxLatitudeValue!)
+        if maxLatitude != nil {
+        attribute.appendFormat(" maxlat=\"%f\"", maxLatitude!)
         }
-        if maxLongitudeValue != nil {
-            attribute.appendFormat(" maxlon=\"%@\"", maxLongitudeValue!)
+        if maxLongitude != nil {
+        attribute.appendFormat(" maxlon=\"%f\"", maxLongitude!)
         }
         
         gpx.appendFormat("%@<%@%@>\r\n", indent(forIndentationLevel: indentationLevel))

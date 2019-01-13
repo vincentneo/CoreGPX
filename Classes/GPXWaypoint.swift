@@ -77,7 +77,8 @@ open class GPXWaypoint: GPXElement {
         }
     }
     
-    // MARK:- Private Methods
+    // MARK:- Internal Methods
+    
     func set(date: String) {
         if date.isEmpty == false {
             self.time = GPXType().dateTime(value: date) ?? Date()
