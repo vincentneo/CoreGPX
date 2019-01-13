@@ -1,6 +1,6 @@
 # CoreGPX
 
-[![CI Status](https://travis-ci.com/vincentneo/GPXKit.svg?branch=master)](https://travis-ci.com/vincentneo/GPXKit)
+[![CI Status](https://travis-ci.com/vincentneo/CoreGPX.svg?branch=master)](https://travis-ci.com/vincentneo/CoreGPX)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 [![Platform](https://img.shields.io/cocoapods/p/CoreGPX.svg?style=flat)](https://cocoapods.org/pods/CoreGPX)
 [![Version](https://img.shields.io/cocoapods/v/CoreGPX.svg?style=flat)](https://cocoapods.org/pods/CoreGPX)
