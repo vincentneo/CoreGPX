@@ -109,7 +109,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="siK-Le-UZE">
                         <nil key="title"/>
-                        <textField key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="https://raw.githubusercontent.com/gps-touring/sample-gpx/master/BrittanyJura/Courgenay_Ballon-DAlsace.gpx" borderStyle="roundedRect" placeholder="URL of a GPX file here" minimumFontSize="17" id="LR0-KI-hFh">
+                        <textField key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="https://raw.githubusercontent.com/gps-touring/sample-gpx/master/BrittanyJura/Courgenay_Ballon-DAlsace.gpx" borderStyle="roundedRect" placeholder="URL of a GPX file here" minimumFontSize="17" clearButtonMode="whileEditing" id="LR0-KI-hFh">
                             <rect key="frame" x="50" y="7" width="260" height="30"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <nil key="textColor"/>

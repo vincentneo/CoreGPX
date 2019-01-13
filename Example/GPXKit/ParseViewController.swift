@@ -19,7 +19,8 @@ class ParseViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        inputTextField.autocorrectionType = .no
+        
         // Do any additional setup after loading the view.
     }
     
