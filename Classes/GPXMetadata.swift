@@ -29,7 +29,11 @@ open class GPXMetadata: GPXElement {
     }
     
     // MARK:- Public Methods
-
+    func set(date: String) {
+        if date.isEmpty == false {
+            self.time = GPXType().dateTime(value: date) ?? Date()
+        }
+    }
     
     // MARK:- Tag
     

@@ -135,11 +135,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
                 case "ele":
                     self.waypoint.elevation = value(from: foundString)!
                 case "time":
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
-                    dateFormatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
-                    dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-                    self.waypoint.time = dateFormatter.date(from: foundString)!
+                    self.waypoint.set(date: foundString)
                 case "magvar":
                     self.waypoint.magneticVariation = value(from: foundString)!
                 case "geoidheight":
@@ -174,11 +170,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
                 case "desc":
                     self.metadata!.desc = foundString
                 case "time":
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
-                    dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-                    dateFormatter.dateFormat = "yyyy-MM-ddTHH:mm:ssZ"
-                    self.metadata!.time = dateFormatter.date(from: foundString)!
+                    self.metadata!.set(date: foundString)
                 case "keyword":
                     self.metadata!.keyword = foundString
                 // author, copyright, link, bounds, extensions not implemented.

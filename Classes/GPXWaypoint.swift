@@ -76,6 +76,13 @@ open class GPXWaypoint: GPXElement {
             }
         }
     }
+    
+    // MARK:- Private Methods
+    func set(date: String) {
+        if date.isEmpty == false {
+            self.time = GPXType().dateTime(value: date) ?? Date()
+        }
+    }
 
     // MARK:- Tag
     
