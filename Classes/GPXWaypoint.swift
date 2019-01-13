@@ -8,21 +8,8 @@
 import UIKit
 
 open class GPXWaypoint: GPXElement {
-    var elevationValue = String()
-    var timeValue = String()
-    var magneticVariationValue = String()
-    var geoidHeightValue = String()
-    public var links = [GPXLink]()
-    var fixValue = String()
-    var satellitesValue = String()
-    var horizontalDilutionValue = String()
-    var verticalDilutionValue = String()
-    var positionDilutionValue = String()
-    var ageOfDGPSDataValue = String()
-    var DGPSidValue = String()
-    var latitudeValue:String?
-    var longitudeValue:String?
     
+    public var links = [GPXLink]()
     public var elevation = CGFloat()
     public var time: Date
     public var magneticVariation = CGFloat()
