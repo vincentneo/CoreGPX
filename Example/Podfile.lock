@@ -1,5 +1,5 @@
 PODS:
-  - CoreGPX (0.3.3)
+  - CoreGPX (0.3.4)
 
 DEPENDENCIES:
   - CoreGPX (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CoreGPX: ee0a03906eacad56babb32edacfe91ff402469ab
+  CoreGPX: faf856967677690be6fc5587c7864f261b61315e
 
 PODFILE CHECKSUM: 9e9439f92bdc308d731e2bf95a97be91265a86df
 

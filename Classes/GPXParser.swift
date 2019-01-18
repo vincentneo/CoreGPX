@@ -98,16 +98,10 @@ open class GPXParser: NSObject, XMLParserDelegate {
         element = elementName
         
         switch elementName {
-        case "metadata":
-            isMetadata = true
         case "wpt":
             isWaypoint = true
             latitude = value(from: attributeDict ["lat"])
             longitude = value(from: attributeDict ["lon"])
-        case "rte":
-            isRoute = true
-        case "rtept":
-            isRoutePoint = true
         case "trk":
             isTrack = true
         case "trkseg":
@@ -116,6 +110,12 @@ open class GPXParser: NSObject, XMLParserDelegate {
             isTrackPoint = true
             latitude = value(from: attributeDict ["lat"])
             longitude = value(from: attributeDict ["lon"])
+        case "rte":
+            isRoute = true
+        case "rtept":
+            isRoutePoint = true
+        case "metadata":
+            isMetadata = true
         case "extensions":
             isExtension = true
         default: ()
