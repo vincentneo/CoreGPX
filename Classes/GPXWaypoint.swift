@@ -11,7 +11,7 @@ open class GPXWaypoint: GPXElement {
     
     public var links = [GPXLink]()
     public var elevation = CGFloat()
-    public var time: Date
+    public var time: Date?
     public var magneticVariation = CGFloat()
     public var geoidHeight = CGFloat()
     public var name: String?
@@ -31,6 +31,20 @@ open class GPXWaypoint: GPXElement {
     public var latitude: CGFloat?
     public var longitude: CGFloat?
     
+    public var latitudeString = String()
+    public var longitudeString = String()
+    public var elevationString = String()
+    public var timeString = String()
+    public var magneticVariationString = String()
+    public var geoidHeightString = String()
+    public var fixString = String()
+    public var satellitesString = String()
+    public var hdopString = String()
+    public var vdopString = String()
+    public var pdopString = String()
+    public var ageofDGPSDataString = String()
+    public var DGPSidString = String()
+    
     public required init() {
         self.time = Date()
         super.init()
@@ -44,6 +58,28 @@ open class GPXWaypoint: GPXElement {
     }
     
     // MARK:- Public Methods
+    
+    public func convertStrings() {
+        self.latitude = GPXType().decimal(latitudeString)
+        self.longitude = GPXType().decimal(longitudeString)
+        self.elevation = GPXType().decimal(elevationString)
+        self.time = GPXType().dateTime(value: timeString)
+    }
+    /*
+ public var latitudeString = String()
+ public var longitudeString = String()
+ public var elevationString = String()
+ public var timeString = String()
+ public var magneticVariationString = String()
+ public var geoidHeightString = String()
+ public var fixString = String()
+ public var satellitesString = String()
+ public var hdopString = String()
+ public var vdopString = String()
+ public var pdopString = String()
+ public var ageofDGPSDataString = String()
+ public var DGPSidString = String()
+ */
     
     open func newLink(withHref href: String) -> GPXLink {
         let link: GPXLink = GPXLink().link(with: href)
@@ -111,7 +147,7 @@ open class GPXWaypoint: GPXElement {
         super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
         
         self.addProperty(forNumberValue: elevation, gpx: gpx, tagName: "ele", indentationLevel: indentationLevel)
-        self.addProperty(forValue: GPXType().value(forDateTime: time) as NSString, gpx: gpx, tagName: "time", indentationLevel: indentationLevel)
+        self.addProperty(forValue: GPXType().value(forDateTime: time!) as NSString, gpx: gpx, tagName: "time", indentationLevel: indentationLevel)
         self.addProperty(forNumberValue: magneticVariation, gpx: gpx, tagName: "magvar", indentationLevel: indentationLevel)
         self.addProperty(forNumberValue: geoidHeight, gpx: gpx, tagName: "geoidheight", indentationLevel: indentationLevel)
         self.addProperty(forValue: name as NSString?, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
