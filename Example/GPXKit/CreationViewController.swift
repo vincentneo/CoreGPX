@@ -116,8 +116,3 @@ class CreationViewController: UIViewController, UITextFieldDelegate {
     */
 
 }
-
-enum CreationType {
-    case Waypoint
-    case Trackpoint
-}
