@@ -15,12 +15,10 @@ open class GPXRoutePoint: GPXWaypoint {
     
     // MARK:- Instance
     
-    func routePoint(with latitude: CGFloat, longitude: CGFloat) -> GPXRoutePoint {
-        let routePoint = GPXRoutePoint()
-        routePoint.latitude = latitude
-        routePoint.longitude = longitude
-        
-        return routePoint
+    public override init(latitude: CGFloat, longitude: CGFloat) {
+        super.init()
+        self.latitude = latitude
+        self.longitude = longitude
     }
     
     // MARK:- Tag
