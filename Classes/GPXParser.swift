@@ -55,6 +55,8 @@ open class GPXParser: NSObject, XMLParserDelegate {
     var element = String()
     var latitude: CGFloat? = CGFloat()
     var longitude: CGFloat? = CGFloat()
+    var latitudeString: String? = String()
+    var longitudeString: String? = String()
     
     // Elements
     var waypoint = GPXWaypoint()
@@ -100,16 +102,20 @@ open class GPXParser: NSObject, XMLParserDelegate {
         switch elementName {
         case "wpt":
             isWaypoint = true
-            latitude = value(from: attributeDict ["lat"])
-            longitude = value(from: attributeDict ["lon"])
+            latitudeString =  attributeDict ["lat"]
+            longitudeString = attributeDict ["lon"]
+            //latitude = value(from: attributeDict ["lat"])
+            //longitude = value(from: attributeDict ["lon"])
         case "trk":
             isTrack = true
         case "trkseg":
             isTrackSegment = true
         case "trkpt":
             isTrackPoint = true
-            latitude = value(from: attributeDict ["lat"])
-            longitude = value(from: attributeDict ["lon"])
+            latitudeString =  attributeDict ["lat"]
+            longitudeString = attributeDict ["lon"]
+            //latitude = value(from: attributeDict ["lat"])
+            //longitude = value(from: attributeDict ["lon"])
         case "rte":
             isRoute = true
         case "rtept":
@@ -128,8 +134,8 @@ open class GPXParser: NSObject, XMLParserDelegate {
         let foundString = string.trimmingCharacters(in: .whitespacesAndNewlines)
         
         if isWaypoint || isTrackPoint || isRoutePoint {
-            waypoint.latitude = latitude
-            waypoint.longitude = longitude
+            waypoint.latitudeString = latitudeString!
+            waypoint.longitudeString = longitudeString!
             if foundString.isEmpty == false {
                 switch element {
                 case "ele":
@@ -205,7 +211,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
             tempWaypoint.pdopString = self.waypoint.pdopString
             tempWaypoint.ageofDGPSDataString = self.waypoint.ageofDGPSDataString
             tempWaypoint.DGPSidString = self.waypoint.DGPSidString
-            tempWaypoint.convertStrings()
+            //tempWaypoint.convertStrings()
             
             self.waypoints.append(tempWaypoint)
             // clear values
@@ -288,7 +294,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
             tempTrackPoint.pdopString = self.waypoint.pdopString
             tempTrackPoint.ageofDGPSDataString = self.waypoint.ageofDGPSDataString
             tempTrackPoint.DGPSidString = self.waypoint.DGPSidString
-            tempTrackPoint.convertStrings()
+            //tempTrackPoint.convertStrings()
             
             self.trackpoints.append(tempTrackPoint)
             

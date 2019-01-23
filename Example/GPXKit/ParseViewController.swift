@@ -84,8 +84,8 @@ class ParseViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             for waypoint in self.waypoints {
         
-                coordinates.append("Lat=\(waypoint.latitude ?? 0), Lon=\(waypoint.longitude ?? 0)")
-                subtitles.append("Date:\(waypoint.time), Ele:\(waypoint.elevation)")
+                //coordinates.append("Lat=\(waypoint.latitude ?? 0), Lon=\(waypoint.longitude ?? 0)")
+                //subtitles.append("Date:\(waypoint.time), Ele:\(waypoint.elevation)")
                 
             }
         
@@ -102,8 +102,8 @@ class ParseViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 for tracksegment in track.tracksegments {
                     for trackpoint in tracksegment.trackpoints {
                         
-                        coordinates.append("Lat=\(trackpoint.latitude ?? 0), Lon=\(trackpoint.longitude ?? 0)")
-                        subtitles.append("Date:\(trackpoint.time), Ele:\(trackpoint.elevation)")
+                        coordinates.append("Lat=\(trackpoint.latitudeString), Lon=\(trackpoint.longitudeString)")
+                        subtitles.append("Date:\(trackpoint.timeString), Ele:\(trackpoint.elevationString)")
                         
                     }
                 }

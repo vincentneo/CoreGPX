@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         
         // GPXRoot object that contains all the data parsed from GPXParser.
         let gpx = GPXParser(withURL: url).parsedData()
-        
+        /*
         self.tracks = gpx.tracks
         self.waypoints = gpx.waypoints
         
@@ -45,6 +45,7 @@ class ViewController: UIViewController {
                 }
             }
         }
+ */
     }
 
     override func didReceiveMemoryWarning() {
