@@ -17,6 +17,8 @@ open class GPXTrackPoint: GPXWaypoint {
     
     public override init(latitude: CGFloat, longitude: CGFloat) {
         super.init()
+        self.latitude = latitude
+        self.longitude = longitude
     }
     
     // MARK:- Tag
@@ -24,5 +26,5 @@ open class GPXTrackPoint: GPXWaypoint {
     override func tagName() -> String! {
         return "trkpt"
     }
-
+    
 }
