@@ -153,7 +153,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XhT-3f-h0c">
                                 <rect key="frame" x="0.0" y="399" width="375" height="30"/>
-                                <state key="normal" title="Output GPX file"/>
+                                <state key="normal" title="Output GPX string using print()"/>
                                 <connections>
                                     <action selector="outputFileButton:" destination="reI-it-Axz" eventType="touchUpInside" id="feb-ag-LjY"/>
                                 </connections>

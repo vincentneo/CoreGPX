@@ -28,7 +28,7 @@ class CreationViewController: UIViewController, UITextFieldDelegate {
         switch typeSwitchIndex {
         case 0:
             let latitude = GPXType().latitude(latitudeField.text)
-            let longitude = GPXType().longitude(latitudeField.text)
+            let longitude = GPXType().longitude(longitudeField.text)
             let elevation = value(from: elevationField.text)
             let waypoint = GPXWaypoint(latitude: latitude, longitude: longitude)
             waypoint.elevation = elevation ?? 0
@@ -41,7 +41,7 @@ class CreationViewController: UIViewController, UITextFieldDelegate {
             longitudeField.text = ""
         case 1:
             let latitude = GPXType().latitude(latitudeField.text)
-            let longitude = GPXType().longitude(latitudeField.text)
+            let longitude = GPXType().longitude(longitudeField.text)
             let elevation = value(from: elevationField.text)
             let trackpoint = GPXTrackPoint(latitude: latitude, longitude: longitude)
             trackpoint.elevation = elevation ?? 0
