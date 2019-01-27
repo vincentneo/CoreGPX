@@ -23,6 +23,14 @@ open class GPXRoutePoint: GPXWaypoint {
         return routePoint
     }
     
+    public override init(dictionary: [String : String]) {
+        super.init()
+        self.elevation = GPXType().decimal(dictionary["ele"])
+        self.latitude = GPXType().decimal(dictionary["lat"])
+        self.longitude = GPXType().decimal(dictionary["lon"])
+        self.time = GPXType().dateTime(value: dictionary["time"]!)
+    }
+    
     // MARK:- Tag
     
     override func tagName() -> String! {

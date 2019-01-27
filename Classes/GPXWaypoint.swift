@@ -44,6 +44,7 @@ open class GPXWaypoint: GPXElement {
     public var pdopString = String()
     public var ageofDGPSDataString = String()
     public var DGPSidString = String()
+    let formatter = DateFormatter()
     
     public required init() {
         self.time = Date()
@@ -55,6 +56,16 @@ open class GPXWaypoint: GPXElement {
         super.init()
         self.latitude = latitude
         self.longitude = longitude
+    }
+    
+    public init(dictionary: [String:String]) {
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
+        self.time = formatter.date(from: dictionary["time"] ?? "") ?? Date()
+        super.init()
+        self.elevation = GPXType().decimal(dictionary["ele"])
+        self.latitude = GPXType().decimal(dictionary["lat"])
+        self.longitude = GPXType().decimal(dictionary["lon"])
     }
     
     // MARK:- Public Methods

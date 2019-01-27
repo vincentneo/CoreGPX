@@ -71,6 +71,11 @@ open class GPXParser: NSObject, XMLParserDelegate {
     var routes = [GPXRoute]()
     var routepoints = [GPXRoutePoint]()
     
+    // Dictionary of element
+    var waypointDict = [String:String]()
+    var trackpointDict = [String:String]()
+    var routepointDict = [String:String]()
+    
     var tracks = [GPXTrack]()
     var tracksegements = [GPXTrackSegment]()
     var trackpoints = [GPXTrackPoint]()
@@ -102,24 +107,22 @@ open class GPXParser: NSObject, XMLParserDelegate {
         switch elementName {
         case "wpt":
             isWaypoint = true
-            latitudeString =  attributeDict ["lat"]
-            longitudeString = attributeDict ["lon"]
-            //latitude = value(from: attributeDict ["lat"])
-            //longitude = value(from: attributeDict ["lon"])
+            waypointDict["lat"] = attributeDict["lat"]
+            waypointDict["lon"] = attributeDict["lon"]
         case "trk":
             isTrack = true
         case "trkseg":
             isTrackSegment = true
         case "trkpt":
             isTrackPoint = true
-            latitudeString =  attributeDict ["lat"]
-            longitudeString = attributeDict ["lon"]
-            //latitude = value(from: attributeDict ["lat"])
-            //longitude = value(from: attributeDict ["lon"])
+            trackpointDict["lat"] = attributeDict["lat"]
+            trackpointDict["lon"] = attributeDict["lon"]
         case "rte":
             isRoute = true
         case "rtept":
             isRoutePoint = true
+            routepointDict["lat"] = attributeDict["lat"]
+            routepointDict["lon"] = attributeDict["lon"]
         case "metadata":
             isMetadata = true
         case "extensions":
@@ -133,10 +136,22 @@ open class GPXParser: NSObject, XMLParserDelegate {
         
         let foundString = string.trimmingCharacters(in: .whitespacesAndNewlines)
         
+        if isWaypoint {
+            waypointDict[element] = foundString
+        }
+        if isTrackPoint {
+            trackpointDict[element] = foundString
+        }
+        if isRoutePoint {
+            routepointDict[element] = foundString
+        }
+        
+        /*
         if isWaypoint || isTrackPoint || isRoutePoint {
-            waypoint.latitudeString = latitudeString!
-            waypoint.longitudeString = longitudeString!
+            //waypoint.latitudeString = latitudeString!
+            //waypoint.longitudeString = longitudeString!
             if foundString.isEmpty == false {
+                
                 switch element {
                 case "ele":
                     self.waypoint.elevationString = foundString
@@ -168,6 +183,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
                 }
             }
         }
+        */
         if isMetadata {
             if foundString.isEmpty != false {
                 switch element {
@@ -193,8 +209,8 @@ open class GPXParser: NSObject, XMLParserDelegate {
             isMetadata = false
             
         case "trkpt":
-            let tempTrackPoint = GPXTrackPoint()
-            
+            let tempTrackPoint = GPXTrackPoint(dictionary: trackpointDict)
+            /*
             // copy values
             tempTrackPoint.latitudeString = self.waypoint.latitudeString
             tempTrackPoint.longitudeString = self.waypoint.longitudeString
@@ -212,17 +228,18 @@ open class GPXParser: NSObject, XMLParserDelegate {
             tempTrackPoint.ageofDGPSDataString = self.waypoint.ageofDGPSDataString
             tempTrackPoint.DGPSidString = self.waypoint.DGPSidString
             tempTrackPoint.convertStrings()
-            
+            */
             self.trackpoints.append(tempTrackPoint)
-            
+ 
             // clear values
             isTrackPoint = false
             latitude = nil
             longitude = nil
+            trackpointDict.removeAll()
             
         case "wpt":
-            let tempWaypoint = GPXWaypoint()
-            
+            let tempWaypoint = GPXWaypoint(dictionary: waypointDict)
+            /*
             // copy values
             tempWaypoint.latitudeString = self.waypoint.latitudeString
             tempWaypoint.longitudeString = self.waypoint.longitudeString
@@ -240,12 +257,13 @@ open class GPXParser: NSObject, XMLParserDelegate {
             tempWaypoint.ageofDGPSDataString = self.waypoint.ageofDGPSDataString
             tempWaypoint.DGPSidString = self.waypoint.DGPSidString
             tempWaypoint.convertStrings()
-            
+            */
             self.waypoints.append(tempWaypoint)
             // clear values
             isWaypoint = false
             latitude = nil
             longitude = nil
+            waypointDict.removeAll()
             
         case "rte":
             self.route.add(routepoints: routepoints)
@@ -258,8 +276,8 @@ open class GPXParser: NSObject, XMLParserDelegate {
             
         case "rtept":
             
-            let tempRoutePoint = GPXRoutePoint()
-            
+            let tempRoutePoint = GPXRoutePoint(dictionary: routepointDict)
+            /*
             // copy values
             tempRoutePoint.latitudeString = self.waypoint.latitudeString
             tempRoutePoint.longitudeString = self.waypoint.longitudeString
@@ -277,7 +295,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
             tempRoutePoint.ageofDGPSDataString = self.waypoint.ageofDGPSDataString
             tempRoutePoint.DGPSidString = self.waypoint.DGPSidString
             tempRoutePoint.convertStrings()
-            
+            */
             self.routepoints.append(tempRoutePoint)
             
             isRoutePoint = false
