@@ -192,6 +192,34 @@ open class GPXParser: NSObject, XMLParserDelegate {
         case "metadata":
             isMetadata = false
             
+        case "trkpt":
+            let tempTrackPoint = GPXTrackPoint()
+            
+            // copy values
+            tempTrackPoint.latitudeString = self.waypoint.latitudeString
+            tempTrackPoint.longitudeString = self.waypoint.longitudeString
+            tempTrackPoint.elevationString = self.waypoint.elevationString
+            tempTrackPoint.timeString = self.waypoint.timeString
+            tempTrackPoint.magneticVariationString = self.waypoint.magneticVariationString
+            tempTrackPoint.geoidHeightString = self.waypoint.geoidHeightString
+            tempTrackPoint.name = self.waypoint.name
+            tempTrackPoint.desc = self.waypoint.desc
+            tempTrackPoint.source = self.waypoint.source
+            tempTrackPoint.satellitesString = self.waypoint.satellitesString
+            tempTrackPoint.hdopString = self.waypoint.hdopString
+            tempTrackPoint.vdopString = self.waypoint.vdopString
+            tempTrackPoint.pdopString = self.waypoint.pdopString
+            tempTrackPoint.ageofDGPSDataString = self.waypoint.ageofDGPSDataString
+            tempTrackPoint.DGPSidString = self.waypoint.DGPSidString
+            tempTrackPoint.convertStrings()
+            
+            self.trackpoints.append(tempTrackPoint)
+            
+            // clear values
+            isTrackPoint = false
+            latitude = nil
+            longitude = nil
+            
         case "wpt":
             let tempWaypoint = GPXWaypoint()
             
@@ -211,7 +239,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
             tempWaypoint.pdopString = self.waypoint.pdopString
             tempWaypoint.ageofDGPSDataString = self.waypoint.ageofDGPSDataString
             tempWaypoint.DGPSidString = self.waypoint.DGPSidString
-            //tempWaypoint.convertStrings()
+            tempWaypoint.convertStrings()
             
             self.waypoints.append(tempWaypoint)
             // clear values
@@ -273,42 +301,22 @@ open class GPXParser: NSObject, XMLParserDelegate {
             
             // clear values
             isTrackSegment = false
-            
-        case "trkpt":
-            
-            let tempTrackPoint = GPXTrackPoint()
-            
-            // copy values
-            tempTrackPoint.latitudeString = self.waypoint.latitudeString
-            tempTrackPoint.longitudeString = self.waypoint.longitudeString
-            tempTrackPoint.elevationString = self.waypoint.elevationString
-            tempTrackPoint.timeString = self.waypoint.timeString
-            tempTrackPoint.magneticVariationString = self.waypoint.magneticVariationString
-            tempTrackPoint.geoidHeightString = self.waypoint.geoidHeightString
-            tempTrackPoint.name = self.waypoint.name
-            tempTrackPoint.desc = self.waypoint.desc
-            tempTrackPoint.source = self.waypoint.source
-            tempTrackPoint.satellitesString = self.waypoint.satellitesString
-            tempTrackPoint.hdopString = self.waypoint.hdopString
-            tempTrackPoint.vdopString = self.waypoint.vdopString
-            tempTrackPoint.pdopString = self.waypoint.pdopString
-            tempTrackPoint.ageofDGPSDataString = self.waypoint.ageofDGPSDataString
-            tempTrackPoint.DGPSidString = self.waypoint.DGPSidString
-            //tempTrackPoint.convertStrings()
-            
-            self.trackpoints.append(tempTrackPoint)
-            
-            // clear values
-            isTrackPoint = false
-            latitude = nil
-            longitude = nil
+
         case "extensions":
             isExtension = false
         default: ()
         }
     }
-    
-    
+    /*
+    public func parserDidEndDocument(_ parser: XMLParser) {
+        for trackpoint in trackpoints {
+            trackpoint.convertStrings()
+        }
+        for waypoint in waypoints {
+            waypoint.convertStrings()
+        }
+    }
+    */
     // MARK:- Export parsed data
     
     open func parsedData() -> GPXRoot {
