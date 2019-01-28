@@ -80,13 +80,6 @@ open class GPXWaypoint: GPXElement {
     }
     
     // MARK:- Public Methods
-    
-    public func convertStrings() {
-        self.latitude = GPXType().decimal(latitudeString)
-        self.longitude = GPXType().decimal(longitudeString)
-        self.elevation = GPXType().decimal(elevationString)
-        self.time = GPXType().dateTime(value: timeString)
-    }
    
     func number(from string: String?) -> CGFloat {
         return CGFloat(Double(string ?? "") ?? 0)
@@ -121,14 +114,6 @@ open class GPXWaypoint: GPXElement {
             if let index = links.firstIndex(of: link) {
                 links.remove(at: index)
             }
-        }
-    }
-    
-    // MARK:- Internal Methods
-    
-    func set(date: String) {
-        if date.isEmpty == false {
-            self.time = GPXType().dateTime(value: date) ?? Date()
         }
     }
 
@@ -188,7 +173,7 @@ open class GPXWaypoint: GPXElement {
 }
 
 // code from http://jordansmith.io/performant-date-parsing/
-// edited for use case in CoreGPX
+// edited for use in CoreGPX
 
 class ISO8601DateParser {
     
