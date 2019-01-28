@@ -12,21 +12,21 @@ open class GPXWaypoint: GPXElement {
     public var links = [GPXLink]()
     public var elevation = CGFloat()
     public var time: Date?
-    public var magneticVariation = CGFloat()
-    public var geoidHeight = CGFloat()
+    public var magneticVariation: CGFloat?
+    public var geoidHeight: CGFloat?
     public var name: String?
-    public var comment = String()
+    public var comment: String?
     public var desc: String?
-    public var source = String()
-    public var symbol = String()
-    public var type = String()
-    public var fix = Int()
-    public var satellites = Int()
-    public var horizontalDilution = CGFloat()
-    public var verticalDilution = CGFloat()
-    public var positionDilution = CGFloat()
-    public var ageofDGPSData = CGFloat()
-    public var DGPSid = Int()
+    public var source: String?
+    public var symbol: String?
+    public var type: String?
+    public var fix: Int?
+    public var satellites: Int?
+    public var horizontalDilution: CGFloat?
+    public var verticalDilution: CGFloat?
+    public var positionDilution: CGFloat?
+    public var ageofDGPSData: CGFloat?
+    public var DGPSid: Int?
     public var extensions: GPXExtensions? = GPXExtensions()
     public var latitude: CGFloat?
     public var longitude: CGFloat?
@@ -45,13 +45,6 @@ open class GPXWaypoint: GPXElement {
     public var ageofDGPSDataString = String()
     public var DGPSidString = String()
     
-    public let formatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
-        return formatter
-        
-    }()
-    
     public required init() {
         self.time = Date()
         super.init()
@@ -66,11 +59,24 @@ open class GPXWaypoint: GPXElement {
     
     public init(dictionary: [String:String]) {
         self.time = ISO8601DateParser.parse(dictionary ["time"] ?? "")
-        //self.time = formatter.date(from: dictionary["time"] ?? "")
         super.init()
-        self.elevation = GPXType().decimal(dictionary["ele"])
-        self.latitude = GPXType().decimal(dictionary["lat"])
-        self.longitude = GPXType().decimal(dictionary["lon"])
+        self.elevation = number(from: dictionary["ele"])
+        self.latitude = number(from: dictionary["lat"])
+        self.longitude = number(from: dictionary["lon"])
+        self.magneticVariation = number(from: dictionary["magvar"])
+        self.geoidHeight = number(from: dictionary["geoidheight"])
+        self.name = dictionary["name"]
+        self.comment = dictionary["cmt"]
+        self.desc = dictionary["desc"]
+        self.source = dictionary["src"]
+        self.symbol = dictionary["sym"]
+        self.type = dictionary["type"]
+        self.fix = Int(dictionary["fix"] ?? "")
+        self.satellites = Int(dictionary["sat"] ?? "")
+        self.horizontalDilution = number(from: dictionary["hdop"])
+        self.verticalDilution = number(from: dictionary["vdop"])
+        self.positionDilution = number(from: dictionary["pdop"])
+        self.DGPSid = Int(dictionary["dgpsid"] ?? "")
     }
     
     // MARK:- Public Methods
@@ -81,21 +87,10 @@ open class GPXWaypoint: GPXElement {
         self.elevation = GPXType().decimal(elevationString)
         self.time = GPXType().dateTime(value: timeString)
     }
-    /*
- public var latitudeString = String()
- public var longitudeString = String()
- public var elevationString = String()
- public var timeString = String()
- public var magneticVariationString = String()
- public var geoidHeightString = String()
- public var fixString = String()
- public var satellitesString = String()
- public var hdopString = String()
- public var vdopString = String()
- public var pdopString = String()
- public var ageofDGPSDataString = String()
- public var DGPSidString = String()
- */
+   
+    func number(from string: String?) -> CGFloat {
+        return CGFloat(Double(string ?? "") ?? 0)
+    }
     
     open func newLink(withHref href: String) -> GPXLink {
         let link: GPXLink = GPXLink().link(with: href)
@@ -168,21 +163,21 @@ open class GPXWaypoint: GPXElement {
         self.addProperty(forNumberValue: geoidHeight, gpx: gpx, tagName: "geoidheight", indentationLevel: indentationLevel)
         self.addProperty(forValue: name as NSString?, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
         self.addProperty(forValue: desc as NSString?, gpx: gpx, tagName: "desc", indentationLevel: indentationLevel)
-        self.addProperty(forValue: source as NSString, gpx: gpx, tagName: "source", indentationLevel: indentationLevel)
+        self.addProperty(forValue: source as NSString?, gpx: gpx, tagName: "source", indentationLevel: indentationLevel)
         
         for link in links {
             link.gpx(gpx, indentationLevel: indentationLevel)
         }
         
-        self.addProperty(forValue: symbol as NSString, gpx: gpx, tagName: "sym", indentationLevel: indentationLevel)
-        self.addProperty(forValue: type as NSString, gpx: gpx, tagName: "type", indentationLevel: indentationLevel)
-        self.addProperty(forNumberValue: CGFloat(fix), gpx: gpx, tagName: "source", indentationLevel: indentationLevel)
-        self.addProperty(forNumberValue: CGFloat(satellites), gpx: gpx, tagName: "sat", indentationLevel: indentationLevel)
+        self.addProperty(forValue: symbol as NSString?, gpx: gpx, tagName: "sym", indentationLevel: indentationLevel)
+        self.addProperty(forValue: type as NSString?, gpx: gpx, tagName: "type", indentationLevel: indentationLevel)
+        self.addProperty(forNumberValue: CGFloat(fix ?? 0), gpx: gpx, tagName: "source", indentationLevel: indentationLevel)
+        self.addProperty(forNumberValue: CGFloat(satellites ?? 0), gpx: gpx, tagName: "sat", indentationLevel: indentationLevel)
         self.addProperty(forNumberValue: horizontalDilution, gpx: gpx, tagName: "hdop", indentationLevel: indentationLevel)
         self.addProperty(forNumberValue: verticalDilution, gpx: gpx, tagName: "vdop", indentationLevel: indentationLevel)
         self.addProperty(forNumberValue: positionDilution, gpx: gpx, tagName: "pdop", indentationLevel: indentationLevel)
         self.addProperty(forNumberValue: ageofDGPSData, gpx: gpx, tagName: "ageofdgpsdata", indentationLevel: indentationLevel)
-        self.addProperty(forNumberValue: CGFloat(DGPSid), gpx: gpx, tagName: "dgpsid", indentationLevel: indentationLevel)
+        self.addProperty(forNumberValue: CGFloat(DGPSid ?? 0), gpx: gpx, tagName: "dgpsid", indentationLevel: indentationLevel)
         
         if self.extensions != nil {
             self.extensions?.gpx(gpx, indentationLevel: indentationLevel)
@@ -208,29 +203,32 @@ class ISO8601DateParser {
     private static let second = UnsafeMutablePointer<Int>.allocate(capacity: 1)
     
     static func parse(_ dateString: String) -> Date? {
-        
-        _ = withVaList([year, month, day, hour, minute,
-                                     second], { pointer in
-                                        vsscanf(dateString, "%d-%d-%dT%d:%d:%dZ", pointer)
-                                        
-        })
-        
-        components.year = year.pointee
-        components.minute = minute.pointee
-        components.day = day.pointee
-        components.hour = hour.pointee
-        components.month = month.pointee
-        components.second = second.pointee
-        
-        if let calendar = calendarCache[0] {
+        if dateString != "" {
+            _ = withVaList([year, month, day, hour, minute,
+                            second], { pointer in
+                                vsscanf(dateString, "%d-%d-%dT%d:%d:%dZ", pointer)
+                                
+            })
+            
+            components.year = year.pointee
+            components.minute = minute.pointee
+            components.day = day.pointee
+            components.hour = hour.pointee
+            components.month = month.pointee
+            components.second = second.pointee
+            
+            if let calendar = calendarCache[0] {
+                return calendar.date(from: components)
+            }
+            
+            var calendar = Calendar(identifier: .gregorian)
+            calendar.timeZone = TimeZone(secondsFromGMT: 0)!
+            calendarCache[0] = calendar
             return calendar.date(from: components)
         }
-        
-        var calendar = Calendar(identifier: .gregorian)
-        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
-        calendarCache[0] = calendar
-        return calendar.date(from: components)
-        
+        else {
+            return nil
+        }
     }
     
 }

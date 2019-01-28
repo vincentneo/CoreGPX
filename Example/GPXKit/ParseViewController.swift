@@ -84,8 +84,8 @@ class ParseViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             for waypoint in self.waypoints {
         
-                //coordinates.append("Lat=\(waypoint.latitude ?? 0), Lon=\(waypoint.longitude ?? 0)")
-                //subtitles.append("Date:\(waypoint.time), Ele:\(waypoint.elevation)")
+                coordinates.append("Lat=\(waypoint.latitude ?? 0), Lon=\(waypoint.longitude ?? 0)")
+                subtitles.append("Date:\(waypoint.time ?? Date()), Ele:\(waypoint.elevation)")
                 
             }
         
