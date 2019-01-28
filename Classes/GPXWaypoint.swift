@@ -44,7 +44,13 @@ open class GPXWaypoint: GPXElement {
     public var pdopString = String()
     public var ageofDGPSDataString = String()
     public var DGPSidString = String()
-    let formatter = DateFormatter()
+    
+    public let formatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
+        return formatter
+        
+    }()
     
     public required init() {
         self.time = Date()
@@ -59,9 +65,8 @@ open class GPXWaypoint: GPXElement {
     }
     
     public init(dictionary: [String:String]) {
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
-        formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
-        self.time = formatter.date(from: dictionary["time"] ?? "") ?? Date()
+        //self.time = ISO8601DateParser.parse(dictionary ["time"] ?? "")
+        self.time = formatter.date(from: dictionary["time"] ?? "")
         super.init()
         self.elevation = GPXType().decimal(dictionary["ele"])
         self.latitude = GPXType().decimal(dictionary["lat"])
@@ -186,3 +191,42 @@ open class GPXWaypoint: GPXElement {
     }
     
 }
+
+// code from http://jordansmith.io/performant-date-parsing/
+// edited for use case in CoreGPX
+
+class ISO8601DateParser {
+    
+    private static var calendarCache = [Int : Calendar]()
+    private static var components = DateComponents()
+    
+    private static let year = UnsafeMutablePointer<Int>.allocate(capacity: 1)
+    private static let month = UnsafeMutablePointer<Int>.allocate(capacity: 1)
+    private static let day = UnsafeMutablePointer<Int>.allocate(capacity: 1)
+    private static let hour = UnsafeMutablePointer<Int>.allocate(capacity: 1)
+    private static let minute = UnsafeMutablePointer<Int>.allocate(capacity: 1)
+    private static let second = UnsafeMutablePointer<Float>.allocate(capacity: 1)
+    
+    static func parse(_ dateString: String) -> Date? {
+        
+        let parseCount = withVaList([year, month, day, hour, minute,
+                                     second], { pointer in
+                                        vsscanf(dateString, "%d-%d-%dT%d:%d:%dZ", pointer)
+                                        
+        })
+        
+        components.year = year.pointee
+        components.minute = minute.pointee
+        components.day = day.pointee
+        components.hour = hour.pointee
+        components.month = month.pointee
+        components.second = Int(second.pointee)
+        
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
+        return calendar.date(from: components)
+        
+    }
+    
+}
+

@@ -20,10 +20,9 @@ open class GPXTrackPoint: GPXWaypoint {
     }
     
     public override init(dictionary: [String : String]) {
-        //self.formatter.timeZone = TimeZone(secondsFromGMT: 0)
-        //self.formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
-        //self.time = formatter.date(from: dictionary["time"] ?? "") ?? Date()
         super.init()
+        self.time = formatter.date(from: dictionary["time"] ?? "")
+        //self.time = ISO8601DateParser.parse(dictionary ["time"] ?? "")
         self.elevation = number(from: dictionary["ele"])
         self.latitude = number(from: dictionary["lat"])
         self.longitude = number(from: dictionary["lon"])
