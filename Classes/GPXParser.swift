@@ -135,17 +135,19 @@ open class GPXParser: NSObject, XMLParserDelegate {
     public func parser(_ parser: XMLParser, foundCharacters string: String) {
         
         let foundString = string.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        if isWaypoint {
-            waypointDict[element] = foundString
+        if foundString.isEmpty == false {
+            if element != "trkpt" || element != "wpt" || element != "rtept" {
+                if isWaypoint {
+                    waypointDict[element] = foundString
+                }
+                if isTrackPoint {
+                    trackpointDict[element] = foundString
+                }
+                if isRoutePoint {
+                    routepointDict[element] = foundString
+                }
+            }
         }
-        if isTrackPoint {
-            trackpointDict[element] = foundString
-        }
-        if isRoutePoint {
-            routepointDict[element] = foundString
-        }
-        
         /*
         if isWaypoint || isTrackPoint || isRoutePoint {
             //waypoint.latitudeString = latitudeString!
