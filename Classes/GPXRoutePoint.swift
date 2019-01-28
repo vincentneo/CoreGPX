@@ -25,8 +25,8 @@ open class GPXRoutePoint: GPXWaypoint {
     
     public override init(dictionary: [String : String]) {
         super.init()
-        self.time = formatter.date(from: dictionary["time"] ?? "")
-        //self.time = ISO8601DateParser.parse(dictionary ["time"] ?? "")
+        //self.time = formatter.date(from: dictionary["time"] ?? "")
+        self.time = ISO8601DateParser.parse(dictionary ["time"] ?? "")
         self.elevation = GPXType().decimal(dictionary["ele"])
         self.latitude = GPXType().decimal(dictionary["lat"])
         self.longitude = GPXType().decimal(dictionary["lon"])

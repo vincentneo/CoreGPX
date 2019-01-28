@@ -65,8 +65,8 @@ open class GPXWaypoint: GPXElement {
     }
     
     public init(dictionary: [String:String]) {
-        //self.time = ISO8601DateParser.parse(dictionary ["time"] ?? "")
-        self.time = formatter.date(from: dictionary["time"] ?? "")
+        self.time = ISO8601DateParser.parse(dictionary ["time"] ?? "")
+        //self.time = formatter.date(from: dictionary["time"] ?? "")
         super.init()
         self.elevation = GPXType().decimal(dictionary["ele"])
         self.latitude = GPXType().decimal(dictionary["lat"])
@@ -205,11 +205,11 @@ class ISO8601DateParser {
     private static let day = UnsafeMutablePointer<Int>.allocate(capacity: 1)
     private static let hour = UnsafeMutablePointer<Int>.allocate(capacity: 1)
     private static let minute = UnsafeMutablePointer<Int>.allocate(capacity: 1)
-    private static let second = UnsafeMutablePointer<Float>.allocate(capacity: 1)
+    private static let second = UnsafeMutablePointer<Int>.allocate(capacity: 1)
     
     static func parse(_ dateString: String) -> Date? {
         
-        let parseCount = withVaList([year, month, day, hour, minute,
+        _ = withVaList([year, month, day, hour, minute,
                                      second], { pointer in
                                         vsscanf(dateString, "%d-%d-%dT%d:%d:%dZ", pointer)
                                         
@@ -220,10 +220,15 @@ class ISO8601DateParser {
         components.day = day.pointee
         components.hour = hour.pointee
         components.month = month.pointee
-        components.second = Int(second.pointee)
+        components.second = second.pointee
+        
+        if let calendar = calendarCache[0] {
+            return calendar.date(from: components)
+        }
         
         var calendar = Calendar(identifier: .gregorian)
         calendar.timeZone = TimeZone(secondsFromGMT: 0)!
+        calendarCache[0] = calendar
         return calendar.date(from: components)
         
     }
