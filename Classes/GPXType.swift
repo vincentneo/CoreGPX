@@ -30,7 +30,7 @@ open class GPXType: NSObject {
         }
     }
     
-    func longitude(_ value: String?) -> CGFloat {
+    open func longitude(_ value: String?) -> CGFloat {
         
         let f = CGFloat(Float(value ?? "") ?? 0.0)
         if -180.0 <= f && f <= 180.0 {

@@ -16,11 +16,13 @@ class ParseViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var tracks = [GPXTrack]()
     var waypoints = [GPXWaypoint]()
+    var waypoint = GPXWaypoint()
+    var trackpoint = GPXTrackPoint()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         inputTextField.autocorrectionType = .no
-        
+        trackpoint = GPXTrackPoint(latitude: 2, longitude: 0)
         // Do any additional setup after loading the view.
     }
     
