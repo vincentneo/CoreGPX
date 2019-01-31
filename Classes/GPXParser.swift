@@ -187,10 +187,11 @@ open class GPXParser: NSObject, XMLParserDelegate {
             waypointDict.removeAll()
             
         case "rte":
-            self.route.add(routepoints: routepoints)
             
             let tempTrack = GPXRoute()
-            tempTrack.routepoints = self.route.routepoints
+            
+            tempTrack.add(routepoints: self.routepoints)
+            
             self.routes.append(route)
             
             // clear values
@@ -209,10 +210,10 @@ open class GPXParser: NSObject, XMLParserDelegate {
             
         case "trk":
             
-            self.track.add(trackSegments: tracksegements)
-            
             let tempTrack = GPXTrack()
-            tempTrack.tracksegments = self.track.tracksegments
+            
+            tempTrack.add(trackSegments: self.tracksegements)
+            
             self.tracks.append(tempTrack)
             
             //clear values
@@ -221,10 +222,11 @@ open class GPXParser: NSObject, XMLParserDelegate {
             
         case "trkseg":
             
-            self.tracksegment.add(trackpoints: trackpoints)
             
             let tempTrackSegment = GPXTrackSegment()
-            tempTrackSegment.trackpoints = self.tracksegment.trackpoints
+            
+            tempTrackSegment.add(trackpoints: self.trackpoints)
+            
             self.tracksegements.append(tempTrackSegment)
             
             // clear values
