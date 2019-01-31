@@ -5,6 +5,8 @@
 //  Created by Vincent on 2/11/18.
 //
 
+//  Should be UPDATED!
+
 import UIKit
 
 open class GPXType: NSObject {
@@ -21,7 +23,7 @@ open class GPXType: NSObject {
         
     }
     
-    func value(forLatitude latitude: CGFloat) -> String {
+    func value(forLatitude latitude: Double) -> String {
         if -90.0 <= latitude && latitude <= 90.0 {
             return String(format: "%f", latitude)
         }
@@ -42,7 +44,7 @@ open class GPXType: NSObject {
         
     }
     
-    func value(forLongitude longitude: CGFloat) -> String {
+    func value(forLongitude longitude: Double) -> String {
         if -180.0 <= longitude && longitude <= 180.0 {
             return String(format: "%f", longitude)
         }

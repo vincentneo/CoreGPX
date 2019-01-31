@@ -27,10 +27,10 @@ class CreationViewController: UIViewController, UITextFieldDelegate {
     @IBAction func insertElementButton(_ sender: Any) {
         switch typeSwitchIndex {
         case 0:
-            let latitude = GPXType().latitude(latitudeField.text)
-            let longitude = GPXType().longitude(longitudeField.text)
+            let latitude = Double(latitudeField.text ?? "")
+            let longitude = Double(longitudeField.text ?? "")
             let elevation = value(from: elevationField.text)
-            let waypoint = GPXWaypoint(latitude: latitude, longitude: longitude)
+            let waypoint = GPXWaypoint(latitude: latitude ?? 0, longitude: longitude ?? 0)
             waypoint.elevation = elevation ?? 0
             waypoint.time = Date()
             waypoints.append(waypoint)
@@ -40,10 +40,10 @@ class CreationViewController: UIViewController, UITextFieldDelegate {
             latitudeField.text = ""
             longitudeField.text = ""
         case 1:
-            let latitude = GPXType().latitude(latitudeField.text)
-            let longitude = GPXType().longitude(longitudeField.text)
+            let latitude = Double(latitudeField.text ?? "")
+            let longitude = Double(longitudeField.text ?? "")
             let elevation = value(from: elevationField.text)
-            let trackpoint = GPXTrackPoint(latitude: latitude, longitude: longitude)
+            let trackpoint = GPXTrackPoint(latitude: latitude ?? 0, longitude: longitude ?? 0)
             trackpoint.elevation = elevation ?? 0
             trackpoint.time = Date()
             trackpoints.append(trackpoint)
@@ -94,11 +94,9 @@ class CreationViewController: UIViewController, UITextFieldDelegate {
         return string.rangeOfCharacter(from: invalidCharacters) == nil
     }
     
-    func value(from string: String?) -> CGFloat? {
-        if string != nil {
-            if let number = NumberFormatter().number(from: string!) {
-                return CGFloat(number.doubleValue)
-            }
+    func value(from string: String?) -> Double? {
+        if let validStr = string {
+            return Double(validStr)
         }
         return nil
     }
