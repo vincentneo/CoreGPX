@@ -179,15 +179,18 @@ open class GPXType: NSObject {
         
     }
     
-    
-    func value(forDateTime date: Date) -> String {
+    func value(forDateTime date: Date?) -> String? {
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         
         // dateTime（YYYY-MM-DDThh:mm:ssZ）
         formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
         
-        return formatter.string(from: date)
+        guard let validDate = date else {
+            return nil
+        }
+        
+        return formatter.string(from: validDate)
     }
     
     func nonNegativeInt(_ string: String) -> Int {

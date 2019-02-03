@@ -23,29 +23,29 @@ class ViewController: UIViewController {
         let url: URL = URL(string: urlString)!
         
         // GPXRoot object that contains all the data parsed from GPXParser.
-        //let gpx = GPXParser(withURL: url).parsedData()
-        /*
+        let gpx = GPXParser(withURL: url).parsedData()
+        
         self.tracks = gpx.tracks
         self.waypoints = gpx.waypoints
         
         // This example prints all the waypoints's latitude, longitude and date from the GPX file.
         for waypoint in self.waypoints {
-            print("waypoint-latitude: \(waypoint.latitude!)")
-            print("waypoint-longitude: \(waypoint.longitude!)")
-            print("waypoint-date: \(waypoint.time)")
+            print("waypoint-latitude: \(waypoint.latitude ?? 0)")
+            print("waypoint-longitude: \(waypoint.longitude ?? 0)")
+            print("waypoint-date: \(waypoint.time ?? Date())")
         }
         
         // This example prints all the trackpoint's latitude, longitude and date from the GPX file.
         for track in self.tracks {
             for tracksegment in track.tracksegments {
                 for trackpoint in tracksegment.trackpoints {
-                    print("trackpoint-latitude: \(trackpoint.latitude!)")
-                    print("trackpoint-longitude: \(trackpoint.longitude!)")
-                    print("trackpoint-date: \(trackpoint.time)")
+                    print("trackpoint-latitude: \(trackpoint.latitude ?? 0)")
+                    print("trackpoint-longitude: \(trackpoint.longitude ?? 0)")
+                    print("trackpoint-date: \(trackpoint.time ?? Date())")
                 }
             }
         }
- */
+ 
     }
 
     override func didReceiveMemoryWarning() {
