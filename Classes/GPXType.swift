@@ -7,7 +7,7 @@
 
 //  Should be UPDATED!
 
-import UIKit
+import Foundation
 
 open class GPXType: NSObject {
     

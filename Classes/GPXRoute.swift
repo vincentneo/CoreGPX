@@ -5,7 +5,7 @@
 //  Created by Vincent on 8/12/18.
 //  WORK IN PROGRESS
 
-import UIKit
+import Foundation
 
 open class GPXRoute: GPXElement {
     
