@@ -29,6 +29,8 @@ GPXKit is designed to replace the aging, and abandoned project, iOS-GPX-Framewor
   s.social_media_url = 'https://twitter.com/ivincentneo'
 
   s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = '10.9'
+  s.watchos.deployment_target = '2.0'
 
   s.source_files = 'Classes'
   
