@@ -16,6 +16,7 @@
 - [ ] Support for macOS & watchOS
 - [ ] Support for extensions in GPX (parse + creation)
 - [ ] Extension to metadata to support collection of more info in GPX file
+- [ ] Add tests
 - [ ] Documentation
 - [ ] Code optimisation
 - [ ] New features
