@@ -19,7 +19,7 @@ open class GPXPointSegment: GPXElement {
     
     // MARK:- Public Methods
     
-    public func newPoint(with latitude: CGFloat, longitude: CGFloat) -> GPXPoint {
+    public func newPoint(with latitude: Double, longitude: Double) -> GPXPoint {
 
         let point = GPXPoint(latitude: latitude, longitude: longitude)
         
@@ -29,19 +29,14 @@ open class GPXPointSegment: GPXElement {
     }
     
     public func add(point: GPXPoint?) {
-        if point != nil {
-            let contains = points.contains(point!)
-            if contains == false {
-                point?.parent = self
-                points.append(point!)
-            }
+        if let validPoint = point {
+            point?.parent = self
+            points.append(validPoint)
         }
     }
     
     public func add(points: [GPXPoint]) {
-        for point in points {
-            add(point: point)
-        }
+        self.points.append(contentsOf: points)
     }
     
     public func remove(point: GPXPoint) {

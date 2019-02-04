@@ -33,19 +33,14 @@ open class GPXTrack: GPXElement {
     }
     
     open func add(link: GPXLink?) {
-        if link != nil {
-            let contains = links.contains(link!)
-            if contains == false {
-                link?.parent = self
-                links.append(link!)
-            }
+        if let validLink = link {
+            validLink.parent = self
+            links.append(validLink)
         }
     }
     
     open func add(links: [GPXLink]) {
-        for link in links {
-            add(link: link)
-        }
+        self.links.append(contentsOf: links)
     }
     
     open func remove(Link link: GPXLink) {
@@ -66,19 +61,14 @@ open class GPXTrack: GPXElement {
     }
     
     open func add(trackSegment: GPXTrackSegment?) {
-        if trackSegment != nil {
-            let contains = tracksegments.contains(trackSegment!)
-            if contains == false {
-                trackSegment?.parent = self
-                tracksegments.append(trackSegment!)
-            }
+        if let validTrackSegment = trackSegment {
+            validTrackSegment.parent = self
+            tracksegments.append(validTrackSegment)
         }
     }
     
     open func add(trackSegments: [GPXTrackSegment]) {
-        for tracksegment in trackSegments {
-            self.add(trackSegment: tracksegment)
-        }
+        self.tracksegments.append(contentsOf: trackSegments)
     }
     
     open func remove(trackSegment: GPXTrackSegment) {
@@ -92,7 +82,7 @@ open class GPXTrack: GPXElement {
         }
     }
     
-    open func newTrackPointWith(latitude: CGFloat, longitude: CGFloat) -> GPXTrackPoint {
+    open func newTrackPointWith(latitude: Double, longitude: Double) -> GPXTrackPoint {
         var tracksegment: GPXTrackSegment
         
         if tracksegments.count == 0 {
@@ -115,17 +105,17 @@ open class GPXTrack: GPXElement {
     override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
         
-        self.addProperty(forValue: name as NSString, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
-        self.addProperty(forValue: comment as NSString, gpx: gpx, tagName: "cmt", indentationLevel: indentationLevel)
-        self.addProperty(forValue: desc as NSString, gpx: gpx, tagName: "desc", indentationLevel: indentationLevel)
-        self.addProperty(forValue: source as NSString, gpx: gpx, tagName: "src", indentationLevel: indentationLevel)
+        self.addProperty(forValue: name, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
+        self.addProperty(forValue: comment, gpx: gpx, tagName: "cmt", indentationLevel: indentationLevel)
+        self.addProperty(forValue: desc, gpx: gpx, tagName: "desc", indentationLevel: indentationLevel)
+        self.addProperty(forValue: source, gpx: gpx, tagName: "src", indentationLevel: indentationLevel)
         
         for link in links {
             link.gpx(gpx, indentationLevel: indentationLevel)
         }
         
-        self.addProperty(forValue: numberValue as NSString, gpx: gpx, tagName: "number", indentationLevel: indentationLevel)
-        self.addProperty(forValue: type as NSString, gpx: gpx, tagName: "number", indentationLevel: indentationLevel)
+        self.addProperty(forValue: numberValue, gpx: gpx, tagName: "number", indentationLevel: indentationLevel)
+        self.addProperty(forValue: type, gpx: gpx, tagName: "number", indentationLevel: indentationLevel)
         
         if extensions != nil {
             self.extensions?.gpx(gpx, indentationLevel: indentationLevel)

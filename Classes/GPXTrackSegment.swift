@@ -21,7 +21,7 @@ open class GPXTrackSegment: GPXElement {
     
     // MARK:- Public Methods
     
-    open func newTrackpointWith(latitude: CGFloat, longitude: CGFloat) -> GPXTrackPoint {
+    open func newTrackpointWith(latitude: Double, longitude: Double) -> GPXTrackPoint {
         let trackpoint = GPXTrackPoint(latitude: latitude, longitude: longitude)
         
         self.add(trackpoint: trackpoint)
@@ -30,12 +30,9 @@ open class GPXTrackSegment: GPXElement {
     }
     
     open func add(trackpoint: GPXTrackPoint?) {
-        if trackpoint != nil {
-            let contains = trackpoints.contains(trackpoint!)
-            if contains == false {
-                trackpoint?.parent = self
-                trackpoints.append(trackpoint!)
-            }
+        if let validPoint = trackpoint {
+            trackpoints.append(validPoint)
+            
         }
     }
     
@@ -44,13 +41,11 @@ open class GPXTrackSegment: GPXElement {
     }
     
     open func remove(trackpoint: GPXTrackPoint) {
-        let contains = trackpoints.contains(trackpoint)
-        if contains == true {
             trackpoint.parent = nil
             if let index = trackpoints.firstIndex(of: trackpoint) {
                 trackpoints.remove(at: index)
             }
-        }
+        
     }
     
     // MARK:- Tag
