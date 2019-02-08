@@ -155,15 +155,17 @@ open class GPXParser: NSObject, XMLParserDelegate {
     }
     
     public func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        let endElementProcess = DispatchQueue(label: "endElement", qos: .userInitiated, attributes: .concurrent)
+        
         switch elementName {
-            
         case "metadata":
             isMetadata = false
             
         case "trkpt":
-            let tempTrackPoint = GPXTrackPoint(dictionary: trackpointDict)
-            
-            self.trackpoints.append(tempTrackPoint)
+            let tempTrackPoint = GPXTrackPoint(dictionary: self.trackpointDict)
+            endElementProcess.async(flags: .barrier) {
+                self.trackpoints.append(tempTrackPoint)
+            }
  
             // clear values
             isTrackPoint = false
