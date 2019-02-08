@@ -10,6 +10,7 @@ import Foundation
 open class GPXParser: NSObject, XMLParserDelegate {
     
     var parser: XMLParser
+    let parserProcess = DispatchQueue(label: "parser", qos: .userInitiated, attributes: .concurrent)
     
     // MARK:- Init
     
@@ -18,7 +19,9 @@ open class GPXParser: NSObject, XMLParserDelegate {
         self.parser = XMLParser(data: data)
         super.init()
         parser.delegate = self
-        parser.parse()
+        parserProcess.async {
+            self.parser.parse()
+        }
     }
     
     public init(withPath path: String) {
@@ -29,7 +32,9 @@ open class GPXParser: NSObject, XMLParserDelegate {
             let data = try Data(contentsOf: url)
             self.parser = XMLParser(data: data)
             parser.delegate = self
-            parser.parse()
+            parserProcess.async {
+                self.parser.parse()
+            }
         }
         catch {
             print(error)
@@ -43,7 +48,9 @@ open class GPXParser: NSObject, XMLParserDelegate {
             let data = try Data(contentsOf: url)
             self.parser = XMLParser(data: data)
             parser.delegate = self
-            parser.parse()
+            parserProcess.async {
+                self.parser.parse()
+            }
         }
         catch {
             print(error)
