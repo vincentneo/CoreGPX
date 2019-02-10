@@ -177,6 +177,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
             self.metadata = GPXMetadata(dictionary: metadataDict)
             if elementHasLink {
                 self.metadata?.link = GPXLink(dictionary: linkDict)
+                linkDict.removeAll()
                 elementHasLink = false
             }
             // clear values
@@ -187,6 +188,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
             let tempTrackPoint = GPXTrackPoint(dictionary: trackpointDict)
             if elementHasLink {
                 tempTrackPoint.link = GPXLink(dictionary: linkDict)
+                linkDict.removeAll()
                 elementHasLink = false
             }
             self.trackpoints.append(tempTrackPoint)
@@ -199,6 +201,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
             let tempWaypoint = GPXWaypoint(dictionary: waypointDict)
             if elementHasLink {
                 tempWaypoint.link = GPXLink(dictionary: linkDict)
+                linkDict.removeAll()
                 elementHasLink = false
             }
             self.waypoints.append(tempWaypoint)
@@ -220,6 +223,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
             let tempRoutePoint = GPXRoutePoint(dictionary: routepointDict)
             if elementHasLink {
                 tempRoutePoint.link = GPXLink(dictionary: linkDict)
+                linkDict.removeAll()
                 elementHasLink = false
             }
             self.routepoints.append(tempRoutePoint)
@@ -255,7 +259,6 @@ open class GPXParser: NSObject, XMLParserDelegate {
             
             //clear values
             isLink = false
-            linkDict.removeAll()
             
         default: ()
         }
