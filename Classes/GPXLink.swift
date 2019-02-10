@@ -50,7 +50,7 @@ open class GPXLink: GPXElement {
     
     // MARK:- Tag
     
-    override func tagName() -> String! {
+    override func tagName() -> String {
         return "link"
     }
    
@@ -58,10 +58,10 @@ open class GPXLink: GPXElement {
     // MARK:- GPX
     
     override func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        let attribute: NSMutableString = ""
+        let attribute = NSMutableString()
         
-        if href != nil {
-            attribute.appendFormat(" href=\"%@\"", href!)
+        if let href = href {
+            attribute.appendFormat(" href=\"%@\"", href)
         }
         gpx.appendFormat("%@<%@%@>\r\n", indent(forIndentationLevel: indentationLevel), self.tagName())
     }
@@ -72,5 +72,4 @@ open class GPXLink: GPXElement {
         self.addProperty(forValue: text, gpx: gpx, tagName: "text", indentationLevel: indentationLevel)
         self.addProperty(forValue: mimetype, gpx: gpx, tagName: "type", indentationLevel: indentationLevel)
     }
-
 }
