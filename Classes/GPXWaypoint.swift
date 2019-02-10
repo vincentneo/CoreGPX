@@ -9,7 +9,7 @@ import Foundation
 
 open class GPXWaypoint: GPXElement {
     
-    public var links = [GPXLink]()
+    public var link: GPXLink?
     public var elevation: Double?
     public var time: Date?
     public var magneticVariation: Double?
@@ -86,7 +86,7 @@ open class GPXWaypoint: GPXElement {
         let link: GPXLink = GPXLink().link(with: href)
         return link
     }
-    
+    /*
     open func add(link: GPXLink?) {
         if link != nil {
             let contains = links.contains(link!)
@@ -113,7 +113,7 @@ open class GPXWaypoint: GPXElement {
             }
         }
     }
-
+*/
     // MARK:- Tag
     
     override func tagName() -> String! {
@@ -147,10 +147,10 @@ open class GPXWaypoint: GPXElement {
         self.addProperty(forValue: desc, gpx: gpx, tagName: "desc", indentationLevel: indentationLevel)
         self.addProperty(forValue: source, gpx: gpx, tagName: "source", indentationLevel: indentationLevel)
         
-        for link in links {
-            link.gpx(gpx, indentationLevel: indentationLevel)
+        if self.link != nil {
+            self.link?.gpx(gpx, indentationLevel: indentationLevel)
         }
-        
+ 
         self.addProperty(forValue: symbol, gpx: gpx, tagName: "sym", indentationLevel: indentationLevel)
         self.addProperty(forValue: type, gpx: gpx, tagName: "type", indentationLevel: indentationLevel)
         self.addProperty(forIntegerValue: fix, gpx: gpx, tagName: "source", indentationLevel: indentationLevel)

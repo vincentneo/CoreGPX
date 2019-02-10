@@ -87,6 +87,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
     var isExtensions: Bool = false
     
     var isLink : Bool = false
+    var elementHasLink: Bool = false
 
     public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         
@@ -127,19 +128,39 @@ open class GPXParser: NSObject, XMLParserDelegate {
         
         let foundString = string.trimmingCharacters(in: .whitespacesAndNewlines)
         if foundString.isEmpty == false {
-            if element != "trkpt" || element != "wpt" || element != "rtept" || element != "metadata" || element != "extension" {
+            if element != "trkpt" || element != "wpt" || element != "rtept" || element != "metadata" || element != "extensions" {
 
                 if isWaypoint {
-                    waypointDict[element] = foundString
+                    if isLink {
+                        linkDict[element] = foundString
+                    }
+                    else {
+                        waypointDict[element] = foundString
+                    }
                 }
                 if isTrackPoint {
-                    trackpointDict[element] = foundString
+                    if isLink {
+                        linkDict[element] = foundString
+                    }
+                    else {
+                        trackpointDict[element] = foundString
+                    }
                 }
                 if isRoutePoint {
-                    routepointDict[element] = foundString
+                    if isLink {
+                        linkDict[element] = foundString
+                    }
+                    else {
+                        routepointDict[element] = foundString
+                    }
                 }
                 if isMetadata {
-                    metadataDict[element] = foundString
+                    if isLink {
+                        linkDict[element] = foundString
+                    }
+                    else {
+                        metadataDict[element] = foundString
+                    }
                 }
                 if isExtensions {
                     extensionsDict[element] = foundString
@@ -154,21 +175,32 @@ open class GPXParser: NSObject, XMLParserDelegate {
             
         case "metadata":
             self.metadata = GPXMetadata(dictionary: metadataDict)
-            
+            if elementHasLink {
+                self.metadata?.link = GPXLink(dictionary: linkDict)
+                elementHasLink = false
+            }
             // clear values
             isMetadata = false
             metadataDict.removeAll()
             
         case "trkpt":
             let tempTrackPoint = GPXTrackPoint(dictionary: trackpointDict)
+            if elementHasLink {
+                tempTrackPoint.link = GPXLink(dictionary: linkDict)
+                elementHasLink = false
+            }
             self.trackpoints.append(tempTrackPoint)
- 
+            
             // clear values
             isTrackPoint = false
             trackpointDict.removeAll()
             
         case "wpt":
             let tempWaypoint = GPXWaypoint(dictionary: waypointDict)
+            if elementHasLink {
+                tempWaypoint.link = GPXLink(dictionary: linkDict)
+                elementHasLink = false
+            }
             self.waypoints.append(tempWaypoint)
             
             // clear values
@@ -186,6 +218,10 @@ open class GPXParser: NSObject, XMLParserDelegate {
             
         case "rtept":
             let tempRoutePoint = GPXRoutePoint(dictionary: routepointDict)
+            if elementHasLink {
+                tempRoutePoint.link = GPXLink(dictionary: linkDict)
+                elementHasLink = false
+            }
             self.routepoints.append(tempRoutePoint)
             
             // clear values
@@ -215,7 +251,11 @@ open class GPXParser: NSObject, XMLParserDelegate {
             isExtensions = false
             
         case "link":
+            elementHasLink = true
+            
+            //clear values
             isLink = false
+            linkDict.removeAll()
             
         default: ()
         }

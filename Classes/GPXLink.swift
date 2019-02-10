@@ -30,6 +30,12 @@ open class GPXLink: GPXElement {
         super.init()
     }
     
+    init(dictionary: [String:String]) {
+        self.href = dictionary["href"]
+        self.mimetype = dictionary["mimetype"]
+        self.text = dictionary["text"]
+    }
+    
     /// ---------------------------------
     /// @name Create Link
     /// ---------------------------------

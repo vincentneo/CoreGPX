@@ -35,14 +35,6 @@ open class GPXMetadata: GPXElement {
         self.keyword = dictionary["keyword"]
     }
     
-    // MARK:- Internal Methods
-    
-    func set(date: String) {
-        if date.isEmpty == false {
-            self.time = GPXType().dateTime(value: date) ?? Date()
-        }
-    }
-    
     // MARK:- Tag
     
     override func tagName() -> String! {
