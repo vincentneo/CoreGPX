@@ -14,7 +14,6 @@ open class GPXParser: NSObject, XMLParserDelegate {
     // MARK:- Initializers
     
     public init(withData data: Data) {
-        
         self.parser = XMLParser(data: data)
         super.init()
         self.parser.delegate = self
@@ -65,29 +64,31 @@ open class GPXParser: NSObject, XMLParserDelegate {
     var trackpoints = [GPXTrackPoint]()
     
     // Dictionary of element
-    var waypointDict = [String:String]()
-    var trackpointDict = [String:String]()
-    var routepointDict = [String:String]()
-    var metadataDict = [String:String]()
-    var extensionsDict = [String:String]()
+
+    var waypointDict = [String : String]()
+    var trackpointDict = [String : String]()
+    var routepointDict = [String : String]()
+    var metadataDict = [String : String]()
+    var extensionsDict = [String : String]()
     
     var linkDict = [String:String]()
     
+
     var metadata: GPXMetadata?
     var extensions: GPXExtensions?
     
     // GPX v1.1 XML Schema tag types
-    var isWaypoint: Bool = false
-    var isMetadata: Bool = false
-    var isRoute: Bool = false
-    var isRoutePoint: Bool = false
-    var isTrack: Bool = false
-    var isTrackSegment: Bool = false
-    var isTrackPoint: Bool = false
-    var isExtensions: Bool = false
-    
-    var isLink : Bool = false
-    var elementHasLink: Bool = false
+    var isWaypoint = false
+    var isMetadata = false
+    var isRoute = false
+    var isRoutePoint = false
+    var isTrack = false
+    var isTrackSegment = false
+    var isTrackPoint = false
+    var isExtensions = false
+  
+    var isLink = false
+    var elementHasLink = false
 
     public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         
@@ -115,17 +116,18 @@ open class GPXParser: NSObject, XMLParserDelegate {
         case "metadata":
             isMetadata = true
         case "extensions":
+
             isExtensions = true
         case "link":
             isLink = true
             linkDict["href"] = attributeDict["href"]
-        default: ()
+        default:
+            break
         }
 
     }
     
     public func parser(_ parser: XMLParser, foundCharacters string: String) {
-        
         let foundString = string.trimmingCharacters(in: .whitespacesAndNewlines)
         if foundString.isEmpty == false {
             if element != "trkpt" || element != "wpt" || element != "rtept" || element != "metadata" || element != "extensions" {
@@ -172,7 +174,6 @@ open class GPXParser: NSObject, XMLParserDelegate {
     
     public func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         switch elementName {
-            
         case "metadata":
             self.metadata = GPXMetadata(dictionary: metadataDict)
             if elementHasLink {
@@ -180,6 +181,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
                 linkDict.removeAll()
                 elementHasLink = false
             }
+          
             // clear values
             isMetadata = false
             metadataDict.removeAll()
@@ -252,6 +254,8 @@ open class GPXParser: NSObject, XMLParserDelegate {
 
         case "extensions":
             self.extensions = GPXExtensions()
+          
+            // clear values
             isExtensions = false
             
         case "link":
@@ -260,7 +264,8 @@ open class GPXParser: NSObject, XMLParserDelegate {
             //clear values
             isLink = false
             
-        default: ()
+        default:
+            break
         }
     }
     
@@ -275,5 +280,4 @@ open class GPXParser: NSObject, XMLParserDelegate {
         root.add(tracks: tracks)
         return root
     }
-
 }

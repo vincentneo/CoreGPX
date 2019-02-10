@@ -46,7 +46,7 @@ open class GPXRoutePoint: GPXWaypoint {
     
     // MARK:- Tag
     
-    override func tagName() -> String! {
+    override func tagName() -> String {
         return "rtept"
     }
 }

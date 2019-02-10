@@ -83,16 +83,16 @@ open class GPXWaypoint: GPXElement {
     }
     
     open func newLink(withHref href: String) -> GPXLink {
-        let link: GPXLink = GPXLink().link(with: href)
+        let link = GPXLink().link(with: href)
         return link
     }
     /*
     open func add(link: GPXLink?) {
-        if link != nil {
-            let contains = links.contains(link!)
+        if let link = link {
+            let contains = links.contains(link)
             if contains == false {
-                link?.parent = self
-                links.append(link!)
+                link.parent = self
+                links.append(link)
             }
         }
     }
@@ -116,14 +116,14 @@ open class GPXWaypoint: GPXElement {
 */
     // MARK:- Tag
     
-    override func tagName() -> String! {
+    override func tagName() -> String {
         return "wpt"
     }
     
     // MARK:- GPX
     
     override func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        let attribute: NSMutableString = ""
+        let attribute = NSMutableString()
         
         if latitude != nil {
             attribute.appendFormat(" lat=\"%f\"", latitude!)
@@ -164,9 +164,7 @@ open class GPXWaypoint: GPXElement {
         if self.extensions != nil {
             self.extensions?.gpx(gpx, indentationLevel: indentationLevel)
         }
-        
     }
-    
 }
 
 
@@ -190,28 +188,27 @@ class ISO8601DateParser {
         guard let NonNilString = dateString else {
             return nil
         }
-            _ = withVaList([year, month, day, hour, minute,
-                            second], { pointer in
-                                vsscanf(NonNilString, "%d-%d-%dT%d:%d:%dZ", pointer)
-                                
-            })
-            
-            components.year = year.pointee
-            components.minute = minute.pointee
-            components.day = day.pointee
-            components.hour = hour.pointee
-            components.month = month.pointee
-            components.second = second.pointee
-            
-            if let calendar = calendarCache[0] {
-                return calendar.date(from: components)
-            }
-            
-            var calendar = Calendar(identifier: .gregorian)
-            calendar.timeZone = TimeZone(secondsFromGMT: 0)!
-            calendarCache[0] = calendar
+        
+        _ = withVaList([year, month, day, hour, minute,
+                        second], { pointer in
+                            vsscanf(NonNilString, "%d-%d-%dT%d:%d:%dZ", pointer)
+                            
+        })
+        
+        components.year = year.pointee
+        components.minute = minute.pointee
+        components.day = day.pointee
+        components.hour = hour.pointee
+        components.month = month.pointee
+        components.second = second.pointee
+        
+        if let calendar = calendarCache[0] {
             return calendar.date(from: components)
         }
-    
+        
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
+        calendarCache[0] = calendar
+        return calendar.date(from: components)
+    }
 }
-

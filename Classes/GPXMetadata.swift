@@ -37,7 +37,7 @@ open class GPXMetadata: GPXElement {
     
     // MARK:- Tag
     
-    override func tagName() -> String! {
+    override func tagName() -> String {
         return "metadata"
     }
     
@@ -71,7 +71,5 @@ open class GPXMetadata: GPXElement {
         if extensions != nil {
             self.extensions?.gpx(gpx, indentationLevel: indentationLevel)
         }
-        
     }
-    
 }
