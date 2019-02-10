@@ -69,6 +69,8 @@ open class GPXParser: NSObject, XMLParserDelegate {
     var trackpointDict = [String:String]()
     var routepointDict = [String:String]()
     var metadataDict = [String:String]()
+    var extensionsDict = [String:String]()
+    
     var linkDict = [String:String]()
     
     var metadata: GPXMetadata?
@@ -82,7 +84,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
     var isTrack: Bool = false
     var isTrackSegment: Bool = false
     var isTrackPoint: Bool = false
-    var isExtension: Bool = false
+    var isExtensions: Bool = false
     
     var isLink : Bool = false
 
@@ -112,7 +114,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
         case "metadata":
             isMetadata = true
         case "extensions":
-            isExtension = true
+            isExtensions = true
         case "link":
             isLink = true
             linkDict["href"] = attributeDict["href"]
@@ -139,10 +141,9 @@ open class GPXParser: NSObject, XMLParserDelegate {
                 if isMetadata {
                     metadataDict[element] = foundString
                 }
-                
-                if isExtension {
-                    
-                }
+                if isExtensions {
+                    extensionsDict[element] = foundString
+                 }
             }
             
         }
@@ -210,7 +211,8 @@ open class GPXParser: NSObject, XMLParserDelegate {
             self.trackpoints.removeAll()
 
         case "extensions":
-            isExtension = false
+            self.extensions = GPXExtensions()
+            isExtensions = false
             
         case "link":
             isLink = false
@@ -223,8 +225,8 @@ open class GPXParser: NSObject, XMLParserDelegate {
     
     open func parsedData() -> GPXRoot {
         let root = GPXRoot()
-        root.metadata = metadata // partially implemented
-        root.extensions = extensions // not implemented
+        root.metadata = metadata
+        root.extensions = extensions // nothing to implement yet
         root.add(waypoints: waypoints)
         root.add(routes: routes)
         root.add(tracks: tracks)
