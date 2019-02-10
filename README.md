@@ -14,7 +14,6 @@
 - [x] Support for macOS & watchOS
 
 ## TO DO Checklist
-- [ ] Support for extensions in GPX (parse + creation)
 - [ ] Extension to metadata to support collection of more info in GPX file
 - [ ] Add tests
 - [ ] Documentation
