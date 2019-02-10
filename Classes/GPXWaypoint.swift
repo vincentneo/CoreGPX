@@ -31,20 +31,6 @@ open class GPXWaypoint: GPXElement {
     public var latitude: Double?
     public var longitude: Double?
     
-    public var latitudeString = String()
-    public var longitudeString = String()
-    public var elevationString = String()
-    public var timeString = String()
-    public var magneticVariationString = String()
-    public var geoidHeightString = String()
-    public var fixString = String()
-    public var satellitesString = String()
-    public var hdopString = String()
-    public var vdopString = String()
-    public var pdopString = String()
-    public var ageofDGPSDataString = String()
-    public var DGPSidString = String()
-    
     public required init() {
         self.time = Date()
         super.init()
@@ -57,7 +43,7 @@ open class GPXWaypoint: GPXElement {
         self.longitude = longitude
     }
     
-    public init(dictionary: [String:String]) {
+    init(dictionary: [String:String]) {
         self.time = ISO8601DateParser.parse(dictionary ["time"])
         super.init()
         self.elevation = number(from: dictionary["ele"])
