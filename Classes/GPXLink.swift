@@ -13,13 +13,13 @@ open class GPXLink: GPXElement {
     // MARK:- Accessing Properties
 
     /// Text of hyperlink
-    var text: String?
+    public var text: String?
     
     /// Mime type of content (image/jpeg)
-    var mimetype: String?
+    public var mimetype: String?
     
     /// URL of hyperlink
-    var href: String?
+    public var href: String?
    
     // MARK:- Instance
     

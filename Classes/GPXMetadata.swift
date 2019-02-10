@@ -9,15 +9,15 @@ import Foundation
 
 open class GPXMetadata: GPXElement {
     
-    var name: String?
-    var desc: String?
-    var author: GPXAuthor?
-    var copyright: GPXCopyright?
-    var link: GPXLink?
-    var time: Date?
-    var keyword: String?
-    var bounds: GPXBounds?
-    var extensions: GPXExtensions?
+    public var name: String?
+    public var desc: String?
+    public var author: GPXAuthor?
+    public var copyright: GPXCopyright?
+    public var link: GPXLink?
+    public var time: Date?
+    public var keyword: String?
+    public var bounds: GPXBounds?
+    public var extensions: GPXExtensions?
     
     
     // MARK:- Instance
