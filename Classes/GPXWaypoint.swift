@@ -63,6 +63,7 @@ open class GPXWaypoint: GPXElement {
         self.verticalDilution = number(from: dictionary["vdop"])
         self.positionDilution = number(from: dictionary["pdop"])
         self.DGPSid = integer(from: dictionary["dgpsid"])
+        self.ageofDGPSData = number(from: dictionary["ageofdgpsdata"])
     }
     
     // MARK:- Public Methods
