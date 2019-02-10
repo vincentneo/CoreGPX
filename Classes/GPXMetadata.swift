@@ -14,7 +14,7 @@ open class GPXMetadata: GPXElement {
     var author: GPXAuthor?
     var copyright: GPXCopyright?
     var link: GPXLink?
-    var time = Date()
+    var time: Date?
     var keyword: String?
     var bounds: GPXBounds?
     var extensions: GPXExtensions?
@@ -23,9 +23,16 @@ open class GPXMetadata: GPXElement {
     // MARK:- Instance
     
     required public init() {
-        author = GPXAuthor()
-
+        self.time = Date()
         super.init()
+    }
+    
+    init(dictionary: [String:String]) {
+        self.time = ISO8601DateParser.parse(dictionary["time"])
+        super.init()
+        self.name = dictionary["name"]
+        self.desc = dictionary["desc"]
+        self.keyword = dictionary["keyword"]
     }
     
     // MARK:- Internal Methods

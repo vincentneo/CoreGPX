@@ -69,10 +69,12 @@ open class GPXParser: NSObject, XMLParserDelegate {
     var trackpointDict = [String:String]()
     var routepointDict = [String:String]()
     var metadataDict = [String:String]()
+    var linkDict = [String:String]()
     
-    var metadata: GPXMetadata? = GPXMetadata()
-    var extensions: GPXExtensions? = GPXExtensions()
+    var metadata: GPXMetadata?
+    var extensions: GPXExtensions?
     
+    // GPX v1.1 XML Schema tag types
     var isWaypoint: Bool = false
     var isMetadata: Bool = false
     var isRoute: Bool = false
@@ -81,6 +83,8 @@ open class GPXParser: NSObject, XMLParserDelegate {
     var isTrackSegment: Bool = false
     var isTrackPoint: Bool = false
     var isExtension: Bool = false
+    
+    var isLink : Bool = false
 
     public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         
@@ -109,6 +113,9 @@ open class GPXParser: NSObject, XMLParserDelegate {
             isMetadata = true
         case "extensions":
             isExtension = true
+        case "link":
+            isLink = true
+            linkDict["href"] = attributeDict["href"]
         default: ()
         }
 
@@ -118,7 +125,8 @@ open class GPXParser: NSObject, XMLParserDelegate {
         
         let foundString = string.trimmingCharacters(in: .whitespacesAndNewlines)
         if foundString.isEmpty == false {
-            if element != "trkpt" || element != "wpt" || element != "rtept" {
+            if element != "trkpt" || element != "wpt" || element != "rtept" || element != "metadata" || element != "extension" {
+
                 if isWaypoint {
                     waypointDict[element] = foundString
                 }
@@ -128,14 +136,13 @@ open class GPXParser: NSObject, XMLParserDelegate {
                 if isRoutePoint {
                     routepointDict[element] = foundString
                 }
-            }
-            
-            if isMetadata {
-                metadataDict[element] = foundString
-            }
-            
-            if isExtension {
+                if isMetadata {
+                    metadataDict[element] = foundString
+                }
                 
+                if isExtension {
+                    
+                }
             }
             
         }
@@ -145,12 +152,14 @@ open class GPXParser: NSObject, XMLParserDelegate {
         switch elementName {
             
         case "metadata":
+            self.metadata = GPXMetadata(dictionary: metadataDict)
+            
+            // clear values
             isMetadata = false
+            metadataDict.removeAll()
             
         case "trkpt":
-            
             let tempTrackPoint = GPXTrackPoint(dictionary: trackpointDict)
-            
             self.trackpoints.append(tempTrackPoint)
  
             // clear values
@@ -158,9 +167,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
             trackpointDict.removeAll()
             
         case "wpt":
-            
             let tempWaypoint = GPXWaypoint(dictionary: waypointDict)
-           
             self.waypoints.append(tempWaypoint)
             
             // clear values
@@ -168,11 +175,8 @@ open class GPXParser: NSObject, XMLParserDelegate {
             waypointDict.removeAll()
             
         case "rte":
-            
             let tempRoute = GPXRoute()
-            
             tempRoute.add(routepoints: self.routepoints)
-            
             self.routes.append(tempRoute)
             
             // clear values
@@ -180,9 +184,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
             self.routepoints.removeAll()
             
         case "rtept":
-            
             let tempRoutePoint = GPXRoutePoint(dictionary: routepointDict)
-            
             self.routepoints.append(tempRoutePoint)
             
             // clear values
@@ -190,11 +192,8 @@ open class GPXParser: NSObject, XMLParserDelegate {
             routepointDict.removeAll()
             
         case "trk":
-            
             let tempTrack = GPXTrack()
-            
             tempTrack.add(trackSegments: self.tracksegements)
-            
             self.tracks.append(tempTrack)
             
             //clear values
@@ -202,11 +201,8 @@ open class GPXParser: NSObject, XMLParserDelegate {
             self.tracksegements.removeAll()
             
         case "trkseg":
-            
             let tempTrackSegment = GPXTrackSegment()
-            
             tempTrackSegment.add(trackpoints: self.trackpoints)
-            
             self.tracksegements.append(tempTrackSegment)
             
             // clear values
@@ -215,6 +211,9 @@ open class GPXParser: NSObject, XMLParserDelegate {
 
         case "extensions":
             isExtension = false
+            
+        case "link":
+            isLink = false
             
         default: ()
         }
