@@ -13,13 +13,13 @@ open class GPXLink: GPXElement {
     // MARK:- Accessing Properties
 
     /// Text of hyperlink
-    var text: String?
+    public var text: String?
     
     /// Mime type of content (image/jpeg)
-    var mimetype: String?
+    public var mimetype: String?
     
     /// URL of hyperlink
-    var href: String?
+    public var href: String?
    
     // MARK:- Instance
     
@@ -28,6 +28,12 @@ open class GPXLink: GPXElement {
         self.mimetype = String()
         self.href = String()
         super.init()
+    }
+    
+    init(dictionary: [String:String]) {
+        self.href = dictionary["href"]
+        self.mimetype = dictionary["mimetype"]
+        self.text = dictionary["text"]
     }
     
     /// ---------------------------------
