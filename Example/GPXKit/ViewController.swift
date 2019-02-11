@@ -13,9 +13,11 @@ class ViewController: UIViewController {
     
     var tracks = [GPXTrack]()
     var waypoints = [GPXWaypoint]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "CoreGPX"
         
         // Example of parsing a GPX file from a sample URL
         
@@ -23,8 +25,11 @@ class ViewController: UIViewController {
         let url: URL = URL(string: urlString)!
         
         // GPXRoot object that contains all the data parsed from GPXParser.
-        let gpx = GPXParser(withURL: url).parsedData()
-        
+        let timezone = TimeZone(secondsFromGMT: 0)
+        guard let gpxParser = GPXParser(withURL: url, timezone: timezone) else {
+            return
+        }
+        let gpx = gpxParser.parsedData()
         self.tracks = gpx.tracks
         self.waypoints = gpx.waypoints
         
@@ -45,13 +50,6 @@ class ViewController: UIViewController {
                 }
             }
         }
- 
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }
 

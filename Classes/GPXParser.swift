@@ -9,43 +9,43 @@ import Foundation
 
 open class GPXParser: NSObject, XMLParserDelegate {
     
-    var parser: XMLParser
+    let parser: XMLParser
+    static var timezone = TimeZone.current
     
     // MARK:- Initializers
     
-    public init(withData data: Data) {
-        self.parser = XMLParser(data: data)
+    public init(withData data: Data, timezone: TimeZone? = nil) {
+        parser = XMLParser(data: data)
+        if let timezone = timezone {
+            GPXParser.timezone = timezone
+        }
+        
         super.init()
-        self.parser.delegate = self
-        self.parser.parse()
+        
+        parser.delegate = self
+        parser.parse()
     }
     
-    public init(withPath path: String) {
-        self.parser = XMLParser()
-        super.init()
+    convenience public init?(withPath path: String, timezone: TimeZone? = nil) {
         let url = URL(fileURLWithPath: path)
         do {
             let data = try Data(contentsOf: url)
-            self.parser = XMLParser(data: data)
-            self.parser.delegate = self
-            self.parser.parse()
+            self.init(withData: data, timezone: timezone)
         }
         catch {
             print(error)
+            return nil
         }
     }
     
-    public init(withURL url: URL) {
-        self.parser = XMLParser()
-        super.init()
+    convenience public init?(withURL url: URL, timezone: TimeZone? = nil) {
         do {
             let data = try Data(contentsOf: url)
-            self.parser = XMLParser(data: data)
-            self.parser.delegate = self
-            self.parser.parse()
+            self.init(withData: data, timezone: timezone)
         }
         catch {
             print(error)
+            return nil
         }
     }
     

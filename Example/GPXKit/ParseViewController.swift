@@ -21,23 +21,20 @@ class ParseViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         inputTextField.autocorrectionType = .no
         trackpoint = GPXTrackPoint(latitude: 2, longitude: 0)
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func onPress(_ sender: Any) {
-        
-        let input = inputTextField.text
-        
-        if input != nil {
-            if let inputURL = URL(string: input!) {
-                let gpx = GPXParser(withURL: inputURL).parsedData()
-                self.tracks = gpx.tracks
-                self.waypoints = gpx.waypoints
-                self.tableView.reloadData()
-            }
+        guard let input = inputTextField.text,
+            let inputURL = URL(string: input),
+            let gpx = GPXParser(withURL: inputURL)?.parsedData() else {
+                return
         }
+        self.tracks = gpx.tracks
+        self.waypoints = gpx.waypoints
+        self.tableView.reloadData()
     }
     
     func trackpointsCount() -> Int {
@@ -78,7 +75,11 @@ class ParseViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+        var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier")
+        if cell == nil {
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellReuseIdentifier")
+        }
+        
         if indexPath.section == 0 { //waypoints
     
             var coordinates = [String]()
@@ -94,7 +95,6 @@ class ParseViewController: UIViewController, UITableViewDelegate, UITableViewDat
             cell.textLabel?.text = coordinates[indexPath.row]
             cell.detailTextLabel?.text = subtitles[indexPath.row]
         }
-            
         else {
             
             var coordinates = [String]()
@@ -110,20 +110,10 @@ class ParseViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     }
                 }
             }
+            
             cell.textLabel?.text = coordinates[indexPath.row]
             cell.detailTextLabel?.text = subtitles[indexPath.row]
         }
         return cell
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -141,7 +141,7 @@ open class GPXType: NSObject {
     func dateTime(value: String) -> Date? {
       //  var date: Date
         let formatter = DateFormatter()
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.timeZone = GPXParser.timezone
         
         // dateTime（YYYY-MM-DDThh:mm:ssZ)
         formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
@@ -188,7 +188,7 @@ open class GPXType: NSObject {
     
     func value(forDateTime date: Date?) -> String? {
         let formatter = DateFormatter()
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.timeZone = GPXParser.timezone
         
         // dateTime（YYYY-MM-DDThh:mm:ssZ）
         formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
