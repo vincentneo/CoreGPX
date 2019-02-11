@@ -29,7 +29,7 @@ open class GPXRoute: GPXElement {
     // MARK: Public Methods
     
     func newLink(withHref href: String) -> GPXLink {
-        let link: GPXLink = GPXLink().link(with: href)
+        let link: GPXLink = GPXLink(withHref: href)
         return link
     }
     
