@@ -22,16 +22,22 @@ Parsing of GPX files is done on by initializing `GPXParser`.
 
 There are three ways of initializing `GPXParser`:
 ### You can initialize with a `URL`:
-`let gpx = GPXParser(withURL: inputURL).parsedData()`
+```Swift
+let gpx = GPXParser(withURL: inputURL).parsedData()
+```
 ### With path:
-`let gpx = GPXParser(withPath: inputPath).parsedData() // String type`
+```Swift
+let gpx = GPXParser(withPath: inputPath).parsedData() // String type
+```
 ### Or with `Data`:
-`let gpx = GPXParser(withData: inputData).parsedData()`
+```Swift
+let gpx = GPXParser(withData: inputData).parsedData()
+```
 
 `.parsedData()` returns a `GPXRoot` type, which contains all the metadata, waypoints, tracks, routes, and extensions(if any), which you can expect from a GPX file, depending on what that file contains.
 
 ### Making use of parsed data
-```
+```Swift
 let gpx = GPXParser(withURL: inputURL).parsedData()
         
 // waypoints, tracks, tracksegements, trackpoints are all stored as Array depends on the amount stored in the GPX file.
