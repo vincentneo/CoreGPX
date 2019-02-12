@@ -18,7 +18,7 @@ It makes use of `XMLParser` for parsing GPX files, thus making it fully dependen
 - [x] Support for macOS & watchOS
 
 ## How to parse?
-Parsing of GPX files is done on by initializing `GPXParser`.
+Parsing of GPX files is done by initializing `GPXParser`.
 
 There are three ways of initializing `GPXParser`:
 ### You can initialize with a `URL`:
