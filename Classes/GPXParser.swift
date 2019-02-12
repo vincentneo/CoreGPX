@@ -66,7 +66,9 @@ open class GPXParser: NSObject, XMLParserDelegate {
     // Dictionary of element
 
     var waypointDict = [String : String]()
+    var trackDict = [String : String]()
     var trackpointDict = [String : String]()
+    var routeDict = [String : String]()
     var routepointDict = [String : String]()
     var metadataDict = [String : String]()
     var extensionsDict = [String : String]()
@@ -147,6 +149,12 @@ open class GPXParser: NSObject, XMLParserDelegate {
                     else {
                         waypointDict[element] = foundString
                     }
+                }
+                if isTrack {
+                    if isLink {
+                        linkDict[element] = foundString
+                    }
+                    trackDict[element] = foundString
                 }
                 if isTrackPoint {
                     if isLink {
@@ -252,15 +260,21 @@ open class GPXParser: NSObject, XMLParserDelegate {
             
             // clear values
             isRoutePoint = false
-            routepointDict.removeAll()
+            self.routepointDict.removeAll()
             
         case "trk":
-            let tempTrack = GPXTrack()
+            let tempTrack = GPXTrack(dictionary: trackDict)
             tempTrack.add(trackSegments: self.tracksegements)
+            if elementHasLink {
+                tempTrack.link = GPXLink(dictionary: linkDict)
+                linkDict.removeAll()
+                elementHasLink = false
+            }
             self.tracks.append(tempTrack)
             
             //clear values
             isTrack = false
+            self.trackDict.removeAll()
             self.tracksegements.removeAll()
             
         case "trkseg":
@@ -283,6 +297,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
             
             // clear values
             isLink = false
+            
         case "bounds":
             elementHasBounds = true
             
