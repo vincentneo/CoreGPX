@@ -70,11 +70,16 @@ open class GPXParser: NSObject, XMLParserDelegate {
     var trackpointDict = [String : String]()
     var routeDict = [String : String]()
     var routepointDict = [String : String]()
-    var metadataDict = [String : String]()
-    var extensionsDict = [String : String]()
     
     var linkDict = [String : String]()
+    var extensionsDict = [String : String]()
+    
+    // metadata types
+    var metadataDict = [String : String]()
     var boundsDict = [String : String]()
+    var authorDict = [String : String]()
+    var emailDict = [String : String]()
+    var copyrightDict = [String : String]()
     
 
     var metadata: GPXMetadata?
@@ -92,8 +97,16 @@ open class GPXParser: NSObject, XMLParserDelegate {
   
     var isLink = false
     var elementHasLink = false
+    
+    // for metadata
     var isBounds = false
     var elementHasBounds = false
+    var isAuthor = false
+    var elementHasAuthor = false
+    var isEmail = false
+    var elementHasEmail = false
+    var isCopyright = false
+    var elementHasCopyright = false
 
     public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         
@@ -125,12 +138,21 @@ open class GPXParser: NSObject, XMLParserDelegate {
         case "link":
             isLink = true
             linkDict["href"] = attributeDict["href"]
+        
+        // for metadata
         case "bounds":
             isBounds = true
             boundsDict["minlon"] = attributeDict["minlon"]
             boundsDict["maxlon"] = attributeDict["maxlon"]
             boundsDict["minlat"] = attributeDict["minlat"]
             boundsDict["maxlat"] = attributeDict["maxlat"]
+        case "author":
+            isAuthor = true
+        case "email":
+            isEmail = true
+        case "copyright":
+            isCopyright = true
+            copyrightDict["author"] = attributeDict["author"]
         default:
             break
         }
@@ -179,11 +201,25 @@ open class GPXParser: NSObject, XMLParserDelegate {
                     }
                 }
                 if isMetadata {
-                    if isLink {
+                    if isLink && !isAuthor {
                         linkDict[element] = foundString
                     }
                     if isBounds {
                         // do nothing
+                    }
+                    if isAuthor {
+                        if isLink {
+                            linkDict[element] = foundString
+                        }
+                        else {
+                            if isEmail {
+                                emailDict[element] = foundString
+                            }
+                            authorDict[element] = foundString
+                        }
+                    }
+                    if isCopyright {
+                        copyrightDict[element] = foundString
                     }
                     else {
                         metadataDict[element] = foundString
@@ -201,7 +237,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
         switch elementName {
         case "metadata":
             self.metadata = GPXMetadata(dictionary: metadataDict)
-            if elementHasLink {
+            if elementHasLink && !elementHasAuthor {
                 self.metadata?.link = GPXLink(dictionary: linkDict)
                 
                 // clear values
@@ -211,9 +247,38 @@ open class GPXParser: NSObject, XMLParserDelegate {
             if elementHasBounds {
                 self.metadata?.bounds = GPXBounds(dictionary: boundsDict)
                 
-                //clear values
+                // clear values
                 boundsDict.removeAll()
                 elementHasBounds = false
+            }
+            if elementHasAuthor {
+                let author = GPXAuthor(dictionary: authorDict)
+                if elementHasLink {
+                    author.link = GPXLink(dictionary: linkDict)
+                    
+                    // clear values
+                    linkDict.removeAll()
+                    elementHasLink = false
+                }
+                if elementHasEmail {
+                    author.email = GPXEmail(dictionary: emailDict)
+                    
+                    // clear values
+                    emailDict.removeAll()
+                    elementHasEmail = false
+                }
+                self.metadata?.author = author
+                
+                // clear values
+                authorDict.removeAll()
+                elementHasAuthor = false
+            }
+            if elementHasCopyright {
+                self.metadata?.copyright = GPXCopyright(dictionary: copyrightDict)
+                
+                // clear values
+                copyrightDict.removeAll()
+                elementHasCopyright = false
             }
           
             // clear values
@@ -315,6 +380,23 @@ open class GPXParser: NSObject, XMLParserDelegate {
             // clear values
             isBounds = false
             
+        case "author":
+            elementHasAuthor = true
+            
+            // clear values
+            isAuthor = false
+            
+        case "email":
+            elementHasEmail = true
+            
+            // clear values
+            isEmail = false
+            
+        case "copyright":
+            elementHasCopyright = true
+            
+            // clear values
+            isCopyright = false
         default:
             break
         }

@@ -68,14 +68,14 @@ open class GPXWaypoint: GPXElement {
     
     // MARK:- Public Methods
    
-    private func number(from string: String?) -> Double? {
+    func number(from string: String?) -> Double? {
         guard let NonNilString = string else {
             return nil
         }
         return Double(NonNilString)
     }
     
-    private func integer(from string: String?) -> Int? {
+    func integer(from string: String?) -> Int? {
         guard let NonNilString = string else {
             return nil
         }

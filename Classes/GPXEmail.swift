@@ -26,6 +26,11 @@ open class GPXEmail: GPXElement {
         self.domain = domain
     }
     
+    init(dictionary: [String : String]) {
+        self.emailID = dictionary["id"]
+        self.domain = dictionary["domain"]
+    }
+    
     // MARK:- Tag
     override func tagName() -> String {
         return "email"

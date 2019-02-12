@@ -9,7 +9,7 @@ import Foundation
 
 open class GPXPerson: GPXElement {
     
-    var name: String
+    var name: String?
     var email: GPXEmail?
     var link: GPXLink?
     
@@ -19,6 +19,11 @@ open class GPXPerson: GPXElement {
         name = String()
         email = GPXEmail()
         link = GPXLink()
+        super.init()
+    }
+    
+    init(dictionary: [String : String]) {
+        name = dictionary["name"]
         super.init()
     }
     
