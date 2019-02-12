@@ -125,6 +125,10 @@ open class GPXParser: NSObject, XMLParserDelegate {
             linkDict["href"] = attributeDict["href"]
         case "bounds":
             isBounds = true
+            boundsDict["minlon"] = attributeDict["minlon"]
+            boundsDict["maxlon"] = attributeDict["maxlon"]
+            boundsDict["minlat"] = attributeDict["minlat"]
+            boundsDict["maxlat"] = attributeDict["maxlat"]
         default:
             break
         }
@@ -165,7 +169,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
                         linkDict[element] = foundString
                     }
                     if isBounds {
-                        boundsDict[element] = foundString
+                        // do nothing
                     }
                     else {
                         metadataDict[element] = foundString
