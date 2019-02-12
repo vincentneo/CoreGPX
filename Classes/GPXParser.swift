@@ -164,6 +164,12 @@ open class GPXParser: NSObject, XMLParserDelegate {
                         trackpointDict[element] = foundString
                     }
                 }
+                if isRoute {
+                    if isLink {
+                        linkDict[element] = foundString
+                    }
+                    routeDict[element] = foundString
+                }
                 if isRoutePoint {
                     if isLink {
                         linkDict[element] = foundString
@@ -241,8 +247,13 @@ open class GPXParser: NSObject, XMLParserDelegate {
             waypointDict.removeAll()
             
         case "rte":
-            let tempRoute = GPXRoute()
+            let tempRoute = GPXRoute(dictionary: routeDict)
             tempRoute.add(routepoints: self.routepoints)
+            if elementHasLink {
+                tempRoute.link = GPXLink(dictionary: linkDict)
+                linkDict.removeAll()
+                elementHasLink = false
+            }
             self.routes.append(tempRoute)
             
             // clear values
@@ -303,6 +314,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
             
             // clear values
             isBounds = false
+            
         default:
             break
         }
