@@ -28,7 +28,7 @@ open class GPXTrack: GPXElement {
     // MARK:- Public Methods
     
     open func newLink(withHref href: String) -> GPXLink {
-        let link: GPXLink = GPXLink().link(with: href)
+        let link = GPXLink(withHref: href)
         return link
     }
     

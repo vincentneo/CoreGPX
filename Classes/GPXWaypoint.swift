@@ -83,7 +83,7 @@ open class GPXWaypoint: GPXElement {
     }
     
     open func newLink(withHref href: String) -> GPXLink {
-        let link = GPXLink().link(with: href)
+        let link = GPXLink(withHref: href)
         return link
     }
     /*
