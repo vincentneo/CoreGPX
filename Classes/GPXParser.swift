@@ -71,7 +71,8 @@ open class GPXParser: NSObject, XMLParserDelegate {
     var metadataDict = [String : String]()
     var extensionsDict = [String : String]()
     
-    var linkDict = [String:String]()
+    var linkDict = [String : String]()
+    var boundsDict = [String : String]()
     
 
     var metadata: GPXMetadata?
@@ -89,6 +90,8 @@ open class GPXParser: NSObject, XMLParserDelegate {
   
     var isLink = false
     var elementHasLink = false
+    var isBounds = false
+    var elementHasBounds = false
 
     public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         
@@ -116,11 +119,12 @@ open class GPXParser: NSObject, XMLParserDelegate {
         case "metadata":
             isMetadata = true
         case "extensions":
-
             isExtensions = true
         case "link":
             isLink = true
             linkDict["href"] = attributeDict["href"]
+        case "bounds":
+            isBounds = true
         default:
             break
         }
@@ -160,6 +164,9 @@ open class GPXParser: NSObject, XMLParserDelegate {
                     if isLink {
                         linkDict[element] = foundString
                     }
+                    if isBounds {
+                        boundsDict[element] = foundString
+                    }
                     else {
                         metadataDict[element] = foundString
                     }
@@ -178,8 +185,17 @@ open class GPXParser: NSObject, XMLParserDelegate {
             self.metadata = GPXMetadata(dictionary: metadataDict)
             if elementHasLink {
                 self.metadata?.link = GPXLink(dictionary: linkDict)
+                
+                // clear values
                 linkDict.removeAll()
                 elementHasLink = false
+            }
+            if elementHasBounds {
+                self.metadata?.bounds = GPXBounds(dictionary: boundsDict)
+                
+                //clear values
+                boundsDict.removeAll()
+                elementHasBounds = false
             }
           
             // clear values
@@ -261,9 +277,13 @@ open class GPXParser: NSObject, XMLParserDelegate {
         case "link":
             elementHasLink = true
             
-            //clear values
+            // clear values
             isLink = false
+        case "bounds":
+            elementHasBounds = true
             
+            // clear values
+            isBounds = false
         default:
             break
         }

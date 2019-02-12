@@ -43,7 +43,7 @@ open class GPXLink: GPXElement {
         self.text = String()
     }
     
-    init(dictionary: [String:String]) {
+    init(dictionary: [String : String]) {
         self.href = dictionary["href"]
         self.mimetype = dictionary["mimetype"]
         self.text = dictionary["text"]

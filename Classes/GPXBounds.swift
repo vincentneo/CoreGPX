@@ -9,10 +9,10 @@ import Foundation
 
 open class GPXBounds: GPXElement {
 
-    var minLatitude: Double? = Double()
-    var maxLatitude: Double? = Double()
-    var minLongitude: Double? = Double()
-    var maxLongitude: Double? = Double()
+    var minLatitude: Double?
+    var maxLatitude: Double?
+    var minLongitude: Double?
+    var maxLongitude: Double?
     
     // MARK:- Instance
     
@@ -26,6 +26,21 @@ open class GPXBounds: GPXElement {
         self.maxLatitude = maxLatitude
         self.minLongitude = minLongitude
         self.maxLongitude = maxLongitude
+    }
+    
+    init(dictionary: [String : String]) {
+        super.init()
+        self.minLatitude = number(from: dictionary["minlat"])
+        self.maxLatitude = number(from: dictionary["maxlat"])
+        self.minLongitude = number(from: dictionary["minlon"])
+        self.maxLongitude = number(from: dictionary["maxlon"])
+    }
+    
+    func number(from string: String?) -> Double? {
+        guard let NonNilString = string else {
+            return nil
+        }
+        return Double(NonNilString)
     }
     
     // MARK:- Tag
