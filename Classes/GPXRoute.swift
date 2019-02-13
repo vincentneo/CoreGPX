@@ -9,15 +9,15 @@ import Foundation
 
 open class GPXRoute: GPXElement {
     
-    var name: String?
-    var comment: String?
-    var desc: String?
-    var source: String?
-    var link: GPXLink?
-    var type: String?
-    var extensions: GPXExtensions?
-    var routepoints = [GPXRoutePoint]()
-    var number: Int?
+    public var name: String?
+    public var comment: String?
+    public var desc: String?
+    public var source: String?
+    public var link: GPXLink?
+    public var type: String?
+    public var extensions: GPXExtensions?
+    public var routepoints = [GPXRoutePoint]()
+    public var number: Int?
     
     // MARK:- Instance
     

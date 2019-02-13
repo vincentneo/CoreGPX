@@ -9,9 +9,9 @@ import Foundation
 
 open class GPXCopyright: GPXElement {
     
-    var year: Date?
-    var license: String?
-    var author: String?
+    public var year: Date?
+    public var license: String?
+    public var author: String?
     
     // MARK:- Instance
     

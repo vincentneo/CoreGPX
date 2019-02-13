@@ -9,10 +9,10 @@ import Foundation
 
 open class GPXBounds: GPXElement {
 
-    var minLatitude: Double?
-    var maxLatitude: Double?
-    var minLongitude: Double?
-    var maxLongitude: Double?
+    public var minLatitude: Double?
+    public var maxLatitude: Double?
+    public var minLongitude: Double?
+    public var maxLongitude: Double?
     
     // MARK:- Instance
     

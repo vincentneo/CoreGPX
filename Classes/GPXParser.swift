@@ -9,7 +9,7 @@ import Foundation
 
 open class GPXParser: NSObject, XMLParserDelegate {
     
-    var parser: XMLParser
+    private var parser: XMLParser
     
     // MARK:- Initializers
     
