@@ -19,7 +19,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
         self.parser.delegate = self
         self.parser.parse()
     }
-    
+    /*
     public init(withPath path: String) {
         self.parser = XMLParser()
         super.init()
@@ -34,21 +34,27 @@ open class GPXParser: NSObject, XMLParserDelegate {
             print(error)
         }
     }
+    */
     
-    public init(withURL url: URL) {
-        self.parser = XMLParser()
+    public init?(withURL url: URL) {
+        guard let urlParser = XMLParser(contentsOf: url) else { return nil }
+        self.parser = urlParser
         super.init()
-        do {
-            let data = try Data(contentsOf: url)
-            self.parser = XMLParser(data: data)
-            self.parser.delegate = self
-            self.parser.parse()
-        }
-        catch {
-            print(error)
-        }
+        self.parser.delegate = self
+        self.parser.parse()
     }
     
+    convenience init?(withPath path: String) {
+        guard let url = URL(string: path) else { return nil }
+        self.init(withURL: url)
+    }
+    
+    public init(withStream stream: InputStream) {
+        self.parser = XMLParser(stream: stream)
+        super.init()
+        self.parser.delegate = self
+        self.parser.parse()
+    }
     // MARK:- GPX Parsing
     
     var element = String()

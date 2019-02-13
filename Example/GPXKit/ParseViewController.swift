@@ -32,7 +32,7 @@ class ParseViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         if input != nil {
             if let inputURL = URL(string: input!) {
-                let gpx = GPXParser(withURL: inputURL).parsedData()
+                guard let gpx = GPXParser(withURL: inputURL)?.parsedData() else { return }
                 self.tracks = gpx.tracks
                 self.waypoints = gpx.waypoints
                 self.tableView.reloadData()
