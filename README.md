@@ -20,16 +20,16 @@ It makes use of `XMLParser` for parsing GPX files, thus making it fully dependen
 ## How to parse?
 Parsing of GPX files is done by initializing `GPXParser`.
 
-There are three ways of initializing `GPXParser`:
+There are five ways of initializing `GPXParser`,  and these are three main ways of initializing:
 ### You can initialize with a `URL`:
 ```Swift
-let gpx = GPXParser(withURL: inputURL).parsedData()
+guard let gpx = GPXParser(withURL: inputURL)?.parsedData() else { return }
 ```
 ### With path:
 ```Swift
-let gpx = GPXParser(withPath: inputPath).parsedData() // String type
+guard let gpx = GPXParser(withPath: inputPath)?.parsedData() else { return } // String type
 ```
-### Or with `Data`:
+### With `Data`:
 ```Swift
 let gpx = GPXParser(withData: inputData).parsedData()
 ```
@@ -38,7 +38,7 @@ let gpx = GPXParser(withData: inputData).parsedData()
 
 ### Making use of parsed GPX data
 ```Swift
-let gpx = GPXParser(withURL: inputURL).parsedData()
+guard let gpx = GPXParser(withURL: inputURL)?.parsedData() else { return // do things here when failed }
         
 // waypoints, tracks, tracksegements, trackpoints are all stored as Array depends on the amount stored in the GPX file.
 for waypoint in gpx.waypoints {  // for loop example, every waypoint is written
@@ -54,7 +54,7 @@ for waypoint in gpx.waypoints {  // for loop example, every waypoint is written
 
 ## How to create?
 
-You will first start of with `GPXRoot`.
+You will first start off with a `GPXRoot`.
 
 ### Initializing `GPXRoot`
 ```Swift

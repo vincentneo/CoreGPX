@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         let url: URL = URL(string: urlString)!
         
         // GPXRoot object that contains all the data parsed from GPXParser.
-        let gpx = GPXParser(withURL: url).parsedData()
+        guard let gpx = GPXParser(withURL: url)?.parsedData() else { return }
         
         self.tracks = gpx.tracks
         self.waypoints = gpx.waypoints
