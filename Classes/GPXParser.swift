@@ -9,33 +9,39 @@ import Foundation
 
 open class GPXParser: NSObject, XMLParserDelegate {
     
-    private var parser: XMLParser
+    private let parser: XMLParser
     
     // MARK:- Initializers
     
+    /// for parsing with `Data` type
+    ///
+    /// - Parameters:
+    ///     - data: The input must be `Data` object containing GPX markup data, and should not be `nil`
+    ///
     public init(withData data: Data) {
         self.parser = XMLParser(data: data)
         super.init()
         self.parser.delegate = self
         self.parser.parse()
     }
-    /*
-    public init(withPath path: String) {
-        self.parser = XMLParser()
-        super.init()
-        let url = URL(fileURLWithPath: path)
-        do {
-            let data = try Data(contentsOf: url)
-            self.parser = XMLParser(data: data)
-            self.parser.delegate = self
-            self.parser.parse()
-        }
-        catch {
-            print(error)
-        }
-    }
-    */
     
+    /// for parsing with `InputStream` type
+    ///
+    /// - Parameters:
+    ///     - stream: The input must be a input stream allowing GPX markup data to be parsed synchronously
+    ///
+    public init(withStream stream: InputStream) {
+        self.parser = XMLParser(stream: stream)
+        super.init()
+        self.parser.delegate = self
+        self.parser.parse()
+    }
+    
+    /// for parsing with `URL` type
+    ///
+    /// - Parameters:
+    ///     - url: The input must be a `URL`, which should point to a GPX file located at the URL given
+    ///
     public init?(withURL url: URL) {
         guard let urlParser = XMLParser(contentsOf: url) else { return nil }
         self.parser = urlParser
@@ -44,17 +50,31 @@ open class GPXParser: NSObject, XMLParserDelegate {
         self.parser.parse()
     }
     
-    convenience init?(withPath path: String) {
+    /// for parsing with a string that contains full GPX markup
+    ///
+    /// - Parameters:
+    ///     - string: The input `String` must contain full GPX markup, which is typically contained in a `.GPX` file
+    ///
+    public convenience init?(withRawString string: String?) {
+        if let string = string {
+            if let data = string.data(using: .utf8) {
+                self.init(withData: data)
+            }
+            else { return nil }
+        }
+        else { return nil }
+    }
+    
+    /// for parsing with a path to a GPX file
+    ///
+    /// - Parameters:
+    ///     - path: The input path, with type `String`, must contain a path that points to a GPX file used to facilitate parsing.
+    ///
+    public convenience init?(withPath path: String) {
         guard let url = URL(string: path) else { return nil }
         self.init(withURL: url)
     }
     
-    public init(withStream stream: InputStream) {
-        self.parser = XMLParser(stream: stream)
-        super.init()
-        self.parser.delegate = self
-        self.parser.parse()
-    }
     // MARK:- GPX Parsing
     
     var element = String()
