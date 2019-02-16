@@ -32,12 +32,15 @@ script:
   
   - xcodebuild -workspace "$WORKSPACE" -list
   
-  - if [ $RUN_TESTS == "YES" ]; then
-     xcodebuild -workspace "$WORKSPACE" -scheme "$TEST_SCHEME" -destination "$DESTINATION" -sdk "$SDK" -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
-     else
-     xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -sdk "$SDK" -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty;
-    fi
+  - xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -sdk "$SDK" -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty;
+  
+  # DISABLING TESTS & BUILD EXAMPLES FOR NOW
+  #- if [ $RUN_TESTS == "YES" ]; then
+  #   xcodebuild -workspace "$WORKSPACE" -scheme "$TEST_SCHEME" -destination "$DESTINATION" -sdk "$SDK" -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
+  #   else
+  #  xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -sdk "$SDK" -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty;
+  #  fi
     
-  - if [ $BUILD_EXAMPLE == "YES" ]; then
-     xcodebuild -workspace "$WORKSPACE" -scheme "$EXAMPLE_SCHEME" -destination "$DESTINATION" -sdk "$SDK" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty;
-    fi
+  #- if [ $BUILD_EXAMPLE == "YES" ]; then
+  #   xcodebuild -workspace "$WORKSPACE" -scheme "$EXAMPLE_SCHEME" -destination "$DESTINATION" -sdk "$SDK" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty;
+  #  fi
