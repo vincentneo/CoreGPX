@@ -14,8 +14,7 @@ env:
   - MACOS_FRAMEWORK_SCHEME="CoreGPX-macOS"
   - WATCHOS_FRAMEWORK_SCHEME="CoreGPX-watchOS"
   - EXAMPLE_SCHEME="CoreGPX-Example"
-
-matrix:
+  matrix:
   - DESTINATION="OS=5.1,name=Apple Watch Series 4 - 44mm" SCHEME="$WATCHOS_FRAMEWORK_SCHEME" RUN_TESTS="NO" BUILD_EXAMPLE="NO" SDK="watchsimulator5.1"
   - DESTINATION="OS=2.0,name=Apple Watch Series 2 - 38mm" SCHEME="$WATCHOS_FRAMEWORK_SCHEME" RUN_TESTS="NO" BUILD_EXAMPLE="NO" SDK="watchsimulator5.1"
   
@@ -23,17 +22,18 @@ matrix:
   - DESTINATION="OS=10.3.1,name=iPhone 6 Plus" SCHEME="$IOS_FRAMEWORK_SCHEME" RUN_TESTS="YES" BUILD_EXAMPLE="YES" SDK="iphonesimulator12.1"
   
   - DESTINATION="arch=x86_64" SCHEME="$MACOS_FRAMEWORK_SCHEME" RUN_TESTS="NO" BUILD_EXAMPLE="NO" SDK="macosx10.14"
+  
 script:
   - set -o pipefail
   - xcodebuild -version
   - xcodebuild -showsdks
   
   - if [ $RUN_TESTS == "YES" ]; then
-     xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
+     xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -sdk "$SDK" -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
     else
-     xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty;
+     xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -sdk "$SDK" -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty;
     fi
     
   - if [ $BUILD_EXAMPLE == "YES" ]; then
-     xcodebuild -workspace "$WORKSPACE" -scheme "$EXAMPLE_SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty;
+     xcodebuild -workspace "$WORKSPACE" -scheme "$EXAMPLE_SCHEME" -destination "$DESTINATION" -sdk "$SDK" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty;
     fi
