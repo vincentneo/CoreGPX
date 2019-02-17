@@ -10,19 +10,6 @@ import Foundation
 
 class GPXType: NSObject {
     
-    @available(*, deprecated, message: "CoreGPX no longer supports usage of CGFloat")
-    open func latitude(_ value: String?) -> CGFloat {
-        
-        let f = CGFloat(Float(value ?? "") ?? 0.0)
-        if -90.0 <= f && f <= 90.0 {
-            return f
-        }
-        else {
-           return 0.0
-        }
-        
-    }
-    
     @available(*, deprecated, message: "function no longer used and will be unsupported in future")
     func value(forLatitude latitude: Double) -> String {
         if -90.0 <= latitude && latitude <= 90.0 {
@@ -33,45 +20,10 @@ class GPXType: NSObject {
         }
     }
     
-    @available(*, deprecated, message: "CoreGPX no longer supports usage of CGFloat")
-    open func longitude(_ value: String?) -> CGFloat {
-        
-        let f = CGFloat(Float(value ?? "") ?? 0.0)
-        if -180.0 <= f && f <= 180.0 {
-            return f
-        }
-        else {
-            return 0.0
-        }
-        
-    }
-    
     @available(*, deprecated, message: "function no longer used and will be unsupported in future")
     func value(forLongitude longitude: Double) -> String {
         if -180.0 <= longitude && longitude <= 180.0 {
             return String(format: "%f", longitude)
-        }
-        else {
-            return "0"
-        }
-    }
-    
-    @available(*, deprecated, message: "CoreGPX no longer supports usage of CGFloat")
-    func degrees(_ value: String?) -> CGFloat {
-        
-        let f = CGFloat(Float(value ?? "") ?? 0.0)
-        if 0 <= f && f <= 360.0 {
-            return f
-        }
-        else {
-            return 0.0
-        }
-    }
-    
-    @available(*, deprecated, message: "CoreGPX no longer supports usage of CGFloat")
-    func value(forDegrees degrees: CGFloat) -> String {
-        if 0 <= degrees && degrees <= 360 {
-            return String(format: "%f", degrees)
         }
         else {
             return "0"
@@ -125,16 +77,6 @@ class GPXType: NSObject {
         else {
             return "0"
         }
-    }
-    
-    @available(*, deprecated, message: "CoreGPX no longer supports usage of CGFloat")
-    func decimal(_ value: String?) -> CGFloat {
-        return CGFloat(Float(value ?? "") ?? 0.0)
-    }
-    
-    @available(*, deprecated, message: "CoreGPX no longer supports usage of CGFloat")
-    func value(forDecimal decimal: CGFloat) -> String {
-        return String(format: "%f", decimal)
     }
     
     
