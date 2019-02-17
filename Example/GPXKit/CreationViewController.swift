@@ -58,7 +58,7 @@ class CreationViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func outputFileButton(_ sender: Any) {
-        let root = GPXRoot(creator: "example app")
+        let root = GPXRoot(creator: "example app, output as String")
         
         let track = GPXTrack()
         let trackseg = GPXTrackSegment()
@@ -71,6 +71,43 @@ class CreationViewController: UIViewController, UITextFieldDelegate {
         
         self.gpxString = root.gpx()
         print(gpxString)
+    }
+    
+    @IBAction func outputAsFileButton(_ sender: Any) {
+        let root = GPXRoot(creator: "example app, output as File")
+        
+        let track = GPXTrack()
+        let trackseg = GPXTrackSegment()
+        trackseg.add(trackpoints: trackpoints)
+        track.add(trackSegment: trackseg)
+        
+        
+        root.add(waypoints: waypoints)
+        root.add(track: track)
+        
+        let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] as URL
+        do {
+            try root.outputToFile(saveAt: url, fileName: "test")
+        }
+        catch {
+            print(error)
+        }
+        let file = url.appendingPathComponent("test.gpx")
+        
+        let activityViewController = UIActivityViewController(activityItems: [file], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        
+        // present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
+        
+        /*
+        do {
+            try FileManager().removeItem(at: file)
+        }
+        catch {
+            print(error)
+        }
+ */
     }
     
     @IBAction func segmentHasChanged(_ sender: UISegmentedControl) {

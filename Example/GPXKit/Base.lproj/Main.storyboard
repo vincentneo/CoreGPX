@@ -167,6 +167,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gh3-Pj-HRZ">
+                                <rect key="frame" x="124" y="437" width="126" height="30"/>
+                                <state key="normal" title="Output GPX as file"/>
+                                <connections>
+                                    <action selector="outputAsFileButton:" destination="reI-it-Axz" eventType="touchUpInside" id="eTB-uU-g12"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -182,6 +189,7 @@
                             <constraint firstItem="Ao6-Tx-5yp" firstAttribute="leading" secondItem="ASx-07-eva" secondAttribute="leading" id="CgP-zu-22q"/>
                             <constraint firstItem="s2T-Bz-We9" firstAttribute="leading" secondItem="Ao6-Tx-5yp" secondAttribute="leading" id="Ebj-I7-2sc"/>
                             <constraint firstItem="ixu-70-MnB" firstAttribute="baseline" secondItem="QT7-mT-c70" secondAttribute="firstBaseline" id="Ect-Im-sXL"/>
+                            <constraint firstItem="Gh3-Pj-HRZ" firstAttribute="centerX" secondItem="XhT-3f-h0c" secondAttribute="centerX" id="Eew-Tc-lUr"/>
                             <constraint firstItem="alW-Ok-hMl" firstAttribute="trailing" secondItem="XhT-3f-h0c" secondAttribute="trailing" id="F6d-L8-F1r"/>
                             <constraint firstItem="ixu-70-MnB" firstAttribute="trailing" secondItem="ppc-Zw-PjW" secondAttribute="trailingMargin" id="FnR-gN-Fo8"/>
                             <constraint firstItem="ASx-07-eva" firstAttribute="top" secondItem="Ao6-Tx-5yp" secondAttribute="bottom" constant="9" id="Gbx-Nc-LxM"/>
@@ -210,6 +218,7 @@
                             <constraint firstItem="M64-E8-deZ" firstAttribute="centerY" secondItem="bIp-jg-5ux" secondAttribute="centerY" id="oji-vP-OZp"/>
                             <constraint firstItem="gZ3-5e-2o1" firstAttribute="leading" secondItem="UWB-2m-BsI" secondAttribute="leading" id="q7T-o1-4Aq"/>
                             <constraint firstItem="ixu-70-MnB" firstAttribute="trailing" secondItem="s2T-Bz-We9" secondAttribute="trailing" id="rAy-DZ-yG8"/>
+                            <constraint firstItem="Gh3-Pj-HRZ" firstAttribute="top" secondItem="XhT-3f-h0c" secondAttribute="bottom" constant="8" symbolic="YES" id="sKr-Ix-wWK"/>
                         </constraints>
                     </view>
                     <connections>

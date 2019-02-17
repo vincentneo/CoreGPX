@@ -17,6 +17,10 @@ open class GPXRoot: GPXElement {
     public var tracks = [GPXTrack]()
     public var extensions: GPXExtensions?
     
+    let schema = "http://www.topografix.com/GPX/1/1"
+    let schemaLocation = "http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd"
+    let xsi = "http://www.w3.org/2001/XMLSchema-instance"
+    
     // MARK:- Instance
     
     public required init() {
@@ -33,20 +37,19 @@ open class GPXRoot: GPXElement {
     
     // MARK:- Public Methods
     
-    var schema: String {
-        return "http://www.topografix.com/GPX/1/1"
+    public func outputToFile(saveAt location: URL, fileName: String) throws {
+        let gpxString = self.gpx()
+        let filePath = location.appendingPathComponent("\(fileName).gpx")
+        
+        do {
+            try gpxString.write(to: filePath, atomically: true, encoding: .utf8)
+        }
+        catch {
+            print(error)
+            throw error
+        }
     }
-    
-    var schemaLocation: String {
-        return "http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd"
-    }
-    
-    var xsi: String {
-        return "http://www.w3.org/2001/XMLSchema-instance"
-    }
-    
     public func newWaypointWith(latitude: Double, longitude: Double) -> GPXWaypoint {
-        //let waypoint = GPXWaypoint().waypoint(With: latitude, longitude: longitude)
         let waypoint = GPXWaypoint.init(latitude: latitude, longitude: longitude)
         
         self.add(waypoint: waypoint)
