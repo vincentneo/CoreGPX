@@ -50,7 +50,7 @@ open class GPXMetadata: GPXElement {
         self.addProperty(forValue: desc, gpx: gpx, tagName: "desc", indentationLevel: indentationLevel)
         
         if author != nil {
-            self.author!.gpx(gpx, indentationLevel: indentationLevel)
+            self.author?.gpx(gpx, indentationLevel: indentationLevel)
         }
         
         if copyright != nil {
