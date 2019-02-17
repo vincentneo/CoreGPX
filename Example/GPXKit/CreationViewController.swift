@@ -99,15 +99,6 @@ class CreationViewController: UIViewController, UITextFieldDelegate {
         
         // present the view controller
         self.present(activityViewController, animated: true, completion: nil)
-        
-        /*
-        do {
-            try FileManager().removeItem(at: file)
-        }
-        catch {
-            print(error)
-        }
- */
     }
     
     @IBAction func segmentHasChanged(_ sender: UISegmentedControl) {
