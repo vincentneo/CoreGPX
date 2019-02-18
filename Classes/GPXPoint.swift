@@ -4,7 +4,6 @@
 //
 //  Created by Vincent on 23/11/18.
 //
-//  WARNING: Looks suspiciously broken
 
 import Foundation
 

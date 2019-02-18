@@ -37,6 +37,12 @@ open class GPXRoot: GPXElement {
     
     // MARK:- Public Methods
     
+    /// for saving newly tracked data straight to a GPX file in a directory
+    ///
+    /// - Parameters:
+    ///     - location: a URL where you wish to have the GPX file saved at.
+    ///     - fileName: The name of the file which you wish to save as, without extension.
+    ///
     public func outputToFile(saveAt location: URL, fileName: String) throws {
         let gpxString = self.gpx()
         let filePath = location.appendingPathComponent("\(fileName).gpx")
@@ -49,6 +55,7 @@ open class GPXRoot: GPXElement {
             throw error
         }
     }
+    
     public func newWaypointWith(latitude: Double, longitude: Double) -> GPXWaypoint {
         let waypoint = GPXWaypoint.init(latitude: latitude, longitude: longitude)
         

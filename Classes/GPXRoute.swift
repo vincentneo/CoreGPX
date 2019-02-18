@@ -3,7 +3,7 @@
 //  GPXKit
 //
 //  Created by Vincent on 8/12/18.
-//  WORK IN PROGRESS
+//  
 
 import Foundation
 
