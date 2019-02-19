@@ -83,6 +83,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1235C6E1221C44B1006EE067 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1235C6DC221C44B1006EE067 /* CoreGPX.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 607FACD01AFB9204008FA782;
+			remoteInfo = CoreGPX_Example;
+		};
+		1235C6E3221C44B1006EE067 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1235C6DC221C44B1006EE067 /* CoreGPX.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 607FACE51AFB9204008FA782;
+			remoteInfo = CoreGPX_Tests;
+		};
 		680928CBA9DF05525962F152F7C53F9B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -109,6 +123,7 @@
 /* Begin PBXFileReference section */
 		00F0F353A2A50ADD440CE1D078B16908 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		06E95C5A2842B177852DDE7EF191CCAB /* CoreGPX-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CoreGPX-umbrella.h"; sourceTree = "<group>"; };
+		1235C6DC221C44B1006EE067 /* CoreGPX.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CoreGPX.xcodeproj; path = ../CoreGPX.xcodeproj; sourceTree = "<group>"; };
 		171B80D4BA423019BBC5DA54E387180A /* GPXTrackSegment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXTrackSegment.swift; path = Classes/GPXTrackSegment.swift; sourceTree = "<group>"; };
 		1D2E30143C1734DE1D811B70D043A405 /* CoreGPX-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CoreGPX-prefix.pch"; sourceTree = "<group>"; };
 		27D4563E6DE8F7E40ACEB108805D72A7 /* Pods-CoreGPX_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CoreGPX_Tests-frameworks.sh"; sourceTree = "<group>"; };
@@ -222,6 +237,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1235C6DD221C44B1006EE067 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1235C6E2221C44B1006EE067 /* CoreGPX_Example.app */,
+				1235C6E4221C44B1006EE067 /* CoreGPX_Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		13E2CBACE1AF75A1A31B6C368F9F5EB1 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +315,7 @@
 		700C5FD578396BAA97A990F7143F1890 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				1235C6DC221C44B1006EE067 /* CoreGPX.xcodeproj */,
 				93DD3FAC6CCBEFEB7892363712AB7E6E /* Pods-CoreGPX_Example */,
 				3416BA7F07921A3DD0BABD458BEA7112 /* Pods-CoreGPX_Tests */,
 			);
@@ -596,6 +621,12 @@
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
 			productRefGroup = 8C7907287943666C529A48AE1F1E2C01 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1235C6DD221C44B1006EE067 /* Products */;
+					ProjectRef = 1235C6DC221C44B1006EE067 /* CoreGPX.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1FF6BE2AF737A7CF5E77D983FE99CC8E /* CoreGPX */,
@@ -607,6 +638,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1235C6E2221C44B1006EE067 /* CoreGPX_Example.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = CoreGPX_Example.app;
+			remoteRef = 1235C6E1221C44B1006EE067 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1235C6E4221C44B1006EE067 /* CoreGPX_Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CoreGPX_Tests.xctest;
+			remoteRef = 1235C6E3221C44B1006EE067 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		BF5A9E1122088463003A5379 /* Resources */ = {
