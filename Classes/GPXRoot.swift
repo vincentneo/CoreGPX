@@ -7,6 +7,10 @@
 
 import Foundation
 
+/// Creation of a GPX file starts here
+///
+/// `GPXRoot` holds all `metadata`, `waypoints`, `tracks`, `routes` and `extensions` types together before being packaged as a GPX file, or formatted as per GPX schema's requirements.
+///
 open class GPXRoot: GPXElement {
 
     public var version: String? = "1.1"
@@ -17,19 +21,28 @@ open class GPXRoot: GPXElement {
     public var tracks = [GPXTrack]()
     public var extensions: GPXExtensions?
     
+    // MARK: GPX v1.1 Namespaces
+    
+    /// Link to the GPX v1.1 schema
     let schema = "http://www.topografix.com/GPX/1/1"
+    /// Link to the schema locations. If extended, the extended schema should be added.
     let schemaLocation = "http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd"
+    /// Link to XML schema instance
     let xsi = "http://www.w3.org/2001/XMLSchema-instance"
     
-    // MARK:- Instance
+    // MARK:- Public Initializers
     
+    /// for initializing without a creator name
     public required init() {
         super.init()
-        
         creator = "Powered by Open Source CoreGPX Project"
-        
     }
     
+    /// for initializing with a creator name
+    ///
+    /// - Parameters:
+    ///    - creator: name of your app, or whichever product that ends up generating a GPX file
+    ///
     public init(creator: String) {
         super.init()
         self.creator = creator

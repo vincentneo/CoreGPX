@@ -7,16 +7,16 @@
 
 import Foundation
 
+// MARK:- Constants
+
+let kGPXInvalidGPXFormatNotification = "kGPXInvalidGPXFormatNotification"
+
+let kGPXDescriptionKey = "kGPXDescriptionKey"
+
 open class GPXElement: NSObject {
     
     public var parent: GPXElement?
-    
-    //from GPXConst
-    let kGPXInvalidGPXFormatNotification = "kGPXInvalidGPXFormatNotification"
 
-    let kGPXDescriptionKey = "kGPXDescriptionKey"
-
-    
     // MARK:- Tag
     
     func tagName() -> String {
