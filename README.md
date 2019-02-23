@@ -3,11 +3,13 @@ Parse, generate GPX files on iOS, watchOS & macOS.
 
 [![CI Status](https://travis-ci.com/vincentneo/CoreGPX.svg?branch=master)](https://travis-ci.com/vincentneo/CoreGPX)
 [![Swift Version](https://img.shields.io/badge/Swift-4.2-orange.svg)](https://swift.org/blog/swift-4-2-released/)
+[![GPX Version](https://img.shields.io/badge/gpx-1.1-yellow.svg)](https://www.topografix.com/gpx/1/1/)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 [![Platform](https://img.shields.io/cocoapods/p/CoreGPX.svg?style=flat)](https://cocoapods.org/pods/CoreGPX)
 [![Version](https://img.shields.io/cocoapods/v/CoreGPX.svg?style=flat)](https://cocoapods.org/pods/CoreGPX)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-# What is CoreGPX?
+## What is CoreGPX?
 CoreGPX is a port of iOS-GPX-Framework to Swift language. It aims to be more than a port of the abandoned project, so do expect more features to be added in the future, as development is currently under progress.
 
 It makes use of `XMLParser` for parsing GPX files, thus making it fully dependent on the native APIs only.
@@ -16,6 +18,20 @@ It makes use of `XMLParser` for parsing GPX files, thus making it fully dependen
 - [x] Successfully outputs string that can be packaged into a GPX file
 - [x] Parses GPX files using native XMLParser
 - [x] Support for macOS & watchOS
+
+## Installation
+
+CoreGPX works with [CocoaPods](https://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'CoreGPX'
+```
+
+CoreGPX works with Carthage as well. To install via Carthage, simply add the following line to your Cartfile:
+```Swift
+github "vincentneo/CoreGPX"
+```
 
 ## How to parse?
 Parsing of GPX files is done by initializing `GPXParser`.
@@ -132,23 +148,12 @@ To run the example project, clone the repo, and try out the Example!
 ## Contributing
 Contributions to this project will be more than welcomed. Feel free to add a pull request or open an issue.
 
-#### TO DO Checklist
+#### Currently Work in progress:
 Any help would be appreciated!
 - [ ] Extension to metadata to support collection of more info in GPX file
-- [ ] Add tests
 - [ ] Documentation
-- [ ] Code optimisation
+- [ ] Better code optimisation
 - [ ] New features
-
-
-## Installation
-
-CoreGPX will be available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod 'CoreGPX'
-```
 
 ## License
 
