@@ -15,7 +15,7 @@ let kGPXDescriptionKey = "kGPXDescriptionKey"
 
 open class GPXElement: NSObject {
     
-    public var parent: GPXElement?
+    var parent: GPXElement?
 
     // MARK:- Tag
     
@@ -31,6 +31,7 @@ open class GPXElement: NSObject {
 
     // MARK:- GPX
    
+    /// for generating newly tracked data straight into a formatted `String` that holds formatted data according to GPX syntax
     open func gpx() -> String {
         let gpx = NSMutableString()
         self.gpx(gpx, indentationLevel: 0)
