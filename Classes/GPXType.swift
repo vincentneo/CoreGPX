@@ -8,9 +8,22 @@
 
 import Foundation
 
+/**
+    For conversion of values when required.
+ 
+    Conversion of values may not always be done strictly using this class, as some of the methods here might be unoptimised, and may contain code carried over from the legacy code.
+ 
+    - Note: This class is intended to be internally used only.
+ */
 class GPXType: NSObject {
     
-    @available(*, deprecated, message: "function no longer used and will be unsupported in future")
+    /// for use in conversion from `Double` of latitude to `String`
+    ///
+    /// - Parameters:
+    ///     - latitude: input value must be valid within -90.0 and 90.0;
+    /// In the case where input value exceeds range, 0 is returned
+    ///
+    @available(*, deprecated, message: "method is no longer used and will be unsupported in future")
     func value(forLatitude latitude: Double) -> String {
         if -90.0 <= latitude && latitude <= 90.0 {
             return String(format: "%f", latitude)
@@ -20,7 +33,13 @@ class GPXType: NSObject {
         }
     }
     
-    @available(*, deprecated, message: "function no longer used and will be unsupported in future")
+    /// for use in conversion from `Double` of longitude to `String`
+    ///
+    /// - Parameters:
+    ///     - longitude: input value must be valid within -180.0 and 180.0;
+    /// In the case where input value exceeds range, 0 is returned
+    ///
+    @available(*, deprecated, message: "method is no longer used and will be unsupported in future")
     func value(forLongitude longitude: Double) -> String {
         if -180.0 <= longitude && longitude <= 180.0 {
             return String(format: "%f", longitude)
@@ -30,6 +49,7 @@ class GPXType: NSObject {
         }
     }
     
+    /// for converting a `String` value to `GPXFix` enum
     func fix(value: String) -> GPXFix {
         
         if value == "2D" {
@@ -50,6 +70,7 @@ class GPXType: NSObject {
         
     }
     
+    /// for conversion from enum `GPXFix` to `String`
     func value(forFix fix: GPXFix) -> String {
         switch fix {
             case .none:             return "none"
@@ -60,6 +81,7 @@ class GPXType: NSObject {
         }
     }
     
+    /// for conversion from an optional `String` of DGPS station to `Int`
     func dgpsStation(_ value: String?) -> Int {
         let i = Int(value ?? "") ?? 0
         if 0 <= i && i <= 1023 {
@@ -81,8 +103,9 @@ class GPXType: NSObject {
     
     
     func dateTime(value: String) -> Date? {
-      //  var date: Date
         let formatter = DateFormatter()
+        
+        // date formatter's time zone should always be in UTC time as GPX schema explictly requires time to not be in local time.
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         
         // dateTime（YYYY-MM-DDThh:mm:ssZ)
