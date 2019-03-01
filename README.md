@@ -8,6 +8,7 @@ Parse, generate GPX files on iOS, watchOS & macOS.
 [![Platform](https://img.shields.io/cocoapods/p/CoreGPX.svg?style=flat)](https://cocoapods.org/pods/CoreGPX)
 [![Version](https://img.shields.io/cocoapods/v/CoreGPX.svg?style=flat)](https://cocoapods.org/pods/CoreGPX)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 
 ## What is CoreGPX?
 CoreGPX is a port of iOS-GPX-Framework to Swift language. It aims to be more than a port of the abandoned project, so do expect more features to be added in the future, as development is currently under progress.
