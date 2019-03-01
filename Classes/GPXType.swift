@@ -82,6 +82,10 @@ class GPXType: NSObject {
     }
     
     /// for conversion from an optional `String` of DGPS station to `Int`
+    ///
+    /// - Parameters:
+    ///     - value: `String` type should be a number within 0 and 1023; will return 0 when out of range.
+    ///
     func dgpsStation(_ value: String?) -> Int {
         let i = Int(value ?? "") ?? 0
         if 0 <= i && i <= 1023 {
@@ -92,6 +96,11 @@ class GPXType: NSObject {
         }
     }
     
+    /// for conversion from `Int` of DGPS station to `String`
+    ///
+    /// - Parameters:
+    ///     - dgpsStation: `Int` should be within 0 and 1023; will return 0 when out of range.
+    ///
     func value(forDgpsStation dgpsStation: Int) -> String {
         if 0 <= dgpsStation && dgpsStation <= 360 {
             return String(format: "%ld", Int32(dgpsStation))
@@ -101,7 +110,13 @@ class GPXType: NSObject {
         }
     }
     
-    
+    /// for conversion of date and time formatted as per ISO8601 standards of `String` type to `Date`
+    ///
+    /// - Parameters:
+    ///      - value: date and time formatted string
+    ///
+    /// This method has not been used much as it was intended for GPX parsing, but as `DateFormatter` was not fast enough, this method has not been used often.
+    ///
     func dateTime(value: String) -> Date? {
         let formatter = DateFormatter()
         
@@ -151,6 +166,16 @@ class GPXType: NSObject {
         
     }
     
+    /// facilitates conversion from optional `Date` to optional `String`
+    ///
+    /// - Parameters:
+    ///     - date: can be of any date and time, which will be converted to a formatted ISO8601 date and time string.
+    ///
+    /// - Returns:
+    ///     Formatted string according to ISO8601, which is of **"yyyy-MM-ddTHH:mm:ssZ"**
+    ///
+    /// This method is currently heavily used for generating of GPX files / formatted string, as the native `Date` type must be converted to a `String` first.
+    ///
     func value(forDateTime date: Date?) -> String? {
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
@@ -165,6 +190,13 @@ class GPXType: NSObject {
         return formatter.string(from: validDate)
     }
     
+    /// conversion of `String` to `Int`
+    ///
+    /// - Parameters:
+    ///     - string: must be a number, above 0.
+    ///
+    /// - Returns: a non negative integer. (positive only)
+    ///
     func nonNegativeInt(_ string: String) -> Int {
         if let i = Int(string) {
             if i >= 0 {
@@ -174,15 +206,26 @@ class GPXType: NSObject {
         return 0
     }
     
+    /// conversion of `Int` to `String`
+    ///
+    /// - Parameters:
+    ///     - int: must be above 0. (cannot be negative)
+    ///
+    /// - Returns: a non negative number formatted as `String`. (positive only)
+    ///
     func value(forNonNegativeInt int: Int) -> String {
         if int >= 0 {
             return String(format: "%ld", Int32(int))
         }
         return "0"
     }
-
+    
 }
 
+/// Carried forward from legacy code
+///
+/// - Note:
+///     I believe this enum may not be useful as `CoreLocation` API does not appear to state GPS Fix type.
 enum GPXFix: Int {
     case none = 0
     case TwoDimensional, ThreeDimensional, Dgps, Pps
