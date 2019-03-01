@@ -47,29 +47,7 @@ open class GPXTrack: GPXElement {
         let link = GPXLink(withHref: href)
         return link
     }
-    /*
-    open func add(link: GPXLink?) {
-        if let validLink = link {
-            validLink.parent = self
-            links.append(validLink)
-        }
-    }
-    
-    open func add(links: [GPXLink]) {
-        self.links.append(contentsOf: links)
-    }
-    
-    open func remove(Link link: GPXLink) {
-        let contains = links.contains(link)
-        
-        if contains == true {
-            link.parent = nil
-            if let index = links.firstIndex(of: link) {
-                links.remove(at: index)
-            }
-        }
-    }
-    */
+
     open func newTrackSegment() -> GPXTrackSegment {
         let tracksegment = GPXTrackSegment()
         self.add(trackSegment: tracksegment)
