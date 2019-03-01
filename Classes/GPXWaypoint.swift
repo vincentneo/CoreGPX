@@ -43,7 +43,7 @@ open class GPXWaypoint: GPXElement {
         self.longitude = longitude
     }
     
-    init(dictionary: [String:String]) {
+    init(dictionary: [String : String]) {
         self.time = ISO8601DateParser.parse(dictionary ["time"])
         super.init()
         self.elevation = number(from: dictionary["ele"])

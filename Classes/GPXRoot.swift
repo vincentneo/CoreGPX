@@ -83,6 +83,8 @@ open class GPXRoot: GPXElement {
     ///     - location: A `URL` where you wish to have the GPX file saved at.
     ///     - fileName: The name of the file which you wish to save as, without extension.
     ///
+    /// - Throws: An error if GPX file fails to write at `location` for whichever reason.
+    ///
     public func outputToFile(saveAt location: URL, fileName: String) throws {
         let gpxString = self.gpx()
         let filePath = location.appendingPathComponent("\(fileName).gpx")
@@ -105,7 +107,7 @@ open class GPXRoot: GPXElement {
     /// A waypoint is initialized with latitude and longitude, then added into the array of waypoints in this `GPXRoot`.
     ///
     /// - Warning:
-    /// This method is not **recommended**. It is recommended that you initialize a waypoint first, configure it, and use method `add(waypoint:)` instead.
+    /// This method is **not recommended**. It is recommended that you initialize a waypoint first, configure it, and use method `add(waypoint:)` instead.
     ///
     /// - Returns:
     /// A `GPXWaypoint` object.
@@ -158,7 +160,7 @@ open class GPXRoot: GPXElement {
     /// A route is initialized, then added into the array of routes in this `GPXRoot`.
     ///
     /// - Warning:
-    /// This method is not **recommended**. It is recommended that you initialize a route first, configure it, and use method `add(route:)` instead.
+    /// This method is **not recommended**. It is recommended that you initialize a route first, configure it, and use method `add(route:)` instead.
     ///
     /// - Returns:
     /// A `GPXRoute` object.
@@ -211,7 +213,7 @@ open class GPXRoot: GPXElement {
     /// A track is initialized, then added into the array of tracks in this `GPXRoot`.
     ///
     /// - Warning:
-    /// This method is not **recommended**. It is recommended that you initialize a track first, configure it, and use method `add(track:)` instead.
+    /// This method is **not recommended**. It is recommended that you initialize a track first, configure it, and use method `add(track:)` instead.
     ///
     /// - Returns:
     /// A `GPXTrack` object.
