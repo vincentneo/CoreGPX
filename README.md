@@ -38,15 +38,15 @@ github "vincentneo/CoreGPX"
 Parsing of GPX files is done by initializing `GPXParser`.
 
 There are five ways of initializing `GPXParser`,  and these are three main ways of initializing:
-### You can initialize with a `URL`:
+#### You can initialize with a `URL`:
 ```Swift
 guard let gpx = GPXParser(withURL: inputURL)?.parsedData() else { return }
 ```
-### With path:
+#### With path:
 ```Swift
 guard let gpx = GPXParser(withPath: inputPath)?.parsedData() else { return } // String type
 ```
-### With `Data`:
+#### With `Data`:
 ```Swift
 let gpx = GPXParser(withData: inputData).parsedData()
 ```
@@ -73,30 +73,30 @@ for waypoint in gpx.waypoints {  // for loop example, every waypoint is written
 
 You will first start off with a `GPXRoot`.
 
-### Initializing `GPXRoot`
+#### Initializing `GPXRoot`
 ```Swift
 let root = GPXRoot(creator: "Your app name here!") // insert your app name here
 ```
 Now, you can start adding things to your `GPXRoot`. This includes your metadata, waypoints, tracks, routes, as well as extensions(if any).
 
-### Adding waypoints to `GPXRoot`
+#### Adding waypoints to `GPXRoot`
 ```Swift
 root.add(waypoints: arrayOfWaypoints) // adds an array of waypoints
 root.add(waypoint: singleWaypoint)    // adds a single waypoint
 ```
-### Adding tracks to `GPXRoot`
+#### Adding tracks to `GPXRoot`
 ```Swift
 root.add(tracks: arrayOfTracks)       // adds an array of tracks
 root.add(track: singleTrack)          // adds a single track
 ```
 
-### Adding routes to `GPXRoot`
+#### Adding routes to `GPXRoot`
 ```Swift
 root.add(routes: arrayOfRoutes)       // adds an array of routes
 root.add(route: singleRoute)          // adds a single route
 ```
 
-### Adding metadata to `GPXRoot`
+#### Adding metadata to `GPXRoot`
 ```Swift
 let metadata = GPXMetadata()
 metadata.name = "Your Name Here"
@@ -126,10 +126,11 @@ root.add(track: track)                          // adds a track
         
 self.gpxString = root.gpx()
 print(gpxString)
-// gpxString contents
-/* 
+```
+This would be what you get from `root.gpx()` in the above example: 
+```XML
 <?xml version="1.0" encoding="UTF-8"?>
-<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="example app">
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="Your app name here!">
 	<trk>
 		<trkseg>
 			<trkpt lat="1.352100" lon="103.819800">
@@ -139,15 +140,17 @@ print(gpxString)
 		</trkseg>
 	</trk>
 </gpx>
-*/
 ```
-`.gpx()` of `GPXRoot` outputs a `String` which can then be packaged as a .GPX file.
+- `.gpx()` of `GPXRoot` outputs a `String` which can then be packaged as a .GPX file.
+- `.OutputToFile(saveAt:fileName:)` directly saves GPX contents to a URL specified.
 
 ## Example
-To run the example project, clone the repo, and try out the Example!
+To know in depth of what `CoreGPX` can bring, do check out the Example app.
+To run the example project, simply clone the repo, and try it out straight away!
 
 ## Contributing
 Contributions to this project will be more than welcomed. Feel free to add a pull request or open an issue.
+If you require a feature that has yet to be available, do open an issue, describing why and what the feature could bring and how it would help you!
 
 #### Currently Work in progress:
 Any help would be appreciated!
@@ -158,4 +161,4 @@ Any help would be appreciated!
 
 ## License
 
-CoreGPX is available under the MIT license. See the LICENSE file for more info.
+CoreGPX is available under the MIT license. See the LICENSE file for more info. 
