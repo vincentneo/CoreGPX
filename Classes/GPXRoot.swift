@@ -7,10 +7,11 @@
 
 import Foundation
 
-/// Creation of a GPX file starts here
-///
-/// `GPXRoot` holds all `metadata`, `waypoints`, `tracks`, `routes` and `extensions` types together before being packaged as a GPX file, or formatted as per GPX schema's requirements.
-///
+/**
+    Creation of a GPX file or GPX formatted string starts here
+ 
+    `GPXRoot` holds all `metadata`, `waypoints`, `tracks`, `routes` and `extensions` types together before being packaged as a GPX file, or formatted as per GPX schema's requirements.
+*/
 open class GPXRoot: GPXElement {
     
     /// GPX version that will be generated. Currently, only the latest (version 1.1) is supported.
@@ -101,7 +102,13 @@ open class GPXRoot: GPXElement {
     ///     - latitude: Waypoint's latitude in `Double` or `CLLocationDegrees`
     ///     - longitude: Waypoint's latitude in `Double` or `CLLocationDegrees`
     ///
-    /// This method is not recommended. It would be better if you initialize a waypoint first, configure it, and use method `add(waypoint:)` instead.
+    /// A waypoint is initialized with latitude and longitude, then added into the array of waypoints in this `GPXRoot`.
+    ///
+    /// - Warning:
+    /// This method is not **recommended**. It is recommended that you initialize a waypoint first, configure it, and use method `add(waypoint:)` instead.
+    ///
+    /// - Returns:
+    /// A `GPXWaypoint` object.
     ///
     public func newWaypointWith(latitude: Double, longitude: Double) -> GPXWaypoint {
         let waypoint = GPXWaypoint.init(latitude: latitude, longitude: longitude)
@@ -148,7 +155,13 @@ open class GPXRoot: GPXElement {
     
     /// Initializes a new `route` which is also added to `GPXRoot` automatically
     ///
-    /// This method is not recommended. It would be better if you initialize a route first, configure it, and use method `add(route:)` instead.
+    /// A route is initialized, then added into the array of routes in this `GPXRoot`.
+    ///
+    /// - Warning:
+    /// This method is not **recommended**. It is recommended that you initialize a route first, configure it, and use method `add(route:)` instead.
+    ///
+    /// - Returns:
+    /// A `GPXRoute` object.
     ///
     public func newRoute() -> GPXRoute {
         let route = GPXRoute()
@@ -195,7 +208,13 @@ open class GPXRoot: GPXElement {
     
     /// Initializes a new `track` which is also added to `GPXRoot` automatically
     ///
-    /// This method is not recommended. It would be better if you initialize a track first, configure it, and use method `add(track:)` instead.
+    /// A track is initialized, then added into the array of tracks in this `GPXRoot`.
+    ///
+    /// - Warning:
+    /// This method is not **recommended**. It is recommended that you initialize a track first, configure it, and use method `add(track:)` instead.
+    ///
+    /// - Returns:
+    /// A `GPXTrack` object.
     ///
     public func newTrack() -> GPXTrack {
         let track = GPXTrack()
