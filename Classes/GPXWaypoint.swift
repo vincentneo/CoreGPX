@@ -7,6 +7,16 @@
 
 import Foundation
 
+/**
+ A value type that represents waypoint based off GPX v1.1 schema's `wptType`.
+ 
+ According to the GPX schema, the waypoint type can represent the following:
+    - a waypoint
+    - a point of interest
+    - a named feature on a map
+ 
+ The waypoint should at least contain the attributes of both `latitude` and `longitude` in order to be considered a valid waypoint.
+*/
 open class GPXWaypoint: GPXElement {
     
     public var link: GPXLink?
