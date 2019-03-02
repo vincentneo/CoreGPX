@@ -19,6 +19,10 @@ import Foundation
 */
 open class GPXWaypoint: GPXElement {
     
+    // MARK:- Attributes of a waypoint
+    // Documentation for attributes still WORK IN PROGRESS
+    
+    /// A value type for link properties (see `GPXLink`)
     public var link: GPXLink?
     public var elevation: Double?
     public var time: Date?
@@ -41,11 +45,31 @@ open class GPXWaypoint: GPXElement {
     public var latitude: Double?
     public var longitude: Double?
     
+    // MARK:- Initializers
+    
+    /// Initialize with current date and time
+    ///
+    /// The waypoint should be configured appropriately after initializing using this initializer. The `time` attribute will also be set to the time of initializing.
+    ///
+    /// - Note:
+    ///     At least latitude and longitude should be configured as required by the GPX v1.1 schema.
+    ///
     public required init() {
         self.time = Date()
         super.init()
     }
     
+    /// Initialize with current date and time, with latitude and longitude.
+    ///
+    /// The waypoint should be configured appropriately after initializing using this initializer. The `time` attribute will also be set to the time of initializing, along with `latitude` and `longitude` attributes.
+    ///
+    /// - Note:
+    ///     Other attributes can still be configured as per normal.
+    ///
+    /// - Parameters:
+    ///     - latitude: latitude value of the waypoint, in `Double` or `CLLocationDegrees`, **WGS 84** datum only. Should be within the ranges of **-90.0 to 90.0**
+    ///     - longitude: longitude value of the waypoint, in `Double` or `CLLocationDegrees`, **WGS 84** datum only. Should be within the ranges of **-180.0 to 180.0**
+    ///
     public init(latitude: Double, longitude: Double) {
         self.time = Date()
         super.init()
@@ -53,6 +77,16 @@ open class GPXWaypoint: GPXElement {
         self.longitude = longitude
     }
     
+    /// For internal use only
+    ///
+    /// Initializes a waypoint through a dictionary, with each key being an attribute name.
+    ///
+    /// - Note:
+    /// This initializer is designed only for use when parsing GPX files, and shouldn't be used in other ways.
+    ///
+    /// - Parameters:
+    ///     - dictionary: a dictionary with a key of an attribute, followed by the value which is set as the GPX file is parsed.
+    ///
     init(dictionary: [String : String]) {
         self.time = ISO8601DateParser.parse(dictionary ["time"])
         super.init()
@@ -76,8 +110,15 @@ open class GPXWaypoint: GPXElement {
         self.ageofDGPSData = number(from: dictionary["ageofdgpsdata"])
     }
     
-    // MARK:- Public Methods
-   
+    // MARK:- Internal Methods
+    
+    /// For conversion from optional `String` type to optional `Double` type
+    ///
+    /// - Parameters:
+    ///     - string: input string that should be a number.
+    /// - Returns:
+    ///     A `Double` that will be nil if input `String` is nil.
+    ///
     func number(from string: String?) -> Double? {
         guard let NonNilString = string else {
             return nil
@@ -85,6 +126,13 @@ open class GPXWaypoint: GPXElement {
         return Double(NonNilString)
     }
     
+    /// For conversion from optional `String` type to optional `Int` type
+    ///
+    /// - Parameters:
+    ///     - string: input string that should be a number.
+    /// - Returns:
+    ///     A `Int` that will be nil if input `String` is nil.
+    ///
     func integer(from string: String?) -> Int? {
         guard let NonNilString = string else {
             return nil
@@ -92,8 +140,19 @@ open class GPXWaypoint: GPXElement {
         return Int(NonNilString)
     }
     
+    // MARK:- Public Methods
+    
+    /// for initializing a `GPXLink` with href, which is added to this point type as well.
+    ///   - Parameters:
+    ///        - href: a URL hyperlink as a `String`
+    ///
+    /// This method works by initializing a new `GPXLink`, adding to this point type, then return the `GPXLink`
+    ///
+    ///   - Warning: Will be deprecated starting version 0.5.0
+    @available(*, deprecated, message: "Initialize GPXLink first then, add it to this point type instead.")
     open func newLink(withHref href: String) -> GPXLink {
         let link = GPXLink(withHref: href)
+        self.link = link
         return link
     }
     
