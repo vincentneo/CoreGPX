@@ -15,34 +15,135 @@ import Foundation
     - a point of interest
     - a named feature on a map
  
- The waypoint should at least contain the attributes of both `latitude` and `longitude` in order to be considered a valid waypoint.
+ The waypoint should at least contain the attributes of both `latitude` and `longitude` in order to be considered a valid waypoint. Most attributes are optional, and are not required to be implemented.
 */
 open class GPXWaypoint: GPXElement {
     
     // MARK:- Attributes of a waypoint
-    // Documentation for attributes still WORK IN PROGRESS
     
     /// A value type for link properties (see `GPXLink`)
+    ///
+    /// Intended for additional information about current point through a web link.
     public var link: GPXLink?
+    
+    /// Elevation of current point
+    ///
+    /// Should be in unit **meters** (m)
     public var elevation: Double?
+    
+    /// Date and time of current point
+    ///
+    /// Should be in **Coordinated Universal Time (UTC)**, without offsets, not local time.
     public var time: Date?
+    
+    /// Magnetic Variation of current point
+    ///
+    /// Should be in unit **degrees** (º)
     public var magneticVariation: Double?
+    
+    /// Geoid Height of current point
+    ///
+    /// Should be in unit **meters** (m). Height of geoid, or mean sea level, above WGS84 earth ellipsoid
     public var geoidHeight: Double?
+    
+    /// Name of current point
+    ///
+    /// - Warning:
+    ///     - This attribute may not be useful, in schema context.
+    ///     - This is carried over from GPX schema, to be compliant with the schema.
     public var name: String?
+    
+    /// Comment of current point
+    ///
+    /// - Warning:
+    ///     - This attribute may not be useful, in schema context.
+    ///     - This is carried over from GPX schema, to be compliant with the schema.
     public var comment: String?
+    
+    /// Description of current point
+    ///
+    /// - Warning:
+    ///     - This attribute may not be useful, in schema context.
+    ///     - This is carried over from GPX schema, to be compliant with the schema.
     public var desc: String?
+    
+    /// Source of data of current point
+    ///
+    /// For assurance that current point is reliable
     public var source: String?
+    
+    /// Text of GPS symbol name
+    ///
+    /// - Warning:
+    ///     - This attribute does not appear to be useful due to `CoreLocation` API.
+    ///     - This is carried over from GPX schema, to be compliant with the schema.
     public var symbol: String?
+    
+    /// Type of current point
     public var type: String?
+    
+    /// Type of GPS fix of current point, represented as a number
+    ///
+    /// - **Supported Types:** (written in order)
+    ///     - **None**: No fix
+    ///     - **2D**: Position only
+    ///     - **3D**: Position and Elevation
+    ///     - **DGPS**: Differential GPS
+    ///     - **PPS**: Military Signal
+    ///
+    /// Unknown fix should leave fix attribute as `nil`
+    /// - Warning:
+    ///     - This attribute may have limited usefulness due to `CoreLocation` API.
+    ///     - This is carried over from GPX schema, to be compliant with the schema.
     public var fix: Int?
+    
+    /// Number of satellites used to calculate GPS fix of current point
     public var satellites: Int?
+    
+    /// Horizontal dilution of precision of current point
     public var horizontalDilution: Double?
+    
+    /// Vertical dilution of precision of current point
     public var verticalDilution: Double?
+    
+    /// Position dilution of precision of current point
     public var positionDilution: Double?
+    
+    /// Age of DGPS Data
+    ///
+    /// Number of seconds since last DGPS update
+    ///
+    /// - Warning:
+    ///     - This attribute may not be useful.
+    ///     - This is carried over from GPX schema, to be compliant with the schema.
     public var ageofDGPSData: Double?
+    
+    /// DGPS' ID
+    ///
+    /// ID of DGPS station used in differential correction.
+    ///
+    /// - Warning:
+    ///     - This attribute may not be useful.
+    ///     - This is carried over from GPX schema, to be compliant with the schema.
     public var DGPSid: Int?
+    
+    /// Extension to GPX v1.1 standard.
     public var extensions: GPXExtensions?
+    
+    /// Latitude of current point
+    ///
+    /// - Latitude value should be within range of -90 to 90.
+    /// - Should be in unit degrees (º)
+    /// - Should conform to WGS 84 datum.
+    ///
     public var latitude: Double?
+    
+    /// Longitude of current point
+    ///
+    /// - Longitude value should be within range of -180 to 90.
+    /// - Should be in unit degrees (º)
+    /// - Should conform to WGS 84 datum.
+    ///
     public var longitude: Double?
     
     // MARK:- Initializers
@@ -63,7 +164,7 @@ open class GPXWaypoint: GPXElement {
     ///
     /// The waypoint should be configured appropriately after initializing using this initializer. The `time` attribute will also be set to the time of initializing, along with `latitude` and `longitude` attributes.
     ///
-    /// - Note:
+    /// - Remark:
     ///     Other attributes can still be configured as per normal.
     ///
     /// - Parameters:
@@ -81,7 +182,7 @@ open class GPXWaypoint: GPXElement {
     ///
     /// Initializes a waypoint through a dictionary, with each key being an attribute name.
     ///
-    /// - Note:
+    /// - Remark:
     /// This initializer is designed only for use when parsing GPX files, and shouldn't be used in other ways.
     ///
     /// - Parameters:
