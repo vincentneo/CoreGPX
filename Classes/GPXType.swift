@@ -227,6 +227,19 @@ class GPXType: NSObject {
 /// - Note:
 ///     I believe this enum may not be useful as `CoreLocation` API does not appear to state GPS Fix type.
 enum GPXFix: Int {
+    
+    /// No Fix
     case none = 0
-    case TwoDimensional, ThreeDimensional, Dgps, Pps
+    
+    /// 2D Fix, position only.
+    case TwoDimensional
+    
+    /// 3D Fix, position and elevation.
+    case ThreeDimensional
+    
+    /// Differencial GPS fix
+    case Dgps
+    
+    /// Military GPS-equivalent
+    case Pps
 }
