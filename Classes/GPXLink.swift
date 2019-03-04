@@ -7,10 +7,16 @@
 
 import Foundation
 
-/// A link to an external resource (Web page, digital photo, video clip, etc) with additional information.
+/**
+ A value type that can hold a web link to a external resource, or external information about a certain attribute.
+ 
+ In addition to having a URL as its attribute, it also accepts the following as child tag:
+    - type of content
+    - text of web link (probably a description kind of thing)
+ */
 open class GPXLink: GPXElement {
     
-    // MARK:- Accessing Properties
+    // MARK:- Properties
 
     /// Text of hyperlink
     public var text: String?
