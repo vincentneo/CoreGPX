@@ -132,16 +132,16 @@ open class GPXWaypoint: GPXElement {
     
     /// Latitude of current point
     ///
-    /// - Latitude value should be within range of -90 to 90.
-    /// - Should be in unit degrees (º)
+    /// - Latitude value should be within range of **-90 to 90**
+    /// - Should be in unit **degrees** (º)
     /// - Should conform to WGS 84 datum.
     ///
     public var latitude: Double?
     
     /// Longitude of current point
     ///
-    /// - Longitude value should be within range of -180 to 90.
-    /// - Should be in unit degrees (º)
+    /// - Longitude value should be within range of **-180 to 180**
+    /// - Should be in unit **degrees** (º)
     /// - Should conform to WGS 84 datum.
     ///
     public var longitude: Double?
