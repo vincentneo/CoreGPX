@@ -113,7 +113,7 @@ open class GPXElement: NSObject {
     /// - Method should only be used when overriding `addChildTag(toGPX:indentationLevel:)`
     /// - **Example**:
     ///
-    ///         <name>Your Value Here</name>
+    ///       <name>Your Value Here</name>
     func addProperty(forValue value: String?, gpx: NSMutableString, tagName: String, indentationLevel: Int) {
         addProperty(forValue: value, gpx: gpx, tagName: tagName, indentationLevel: indentationLevel, defaultValue: nil, attribute: nil)
     }
@@ -130,7 +130,7 @@ open class GPXElement: NSObject {
     /// - Will not execute if `value` is nil.
     /// - **Example**:
     ///
-    ///         <ele>100</ele> // 100 is an example value
+    ///       <ele>100</ele> // 100 is an example value
     func addProperty(forIntegerValue value: Int?, gpx: NSMutableString, tagName: String, indentationLevel: Int) {
         if let validValue = value {
         addProperty(forValue: String(validValue), gpx: gpx, tagName: tagName, indentationLevel: indentationLevel, defaultValue: nil, attribute: nil)
@@ -149,7 +149,7 @@ open class GPXElement: NSObject {
     /// - Will not execute if `value` is nil.
     /// - **Example**:
     ///
-    ///         <ele>100.21345</ele> // 100.21345 is an example value
+    ///       <ele>100.21345</ele> // 100.21345 is an example value
     func addProperty(forDoubleValue value: Double?, gpx: NSMutableString, tagName: String, indentationLevel: Int) {
         if let validValue = value {
             addProperty(forValue: String(validValue), gpx: gpx, tagName: tagName, indentationLevel: indentationLevel, defaultValue: nil, attribute: nil)
@@ -168,7 +168,7 @@ open class GPXElement: NSObject {
     /// - Method should only be used when overriding `addChildTag(toGPX:indentationLevel:)`
     /// - **Example**:
     ///
-    ///         <name attribute>Your Value Here</name>
+    ///       <name attribute>Your Value Here</name>
     func addProperty(forValue value: String?, gpx: NSMutableString, tagName: String, indentationLevel: Int, attribute: String?) {
         addProperty(forValue: value, gpx: gpx, tagName: tagName, indentationLevel: indentationLevel, defaultValue: nil, attribute: attribute)
     }
@@ -185,7 +185,7 @@ open class GPXElement: NSObject {
     /// - Method should only be used when overriding `addChildTag(toGPX:indentationLevel:)`
     /// - **Example**:
     ///
-    ///         <name>Your Value Here</name>
+    ///       <name>Your Value Here</name>
     func addProperty(forValue value: String?, gpx: NSMutableString, tagName: String, indentationLevel: Int, defaultValue: String?) {
         addProperty(forValue: value, gpx: gpx, tagName: tagName, indentationLevel: indentationLevel, defaultValue: defaultValue, attribute: nil)
     }
@@ -203,7 +203,7 @@ open class GPXElement: NSObject {
     /// - Method should only be used when overriding `addChildTag(toGPX:indentationLevel:)`
     /// - **Example**:
     ///
-    ///         <name attribute>Your Value Here</name>
+    ///       <name attribute>Your Value Here</name>
     func addProperty(forValue value: String?, gpx: NSMutableString, tagName: String, indentationLevel: Int, defaultValue: String?, attribute: String?) {
         
         // value cannot be nil or empty
