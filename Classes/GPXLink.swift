@@ -26,6 +26,8 @@ open class GPXLink: GPXElement {
     
     /// URL of hyperlink
     public var href: String?
+    
+    private let commonWebExtensions = ["htm", "html", "asp", "aspx", "php", "cgi"]
    
     // MARK:- Instance
     
@@ -47,6 +49,17 @@ open class GPXLink: GPXElement {
         self.href = href
         self.mimetype = String()
         self.text = String()
+    }
+    
+    public init(withURL url: URL?) {
+        guard let isURL = url?.isFileURL else { return }
+        if isURL {
+            self.href = url?.absoluteString
+            guard let pathExtension = url?.pathExtension else { return }
+            if commonWebExtensions.contains(pathExtension) {
+                self.mimetype = "Website"
+            }
+        }
     }
     
     init(dictionary: [String : String]) {
