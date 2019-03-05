@@ -27,35 +27,37 @@ open class GPXLink: GPXElement {
     /// URL of hyperlink
     public var href: String?
     
-    private let commonWebExtensions = ["htm", "html", "asp", "aspx", "php", "cgi"]
+    private let commonWebExtensions = ["htm", "html", "asp", "aspx", "php", "cgi", ".htaccess"]
    
     // MARK:- Instance
     
     public required init() {
-        self.text = String()
-        self.mimetype = String()
-        self.href = String()
         super.init()
     }
     
-    /// ---------------------------------
-    /// @name Create Link
-    /// ---------------------------------
-    
-    /** Creates and returns a new link element.
-     @param href URL of hyperlink
-     @return A newly created link element.*/
+    /// Initializes with a web link attribute
+    ///
+    /// - Parameters:
+    ///     - href: **Hypertext Reference**. Basically, a web link which can be considered as a reference to whichever content, including metadata, waypoints, for example.
+    ///
     public init(withHref href: String) {
         self.href = href
         self.mimetype = String()
         self.text = String()
     }
     
+    /// Initializes with a URL.
+    ///
+    /// This initializer is similar to `init(withHref:)`, except, this method checks on whether if the input URL is valid or not. It also modifies the `type` attribute as 'Website' if identified to have a web page extension.
+    ///
+    /// - Parameters:
+    ///     - url: input URL, intended as a web link reference.
     public init(withURL url: URL?) {
         guard let isURL = url?.isFileURL else { return }
         if isURL {
             self.href = url?.absoluteString
             guard let pathExtension = url?.pathExtension else { return }
+            // may not work if web extension is not shown. (etc, using .htaccess)
             if commonWebExtensions.contains(pathExtension) {
                 self.mimetype = "Website"
             }
