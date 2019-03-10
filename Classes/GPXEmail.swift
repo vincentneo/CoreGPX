@@ -7,7 +7,11 @@
 
 import Foundation
 
-/// An email address. Broken into two parts (id and domain) to help prevent email harvesting.
+/**
+ Used for handling email types
+ 
+ Email is seperated as two variables in order to prevent email harvesting. The GPX v1.1 schema requires that.
+ */
 open class GPXEmail: GPXElement {
     
     public var emailID: String?
