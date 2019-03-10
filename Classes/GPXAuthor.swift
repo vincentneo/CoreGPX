@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Author type.
 open class GPXAuthor: GPXPerson {
     
     public required init() {
