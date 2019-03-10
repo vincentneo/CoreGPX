@@ -27,6 +27,7 @@ open class GPXLink: GPXElement {
     /// URL of hyperlink
     public var href: String?
     
+    /// Some common web extensions used for `init(withURL:)`
     private let commonWebExtensions = ["htm", "html", "asp", "aspx", "php", "cgi", ".htaccess"]
    
     // MARK:- Instance
@@ -64,6 +65,16 @@ open class GPXLink: GPXElement {
         }
     }
     
+    /// For internal use only
+    ///
+    /// Initializes a waypoint through a dictionary, with each key being an attribute name.
+    ///
+    /// - Remark:
+    /// This initializer is designed only for use when parsing GPX files, and shouldn't be used in other ways.
+    ///
+    /// - Parameters:
+    ///     - dictionary: a dictionary with a key of an attribute, followed by the value which is set as the GPX file is parsed.
+    ///
     init(dictionary: [String : String]) {
         self.href = dictionary["href"]
         self.mimetype = dictionary["mimetype"]
