@@ -7,10 +7,35 @@
 
 import Foundation
 
+/**
+ A value type for representing copyright info
+
+ Copyight information also includes additional attributes.
+ 
+ **Supported attributes:**
+ - Year of first publication
+ - License of the file
+ - Author / Copyright Holder's name
+ 
+*/
 open class GPXCopyright: GPXElement {
     
+    /// Year of the first publication of this copyrighted work.
+    ///
+    /// This should be the current year.
+    ///
+    ///     year = Date()
+    ///     // year attribute will be current year.
     public var year: Date?
+    
+    /// License of the file.
+    ///
+    /// A URL linking to the license's documentation, represented with a `String`
     public var license: String?
+    
+    /// Author / copyright holder's name.
+    ///
+    /// Basically, the person who has created this GPX file, which is also the copyright holder, shall them wish to have it as a copyrighted work.
     public var author: String?
     
     // MARK:- Instance
@@ -19,11 +44,24 @@ open class GPXCopyright: GPXElement {
         super.init()
     }
     
+    /// Initializes with author
+    ///
+    /// At least the author name must be valid in order for a `GPXCopyright` to be valid.
     public init(author: String) {
         super.init()
         self.author = author
     }
     
+    /// For internal use only
+    ///
+    /// Initializes a waypoint through a dictionary, with each key being an attribute name.
+    ///
+    /// - Remark:
+    /// This initializer is designed only for use when parsing GPX files, and shouldn't be used in other ways.
+    ///
+    /// - Parameters:
+    ///     - dictionary: a dictionary with a key of an attribute, followed by the value which is set as the GPX file is parsed.
+    ///
     init(dictionary: [String : String]) {
         super.init()
         self.year = CopyrightYearParser.parse(dictionary["year"])
@@ -60,6 +98,7 @@ open class GPXCopyright: GPXElement {
 // code from http://jordansmith.io/performant-date-parsing/
 // edited for use in CoreGPX
 
+/// Special parser that only parses year for the copyright attribute when `GPXParser` parses.
 fileprivate class CopyrightYearParser {
     
     private static var calendarCache = [Int : Calendar]()
