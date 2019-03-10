@@ -25,6 +25,12 @@ open class GPXEmail: GPXElement {
         super.init()
     }
     
+    public init(withFullEmailAddress email: String) {
+        let splitedEmail = email.components(separatedBy: "@")
+        self.emailID = splitedEmail[0]
+        self.domain = splitedEmail[1]
+    }
+    
     public init(emailID: String, domain: String) {
         self.emailID = emailID
         self.domain = domain
