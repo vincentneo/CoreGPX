@@ -21,9 +21,6 @@ open class GPXPerson: GPXElement {
     // MARK:- Instance
     
     public required init() {
-        name = String()
-        email = GPXEmail()
-        link = GPXLink()
         super.init()
     }
     
