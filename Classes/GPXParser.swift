@@ -7,7 +7,7 @@
 
 import Foundation
 
-open class GPXParser: NSObject, XMLParserDelegate {
+open class GPXParser: NSObject {
     
     private let parser: XMLParser
     
@@ -77,63 +77,85 @@ open class GPXParser: NSObject, XMLParserDelegate {
     
     // MARK:- GPX Parsing
     
-    var element = String()
+    private var element = String()
     
     // Arrays of elements
-    var waypoints = [GPXWaypoint]()
+    private var waypoints = [GPXWaypoint]()
     
-    var routes = [GPXRoute]()
-    var routepoints = [GPXRoutePoint]()
+    private var routes = [GPXRoute]()
+    private var routepoints = [GPXRoutePoint]()
     
-    var tracks = [GPXTrack]()
-    var tracksegements = [GPXTrackSegment]()
-    var trackpoints = [GPXTrackPoint]()
+    private var tracks = [GPXTrack]()
+    private var tracksegements = [GPXTrackSegment]()
+    private var trackpoints = [GPXTrackPoint]()
     
     // Dictionary of element
 
-    var waypointDict = [String : String]()
-    var trackDict = [String : String]()
-    var trackpointDict = [String : String]()
-    var routeDict = [String : String]()
-    var routepointDict = [String : String]()
+    private var waypointDict = [String : String]()
+    private var trackDict = [String : String]()
+    private var trackpointDict = [String : String]()
+    private var routeDict = [String : String]()
+    private var routepointDict = [String : String]()
     
-    var linkDict = [String : String]()
-    var extensionsDict = [String : String]()
+    private var linkDict = [String : String]()
+    private var extensionsDict = [String : String]()
     
     // metadata types
-    var metadataDict = [String : String]()
-    var boundsDict = [String : String]()
-    var authorDict = [String : String]()
-    var emailDict = [String : String]()
-    var copyrightDict = [String : String]()
+    private var metadataDict = [String : String]()
+    private var boundsDict = [String : String]()
+    private var authorDict = [String : String]()
+    private var emailDict = [String : String]()
+    private var copyrightDict = [String : String]()
     
 
     var metadata: GPXMetadata?
     var extensions: GPXExtensions?
     
     // GPX v1.1 XML Schema tag types
-    var isWaypoint = false
-    var isMetadata = false
-    var isRoute = false
-    var isRoutePoint = false
-    var isTrack = false
-    var isTrackSegment = false
-    var isTrackPoint = false
-    var isExtensions = false
+    private var isWaypoint = false
+    private var isMetadata = false
+    private var isRoute = false
+    private var isRoutePoint = false
+    private var isTrack = false
+    private var isTrackSegment = false
+    private var isTrackPoint = false
+    private var isExtensions = false
   
-    var isLink = false
-    var elementHasLink = false
+    private var isLink = false
+    private var elementHasLink = false
     
     // for metadata
-    var isBounds = false
-    var elementHasBounds = false
-    var isAuthor = false
-    var elementHasAuthor = false
-    var isEmail = false
-    var elementHasEmail = false
-    var isCopyright = false
-    var elementHasCopyright = false
+    private var isBounds = false
+    private var elementHasBounds = false
+    private var isAuthor = false
+    private var elementHasAuthor = false
+    private var isEmail = false
+    private var elementHasEmail = false
+    private var isCopyright = false
+    private var elementHasCopyright = false
+    
+    // MARK:- Export parsed data
+    
+    public func parsedData() -> GPXRoot {
+        let root = GPXRoot()
+        root.metadata = metadata
+        root.extensions = extensions
+        root.add(waypoints: waypoints)
+        root.add(routes: routes)
+        root.add(tracks: tracks)
+        return root
+    }
+}
 
+// MARK:- XMLParser Delegate
+
+/**
+ XML/GPX parser delegate.
+ 
+ This extension handles all the data, as the parser works its way through the XML elements.
+ */
+extension GPXParser: XMLParserDelegate {
+    
     public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         
         element = elementName
@@ -164,7 +186,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
         case "link":
             isLink = true
             linkDict["href"] = attributeDict["href"]
-        
+            
         // for metadata
         case "bounds":
             isBounds = true
@@ -182,14 +204,14 @@ open class GPXParser: NSObject, XMLParserDelegate {
         default:
             break
         }
-
+        
     }
     
     public func parser(_ parser: XMLParser, foundCharacters string: String) {
         let foundString = string.trimmingCharacters(in: .whitespacesAndNewlines)
         if foundString.isEmpty == false {
             if element != "trkpt" || element != "wpt" || element != "rtept" || element != "metadata" || element != "extensions" {
-
+                
                 if isWaypoint {
                     if isLink {
                         linkDict[element] = foundString
@@ -253,7 +275,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
                 }
                 if isExtensions {
                     extensionsDict[element] = foundString
-                 }
+                }
             }
             
         }
@@ -306,7 +328,7 @@ open class GPXParser: NSObject, XMLParserDelegate {
                 copyrightDict.removeAll()
                 elementHasCopyright = false
             }
-          
+            
             // clear values
             isMetadata = false
             metadataDict.removeAll()
@@ -387,10 +409,10 @@ open class GPXParser: NSObject, XMLParserDelegate {
             // clear values
             isTrackSegment = false
             self.trackpoints.removeAll()
-
+            
         case "extensions":
             self.extensions = GPXExtensions()
-          
+            
             // clear values
             isExtensions = false
             
@@ -427,16 +449,5 @@ open class GPXParser: NSObject, XMLParserDelegate {
             break
         }
     }
-    
-    // MARK:- Export parsed data
-    
-    open func parsedData() -> GPXRoot {
-        let root = GPXRoot()
-        root.metadata = metadata
-        root.extensions = extensions // nothing to implement yet
-        root.add(waypoints: waypoints)
-        root.add(routes: routes)
-        root.add(tracks: tracks)
-        return root
-    }
+
 }
