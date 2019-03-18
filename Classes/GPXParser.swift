@@ -79,7 +79,7 @@ open class GPXParser: NSObject {
     
     private var element = String()
     
-    // Arrays of elements
+    // MARK:- Main element types or components
     private var waypoints = [GPXWaypoint]()
     
     private var routes = [GPXRoute]()
@@ -89,8 +89,11 @@ open class GPXParser: NSObject {
     private var tracksegements = [GPXTrackSegment]()
     private var trackpoints = [GPXTrackPoint]()
     
-    // Dictionary of element
-
+    // MARK:- Main singular element types.
+    private var metadata: GPXMetadata?
+    private var extensions: GPXExtensions?
+    
+    // MARK:- Dictionary of element for parsing use.
     private var waypointDict = [String : String]()
     private var trackDict = [String : String]()
     private var trackpointDict = [String : String]()
@@ -100,18 +103,14 @@ open class GPXParser: NSObject {
     private var linkDict = [String : String]()
     private var extensionsDict = [String : String]()
     
-    // metadata types
+    // Metadata types
     private var metadataDict = [String : String]()
     private var boundsDict = [String : String]()
     private var authorDict = [String : String]()
     private var emailDict = [String : String]()
     private var copyrightDict = [String : String]()
     
-
-    var metadata: GPXMetadata?
-    var extensions: GPXExtensions?
-    
-    // GPX v1.1 XML Schema tag types
+    // MARK:- GPX v1.1 XML Schema tag types check
     private var isWaypoint = false
     private var isMetadata = false
     private var isRoute = false
@@ -150,7 +149,7 @@ open class GPXParser: NSObject {
 // MARK:- XMLParser Delegate
 
 /**
- XML/GPX parser delegate.
+ XML/GPX parser delegate implementation.
  
  This extension handles all the data, as the parser works its way through the XML elements.
  */
