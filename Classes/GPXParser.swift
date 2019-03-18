@@ -21,8 +21,6 @@ open class GPXParser: NSObject {
     public init(withData data: Data) {
         self.parser = XMLParser(data: data)
         super.init()
-        self.parser.delegate = self
-        self.parser.parse()
     }
     
     /// for parsing with `InputStream` type
@@ -33,8 +31,6 @@ open class GPXParser: NSObject {
     public init(withStream stream: InputStream) {
         self.parser = XMLParser(stream: stream)
         super.init()
-        self.parser.delegate = self
-        self.parser.parse()
     }
     
     /// for parsing with `URL` type
@@ -46,8 +42,6 @@ open class GPXParser: NSObject {
         guard let urlParser = XMLParser(contentsOf: url) else { return nil }
         self.parser = urlParser
         super.init()
-        self.parser.delegate = self
-        self.parser.parse()
     }
     
     /// for parsing with a string that contains full GPX markup
@@ -136,7 +130,11 @@ open class GPXParser: NSObject {
     // MARK:- Export parsed data
     
     public func parsedData() -> GPXRoot {
+        self.parser.delegate = self
+        self.parser.parse()
+        
         let root = GPXRoot()
+        
         root.metadata = metadata
         root.extensions = extensions
         root.add(waypoints: waypoints)
