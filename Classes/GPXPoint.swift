@@ -33,17 +33,10 @@ open class GPXPoint: GPXElement {
     
     init(dictionary: [String : String]) {
         super.init()
-        self.latitude = number(from: dictionary["lat"])
-        self.longitude = number(from: dictionary["lon"])
-        self.elevation = number(from: dictionary["ele"])
+        self.latitude = Convert.toDouble(from: dictionary["lat"])
+        self.longitude = Convert.toDouble(from: dictionary["lon"])
+        self.elevation = Convert.toDouble(from: dictionary["ele"])
         self.time = ISO8601DateParser.parse(dictionary["time"])
-    }
-    
-    func number(from string: String?) -> Double? {
-        guard let NonNilString = string else {
-            return nil
-        }
-        return Double(NonNilString)
     }
     
     // MARK:- Tag

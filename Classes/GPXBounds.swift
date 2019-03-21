@@ -56,24 +56,10 @@ open class GPXBounds: GPXElement {
     ///
     init(dictionary: [String : String]) {
         super.init()
-        self.minLatitude = number(from: dictionary["minlat"])
-        self.maxLatitude = number(from: dictionary["maxlat"])
-        self.minLongitude = number(from: dictionary["minlon"])
-        self.maxLongitude = number(from: dictionary["maxlon"])
-    }
-    
-    /// For conversion from optional `String` type to optional `Double` type
-    ///
-    /// - Parameters:
-    ///     - string: input string that should be a number.
-    /// - Returns:
-    ///     A `Double` that will be nil if input `String` is nil.
-    ///
-    func number(from string: String?) -> Double? {
-        guard let NonNilString = string else {
-            return nil
-        }
-        return Double(NonNilString)
+        self.minLatitude = Convert.toDouble(from: dictionary["minlat"])
+        self.maxLatitude = Convert.toDouble(from: dictionary["maxlat"])
+        self.minLongitude = Convert.toDouble(from: dictionary["minlon"])
+        self.maxLongitude = Convert.toDouble(from: dictionary["maxlon"])
     }
     
     // MARK:- Tag

@@ -32,14 +32,7 @@ open class GPXRoute: GPXElement {
         self.desc = dictionary["desc"]
         self.source = dictionary["src"]
         self.type = dictionary["type"]
-        self.number = integer(from: dictionary["number"])
-    }
-    
-    private func integer(from string: String?) -> Int? {
-        guard let NonNilString = string else {
-            return nil
-        }
-        return Int(NonNilString)
+        self.number = Convert.toInt(from: dictionary["number"])
     }
     
     // MARK: Public Methods

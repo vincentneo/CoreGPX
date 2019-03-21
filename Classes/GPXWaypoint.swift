@@ -191,54 +191,24 @@ open class GPXWaypoint: GPXElement {
     init(dictionary: [String : String]) {
         self.time = ISO8601DateParser.parse(dictionary ["time"])
         super.init()
-        self.elevation = number(from: dictionary["ele"])
-        self.latitude = number(from: dictionary["lat"])
-        self.longitude = number(from: dictionary["lon"])
-        self.magneticVariation = number(from: dictionary["magvar"])
-        self.geoidHeight = number(from: dictionary["geoidheight"])
+        self.elevation = Convert.toDouble(from: dictionary["ele"])
+        self.latitude = Convert.toDouble(from: dictionary["lat"])
+        self.longitude = Convert.toDouble(from: dictionary["lon"])
+        self.magneticVariation = Convert.toDouble(from: dictionary["magvar"])
+        self.geoidHeight = Convert.toDouble(from: dictionary["geoidheight"])
         self.name = dictionary["name"]
         self.comment = dictionary["cmt"]
         self.desc = dictionary["desc"]
         self.source = dictionary["src"]
         self.symbol = dictionary["sym"]
         self.type = dictionary["type"]
-        self.fix = integer(from: dictionary["fix"])
-        self.satellites = integer(from: dictionary["sat"])
-        self.horizontalDilution = number(from: dictionary["hdop"])
-        self.verticalDilution = number(from: dictionary["vdop"])
-        self.positionDilution = number(from: dictionary["pdop"])
-        self.DGPSid = integer(from: dictionary["dgpsid"])
-        self.ageofDGPSData = number(from: dictionary["ageofdgpsdata"])
-    }
-    
-    // MARK:- Internal Methods
-    
-    /// For conversion from optional `String` type to optional `Double` type
-    ///
-    /// - Parameters:
-    ///     - string: input string that should be a number.
-    /// - Returns:
-    ///     A `Double` that will be nil if input `String` is nil.
-    ///
-    func number(from string: String?) -> Double? {
-        guard let NonNilString = string else {
-            return nil
-        }
-        return Double(NonNilString)
-    }
-    
-    /// For conversion from optional `String` type to optional `Int` type
-    ///
-    /// - Parameters:
-    ///     - string: input string that should be a number.
-    /// - Returns:
-    ///     A `Int` that will be nil if input `String` is nil.
-    ///
-    func integer(from string: String?) -> Int? {
-        guard let NonNilString = string else {
-            return nil
-        }
-        return Int(NonNilString)
+        self.fix = Convert.toInt(from: dictionary["fix"])
+        self.satellites = Convert.toInt(from: dictionary["sat"])
+        self.horizontalDilution = Convert.toDouble(from: dictionary["hdop"])
+        self.verticalDilution = Convert.toDouble(from: dictionary["vdop"])
+        self.positionDilution = Convert.toDouble(from: dictionary["pdop"])
+        self.DGPSid = Convert.toInt(from: dictionary["dgpsid"])
+        self.ageofDGPSData = Convert.toDouble(from: dictionary["ageofdgpsdata"])
     }
     
     // MARK:- Public Methods

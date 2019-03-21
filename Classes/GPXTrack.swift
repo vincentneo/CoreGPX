@@ -49,20 +49,12 @@ open class GPXTrack: GPXElement {
     
     init(dictionary: [String : String]) {
         super.init()
-        self.number = integer(from: dictionary["number"])
         self.number = Convert.toInt(from: dictionary["number"])
         self.name = dictionary["name"]
         self.comment = dictionary["cmt"]
         self.desc = dictionary["desc"]
         self.source = dictionary["src"]
         self.type = dictionary["type"]
-    }
-    
-    private func integer(from string: String?) -> Int? {
-        guard let NonNilString = string else {
-            return nil
-        }
-        return Int(NonNilString)
     }
     
     // MARK:- Public Methods

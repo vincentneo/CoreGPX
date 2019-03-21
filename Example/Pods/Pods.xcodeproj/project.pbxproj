@@ -78,6 +78,9 @@
 		BF5A9E5D220885F7003A5379 /* GPXTrackSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171B80D4BA423019BBC5DA54E387180A /* GPXTrackSegment.swift */; };
 		BF5A9E5E220885F7003A5379 /* GPXType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37941B65FCF9E06DD2336C3FD37996D0 /* GPXType.swift */; };
 		BF5A9E5F220885F7003A5379 /* GPXWaypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA16A124E1CE8C773AAF30C70A8C99 /* GPXWaypoint.swift */; };
+		BF6BBEF422439E6A007ED5A9 /* Converters.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6BBEF322439E6A007ED5A9 /* Converters.swift */; };
+		BF6BBEF522439E6A007ED5A9 /* Converters.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6BBEF322439E6A007ED5A9 /* Converters.swift */; };
+		BF6BBEF622439E6A007ED5A9 /* Converters.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6BBEF322439E6A007ED5A9 /* Converters.swift */; };
 		D795DF4C23442253917024503DCAF117 /* Pods-CoreGPX_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 867AB39A36AC9D8488B4BCB7FB43E28C /* Pods-CoreGPX_Example-dummy.m */; };
 		E55496502F1C3CC5F1958CF081A0F2A4 /* GPXRoutePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB56EE437C9A15EB06832BBDC235A1C /* GPXRoutePoint.swift */; };
 /* End PBXBuildFile section */
@@ -171,6 +174,7 @@
 		BF5A9E302208856F003A5379 /* CoreGPX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreGPX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5A9E322208856F003A5379 /* CoreGPX_watchOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreGPX_watchOS.h; sourceTree = "<group>"; };
 		BF5A9E332208856F003A5379 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF6BBEF322439E6A007ED5A9 /* Converters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Converters.swift; path = Classes/Converters.swift; sourceTree = "<group>"; };
 		C1528DF9C2E16DA52E83190564BFBBF1 /* Pods-CoreGPX_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CoreGPX_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		C8226A2AF2988FE6006D11A4DF1D5076 /* GPXEmail.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXEmail.swift; path = Classes/GPXEmail.swift; sourceTree = "<group>"; };
 		C831FD0ACCF5F902116F7A299DF93956 /* CoreGPX.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = CoreGPX.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -299,6 +303,7 @@
 				5BDA16A124E1CE8C773AAF30C70A8C99 /* GPXWaypoint.swift */,
 				13E2CBACE1AF75A1A31B6C368F9F5EB1 /* Pod */,
 				DBC58D84A5ED8C67B7F8FCDEA83C9DD6 /* Support Files */,
+				BF6BBEF322439E6A007ED5A9 /* Converters.swift */,
 			);
 			name = CoreGPX;
 			path = ../..;
@@ -704,6 +709,7 @@
 				AF08350B73D09B7E2F4601E9C8173977 /* GPXMetadata.swift in Sources */,
 				5CCF68DAA1D98BECBCA6510FFE7E7F70 /* GPXParser.swift in Sources */,
 				A747EE957A27BF62DFD53F20F453081E /* GPXPerson.swift in Sources */,
+				BF6BBEF422439E6A007ED5A9 /* Converters.swift in Sources */,
 				2267759FF0A171F668C7575CBCEBD6D6 /* GPXPoint.swift in Sources */,
 				328C594ED09DD9C7F3DDE1A61CB24320 /* GPXPointSegment.swift in Sources */,
 				AC613BE2782CB345D67CA6161D274529 /* GPXRoot.swift in Sources */,
@@ -730,6 +736,7 @@
 				BF5A9E4F220885F7003A5379 /* GPXElement.swift in Sources */,
 				BF5A9E56220885F7003A5379 /* GPXPoint.swift in Sources */,
 				BF5A9E55220885F7003A5379 /* GPXPerson.swift in Sources */,
+				BF6BBEF622439E6A007ED5A9 /* Converters.swift in Sources */,
 				BF5A9E50220885F7003A5379 /* GPXEmail.swift in Sources */,
 				BF5A9E5F220885F7003A5379 /* GPXWaypoint.swift in Sources */,
 				BF5A9E4E220885F7003A5379 /* GPXCopyright.swift in Sources */,
@@ -765,6 +772,7 @@
 				BF5A9E3B220885F7003A5379 /* GPXElement.swift in Sources */,
 				BF5A9E42220885F7003A5379 /* GPXPoint.swift in Sources */,
 				BF5A9E41220885F7003A5379 /* GPXPerson.swift in Sources */,
+				BF6BBEF522439E6A007ED5A9 /* Converters.swift in Sources */,
 				BF5A9E3C220885F7003A5379 /* GPXEmail.swift in Sources */,
 				BF5A9E4B220885F7003A5379 /* GPXWaypoint.swift in Sources */,
 				BF5A9E3A220885F7003A5379 /* GPXCopyright.swift in Sources */,
