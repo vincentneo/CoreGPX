@@ -6,7 +6,12 @@
 //  
 
 import Foundation
-
+/**
+ An event-driven parser (SAX parser), that specifically parses GPX v1.1 files only.
+ 
+ This parser is already setted up, hence, does not require any handling, and will parse files directly as objects.
+ To get the parsed data from a GPX file, simply initialize the parser, and get the `GPXRoot` from `parsedData()`.
+ */
 open class GPXParser: NSObject {
     
     private let parser: XMLParser
