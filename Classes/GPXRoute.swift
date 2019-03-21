@@ -7,16 +7,40 @@
 
 import Foundation
 
+/**
+ Value type that represents a route, or `rteType` in GPX v1.1 schema.
+ 
+ The route can represent the planned route of a specific trip.
+ */
 open class GPXRoute: GPXElement {
     
+    /// Name of the route.
     public var name: String?
+    
+    /// Additional comment of the route.
     public var comment: String?
+    
+    /// Description of the route.
     public var desc: String?
+    
+    /// Source of the route.
     public var source: String?
+    
+    /// Additional link to an external resource.
     public var link: GPXLink?
+    
+    /// Type of route.
     public var type: String?
+    
+    /// Extensions
     public var extensions: GPXExtensions?
+    
+    /// Route points in the route.
+    ///
+    /// All route points joined represents a route.
     public var routepoints = [GPXRoutePoint]()
+    
+    /// Number of route (possibly a tag for the route)
     public var number: Int?
     
     // MARK:- Instance
@@ -37,36 +61,18 @@ open class GPXRoute: GPXElement {
     
     // MARK: Public Methods
     
+    /// Creates a `GPXLink` which is added to the route and also returned.
+    ///
+    /// Not recommended for use. Init `GPXRoutePoint` manually, then adding it to route, instead.
     func newLink(withHref href: String) -> GPXLink {
         let link: GPXLink = GPXLink(withHref: href)
+        self.link = link
         return link
     }
     
-    /*
-    func add(link: GPXLink?) {
-        if let validLink = link {
-            link?.parent = self
-            links.append(validLink)
-        }
-    }
-    
-    func add(links: [GPXLink]) {
-        self.links.append(contentsOf: links)
-    }
-    
-    func remove(link: GPXLink) {
-        let contains = links.contains(link)
-        
-        if contains == true {
-            link.parent = nil
-            
-            if let index = links.firstIndex(of: link) {
-                links.remove(at: index)
-            }
-        }
-    }
-    */
-
+    /// Creates a `GPXRoutePoint` which is added to the route and also returned.
+    ///
+    /// Not recommended for use. Init `GPXRoutePoint` manually, then adding it to route, instead.
     func newRoutePointWith(latitude: Double, longitude: Double) -> GPXRoutePoint {
         let routepoint = GPXRoutePoint(latitude: latitude, longitude: longitude)
 
@@ -75,16 +81,19 @@ open class GPXRoute: GPXElement {
         return routepoint
     }
     
+    /// Adds a singular route point to the route.
     func add(routepoint: GPXRoutePoint?) {
         if let validPoint = routepoint {
             routepoints.append(validPoint)
         }
     }
     
+    /// Adds an array of route points to the route.
     func add(routepoints: [GPXRoutePoint]) {
         self.routepoints.append(contentsOf: routepoints)
     }
     
+    /// Removes a route point from the route.
     func remove(routepoint: GPXRoutePoint) {
         let contains = routepoints.contains(routepoint)
         if contains == true {
