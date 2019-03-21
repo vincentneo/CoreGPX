@@ -7,6 +7,11 @@
 
 import Foundation
 
+/**
+ * This class (`ptType`) is added to conform with the GPX v1.1 schema.
+ 
+ `ptType` of GPX schema. Not supported in GPXRoot, nor GPXParser's parsing.
+ */
 open class GPXPoint: GPXElement {
 
     public var elevation: Double?
