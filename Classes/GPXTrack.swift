@@ -7,16 +7,39 @@
 
 import Foundation
 
+/**
+ Represents `trkType` of GPX v1.1 schema.
+ 
+ A track can hold track segments, along with additional information regarding the track.
+ 
+ Tracks are meant to show the start and finish of a journey, through the track segments that it holds.
+ */
 open class GPXTrack: GPXElement {
     
+    /// Holds a web link to external resources regarding the current track.
     public var link: GPXLink?
+    
+    /// Array of track segements. Must be included in every track.
     public var tracksegments = [GPXTrackSegment]()
+    
+    /// Name of track.
     public var name: String?
+    
+    /// Additional comment of track.
     public var comment: String?
+    
+    /// A full description of the track. Can be of any length.
     public var desc: String?
+    
+    /// Source of track.
     public var source: String?
+    
+    /// GPS track number.
     public var number: Int?
+    
+    /// Type of current track.
     public var type: String?
+    
     public var extensions: GPXExtensions?
 
     
@@ -27,6 +50,7 @@ open class GPXTrack: GPXElement {
     init(dictionary: [String : String]) {
         super.init()
         self.number = integer(from: dictionary["number"])
+        self.number = Convert.toInt(from: dictionary["number"])
         self.name = dictionary["name"]
         self.comment = dictionary["cmt"]
         self.desc = dictionary["desc"]
@@ -43,17 +67,24 @@ open class GPXTrack: GPXElement {
     
     // MARK:- Public Methods
     
+    /// Initialize a new `GPXLink` to the track.
+    ///
+    /// Method not recommended for use. Please initialize `GPXLink` manually and adding it to the track instead.
     open func newLink(withHref href: String) -> GPXLink {
         let link = GPXLink(withHref: href)
         return link
     }
 
+    /// Initialize a new `GPXTrackSegement` to the track.
+    ///
+    /// Method not recommended for use. Please initialize `GPXTrackSegment` manually and adding it to the track instead.
     open func newTrackSegment() -> GPXTrackSegment {
         let tracksegment = GPXTrackSegment()
         self.add(trackSegment: tracksegment)
         return tracksegment
     }
     
+    /// Adds a single track segment to the track.
     open func add(trackSegment: GPXTrackSegment?) {
         if let validTrackSegment = trackSegment {
             validTrackSegment.parent = self
@@ -61,10 +92,12 @@ open class GPXTrack: GPXElement {
         }
     }
     
+    /// Adds an array of track segments to the track.
     open func add(trackSegments: [GPXTrackSegment]) {
         self.tracksegments.append(contentsOf: trackSegments)
     }
     
+    /// Removes a tracksegment from the track.
     open func remove(trackSegment: GPXTrackSegment) {
         let contains = tracksegments.contains(trackSegment)
         
