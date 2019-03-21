@@ -104,7 +104,7 @@ open class GPXMetadata: GPXElement {
             self.link?.gpx(gpx, indentationLevel: indentationLevel)
         }
         
-        self.addProperty(forValue: GPXType().value(forDateTime: time), gpx: gpx, tagName: "time", indentationLevel: indentationLevel, defaultValue: "0")
+        self.addProperty(forValue: Convert.toString(from: time), gpx: gpx, tagName: "time", indentationLevel: indentationLevel, defaultValue: "0")
         self.addProperty(forValue: keyword, gpx: gpx, tagName: "keyword", indentationLevel: indentationLevel)
         
         if bounds != nil {

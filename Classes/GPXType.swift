@@ -117,6 +117,7 @@ class GPXType: NSObject {
     ///
     /// This method has not been used much as it was intended for GPX parsing, but as `DateFormatter` was not fast enough, this method has not been used often.
     ///
+    @available(*, deprecated, message: "Use class ISO8601DateParser instead.")
     func dateTime(value: String) -> Date? {
         let formatter = DateFormatter()
         
@@ -176,6 +177,7 @@ class GPXType: NSObject {
     ///
     /// This method is currently heavily used for generating of GPX files / formatted string, as the native `Date` type must be converted to a `String` first.
     ///
+    @available(*, deprecated, message: "Use class Convert instead.")
     func value(forDateTime date: Date?) -> String? {
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone(secondsFromGMT: 0)

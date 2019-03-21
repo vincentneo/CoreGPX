@@ -253,7 +253,7 @@ open class GPXWaypoint: GPXElement {
         super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
         
         self.addProperty(forDoubleValue: elevation, gpx: gpx, tagName: "ele", indentationLevel: indentationLevel)
-        self.addProperty(forValue: GPXType().value(forDateTime: time), gpx: gpx, tagName: "time", indentationLevel: indentationLevel)
+        self.addProperty(forValue: Convert.toString(from: time), gpx: gpx, tagName: "time", indentationLevel: indentationLevel)
         self.addProperty(forDoubleValue: magneticVariation, gpx: gpx, tagName: "magvar", indentationLevel: indentationLevel)
         self.addProperty(forDoubleValue: geoidHeight, gpx: gpx, tagName: "geoidheight", indentationLevel: indentationLevel)
         self.addProperty(forValue: name, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
