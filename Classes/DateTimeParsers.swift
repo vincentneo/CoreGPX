@@ -1,6 +1,6 @@
 //
 //  GPXDateTime.swift
-//  Pods
+//  CoreGPX
 //
 //  Created on 23/3/19.
 //

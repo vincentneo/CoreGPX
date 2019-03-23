@@ -1,6 +1,6 @@
 //
 //  Conversions.swift
-//  Pods
+//  CoreGPX
 //
 //  Created by Vincent on 21/3/19.
 //
