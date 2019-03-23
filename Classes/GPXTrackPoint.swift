@@ -7,6 +7,12 @@
 
 import Foundation
 
+/**
+ A track point is just like a waypoint or route point, but is suited to be part of a track segment.
+ 
+ A bunch of track points can be used to form a track segement, while track segments form a track.
+ (though a single track segment itself is enough to form a track.)
+ */
 open class GPXTrackPoint: GPXWaypoint {
     
     public required init() {
