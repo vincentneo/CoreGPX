@@ -93,38 +93,3 @@ open class GPXCopyright: GPXElement {
         self.addProperty(forValue: license, gpx: gpx, tagName: "license", indentationLevel: indentationLevel)
     }
 }
-
-// MARK:- Year Parser
-// code from http://jordansmith.io/performant-date-parsing/
-// edited for use in CoreGPX
-
-/// Special parser that only parses year for the copyright attribute when `GPXParser` parses.
-fileprivate class CopyrightYearParser {
-    
-    private static var calendarCache = [Int : Calendar]()
-    private static var components = DateComponents()
-    
-    private static let year = UnsafeMutablePointer<Int>.allocate(capacity: 1)
-    
-    static func parse(_ yearString: String?) -> Date? {
-        guard let NonNilString = yearString else {
-            return nil
-        }
-        
-        _ = withVaList([year], { pointer in
-                            vsscanf(NonNilString, "%d", pointer)
-                            
-        })
-        
-        components.year = year.pointee
-        
-        if let calendar = calendarCache[0] {
-            return calendar.date(from: components)
-        }
-        
-        var calendar = Calendar(identifier: .gregorian)
-        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
-        calendarCache[0] = calendar
-        return calendar.date(from: components)
-    }
-}
