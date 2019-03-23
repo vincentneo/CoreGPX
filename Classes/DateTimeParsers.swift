@@ -56,7 +56,7 @@ class ISO8601DateParser {
 // MARK:- Year Parser
 
 /// Special parser that only parses year for the copyright attribute when `GPXParser` parses.
-fileprivate class CopyrightYearParser {
+class CopyrightYearParser {
     
     private static var calendarCache = [Int : Calendar]()
     private static var components = DateComponents()
