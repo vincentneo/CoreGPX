@@ -28,6 +28,14 @@ As it makes use of `XMLParser` for parsing GPX files, CoreGPX is fully dependent
 - [x] Parses GPX files using native XMLParser
 - [x] Support for iOS, macOS & watchOS
 
+## Documentation
+
+CoreGPX is documented using [jazzy](https://github.com/realm/jazzy).
+
+[![Documentation Status](https://vincentneo.github.io/CoreGPX/badge.svg)](https://vincentneo.github.io/CoreGPX/index.html)
+
+You can read the documentation [here](https://vincentneo.github.io/CoreGPX/index.html), which documents most of the important features that will be used for parsing and creating of GPX files.
+
 ## Installation
 
 CoreGPX supports CocoaPods, Carthage, as well as Swift Package Manager, such that you can install it, any way you want.
