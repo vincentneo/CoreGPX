@@ -1,5 +1,11 @@
-# CoreGPX
-Parse, generate GPX files on iOS, watchOS & macOS.
+<p align="center">
+  <img width="600" height="338.1" src="https://github.com/vincentneo/CoreGPX/raw/master/CoreGPX%20title.png">
+</p>
+<p align="center">
+	<b>
+	Parse and generate GPX files easily on iOS, watchOS & macOS.
+	</b>
+</p>
 
 [![CI Status](https://travis-ci.com/vincentneo/CoreGPX.svg?branch=master)](https://travis-ci.com/vincentneo/CoreGPX)
 [![Swift Version](https://img.shields.io/badge/Swift-4.2-orange.svg)](https://swift.org/blog/swift-4-2-released/)
@@ -11,25 +17,28 @@ Parse, generate GPX files on iOS, watchOS & macOS.
 [![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-✔-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 
 ## What is CoreGPX?
-CoreGPX is a port of iOS-GPX-Framework to Swift language. It aims to be more than a port of the abandoned project, so do expect more features to be added in the future, as development is currently under progress.
+CoreGPX is a port of iOS-GPX-Framework to Swift language.
 
-It makes use of `XMLParser` for parsing GPX files, thus making it fully dependent on the native APIs only.
+CoreGPX currently supports all GPX tags listed in GPX v1.1 schema. It can generate and parse GPX v1.1 compliant files on iOS, macOS and watchOS. 
+
+As it makes use of `XMLParser` for parsing GPX files, CoreGPX is fully dependent on the `Foundation` API only.
 
 ## Features
 - [x] Successfully outputs string that can be packaged into a GPX file
 - [x] Parses GPX files using native XMLParser
-- [x] Support for macOS & watchOS
+- [x] Support for iOS, macOS & watchOS
 
 ## Installation
 
-CoreGPX works with [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+CoreGPX supports CocoaPods, Carthage, as well as Swift Package Manager, such that you can install it, any way you want.
+
+To install using [CocoaPods](https://cocoapods.org), simply add the following line to your Podfile:
 
 ```ruby
 pod 'CoreGPX'
 ```
 
-CoreGPX works with Carthage as well. To install via Carthage, simply add the following line to your Cartfile:
+CoreGPX works with [Carthage](https://github.com/Carthage/Carthage) as well, simply add the following line to your Cartfile:
 ```Swift
 github "vincentneo/CoreGPX"
 ```
@@ -123,9 +132,9 @@ let tracksegment = GPXTrackSegment()            // inits a tracksegment
 tracksegment.add(trackpoints: trackpoints)      // adds an array of trackpoints to a track segment
 track.add(trackSegment: tracksegment)           // adds a track segment to a track
 root.add(track: track)                          // adds a track
-        
-self.gpxString = root.gpx()
-print(gpxString)
+
+print(root.gpx())				// prints the GPX formatted string
+
 ```
 This would be what you get from `root.gpx()` in the above example: 
 ```XML
@@ -152,13 +161,5 @@ To run the example project, simply clone the repo, and try it out straight away!
 Contributions to this project will be more than welcomed. Feel free to add a pull request or open an issue.
 If you require a feature that has yet to be available, do open an issue, describing why and what the feature could bring and how it would help you!
 
-#### Currently Work in progress:
-Any help would be appreciated!
-- [ ] Extension to metadata to support collection of more info in GPX file
-- [ ] Documentation
-- [ ] Better code optimisation
-- [ ] New features
-
 ## License
-
 CoreGPX is available under the MIT license. See the LICENSE file for more info. 
