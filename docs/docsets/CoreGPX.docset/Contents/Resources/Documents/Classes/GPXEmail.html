@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>GPXEmail Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/GPXEmail" class="dashAnchor"></a>
+    <a title="GPXEmail Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">CoreGPX Docs</a> (79% documented)</p>
+        <p class="header-right"><a href="https://www.github.com/vincentneo/CoreGPX"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">CoreGPX Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        GPXEmail Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/GPXAuthor.html">GPXAuthor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXBounds.html">GPXBounds</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXCopyright.html">GPXCopyright</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXElement.html">GPXElement</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXEmail.html">GPXEmail</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXExtensions.html">GPXExtensions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXLink.html">GPXLink</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXMetadata.html">GPXMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXParser.html">GPXParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXPerson.html">GPXPerson</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXPoint.html">GPXPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXPointSegment.html">GPXPointSegment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXRoot.html">GPXRoot</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXRoute.html">GPXRoute</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXRoutePoint.html">GPXRoutePoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXTrack.html">GPXTrack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXTrackPoint.html">GPXTrackPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXTrackSegment.html">GPXTrackSegment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXWaypoint.html">GPXWaypoint</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>GPXEmail</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">GPXEmail</span> <span class="p">:</span> <span class="kt"><a href="../Classes/GPXElement.html">GPXElement</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>Used for handling email types</p>
+
+<p>Email is seperated as two variables in order to prevent email harvesting. The GPX v1.1 schema requires that.</p>
+
+<p>For example, an email of <strong><q>yourname@thisisawebsite.com</q></strong>, would have an id of <strong>&lsquo;yourname&rsquo;</strong> and a domain of <strong>&lsquo;thisisawebsite.com&rsquo;</strong>.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX8GPXEmailC7emailIDSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/emailID" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX8GPXEmailC7emailIDSSSgvp">emailID</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Email ID refers to the front part of the email address, before the <strong>@</strong></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">emailID</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXEmail.swift#L20">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX8GPXEmailC6domainSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/domain" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX8GPXEmailC6domainSSSgvp">domain</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Domain refers to the back part of the email address, after the <strong>@</strong></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">domain</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXEmail.swift#L23">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@CoreGPX@objc(cs)GPXEmail(im)init"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@CoreGPX@objc(cs)GPXEmail(im)init">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">required</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXEmail.swift#L27-L29">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX8GPXEmailC20withFullEmailAddressACSS_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(withFullEmailAddress:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX8GPXEmailC20withFullEmailAddressACSS_tcfc">init(withFullEmailAddress:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize with a full email address.</p>
+
+<p>Seperation to id and domain will be done by this class itself.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">withFullEmailAddress</span> <span class="nv">email</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>email</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A full email address. (example: &lsquo;<a href="mailto:name@domain.com">name@domain.com</a>&rsquo;)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXEmail.swift#L37-L41">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX8GPXEmailC7emailID6domainACSS_SStcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(emailID:domain:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX8GPXEmailC7emailID6domainACSS_SStcfc">init(emailID:domain:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize with seperate values of both email ID and domain.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated: 0.5.0, renamed: "init(withFullEmailAddress:﹚")</span>
+<span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">emailID</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">domain</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXEmail.swift#L45-L48">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://www.github.com/vincentneo" target="_blank" rel="external">Vincent</a>. All rights reserved. (Last updated: 2019-03-24)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

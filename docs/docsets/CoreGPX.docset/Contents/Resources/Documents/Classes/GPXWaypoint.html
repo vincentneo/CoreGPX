@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>GPXWaypoint Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/GPXWaypoint" class="dashAnchor"></a>
+    <a title="GPXWaypoint Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">CoreGPX Docs</a> (79% documented)</p>
+        <p class="header-right"><a href="https://www.github.com/vincentneo/CoreGPX"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">CoreGPX Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        GPXWaypoint Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/GPXAuthor.html">GPXAuthor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXBounds.html">GPXBounds</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXCopyright.html">GPXCopyright</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXElement.html">GPXElement</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXEmail.html">GPXEmail</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXExtensions.html">GPXExtensions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXLink.html">GPXLink</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXMetadata.html">GPXMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXParser.html">GPXParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXPerson.html">GPXPerson</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXPoint.html">GPXPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXPointSegment.html">GPXPointSegment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXRoot.html">GPXRoot</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXRoute.html">GPXRoute</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXRoutePoint.html">GPXRoutePoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXTrack.html">GPXTrack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXTrackPoint.html">GPXTrackPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXTrackSegment.html">GPXTrackSegment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXWaypoint.html">GPXWaypoint</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>GPXWaypoint</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">GPXWaypoint</span> <span class="p">:</span> <span class="kt"><a href="../Classes/GPXElement.html">GPXElement</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>A value type that represents waypoint based off GPX v1.1 schema&rsquo;s <code>wptType</code>.</p>
+
+<p>According to the GPX schema, the waypoint type can represent the following:</p>
+
+<ul>
+<li>a waypoint</li>
+<li>a point of interest</li>
+<li>a named feature on a map</li>
+</ul>
+
+<p>The waypoint should at least contain the attributes of both <code>latitude</code> and <code>longitude</code> in order to be considered a valid waypoint. Most attributes are optional, and are not required to be implemented.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC4linkAA7GPXLinkCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/link" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC4linkAA7GPXLinkCSgvp">link</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A value type for link properties (see <code><a href="../Classes/GPXLink.html">GPXLink</a></code>)</p>
+
+<p>Intended for additional information about current point through a web link.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">link</span><span class="p">:</span> <span class="kt"><a href="../Classes/GPXLink.html">GPXLink</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L27">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC9elevationSdSgvp"></a>
+                    <a name="//apple_ref/swift/Property/elevation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC9elevationSdSgvp">elevation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Elevation of current point</p>
+
+<p>Should be in unit <strong>meters</strong> (m)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">elevation</span><span class="p">:</span> <span class="kt">Double</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L32">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC4time10Foundation4DateVSgvp"></a>
+                    <a name="//apple_ref/swift/Property/time" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC4time10Foundation4DateVSgvp">time</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Date and time of current point</p>
+
+<p>Should be in <strong>Coordinated Universal Time (UTC)</strong>, without offsets, not local time.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">time</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L37">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC17magneticVariationSdSgvp"></a>
+                    <a name="//apple_ref/swift/Property/magneticVariation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC17magneticVariationSdSgvp">magneticVariation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Magnetic Variation of current point</p>
+
+<p>Should be in unit <strong>degrees</strong> (º)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">magneticVariation</span><span class="p">:</span> <span class="kt">Double</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L42">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC11geoidHeightSdSgvp"></a>
+                    <a name="//apple_ref/swift/Property/geoidHeight" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC11geoidHeightSdSgvp">geoidHeight</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Geoid Height of current point</p>
+
+<p>Should be in unit <strong>meters</strong> (m). Height of geoid, or mean sea level, above WGS84 earth ellipsoid</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">geoidHeight</span><span class="p">:</span> <span class="kt">Double</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L47">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC4nameSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC4nameSSSgvp">name</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Name of current point</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <ul>
+<li>This attribute may not be useful, in schema context.</li>
+<li>This is carried over from GPX schema, to be compliant with the schema.</li>
+</ul>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L54">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC7commentSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/comment" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC7commentSSSgvp">comment</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Comment of current point</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <ul>
+<li>This attribute may not be useful, in schema context.</li>
+<li>This is carried over from GPX schema, to be compliant with the schema.</li>
+</ul>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">comment</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L61">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC4descSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/desc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC4descSSSgvp">desc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Description of current point</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <ul>
+<li>This attribute may not be useful, in schema context.</li>
+<li>This is carried over from GPX schema, to be compliant with the schema.</li>
+</ul>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">desc</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L68">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC6sourceSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/source" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC6sourceSSSgvp">source</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Source of data of current point</p>
+
+<p>For assurance that current point is reliable</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">source</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L73">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC6symbolSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/symbol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC6symbolSSSgvp">symbol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Text of GPS symbol name</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <ul>
+<li>This attribute does not appear to be useful due to <code>CoreLocation</code> API.</li>
+<li>This is carried over from GPX schema, to be compliant with the schema.</li>
+</ul>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">symbol</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L80">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC4typeSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/type" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC4typeSSSgvp">type</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Type of current point</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L83">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC3fixSiSgvp"></a>
+                    <a name="//apple_ref/swift/Property/fix" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC3fixSiSgvp">fix</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Type of GPS fix of current point, represented as a number</p>
+
+<ul>
+<li><strong>Supported Types:</strong> (written in order)
+
+<ul>
+<li><strong>None</strong>: No fix</li>
+<li><strong>2D</strong>: Position only</li>
+<li><strong>3D</strong>: Position and Elevation</li>
+<li><strong>DGPS</strong>: Differential GPS</li>
+<li><strong>PPS</strong>: Military Signal</li>
+</ul></li>
+</ul>
+
+<p>Unknown fix should leave fix attribute as <code>nil</code></p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <ul>
+<li>This attribute may have limited usefulness due to <code>CoreLocation</code> API.</li>
+<li>This is carried over from GPX schema, to be compliant with the schema.</li>
+</ul>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">fix</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L98">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC10satellitesSiSgvp"></a>
+                    <a name="//apple_ref/swift/Property/satellites" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC10satellitesSiSgvp">satellites</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Number of satellites used to calculate GPS fix of current point</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">satellites</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L101">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC18horizontalDilutionSdSgvp"></a>
+                    <a name="//apple_ref/swift/Property/horizontalDilution" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC18horizontalDilutionSdSgvp">horizontalDilution</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Horizontal dilution of precision of current point</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">horizontalDilution</span><span class="p">:</span> <span class="kt">Double</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L104">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC16verticalDilutionSdSgvp"></a>
+                    <a name="//apple_ref/swift/Property/verticalDilution" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC16verticalDilutionSdSgvp">verticalDilution</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Vertical dilution of precision of current point</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">verticalDilution</span><span class="p">:</span> <span class="kt">Double</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L107">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC16positionDilutionSdSgvp"></a>
+                    <a name="//apple_ref/swift/Property/positionDilution" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC16positionDilutionSdSgvp">positionDilution</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Position dilution of precision of current point</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">positionDilution</span><span class="p">:</span> <span class="kt">Double</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L110">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC13ageofDGPSDataSdSgvp"></a>
+                    <a name="//apple_ref/swift/Property/ageofDGPSData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC13ageofDGPSDataSdSgvp">ageofDGPSData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Age of DGPS Data</p>
+
+<p>Number of seconds since last DGPS update</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <ul>
+<li>This attribute may not be useful.</li>
+<li>This is carried over from GPX schema, to be compliant with the schema.</li>
+</ul>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">ageofDGPSData</span><span class="p">:</span> <span class="kt">Double</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L119">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC6DGPSidSiSgvp"></a>
+                    <a name="//apple_ref/swift/Property/DGPSid" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC6DGPSidSiSgvp">DGPSid</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>DGPS&rsquo; ID</p>
+
+<p>ID of DGPS station used in differential correction.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <ul>
+<li>This attribute may not be useful.</li>
+<li>This is carried over from GPX schema, to be compliant with the schema.</li>
+</ul>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">DGPSid</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L128">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC10extensionsAA13GPXExtensionsCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/extensions" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC10extensionsAA13GPXExtensionsCSgvp">extensions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Extension to GPX v1.1 standard.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">extensions</span><span class="p">:</span> <span class="kt"><a href="../Classes/GPXExtensions.html">GPXExtensions</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L131">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC8latitudeSdSgvp"></a>
+                    <a name="//apple_ref/swift/Property/latitude" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC8latitudeSdSgvp">latitude</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Latitude of current point</p>
+
+<ul>
+<li>Latitude value should be within range of <strong>-90 to 90</strong></li>
+<li>Should be in unit <strong>degrees</strong> (º)</li>
+<li>Should conform to WGS 84 datum.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">latitude</span><span class="p">:</span> <span class="kt">Double</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L139">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC9longitudeSdSgvp"></a>
+                    <a name="//apple_ref/swift/Property/longitude" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC9longitudeSdSgvp">longitude</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Longitude of current point</p>
+
+<ul>
+<li>Longitude value should be within range of <strong>-180 to 180</strong></li>
+<li>Should be in unit <strong>degrees</strong> (º)</li>
+<li>Should conform to WGS 84 datum.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">longitude</span><span class="p">:</span> <span class="kt">Double</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L147">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@CoreGPX@objc(cs)GPXWaypoint(im)init"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@CoreGPX@objc(cs)GPXWaypoint(im)init">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize with current date and time</p>
+
+<p>The waypoint should be configured appropriately after initializing using this initializer. The <code><a href="../Classes/GPXWaypoint.html#/s:7CoreGPX11GPXWaypointC4time10Foundation4DateVSgvp">time</a></code> attribute will also be set to the time of initializing.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    At least latitude and longitude should be configured as required by the GPX v1.1 schema.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">required</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L158-L161">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC8latitude9longitudeACSd_Sdtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(latitude:longitude:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC8latitude9longitudeACSd_Sdtcfc">init(latitude:longitude:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize with current date and time, with latitude and longitude.</p>
+
+<p>The waypoint should be configured appropriately after initializing using this initializer. The <code><a href="../Classes/GPXWaypoint.html#/s:7CoreGPX11GPXWaypointC4time10Foundation4DateVSgvp">time</a></code> attribute will also be set to the time of initializing, along with <code><a href="../Classes/GPXWaypoint.html#/s:7CoreGPX11GPXWaypointC8latitudeSdSgvp">latitude</a></code> and <code><a href="../Classes/GPXWaypoint.html#/s:7CoreGPX11GPXWaypointC9longitudeSdSgvp">longitude</a></code> attributes.</p>
+<div class="aside aside-remark">
+    <p class="aside-title">Remark</p>
+    <p>Other attributes can still be configured as per normal.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">latitude</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">longitude</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>latitude</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>latitude value of the waypoint, in <code>Double</code> or <code>CLLocationDegrees</code>, <strong>WGS 84</strong> datum only. Should be within the ranges of <strong>-90.0 to 90.0</strong></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>longitude</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>longitude value of the waypoint, in <code>Double</code> or <code>CLLocationDegrees</code>, <strong>WGS 84</strong> datum only. Should be within the ranges of <strong>-180.0 to 180.0</strong></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L174-L179">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC7newLink8withHrefAA7GPXLinkCSS_tF"></a>
+                    <a name="//apple_ref/swift/Method/newLink(withHref:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC7newLink8withHrefAA7GPXLinkCSS_tF">newLink(withHref:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>for initializing a <code><a href="../Classes/GPXLink.html">GPXLink</a></code> with href, which is added to this point type as well.</p>
+
+<p>This method works by initializing a new <code><a href="../Classes/GPXLink.html">GPXLink</a></code>, adding to this point type, then return the <code><a href="../Classes/GPXLink.html">GPXLink</a></code></p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    Will be deprecated starting version 0.5.0
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "Initialize GPXLink first then, add it to this point type instead.")</span>
+<span class="kd">open</span> <span class="kd">func</span> <span class="nf">newLink</span><span class="p">(</span><span class="n">withHref</span> <span class="nv">href</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/GPXLink.html">GPXLink</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>href</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a URL hyperlink as a <code>String</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L224-L228">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://www.github.com/vincentneo" target="_blank" rel="external">Vincent</a>. All rights reserved. (Last updated: 2019-03-24)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

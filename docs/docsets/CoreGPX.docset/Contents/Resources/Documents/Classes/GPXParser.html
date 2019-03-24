@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>GPXParser Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/GPXParser" class="dashAnchor"></a>
+    <a title="GPXParser Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">CoreGPX Docs</a> (79% documented)</p>
+        <p class="header-right"><a href="https://www.github.com/vincentneo/CoreGPX"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">CoreGPX Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        GPXParser Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/GPXAuthor.html">GPXAuthor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXBounds.html">GPXBounds</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXCopyright.html">GPXCopyright</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXElement.html">GPXElement</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXEmail.html">GPXEmail</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXExtensions.html">GPXExtensions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXLink.html">GPXLink</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXMetadata.html">GPXMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXParser.html">GPXParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXPerson.html">GPXPerson</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXPoint.html">GPXPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXPointSegment.html">GPXPointSegment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXRoot.html">GPXRoot</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXRoute.html">GPXRoute</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXRoutePoint.html">GPXRoutePoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXTrack.html">GPXTrack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXTrackPoint.html">GPXTrackPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXTrackSegment.html">GPXTrackSegment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXWaypoint.html">GPXWaypoint</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>GPXParser</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">GPXParser</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>An event-driven parser (SAX parser), that specifically parses GPX v1.1 files only.</p>
+
+<p>This parser is already setted up, hence, does not require any handling, and will parse files directly as objects.
+To get the parsed data from a GPX file, simply initialize the parser, and get the <code><a href="../Classes/GPXRoot.html">GPXRoot</a></code> from <code>parsedData()</code>.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX9GPXParserC8withDataAC10Foundation0E0V_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(withData:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX9GPXParserC8withDataAC10Foundation0E0V_tcfc">init(withData:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>for parsing with <code>Data</code> type</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">withData</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The input must be <code>Data</code> object containing GPX markup data, and should not be <code>nil</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXParser.swift#L26-L29">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX9GPXParserC10withStreamACSo07NSInputE0C_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(withStream:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX9GPXParserC10withStreamACSo07NSInputE0C_tcfc">init(withStream:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>for parsing with <code>InputStream</code> type</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">withStream</span> <span class="nv">stream</span><span class="p">:</span> <span class="kt">InputStream</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>stream</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The input must be a input stream allowing GPX markup data to be parsed synchronously</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXParser.swift#L36-L39">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX9GPXParserC7withURLACSg10Foundation0E0V_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(withURL:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX9GPXParserC7withURLACSg10Foundation0E0V_tcfc">init(withURL:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>for parsing with <code>URL</code> type</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">?(</span><span class="n">withURL</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>url</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The input must be a <code>URL</code>, which should point to a GPX file located at the URL given</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXParser.swift#L46-L50">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX9GPXParserC13withRawStringACSgSSSg_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(withRawString:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX9GPXParserC13withRawStringACSgSSSg_tcfc">init(withRawString:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>for parsing with a string that contains full GPX markup</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">?(</span><span class="n">withRawString</span> <span class="nv">string</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>string</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The input <code>String</code> must contain full GPX markup, which is typically contained in a <code>.GPX</code> file</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXParser.swift#L57-L65">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX9GPXParserC8withPathACSgSS_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(withPath:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX9GPXParserC8withPathACSgSS_tcfc">init(withPath:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>for parsing with a path to a GPX file</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">?(</span><span class="n">withPath</span> <span class="nv">path</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>path</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The input path, with type <code>String</code>, must contain a path that points to a GPX file used to facilitate parsing.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXParser.swift#L72-L75">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX9GPXParserC10parsedDataAA7GPXRootCyF"></a>
+                    <a name="//apple_ref/swift/Method/parsedData()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX9GPXParserC10parsedDataAA7GPXRootCyF">parsedData()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">parsedData</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/GPXRoot.html">GPXRoot</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXParser.swift#L137-L149">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@CoreGPX@objc(cs)GPXParser(im)parser:didStartElement:namespaceURI:qualifiedName:attributes:"></a>
+                    <a name="//apple_ref/swift/Method/parser(_:didStartElement:namespaceURI:qualifiedName:attributes:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@CoreGPX@objc(cs)GPXParser(im)parser:didStartElement:namespaceURI:qualifiedName:attributes:">parser(_:didStartElement:namespaceURI:qualifiedName:attributes:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">parser</span><span class="p">(</span><span class="n">_</span> <span class="nv">parser</span><span class="p">:</span> <span class="kt">XMLParser</span><span class="p">,</span> <span class="n">didStartElement</span> <span class="nv">elementName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">namespaceURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="n">qualifiedName</span> <span class="nv">qName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="n">attributes</span> <span class="nv">attributeDict</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[:])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXParser.swift#L161-L210">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@CoreGPX@objc(cs)GPXParser(im)parser:foundCharacters:"></a>
+                    <a name="//apple_ref/swift/Method/parser(_:foundCharacters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@CoreGPX@objc(cs)GPXParser(im)parser:foundCharacters:">parser(_:foundCharacters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">parser</span><span class="p">(</span><span class="n">_</span> <span class="nv">parser</span><span class="p">:</span> <span class="kt">XMLParser</span><span class="p">,</span> <span class="n">foundCharacters</span> <span class="nv">string</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXParser.swift#L212-L284">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@CoreGPX@objc(cs)GPXParser(im)parser:didEndElement:namespaceURI:qualifiedName:"></a>
+                    <a name="//apple_ref/swift/Method/parser(_:didEndElement:namespaceURI:qualifiedName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@CoreGPX@objc(cs)GPXParser(im)parser:didEndElement:namespaceURI:qualifiedName:">parser(_:didEndElement:namespaceURI:qualifiedName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">parser</span><span class="p">(</span><span class="n">_</span> <span class="nv">parser</span><span class="p">:</span> <span class="kt">XMLParser</span><span class="p">,</span> <span class="n">didEndElement</span> <span class="nv">elementName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">namespaceURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="n">qualifiedName</span> <span class="nv">qName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXParser.swift#L286-L453">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://www.github.com/vincentneo" target="_blank" rel="external">Vincent</a>. All rights reserved. (Last updated: 2019-03-24)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

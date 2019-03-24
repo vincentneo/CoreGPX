@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>GPXRoot Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/GPXRoot" class="dashAnchor"></a>
+    <a title="GPXRoot Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">CoreGPX Docs</a> (79% documented)</p>
+        <p class="header-right"><a href="https://www.github.com/vincentneo/CoreGPX"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">CoreGPX Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        GPXRoot Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/GPXAuthor.html">GPXAuthor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXBounds.html">GPXBounds</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXCopyright.html">GPXCopyright</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXElement.html">GPXElement</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXEmail.html">GPXEmail</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXExtensions.html">GPXExtensions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXLink.html">GPXLink</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXMetadata.html">GPXMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXParser.html">GPXParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXPerson.html">GPXPerson</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXPoint.html">GPXPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXPointSegment.html">GPXPointSegment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXRoot.html">GPXRoot</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXRoute.html">GPXRoute</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXRoutePoint.html">GPXRoutePoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXTrack.html">GPXTrack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXTrackPoint.html">GPXTrackPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXTrackSegment.html">GPXTrackSegment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXWaypoint.html">GPXWaypoint</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>GPXRoot</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">GPXRoot</span> <span class="p">:</span> <span class="kt"><a href="../Classes/GPXElement.html">GPXElement</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>Creation of a GPX file or GPX formatted string starts here</p>
+
+<p><code>GPXRoot</code> holds all <code>metadata</code>, <code>waypoints</code>, <code>tracks</code>, <code>routes</code> and <code>extensions</code> types together before being packaged as a GPX file, or formatted as per GPX schema&rsquo;s requirements.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX7GPXRootC7versionSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/version" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXRootC7versionSSSgvp">version</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>GPX version that will be generated. Currently, only the latest (version 1.1) is supported.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">version</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXRoot.swift#L18">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX7GPXRootC7creatorSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/creator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXRootC7creatorSSSgvp">creator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Name of the creator of the GPX content.</p>
+
+<p>Can be your name or your app&rsquo;s name</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">creator</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXRoot.swift#L23">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX7GPXRootC8metadataAA11GPXMetadataCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/metadata" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXRootC8metadataAA11GPXMetadataCSgvp">metadata</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Metadata to be included in your GPX content.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">metadata</span><span class="p">:</span> <span class="kt"><a href="../Classes/GPXMetadata.html">GPXMetadata</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXRoot.swift#L26">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX7GPXRootC9waypointsSayAA11GPXWaypointCGvp"></a>
+                    <a name="//apple_ref/swift/Property/waypoints" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXRootC9waypointsSayAA11GPXWaypointCGvp">waypoints</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Array of waypoints</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">waypoints</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/GPXWaypoint.html">GPXWaypoint</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXRoot.swift#L29">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX7GPXRootC6routesSayAA8GPXRouteCGvp"></a>
+                    <a name="//apple_ref/swift/Property/routes" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXRootC6routesSayAA8GPXRouteCGvp">routes</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Array of routes</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">routes</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/GPXRoute.html">GPXRoute</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXRoot.swift#L32">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX7GPXRootC6tracksSayAA8GPXTrackCGvp"></a>
+                    <a name="//apple_ref/swift/Property/tracks" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXRootC6tracksSayAA8GPXTrackCGvp">tracks</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Array of tracks</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">tracks</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/GPXTrack.html">GPXTrack</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXRoot.swift#L35">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX7GPXRootC10extensionsAA13GPXExtensionsCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/extensions" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXRootC10extensionsAA13GPXExtensionsCSgvp">extensions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Items for extensions to GPX schema (if any)</p>
+
+<p>leave it as is, if used without modification to GPX schema</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">extensions</span><span class="p">:</span> <span class="kt"><a href="../Classes/GPXExtensions.html">GPXExtensions</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXRoot.swift#L40">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/GPX%20v1.1%20Namespaces"></a>
+                <a name="//apple_ref/swift/Section/GPX v1.1 Namespaces" class="dashAnchor"></a>
+                <a href="#/GPX%20v1.1%20Namespaces">
+                  <h3 class="section-name">GPX v1.1 Namespaces</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@CoreGPX@objc(cs)GPXRoot(im)init"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@CoreGPX@objc(cs)GPXRoot(im)init">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>for initializing without a creator name</p>
+
+<p>It will initialize with the creator name set to its defaults.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">required</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXRoot.swift#L61-L64">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX7GPXRootC7creatorACSS_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(creator:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXRootC7creatorACSS_tcfc">init(creator:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>for initializing with a creator name</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">creator</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>creator</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>name of your app, or whichever product that ends up generating a GPX file</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXRoot.swift#L71-L74">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX7GPXRootC12outputToFile6saveAt8fileNamey10Foundation3URLV_SStKF"></a>
+                    <a name="//apple_ref/swift/Method/outputToFile(saveAt:fileName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXRootC12outputToFile6saveAt8fileNamey10Foundation3URLV_SStKF">outputToFile(saveAt:fileName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>for saving newly tracked data straight to a GPX file in a directory</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>An error if GPX file fails to write at <code>location</code> for whichever reason.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">outputToFile</span><span class="p">(</span><span class="n">saveAt</span> <span class="nv">location</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">fileName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>location</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A <code>URL</code> where you wish to have the GPX file saved at.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fileName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name of the file which you wish to save as, without extension.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXRoot.swift#L88-L99">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX7GPXRootC15newWaypointWith8latitude9longitudeAA11GPXWaypointCSd_SdtF"></a>
+                    <a name="//apple_ref/swift/Method/newWaypointWith(latitude:longitude:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXRootC15newWaypointWith8latitude9longitudeAA11GPXWaypointCSd_SdtF">newWaypointWith(latitude:longitude:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a new <code>waypoint</code> which is also added to <code>GPXRoot</code> automatically</p>
+
+<p>A waypoint is initialized with latitude and longitude, then added into the array of waypoints in this <code>GPXRoot</code>.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>This method is <strong>not recommended</strong>. It is recommended that you initialize a waypoint first, configure it, and use method <code><a href="../Classes/GPXRoot.html#/s:7CoreGPX7GPXRootC3add8waypointyAA11GPXWaypointCSg_tF">add(waypoint:)</a></code> instead.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">newWaypointWith</span><span class="p">(</span><span class="nv">latitude</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">longitude</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/GPXWaypoint.html">GPXWaypoint</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>latitude</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Waypoint&rsquo;s latitude in <code>Double</code> or <code>CLLocationDegrees</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>longitude</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Waypoint&rsquo;s latitude in <code>Double</code> or <code>CLLocationDegrees</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code><a href="../Classes/GPXWaypoint.html">GPXWaypoint</a></code> object.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXRoot.swift#L115-L121">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX7GPXRootC3add8waypointyAA11GPXWaypointCSg_tF"></a>
+                    <a name="//apple_ref/swift/Method/add(waypoint:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXRootC3add8waypointyAA11GPXWaypointCSg_tF">add(waypoint:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add a pre-initalized and configured waypoint to <code>GPXRoot</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">waypoint</span><span class="p">:</span> <span class="kt"><a href="../Classes/GPXWaypoint.html">GPXWaypoint</a></span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>waypoint</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The waypoint that you wish to include in <code>GPXRoot</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXRoot.swift#L128-L132">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX7GPXRootC3add9waypointsySayAA11GPXWaypointCG_tF"></a>
+                    <a name="//apple_ref/swift/Method/add(waypoints:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXRootC3add9waypointsySayAA11GPXWaypointCG_tF">add(waypoints:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add an array of pre-initalized and configured waypoints to <code>GPXRoot</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">waypoints</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/GPXWaypoint.html">GPXWaypoint</a></span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>waypoints</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Array of waypoints that you wish to include in <code>GPXRoot</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXRoot.swift#L139-L141">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX7GPXRootC6remove8waypointyAA11GPXWaypointC_tF"></a>
+                    <a name="//apple_ref/swift/Method/remove(waypoint:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXRootC6remove8waypointyAA11GPXWaypointC_tF">remove(waypoint:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Removes an already added waypoint from <code>GPXRoot</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="nv">waypoint</span><span class="p">:</span> <span class="kt"><a href="../Classes/GPXWaypoint.html">GPXWaypoint</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>waypoint</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The waypoint that you wish to remove from <code>GPXRoot</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXRoot.swift#L148-L156">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX7GPXRootC8newRouteAA8GPXRouteCyF"></a>
+                    <a name="//apple_ref/swift/Method/newRoute()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXRootC8newRouteAA8GPXRouteCyF">newRoute()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a new <code>route</code> which is also added to <code>GPXRoot</code> automatically</p>
+
+<p>A route is initialized, then added into the array of routes in this <code>GPXRoot</code>.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>This method is <strong>not recommended</strong>. It is recommended that you initialize a route first, configure it, and use method <code><a href="../Classes/GPXRoot.html#/s:7CoreGPX7GPXRootC3add5routeyAA8GPXRouteCSg_tF">add(route:)</a></code> instead.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">newRoute</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/GPXRoute.html">GPXRoute</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code><a href="../Classes/GPXRoute.html">GPXRoute</a></code> object.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXRoot.swift#L168-L174">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX7GPXRootC3add5routeyAA8GPXRouteCSg_tF"></a>
+                    <a name="//apple_ref/swift/Method/add(route:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXRootC3add5routeyAA8GPXRouteCSg_tF">add(route:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add a pre-initalized and configured route to <code>GPXRoot</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">route</span><span class="p">:</span> <span class="kt"><a href="../Classes/GPXRoute.html">GPXRoute</a></span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>route</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The route that you wish to include in <code>GPXRoot</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXRoot.swift#L181-L185">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX7GPXRootC3add6routesySayAA8GPXRouteCG_tF"></a>
+                    <a name="//apple_ref/swift/Method/add(routes:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXRootC3add6routesySayAA8GPXRouteCG_tF">add(routes:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add an array of pre-initalized and configured routes to <code>GPXRoot</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">routes</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/GPXRoute.html">GPXRoute</a></span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>routes</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The array of routes that you wish to include in <code>GPXRoot</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXRoot.swift#L192-L194">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX7GPXRootC6remove5routeyAA8GPXRouteC_tF"></a>
+                    <a name="//apple_ref/swift/Method/remove(route:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXRootC6remove5routeyAA8GPXRouteC_tF">remove(route:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Removes an already added waypoint from <code>GPXRoot</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="nv">route</span><span class="p">:</span> <span class="kt"><a href="../Classes/GPXRoute.html">GPXRoute</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>route</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The route that you wish to remove from <code>GPXRoot</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXRoot.swift#L201-L209">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX7GPXRootC8newTrackAA8GPXTrackCyF"></a>
+                    <a name="//apple_ref/swift/Method/newTrack()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXRootC8newTrackAA8GPXTrackCyF">newTrack()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a new <code>track</code> which is also added to <code>GPXRoot</code> automatically</p>
+
+<p>A track is initialized, then added into the array of tracks in this <code>GPXRoot</code>.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>This method is <strong>not recommended</strong>. It is recommended that you initialize a track first, configure it, and use method <code><a href="../Classes/GPXRoot.html#/s:7CoreGPX7GPXRootC3add5trackyAA8GPXTrackCSg_tF">add(track:)</a></code> instead.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">newTrack</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/GPXTrack.html">GPXTrack</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code><a href="../Classes/GPXTrack.html">GPXTrack</a></code> object.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXRoot.swift#L221-L225">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX7GPXRootC3add5trackyAA8GPXTrackCSg_tF"></a>
+                    <a name="//apple_ref/swift/Method/add(track:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXRootC3add5trackyAA8GPXTrackCSg_tF">add(track:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add a pre-initalized and configured track to <code>GPXRoot</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">track</span><span class="p">:</span> <span class="kt"><a href="../Classes/GPXTrack.html">GPXTrack</a></span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>track</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The track that you wish to include in <code>GPXRoot</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXRoot.swift#L232-L236">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX7GPXRootC3add6tracksySayAA8GPXTrackCG_tF"></a>
+                    <a name="//apple_ref/swift/Method/add(tracks:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXRootC3add6tracksySayAA8GPXTrackCG_tF">add(tracks:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add an array of pre-initalized and configured tracks to <code>GPXRoot</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">tracks</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/GPXTrack.html">GPXTrack</a></span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tracks</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The array of tracks that you wish to include in <code>GPXRoot</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXRoot.swift#L243-L245">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX7GPXRootC6remove5trackyAA8GPXTrackC_tF"></a>
+                    <a name="//apple_ref/swift/Method/remove(track:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXRootC6remove5trackyAA8GPXTrackC_tF">remove(track:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Removes an already added track from <code>GPXRoot</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="nv">track</span><span class="p">:</span> <span class="kt"><a href="../Classes/GPXTrack.html">GPXTrack</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>track</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The track that you wish to remove from <code>GPXRoot</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXRoot.swift#L252-L260">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://www.github.com/vincentneo" target="_blank" rel="external">Vincent</a>. All rights reserved. (Last updated: 2019-03-24)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

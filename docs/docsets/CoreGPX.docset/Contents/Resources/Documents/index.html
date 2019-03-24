@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CoreGPX  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="CoreGPX  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">CoreGPX Docs</a> (79% documented)</p>
+        <p class="header-right"><a href="https://www.github.com/vincentneo/CoreGPX"><img src="img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">CoreGPX Reference</a>
+        <img id="carat" src="img/carat.png" />
+        CoreGPX  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/GPXAuthor.html">GPXAuthor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GPXBounds.html">GPXBounds</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GPXCopyright.html">GPXCopyright</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GPXElement.html">GPXElement</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GPXEmail.html">GPXEmail</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GPXExtensions.html">GPXExtensions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GPXLink.html">GPXLink</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GPXMetadata.html">GPXMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GPXParser.html">GPXParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GPXPerson.html">GPXPerson</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GPXPoint.html">GPXPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GPXPointSegment.html">GPXPointSegment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GPXRoot.html">GPXRoot</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GPXRoute.html">GPXRoute</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GPXRoutePoint.html">GPXRoutePoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GPXTrack.html">GPXTrack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GPXTrackPoint.html">GPXTrackPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GPXTrackSegment.html">GPXTrackSegment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GPXWaypoint.html">GPXWaypoint</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <p align="center">
+  <img width="600" height="257.4" src="https://github.com/vincentneo/CoreGPX/raw/master/CoreGPX%20title.png">
+</p>
+
+<p align="center">
+    <b>
+    Parse and generate GPX files easily on iOS, watchOS & macOS.
+    </b>
+</p>
+
+<p><a href="https://travis-ci.com/vincentneo/CoreGPX"><img src="https://travis-ci.com/vincentneo/CoreGPX.svg?branch=master" alt="CI Status"></a>
+<a href="https://swift.org/blog/swift-4-2-released/"><img src="https://img.shields.io/badge/Swift-4.2-orange.svg" alt="Swift Version"></a>
+<a href="https://www.topografix.com/gpx/1/1/"><img src="https://img.shields.io/badge/gpx-1.1-yellow.svg" alt="GPX Version"></a>
+<a href="http://doge.mit-license.org"><img src="http://img.shields.io/:license-mit-blue.svg" alt="License"></a>
+<a href="https://cocoapods.org/pods/CoreGPX"><img src="https://img.shields.io/cocoapods/p/CoreGPX.svg?style=flat" alt="Platform"></a>
+<a href="https://cocoapods.org/pods/CoreGPX"><img src="https://img.shields.io/cocoapods/v/CoreGPX.svg?style=flat" alt="Version"></a>
+<a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-%E2%9C%94-4BC51D.svg?style=flat" alt="Carthage compatible"></a>
+<a href="https://github.com/apple/swift-package-manager"><img src="https://img.shields.io/badge/Swift%20Package%20Manager-%E2%9C%94-brightgreen.svg" alt="Swift Package Manager compatible"></a></p>
+<h2 id='what-is-coregpx' class='heading'>What is CoreGPX?</h2>
+
+<p>CoreGPX is a port of iOS-GPX-Framework to Swift language.</p>
+
+<p>CoreGPX currently supports all GPX tags listed in GPX v1.1 schema. It can generate and parse GPX v1.1 compliant files on iOS, macOS and watchOS. </p>
+
+<p>As it makes use of <code>XMLParser</code> for parsing GPX files, CoreGPX is fully dependent on the <code>Foundation</code> API only.</p>
+<h2 id='features' class='heading'>Features</h2>
+
+<ul>
+<li>[x] Successfully outputs string that can be packaged into a GPX file</li>
+<li>[x] Parses GPX files using native XMLParser</li>
+<li>[x] Support for iOS, macOS &amp; watchOS</li>
+</ul>
+<h2 id='installation' class='heading'>Installation</h2>
+
+<p>CoreGPX supports CocoaPods, Carthage, as well as Swift Package Manager, such that you can install it, any way you want.</p>
+
+<p>To install using <a href="https://cocoapods.org">CocoaPods</a>, simply add the following line to your Podfile:</p>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'CoreGPX'</span>
+</code></pre>
+
+<p>CoreGPX works with <a href="https://github.com/Carthage/Carthage">Carthage</a> as well, simply add the following line to your Cartfile:</p>
+<pre class="highlight plaintext"><code>github "vincentneo/CoreGPX"
+</code></pre>
+<h2 id='how-to-parse' class='heading'>How to parse?</h2>
+
+<p>Parsing of GPX files is done by initializing <code><a href="Classes/GPXParser.html">GPXParser</a></code>.</p>
+
+<p>There are five ways of initializing <code><a href="Classes/GPXParser.html">GPXParser</a></code>,  and these are three main ways of initializing:</p>
+<h4 id='you-can-initialize-with-a-code-url-code' class='heading'>You can initialize with a <code>URL</code>:</h4>
+<pre class="highlight plaintext"><code>guard let gpx = GPXParser(withURL: inputURL)?.parsedData() else { return }
+</code></pre>
+<h4 id='with-path' class='heading'>With path:</h4>
+<pre class="highlight plaintext"><code>guard let gpx = GPXParser(withPath: inputPath)?.parsedData() else { return } // String type
+</code></pre>
+<h4 id='with-code-data-code' class='heading'>With <code>Data</code>:</h4>
+<pre class="highlight plaintext"><code>let gpx = GPXParser(withData: inputData).parsedData()
+</code></pre>
+
+<p><code>.parsedData()</code> returns a <code><a href="Classes/GPXRoot.html">GPXRoot</a></code> type, which contains all the metadata, waypoints, tracks, routes, and extensions(if any), which you can expect from a GPX file, depending on what that file contains.</p>
+<h3 id='making-use-of-parsed-gpx-data' class='heading'>Making use of parsed GPX data</h3>
+<pre class="highlight plaintext"><code>guard let gpx = GPXParser(withURL: inputURL)?.parsedData() else { return // do things here when failed }
+
+// waypoints, tracks, tracksegements, trackpoints are all stored as Array depends on the amount stored in the GPX file.
+for waypoint in gpx.waypoints {  // for loop example, every waypoint is written
+    print(waypoint.latitude)     // prints every waypoint's latitude, etc: 1.3521, as a Double object
+    print(waypoint.longitude)    // prints every waypoint's latitude, etc: 103.8198, as a Double object
+    print(waypoint.time)         // prints every waypoint's date, as a Date object
+    print(waypoint.name)         // prints every waypoint's name, as a String
+}
+    print(gpx.metadata?.desc)    // prints description given in GPX file metadata tag
+    print(gpx.metadata?.name)    // prints name given in GPX file metadata tag
+
+</code></pre>
+<h2 id='how-to-create' class='heading'>How to create?</h2>
+
+<p>You will first start off with a <code><a href="Classes/GPXRoot.html">GPXRoot</a></code>.</p>
+<h4 id='initializing-code-gpxroot-code' class='heading'>Initializing <code><a href="Classes/GPXRoot.html">GPXRoot</a></code></h4>
+<pre class="highlight plaintext"><code>let root = GPXRoot(creator: "Your app name here!") // insert your app name here
+</code></pre>
+
+<p>Now, you can start adding things to your <code><a href="Classes/GPXRoot.html">GPXRoot</a></code>. This includes your metadata, waypoints, tracks, routes, as well as extensions(if any).</p>
+<h4 id='adding-waypoints-to-code-gpxroot-code' class='heading'>Adding waypoints to <code><a href="Classes/GPXRoot.html">GPXRoot</a></code></h4>
+<pre class="highlight plaintext"><code>root.add(waypoints: arrayOfWaypoints) // adds an array of waypoints
+root.add(waypoint: singleWaypoint)    // adds a single waypoint
+</code></pre>
+<h4 id='adding-tracks-to-code-gpxroot-code' class='heading'>Adding tracks to <code><a href="Classes/GPXRoot.html">GPXRoot</a></code></h4>
+<pre class="highlight plaintext"><code>root.add(tracks: arrayOfTracks)       // adds an array of tracks
+root.add(track: singleTrack)          // adds a single track
+</code></pre>
+<h4 id='adding-routes-to-code-gpxroot-code' class='heading'>Adding routes to <code><a href="Classes/GPXRoot.html">GPXRoot</a></code></h4>
+<pre class="highlight plaintext"><code>root.add(routes: arrayOfRoutes)       // adds an array of routes
+root.add(route: singleRoute)          // adds a single route
+</code></pre>
+<h4 id='adding-metadata-to-code-gpxroot-code' class='heading'>Adding metadata to <code><a href="Classes/GPXRoot.html">GPXRoot</a></code></h4>
+<pre class="highlight plaintext"><code>let metadata = GPXMetadata()
+metadata.name = "Your Name Here"
+metadata.desc = "Description of your GPX file"
+root.metadata = metadata              // adds metadata stuff
+</code></pre>
+<h3 id='example-of-application-of-code-gpxroot-code' class='heading'>Example of application of <code><a href="Classes/GPXRoot.html">GPXRoot</a></code></h3>
+<pre class="highlight plaintext"><code>let root = GPXRoot(creator: "Your app name here!")
+let trackpoints = [GPXTrackPoint]()
+
+let yourLatitudeHere: CLLocationDegrees = 1.3521
+let yourLongitudeHere: CLLocationDegrees = 103.8198
+let yourElevationValue: Double = 10.724
+
+let trackpoint = GPXTrackPoint(latitude: yourLatitudeHere, longitude: yourLongitudeHere)
+trackpoint.elevation = yourElevationValue
+trackpoint.time = Date() // set time to current date
+trackpoints.append(trackpoint)
+
+let track = GPXTrack()                          // inits a track
+let tracksegment = GPXTrackSegment()            // inits a tracksegment
+tracksegment.add(trackpoints: trackpoints)      // adds an array of trackpoints to a track segment
+track.add(trackSegment: tracksegment)           // adds a track segment to a track
+root.add(track: track)                          // adds a track
+
+print(root.gpx())               // prints the GPX formatted string
+
+</code></pre>
+
+<p>This would be what you get from <code>root.gpx()</code> in the above example: </p>
+<pre class="highlight plaintext"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="Your app name here!"&gt;
+    &lt;trk&gt;
+        &lt;trkseg&gt;
+            &lt;trkpt lat="1.352100" lon="103.819800"&gt;
+                &lt;ele&gt;10.724&lt;/ele&gt;
+                &lt;time&gt;2019-02-12T05:38:19Z&lt;/time&gt;
+            &lt;/trkpt&gt;
+        &lt;/trkseg&gt;
+    &lt;/trk&gt;
+&lt;/gpx&gt;
+</code></pre>
+
+<ul>
+<li><code>.gpx()</code> of <code><a href="Classes/GPXRoot.html">GPXRoot</a></code> outputs a <code>String</code> which can then be packaged as a .GPX file.</li>
+<li><code>.OutputToFile(saveAt:fileName:)</code> directly saves GPX contents to a URL specified.</li>
+</ul>
+<h2 id='example' class='heading'>Example</h2>
+
+<p>To know in depth of what <code>CoreGPX</code> can bring, do check out the Example app.
+To run the example project, simply clone the repo, and try it out straight away!</p>
+<h2 id='contributing' class='heading'>Contributing</h2>
+
+<p>Contributions to this project will be more than welcomed. Feel free to add a pull request or open an issue.
+If you require a feature that has yet to be available, do open an issue, describing why and what the feature could bring and how it would help you!</p>
+<h2 id='license' class='heading'>License</h2>
+
+<p>CoreGPX is available under the MIT license. See the LICENSE file for more info. </p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://www.github.com/vincentneo" target="_blank" rel="external">Vincent</a>. All rights reserved. (Last updated: 2019-03-24)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
