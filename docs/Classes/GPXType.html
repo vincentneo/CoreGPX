@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>GPXLink Class Reference</title>
+    <title>GPXType Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/GPXLink" class="dashAnchor"></a>
-    <a title="GPXLink Class Reference"></a>
+    <a name="//apple_ref/swift/Class/GPXType" class="dashAnchor"></a>
+    <a title="GPXType Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">CoreGPX Docs</a> (83% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">CoreGPX Reference</a>
         <img id="carat" src="../img/carat.png" />
-        GPXLink Class Reference
+        GPXType Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -126,21 +126,21 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>GPXLink</h1>
+            <h1>GPXType</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">GPXLink</span> <span class="p">:</span> <span class="kt"><a href="../Classes/GPXElement.html">GPXElement</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">GPXType</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                 </div>
               </div>
-            <p>A value type that can hold a web link to a external resource, or external information about a certain attribute.</p>
+            <p>For conversion of values when required.</p>
 
-<p>In addition to having a URL as its attribute, it also accepts the following as child tag:</p>
+<p>Conversion of values may not always be done strictly using this class, as some of the methods here might be unoptimised, and may contain code carried over from the legacy code.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    This class is intended to be internally used only.
 
-<ul>
-<li>type of content</li>
-<li>text of web link (probably a description kind of thing)</li>
-</ul>
+</div>
 
           </section>
           <section class="section task-group-section">
@@ -149,9 +149,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7CoreGPX7GPXLinkC4textSSSgvp"></a>
-                    <a name="//apple_ref/swift/Property/text" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX7GPXLinkC4textSSSgvp">text</a>
+                    <a name="/s:7CoreGPX7GPXTypeC5value11forLatitudeSSSd_tF"></a>
+                    <a name="//apple_ref/swift/Method/value(forLatitude:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXTypeC5value11forLatitudeSSSd_tF">value(forLatitude:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -159,134 +159,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Text of hyperlink</p>
+                        <p>for use in conversion from <code>Double</code> of latitude to <code>String</code></p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">text</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXLink.swift#L22">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7CoreGPX7GPXLinkC8mimetypeSSSgvp"></a>
-                    <a name="//apple_ref/swift/Property/mimetype" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX7GPXLinkC8mimetypeSSSgvp">mimetype</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Mime type of content (image/jpeg)</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">mimetype</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXLink.swift#L25">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7CoreGPX7GPXLinkC4hrefSSSgvp"></a>
-                    <a name="//apple_ref/swift/Property/href" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX7GPXLinkC4hrefSSSgvp">href</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>URL of hyperlink</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">href</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXLink.swift#L28">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@M@CoreGPX@objc(cs)GPXLink(im)init"></a>
-                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@CoreGPX@objc(cs)GPXLink(im)init">init()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">required</span> <span class="nf">init</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXLink.swift#L35-L37">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7CoreGPX7GPXLinkC8withHrefACSS_tcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(withHref:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX7GPXLinkC8withHrefACSS_tcfc">init(withHref:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Initializes with a web link attribute</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">withHref</span> <span class="nv">href</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "method is no longer used and will be unsupported in future")</span>
+<span class="kd">func</span> <span class="nf">value</span><span class="p">(</span><span class="n">forLatitude</span> <span class="nv">latitude</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -297,12 +178,13 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>href</em>
+                                <em>latitude</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p><strong>Hypertext Reference</strong>. Basically, a web link which can be considered as a reference to whichever content, including metadata, waypoints, for example.</p>
+                                  <p>input value must be valid within -90.0 and 90.0;
+In the case where input value exceeds range, 0 is returned</p>
                                 </div>
                               </td>
                             </tr>
@@ -310,7 +192,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXLink.swift#L44-L48">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXType.swift#L27-L34">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -318,9 +200,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7CoreGPX7GPXLinkC7withURLAC10Foundation0E0VSg_tcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(withURL:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX7GPXLinkC7withURLAC10Foundation0E0VSg_tcfc">init(withURL:)</a>
+                    <a name="/s:7CoreGPX7GPXTypeC5value12forLongitudeSSSd_tF"></a>
+                    <a name="//apple_ref/swift/Method/value(forLongitude:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXTypeC5value12forLongitudeSSSd_tF">value(forLongitude:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -328,16 +210,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes with a URL.</p>
-
-<p>This initializer is similar to <code><a href="../Classes/GPXLink.html#/s:7CoreGPX7GPXLinkC8withHrefACSS_tcfc">init(withHref:)</a></code>, except, this method checks on whether if the input URL is valid or not. It also modifies the <code>type</code> attribute as &lsquo;Website&rsquo; if identified to have a web page extension.</p>
+                        <p>for use in conversion from <code>Double</code> of longitude to <code>String</code></p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">withURL</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">?)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "method is no longer used and will be unsupported in future")</span>
+<span class="kd">func</span> <span class="nf">value</span><span class="p">(</span><span class="n">forLongitude</span> <span class="nv">longitude</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -348,12 +229,13 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>url</em>
+                                <em>longitude</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>input URL, intended as a web link reference.</p>
+                                  <p>input value must be valid within -180.0 and 180.0;
+In the case where input value exceeds range, 0 is returned</p>
                                 </div>
                               </td>
                             </tr>
@@ -361,7 +243,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXLink.swift#L56-L66">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXType.swift#L43-L50">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -369,9 +251,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7CoreGPX7GPXLinkC10dictionaryACSDyS2SG_tcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(dictionary:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX7GPXLinkC10dictionaryACSDyS2SG_tcfc">init(dictionary:)</a>
+                    <a name="/s:7CoreGPX7GPXTypeC3fix5valueAA6GPXFixOSS_tF"></a>
+                    <a name="//apple_ref/swift/Method/fix(value:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXTypeC3fix5valueAA6GPXFixOSS_tF">fix(value:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -379,21 +261,74 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>For internal use only</p>
-
-<p>Initializes a waypoint through a dictionary, with each key being an attribute name.</p>
-<div class="aside aside-remark">
-    <p class="aside-title">Remark</p>
-    <p>This initializer is designed only for use when parsing GPX files, and shouldn&rsquo;t be used in other ways.</p>
-
-</div>
+                        <p>for converting a <code>String</code> value to <code><a href="../Enums/GPXFix.html">GPXFix</a></code> enum</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">dictionary</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">])</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">fix</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Enums/GPXFix.html">GPXFix</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXType.swift#L53-L71">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX7GPXTypeC5value6forFixSSAA6GPXFixO_tF"></a>
+                    <a name="//apple_ref/swift/Method/value(forFix:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXTypeC5value6forFixSSAA6GPXFixO_tF">value(forFix:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>for conversion from enum <code><a href="../Enums/GPXFix.html">GPXFix</a></code> to <code>String</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">value</span><span class="p">(</span><span class="n">forFix</span> <span class="nv">fix</span><span class="p">:</span> <span class="kt"><a href="../Enums/GPXFix.html">GPXFix</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXType.swift#L74-L82">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX7GPXTypeC11dgpsStationySiSSSgF"></a>
+                    <a name="//apple_ref/swift/Method/dgpsStation(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXTypeC11dgpsStationySiSSSgF">dgpsStation(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>for conversion from an optional <code>String</code> of DGPS station to <code>Int</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">dgpsStation</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -404,12 +339,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>dictionary</em>
+                                <em>value</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>a dictionary with a key of an attribute, followed by the value which is set as the GPX file is parsed.</p>
+                                  <p><code>String</code> type should be a number within 0 and 1023; will return 0 when out of range.</p>
                                 </div>
                               </td>
                             </tr>
@@ -417,7 +352,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXLink.swift#L78-L82">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXType.swift#L89-L97">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -425,9 +360,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7CoreGPX7GPXLinkC7tagNameSSyF"></a>
-                    <a name="//apple_ref/swift/Method/tagName()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX7GPXLinkC7tagNameSSyF">tagName()</a>
+                    <a name="/s:7CoreGPX7GPXTypeC5value14forDgpsStationSSSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/value(forDgpsStation:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXTypeC5value14forDgpsStationSSSi_tF">value(forDgpsStation:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -435,18 +370,38 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>for conversion from <code>Int</code> of DGPS station to <code>String</code></p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">tagName</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">value</span><span class="p">(</span><span class="n">forDgpsStation</span> <span class="nv">dgpsStation</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>dgpsStation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>Int</code> should be within 0 and 1023; will return 0 when out of range.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXLink.swift#L90-L92">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXType.swift#L104-L111">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -454,9 +409,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7CoreGPX7GPXLinkC10addOpenTag02toB016indentationLevelySo15NSMutableStringC_SitF"></a>
-                    <a name="//apple_ref/swift/Method/addOpenTag(toGPX:indentationLevel:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX7GPXLinkC10addOpenTag02toB016indentationLevelySo15NSMutableStringC_SitF">addOpenTag(toGPX:indentationLevel:)</a>
+                    <a name="/s:7CoreGPX7GPXTypeC8dateTime5value10Foundation4DateVSgSS_tF"></a>
+                    <a name="//apple_ref/swift/Method/dateTime(value:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXTypeC8dateTime5value10Foundation4DateVSgSS_tF">dateTime(value:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -464,18 +419,41 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>for conversion of date and time formatted as per ISO8601 standards of <code>String</code> type to <code>Date</code></p>
+
+<p>This method has not been used much as it was intended for GPX parsing, but as <code>DateFormatter</code> was not fast enough, this method has not been used often.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">addOpenTag</span><span class="p">(</span><span class="n">toGPX</span> <span class="nv">gpx</span><span class="p">:</span> <span class="kt">NSMutableString</span><span class="p">,</span> <span class="nv">indentationLevel</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "Use class ISO8601DateParser instead.")</span>
+<span class="kd">func</span> <span class="nf">dateTime</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Date</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>date and time formatted string</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXLink.swift#L97-L104">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXType.swift#L121-L168">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -483,9 +461,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7CoreGPX7GPXLinkC11addChildTag02toB016indentationLevelySo15NSMutableStringC_SitF"></a>
-                    <a name="//apple_ref/swift/Method/addChildTag(toGPX:indentationLevel:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX7GPXLinkC11addChildTag02toB016indentationLevelySo15NSMutableStringC_SitF">addChildTag(toGPX:indentationLevel:)</a>
+                    <a name="/s:7CoreGPX7GPXTypeC5value11forDateTimeSSSg10Foundation0F0VSg_tF"></a>
+                    <a name="//apple_ref/swift/Method/value(forDateTime:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXTypeC5value11forDateTimeSSSg10Foundation0F0VSg_tF">value(forDateTime:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -493,18 +471,151 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>facilitates conversion from optional <code>Date</code> to optional <code>String</code></p>
+
+<p>This method is currently heavily used for generating of GPX files / formatted string, as the native <code>Date</code> type must be converted to a <code>String</code> first.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">addChildTag</span><span class="p">(</span><span class="n">toGPX</span> <span class="nv">gpx</span><span class="p">:</span> <span class="kt">NSMutableString</span><span class="p">,</span> <span class="nv">indentationLevel</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "Use class Convert instead.")</span>
+<span class="kd">func</span> <span class="nf">value</span><span class="p">(</span><span class="n">forDateTime</span> <span class="nv">date</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>date</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>can be of any date and time, which will be converted to a formatted ISO8601 date and time string.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Formatted string according to ISO8601, which is of <strong><q>yyyy-MM-ddTHH:mm:ssZ</q></strong></p>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXLink.swift#L106-L111">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXType.swift#L181-L193">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX7GPXTypeC14nonNegativeIntySiSSF"></a>
+                    <a name="//apple_ref/swift/Method/nonNegativeInt(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXTypeC14nonNegativeIntySiSSF">nonNegativeInt(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>conversion of <code>String</code> to <code>Int</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">nonNegativeInt</span><span class="p">(</span><span class="n">_</span> <span class="nv">string</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>string</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>must be a number, above 0.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a non negative integer. (positive only)</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXType.swift#L202-L209">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX7GPXTypeC5value17forNonNegativeIntSSSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/value(forNonNegativeInt:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX7GPXTypeC5value17forNonNegativeIntSSSi_tF">value(forNonNegativeInt:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>conversion of <code>Int</code> to <code>String</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">value</span><span class="p">(</span><span class="n">forNonNegativeInt</span> <span class="nv">int</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>int</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>must be above 0. (cannot be negative)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a non negative number formatted as <code>String</code>. (positive only)</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXType.swift#L218-L223">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

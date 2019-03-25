@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>GPXExtensions Class Reference</title>
+    <title>ISO8601DateParser Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/GPXExtensions" class="dashAnchor"></a>
-    <a title="GPXExtensions Class Reference"></a>
+    <a name="//apple_ref/swift/Class/ISO8601DateParser" class="dashAnchor"></a>
+    <a title="ISO8601DateParser Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">CoreGPX Docs</a> (83% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">CoreGPX Reference</a>
         <img id="carat" src="../img/carat.png" />
-        GPXExtensions Class Reference
+        ISO8601DateParser Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -126,16 +126,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>GPXExtensions</h1>
+            <h1>ISO8601DateParser</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">GPXExtensions</span> <span class="p">:</span> <span class="kt"><a href="../Classes/GPXElement.html">GPXElement</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ISO8601DateParser</span></code></pre>
 
                 </div>
               </div>
-            <p>For adding an extension tag.</p>
-
-<p>If extended, tags should be inbetween the open and close tags of <strong>&lt;extensions&gt;</strong></p>
+            <p>Undocumented</p>
 
           </section>
           <section class="section task-group-section">
@@ -144,9 +142,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@CoreGPX@objc(cs)GPXExtensions(im)init"></a>
-                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@CoreGPX@objc(cs)GPXExtensions(im)init">init()</a>
+                    <a name="/s:7CoreGPX17ISO8601DateParserC5parsey10Foundation0D0VSgSSSgFZ"></a>
+                    <a name="//apple_ref/swift/Method/parse(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX17ISO8601DateParserC5parsey10Foundation0D0VSgSSSgFZ">parse(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -161,70 +159,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">required</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">parse</span><span class="p">(</span><span class="n">_</span> <span class="nv">dateString</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Date</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXExtensions.swift#L18-L20">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7CoreGPX13GPXExtensionsC7tagNameSSyF"></a>
-                    <a name="//apple_ref/swift/Method/tagName()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX13GPXExtensionsC7tagNameSSyF">tagName()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">tagName</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXExtensions.swift#L23-L25">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7CoreGPX13GPXExtensionsC11addChildTag02toB016indentationLevelySo15NSMutableStringC_SitF"></a>
-                    <a name="//apple_ref/swift/Method/addChildTag(toGPX:indentationLevel:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX13GPXExtensionsC11addChildTag02toB016indentationLevelySo15NSMutableStringC_SitF">addChildTag(toGPX:indentationLevel:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">addChildTag</span><span class="p">(</span><span class="n">toGPX</span> <span class="nv">gpx</span><span class="p">:</span> <span class="kt">NSMutableString</span><span class="p">,</span> <span class="nv">indentationLevel</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXExtensions.swift#L28-L30">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/DateTimeParsers.swift#L27-L53">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

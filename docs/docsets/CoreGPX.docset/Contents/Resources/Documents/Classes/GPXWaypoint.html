@@ -14,7 +14,7 @@
     <a title="GPXWaypoint Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CoreGPX Docs</a> (79% documented)</p>
+        <p><a href="../index.html">CoreGPX Docs</a> (83% documented)</p>
         <p class="header-right"><a href="https://www.github.com/vincentneo/CoreGPX"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -31,6 +31,12 @@
           <li class="nav-group-name">
             <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Convert.html">Convert</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CopyrightYearParser.html">CopyrightYearParser</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Classes/GPXAuthor.html">GPXAuthor</a>
               </li>
@@ -86,7 +92,32 @@
                 <a href="../Classes/GPXTrackSegment.html">GPXTrackSegment</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/GPXType.html">GPXType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/GPXWaypoint.html">GPXWaypoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ISO8601DateParser.html">ISO8601DateParser</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:7CoreGPX18kGPXDescriptionKeySSvp">kGPXDescriptionKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:7CoreGPX32kGPXInvalidGPXFormatNotificationSSvp">kGPXInvalidGPXFormatNotification</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/GPXFix.html">GPXFix</a>
               </li>
             </ul>
           </li>
@@ -954,6 +985,62 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC10dictionaryACSDyS2SG_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(dictionary:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC10dictionaryACSDyS2SG_tcfc">init(dictionary:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>For internal use only</p>
+
+<p>Initializes a waypoint through a dictionary, with each key being an attribute name.</p>
+<div class="aside aside-remark">
+    <p class="aside-title">Remark</p>
+    <p>This initializer is designed only for use when parsing GPX files, and shouldn&rsquo;t be used in other ways.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">dictionary</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>dictionary</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a dictionary with a key of an attribute, followed by the value which is set as the GPX file is parsed.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L191-L212">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:7CoreGPX11GPXWaypointC7newLink8withHrefAA7GPXLinkCSS_tF"></a>
                     <a name="//apple_ref/swift/Method/newLink(withHref:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:7CoreGPX11GPXWaypointC7newLink8withHrefAA7GPXLinkCSS_tF">newLink(withHref:)</a>
@@ -1008,12 +1095,99 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC7tagNameSSyF"></a>
+                    <a name="//apple_ref/swift/Method/tagName()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC7tagNameSSyF">tagName()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">tagName</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L232-L234">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC10addOpenTag02toB016indentationLevelySo15NSMutableStringC_SitF"></a>
+                    <a name="//apple_ref/swift/Method/addOpenTag(toGPX:indentationLevel:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC10addOpenTag02toB016indentationLevelySo15NSMutableStringC_SitF">addOpenTag(toGPX:indentationLevel:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">addOpenTag</span><span class="p">(</span><span class="n">toGPX</span> <span class="nv">gpx</span><span class="p">:</span> <span class="kt">NSMutableString</span><span class="p">,</span> <span class="nv">indentationLevel</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L238-L250">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC11addChildTag02toB016indentationLevelySo15NSMutableStringC_SitF"></a>
+                    <a name="//apple_ref/swift/Method/addChildTag(toGPX:indentationLevel:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC11addChildTag02toB016indentationLevelySo15NSMutableStringC_SitF">addChildTag(toGPX:indentationLevel:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">addChildTag</span><span class="p">(</span><span class="n">toGPX</span> <span class="nv">gpx</span><span class="p">:</span> <span class="kt">NSMutableString</span><span class="p">,</span> <span class="nv">indentationLevel</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.0/Classes/GPXWaypoint.swift#L252-L281">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.github.com/vincentneo" target="_blank" rel="external">Vincent</a>. All rights reserved. (Last updated: 2019-03-24)</p>
+          <p>&copy; 2019 <a class="link" href="https://www.github.com/vincentneo" target="_blank" rel="external">Vincent</a>. All rights reserved. (Last updated: 2019-03-25)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
