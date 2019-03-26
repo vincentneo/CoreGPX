@@ -73,6 +73,10 @@ open class GPXRoot: GPXElement {
         self.creator = creator
     }
     
+    internal init(dictionary: [String : String]) {
+        self.creator = dictionary["creator"]
+        self.version = dictionary["version"]
+    }
     
     
     // MARK:- Public Methods

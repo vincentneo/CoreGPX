@@ -109,6 +109,9 @@ open class GPXParser: NSObject {
     private var emailDict = [String : String]()
     private var copyrightDict = [String : String]()
     
+    // for GPX Header
+    private var gpxHeaderDict = [String : String]()
+    
     // MARK:- GPX v1.1 XML Schema tag types check
     private var isWaypoint = false
     private var isMetadata = false
@@ -138,7 +141,7 @@ open class GPXParser: NSObject {
         self.parser.delegate = self
         self.parser.parse()
         
-        let root = GPXRoot()
+        let root = GPXRoot(dictionary: gpxHeaderDict)
         
         root.metadata = metadata
         root.extensions = extensions
@@ -163,6 +166,8 @@ extension GPXParser: XMLParserDelegate {
         element = elementName
         
         switch elementName {
+        case "gpx":
+            gpxHeaderDict = attributeDict
         case "wpt":
             isWaypoint = true
             waypointDict["lat"] = attributeDict["lat"]

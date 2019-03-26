@@ -36,6 +36,7 @@ class ParseViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 self.tracks = gpx.tracks
                 self.waypoints = gpx.waypoints
                 self.tableView.reloadData()
+                print("gpx creator: \(gpx.creator ?? "") ver: \(gpx.version ?? "")")
             }
         }
     }
