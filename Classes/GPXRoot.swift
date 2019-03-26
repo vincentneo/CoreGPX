@@ -75,6 +75,16 @@ open class GPXRoot: GPXElement {
         self.version = "1.1"
     }
     
+    /// For internal use only
+    ///
+    /// Initializes the metadata using a dictionary, with each key being an attribute name.
+    ///
+    /// - Remark:
+    /// This initializer is designed only for use when parsing GPX files, and shouldn't be used in other ways.
+    ///
+    /// - Parameters:
+    ///     - dictionary: a dictionary with a key of an attribute, followed by the value which is set as the GPX file is parsed.
+    ///
     internal init(dictionary: [String : String]) {
         self.creator = dictionary["creator"]
         self.version = dictionary["version"]
