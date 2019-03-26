@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="600" height="257.4" src="https://github.com/vincentneo/CoreGPX/raw/master/CoreGPX%20title.png">
+  <img width=65% height=65% src="https://github.com/vincentneo/CoreGPX/raw/master/CoreGPX%20title.png">
 </p>
 <p align="center">
 	<b>
