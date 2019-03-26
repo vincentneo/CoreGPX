@@ -100,28 +100,28 @@
     },
     {
       "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXParser.swift",
-      "line": 137,
+      "line": 140,
       "symbol": "GPXParser.parsedData()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXParser.swift",
-      "line": 161,
+      "line": 164,
       "symbol": "GPXParser.parser(_:didStartElement:namespaceURI:qualifiedName:attributes:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXParser.swift",
-      "line": 212,
+      "line": 217,
       "symbol": "GPXParser.parser(_:foundCharacters:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXParser.swift",
-      "line": 286,
+      "line": 291,
       "symbol": "GPXParser.parser(_:didEndElement:namespaceURI:qualifiedName:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
