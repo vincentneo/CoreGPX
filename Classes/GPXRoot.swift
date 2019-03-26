@@ -15,7 +15,7 @@ import Foundation
 open class GPXRoot: GPXElement {
     
     /// GPX version that will be generated. Currently, only the latest (version 1.1) is supported.
-    public var version: String? = "1.1"
+    public var version: String?
     
     /// Name of the creator of the GPX content.
     ///
@@ -60,7 +60,8 @@ open class GPXRoot: GPXElement {
     ///
     public required init() {
         super.init()
-        creator = "Powered by Open Source CoreGPX Project"
+        self.creator = "Powered by Open Source CoreGPX Project"
+        self.version = "1.1"
     }
     
     /// for initializing with a creator name
@@ -71,6 +72,7 @@ open class GPXRoot: GPXElement {
     public init(creator: String) {
         super.init()
         self.creator = creator
+        self.version = "1.1"
     }
     
     internal init(dictionary: [String : String]) {
