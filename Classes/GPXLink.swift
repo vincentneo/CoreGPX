@@ -14,7 +14,7 @@ import Foundation
     - type of content
     - text of web link (probably a description kind of thing)
  */
-open class GPXLink: GPXElement {
+open class GPXLink: GPXElement, Codable {
     
     // MARK:- Properties
 

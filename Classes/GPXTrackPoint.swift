@@ -50,6 +50,16 @@ open class GPXTrackPoint: GPXWaypoint {
         self.ageofDGPSData = Convert.toDouble(from: dictionary["ageofdgpsdata"])
     }
     
+    required public init(from decoder: Decoder) throws {
+        super.init()
+        let container = try decoder.container(keyedBy: PointKey.self)
+        time = try ISO8601DateParser.parse(container.decode(String.self, forKey: .time))
+        elevation = try container.decode(Double.self, forKey: .elevation)
+        latitude = try container.decode(Double.self, forKey: .latitude)
+        longitude = try container.decode(Double.self, forKey: .longitude)
+        //fatalError("init(from:) has not been implemented")
+    }
+    
     // MARK:- Tag
     
     override func tagName() -> String {
@@ -57,3 +67,25 @@ open class GPXTrackPoint: GPXWaypoint {
     }
     
 }
+
+enum PointKey: String, CodingKey {
+    case time = "time"
+    case elevation = "ele"
+    case latitude = "lat"
+    case longitude = "lon"
+    case magneticVariation = "magvar"
+    case geoidHeight = "geoidheight"
+    case name = "name"
+    case comment = "cmt"
+    case desc = "desc"
+    case source = "src"
+    case type = "sym"
+    case fix = "fix"
+    case satellites = "sat"
+    case horizontalDilution = "hdop"
+    case verticalDilution = "vdop"
+    case positionDilution = "pdop"
+    case DGPSid = "dgpsid"
+    case ageOfDGPSData = "ageofdgpsdata"
+}
+

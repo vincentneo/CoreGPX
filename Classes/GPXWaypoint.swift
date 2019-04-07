@@ -17,7 +17,7 @@ import Foundation
  
  The waypoint should at least contain the attributes of both `latitude` and `longitude` in order to be considered a valid waypoint. Most attributes are optional, and are not required to be implemented.
 */
-open class GPXWaypoint: GPXElement {
+open class GPXWaypoint: GPXElement, Codable {
     
     // MARK:- Attributes of a waypoint
     
