@@ -280,3 +280,72 @@ open class GPXWaypoint: GPXElement, Codable {
         }
     }
 }
+
+struct Point: Codable {
+    var link: GPXLink?
+    var elevation: Double?
+    var time: Date?
+    var magneticVariation: Double?
+    var geoidHeight: Double?
+    var name: String?
+    var comment: String?
+    var desc: String?
+    var source: String?
+    var symbol: String?
+    var type: String?
+    var fix: Int?
+    var satellites: Int?
+    var horizontalDilution: Double?
+    var verticalDilution: Double?
+    var positionDilution: Double?
+    var ageofDGPSData: Double?
+    var DGPSid: Int?
+    var extensions: GPXExtensions?
+    var latitude: Double?
+    var longitude: Double?
+    
+    enum PointKey: String, CodingKey {
+        case time = "time"
+        case elevation = "ele"
+        case latitude = "lat"
+        case longitude = "lon"
+        case magneticVariation = "magvar"
+        case geoidHeight = "geoidheight"
+        case name = "name"
+        case comment = "cmt"
+        case desc = "desc"
+        case source = "src"
+        case type = "sym"
+        case fix = "fix"
+        case satellites = "sat"
+        case horizontalDilution = "hdop"
+        case verticalDilution = "vdop"
+        case positionDilution = "pdop"
+        case DGPSid = "dgpsid"
+        case ageOfDGPSData = "ageofdgpsdata"
+    }
+    
+    enum PointType {
+        case trackpoint
+        case waypoint
+        case routepoint
+    }
+    
+    func asTrackPoint() -> GPXTrackPoint {
+        let point = GPXTrackPoint()
+        point.time = time
+        point.elevation = elevation
+        point.latitude = latitude
+        point.longitude = longitude
+        return point
+    }
+    /*
+    func asWaypoint() -> GPXWaypoint {
+        
+    }
+    func asRoutePoint() -> GPXRoutePoint {
+        
+    }
+ */
+}
+

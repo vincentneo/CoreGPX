@@ -60,6 +60,10 @@ open class GPXTrackPoint: GPXWaypoint {
         //fatalError("init(from:) has not been implemented")
     }
     
+    open override func encode(to encoder: Encoder) throws {
+        
+    }
+    
     // MARK:- Tag
     
     override func tagName() -> String {
@@ -69,23 +73,23 @@ open class GPXTrackPoint: GPXWaypoint {
 }
 
 enum PointKey: String, CodingKey {
-    case time = "time"
-    case elevation = "ele"
-    case latitude = "lat"
-    case longitude = "lon"
-    case magneticVariation = "magvar"
-    case geoidHeight = "geoidheight"
-    case name = "name"
-    case comment = "cmt"
-    case desc = "desc"
-    case source = "src"
-    case type = "sym"
-    case fix = "fix"
-    case satellites = "sat"
-    case horizontalDilution = "hdop"
-    case verticalDilution = "vdop"
-    case positionDilution = "pdop"
-    case DGPSid = "dgpsid"
-    case ageOfDGPSData = "ageofdgpsdata"
+    case time //= "time"
+    case elevation// = "ele"
+    case latitude// = "lat"
+    case longitude //= "lon"
+    case magneticVariation// = "magvar"
+    case geoidHeight// = "geoidheight"
+    case name //= "name"
+    case comment// = "cmt"
+    case desc// = "desc"
+    case source //= "src"
+    case type// = "sym"
+    case fix //= "fix"
+    case satellites// = "sat"
+    case horizontalDilution// = "hdop"
+    case verticalDilution// = "vdop"
+    case positionDilution// = "pdop"
+    case DGPSid //= "dgpsid"
+    case ageOfDGPSData //= "ageofdgpsdata"
 }
 
