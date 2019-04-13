@@ -41,7 +41,7 @@ open class GPXEmail: GPXElement {
     }
     
     /// Initialize with seperate values of both email ID and domain.
-    @available(*, deprecated: 0.5.0, renamed: "init(withFullEmailAddress:)")
+    @available(*, deprecated, renamed: "init(withFullEmailAddress:)")
     public init(emailID: String, domain: String) {
         self.emailID = emailID
         self.domain = domain
