@@ -50,6 +50,12 @@ open class GPXTrackPoint: GPXWaypoint {
         self.ageofDGPSData = Convert.toDouble(from: dictionary["ageofdgpsdata"])
     }
     
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let superDecoder = try container.superDecoder()
+        try super.init(from: superDecoder)
+    }
+    
     /*
     required public init(from decoder: Decoder) throws {
         super.init()
@@ -61,7 +67,8 @@ open class GPXTrackPoint: GPXWaypoint {
         //fatalError("init(from:) has not been implemented")
     }
     */
-    
+
+    /* NSCoding
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         guard let time = aDecoder.decodeObject(forKey: "time") as? Date,
@@ -84,6 +91,8 @@ open class GPXTrackPoint: GPXWaypoint {
         aCoder.encode(self.latitude, forKey: "latitude")
         aCoder.encode(self.longitude, forKey: "longitude")
     }
+ 
+ */
     
     // MARK:- Tag
     

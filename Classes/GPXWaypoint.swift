@@ -17,8 +17,9 @@ import Foundation
  
  The waypoint should at least contain the attributes of both `latitude` and `longitude` in order to be considered a valid waypoint. Most attributes are optional, and are not required to be implemented.
 */
-open class GPXWaypoint: GPXElement, NSCoding {
+open class GPXWaypoint: GPXElement, Codable {
     
+    /*
     public func encode(with aCoder: NSCoder) {
         aCoder.encode(self.time, forKey: "time")
         aCoder.encode(self.elevation, forKey: "elevation")
@@ -40,26 +41,29 @@ open class GPXWaypoint: GPXElement, NSCoding {
         self.latitude = latitude
         self.longitude = longitude
     }
+    */
     
-    enum PointKey: String, CodingKey {
-        case time = "time"
+    
+    enum CodingKeys: String, CodingKey {
+        case time
         case elevation = "ele"
         case latitude = "lat"
         case longitude = "lon"
         case magneticVariation = "magvar"
         case geoidHeight = "geoidheight"
-        case name = "name"
+        case name
         case comment = "cmt"
         case desc = "desc"
         case source = "src"
-        case type = "sym"
-        case fix = "fix"
+        case symbol = "sym"
+        case type
+        case fix
         case satellites = "sat"
         case horizontalDilution = "hdop"
         case verticalDilution = "vdop"
         case positionDilution = "pdop"
         case DGPSid = "dgpsid"
-        case ageOfDGPSData = "ageofdgpsdata"
+        case ageofDGPSData = "ageofdgpsdata"
     }
     
     
