@@ -16,6 +16,12 @@ import Foundation
  */
 open class GPXLink: GPXElement, Codable {
     
+    enum CodingKeys: String, CodingKey {
+        case text
+        case mimetype = "type"
+        case href
+    }
+    
     // MARK:- Properties
 
     /// Text of hyperlink
