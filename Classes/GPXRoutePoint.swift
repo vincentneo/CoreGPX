@@ -60,6 +60,13 @@ open class GPXRoutePoint: GPXWaypoint {
         fatalError("init(coder:) has not been implemented")
     }
     
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        // ensures that subclass of `GPXWaypoint` decodes from the superclass.
+        let superDecoder = try container.superDecoder()
+        try super.init(from: superDecoder)
+    }
+    
     // MARK:- Tag
     
     override func tagName() -> String {

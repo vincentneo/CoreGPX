@@ -52,6 +52,7 @@ open class GPXTrackPoint: GPXWaypoint {
     
     required public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        // ensures that subclass of `GPXWaypoint` decodes from the superclass.
         let superDecoder = try container.superDecoder()
         try super.init(from: superDecoder)
     }

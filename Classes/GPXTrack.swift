@@ -20,9 +20,9 @@ open class GPXTrack: GPXElement, Codable {
         case link
         case tracksegments = "trkseg"
         case name
-        case comment
+        case comment = "cmt"
         case desc
-        case source
+        case source = "src"
         case number
         case type
         case extensions
