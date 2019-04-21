@@ -8,7 +8,7 @@
 </p>
 
 [![CI Status](https://travis-ci.com/vincentneo/CoreGPX.svg?branch=master)](https://travis-ci.com/vincentneo/CoreGPX)
-[![Swift Version](https://img.shields.io/badge/Swift-4.2-orange.svg)](https://swift.org/blog/swift-4-2-released/)
+[![Swift Version](https://img.shields.io/badge/Swift-5.0-orange.svg)](https://swift.org/blog/swift-5-released/)
 [![GPX Version](https://img.shields.io/badge/gpx-1.1-yellow.svg)](https://www.topografix.com/gpx/1/1/)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 [![Platform](https://img.shields.io/cocoapods/p/CoreGPX.svg?style=flat)](https://cocoapods.org/pods/CoreGPX)
