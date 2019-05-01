@@ -19,6 +19,8 @@ import Foundation
 */
 open class GPXWaypoint: GPXElement, Codable {
     
+    // MARK: Codable Implementation
+    
     enum CodingKeys: String, CodingKey {
         case time
         case elevation = "ele"
@@ -39,8 +41,8 @@ open class GPXWaypoint: GPXElement, Codable {
         case positionDilution = "pdop"
         case DGPSid = "dgpsid"
         case ageofDGPSData = "ageofdgpsdata"
-        //case link
-        //case extensions
+        case link
+        case extensions
     }
     
     
