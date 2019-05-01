@@ -44,27 +44,8 @@ open class GPXRoutePoint: GPXWaypoint {
         self.ageofDGPSData = Convert.toDouble(from: dictionary["ageofdgpsdata"])
     }
     
-    /*
     required public init(from decoder: Decoder) throws {
-        super.init()
-        let container = try decoder.container(keyedBy: PointKey.self)
-        time = try ISO8601DateParser.parse(container.decode(String.self, forKey: .time))
-        elevation = try container.decode(Double.self, forKey: .elevation)
-        latitude = try container.decode(Double.self, forKey: .latitude)
-        longitude = try container.decode(Double.self, forKey: .longitude)
-        //fatalError("init(from:) has not been implemented")
-    }
-    */
-    
-    public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        // ensures that subclass of `GPXWaypoint` decodes from the superclass.
-        let superDecoder = try container.superDecoder()
-        try super.init(from: superDecoder)
+        try super.init(from: decoder)
     }
     
     // MARK:- Tag
