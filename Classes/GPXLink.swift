@@ -16,6 +16,7 @@ import Foundation
  */
 open class GPXLink: GPXElement, Codable {
     
+    /// For Codable use
     enum CodingKeys: String, CodingKey {
         case text
         case mimetype = "type"
