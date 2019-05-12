@@ -14,7 +14,7 @@
     <a title="GPXWaypoint Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CoreGPX Docs</a> (83% documented)</p>
+        <p><a href="../index.html">CoreGPX Docs</a> (72% documented)</p>
         <p class="header-right"><a href="https://www.github.com/vincentneo/CoreGPX"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -59,6 +59,9 @@
                 <a href="../Classes/GPXLink.html">GPXLink</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/GPXLink/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/GPXMetadata.html">GPXMetadata</a>
               </li>
               <li class="nav-group-task">
@@ -80,10 +83,16 @@
                 <a href="../Classes/GPXRoute.html">GPXRoute</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/GPXRoute/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/GPXRoutePoint.html">GPXRoutePoint</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/GPXTrack.html">GPXTrack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXTrack/CodingKeys.html">– CodingKeys</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/GPXTrackPoint.html">GPXTrackPoint</a>
@@ -92,10 +101,16 @@
                 <a href="../Classes/GPXTrackSegment.html">GPXTrackSegment</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/GPXTrackSegment/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/GPXType.html">GPXType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/GPXWaypoint.html">GPXWaypoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXWaypoint/CodingKeys.html">– CodingKeys</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/ISO8601DateParser.html">ISO8601DateParser</a>
@@ -129,7 +144,7 @@
             <h1>GPXWaypoint</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">GPXWaypoint</span> <span class="p">:</span> <span class="kt"><a href="../Classes/GPXElement.html">GPXElement</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">GPXWaypoint</span> <span class="p">:</span> <span class="kt"><a href="../Classes/GPXElement.html">GPXElement</a></span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
 
                 </div>
               </div>
@@ -148,7 +163,45 @@
           </section>
           <section class="section task-group-section">
             <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Codable%20Implementation"></a>
+                <a name="//apple_ref/swift/Section/Codable Implementation" class="dashAnchor"></a>
+                <a href="#/Codable%20Implementation">
+                  <h3 class="section-name">Codable Implementation</h3>
+                </a>
+              </div>
               <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX11GPXWaypointC10CodingKeysO"></a>
+                    <a name="//apple_ref/swift/Enum/CodingKeys" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX11GPXWaypointC10CodingKeysO">CodingKeys</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>For Codable use</p>
+
+                        <a href="../Classes/GPXWaypoint/CodingKeys.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">CodingKeys</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CodingKey</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L25-L47">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -176,7 +229,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L27">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L56">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -208,7 +261,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L32">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L61">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -240,7 +293,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L37">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L66">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -272,7 +325,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L42">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L71">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -304,7 +357,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L47">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L76">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -342,7 +395,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L54">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L83">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -380,7 +433,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L61">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L90">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -418,7 +471,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L68">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L97">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -450,7 +503,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L73">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L102">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -488,7 +541,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L80">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L109">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -518,7 +571,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L83">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L112">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -570,7 +623,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L98">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L127">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -600,7 +653,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L101">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L130">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -630,7 +683,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L104">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L133">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -660,7 +713,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L107">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L136">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -690,7 +743,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L110">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L139">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -730,7 +783,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L119">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L148">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -770,7 +823,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L128">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L157">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -800,7 +853,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L131">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L160">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -836,7 +889,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L139">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L168">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -872,7 +925,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L147">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L176">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -909,7 +962,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L158-L161">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L190-L193">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -977,7 +1030,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L174-L179">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L206-L211">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1033,7 +1086,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L191-L212">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L223-L244">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1090,7 +1143,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L224-L228">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L256-L260">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1119,7 +1172,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L232-L234">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L264-L266">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1148,7 +1201,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L238-L250">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L270-L282">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1177,7 +1230,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.1/Classes/GPXWaypoint.swift#L252-L281">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.5/Classes/GPXWaypoint.swift#L284-L313">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1187,7 +1240,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.github.com/vincentneo" target="_blank" rel="external">Vincent</a>. All rights reserved. (Last updated: 2019-03-26)</p>
+          <p>&copy; 2019 <a class="link" href="https://www.github.com/vincentneo" target="_blank" rel="external">Vincent</a>. All rights reserved. (Last updated: 2019-05-12)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
