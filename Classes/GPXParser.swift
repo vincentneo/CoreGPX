@@ -351,6 +351,7 @@ extension GPXParser: XMLParserDelegate {
             
             // clear values
             isTrackPoint = false
+            print("TrkPtDict \(trackpointDict)")
             trackpointDict.removeAll()
             
         case "wpt":

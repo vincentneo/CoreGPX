@@ -14,6 +14,8 @@ import Foundation
  */
 open class GPXExtensions: GPXElement, Codable {
     
+    var attributes = [String : String]()
+    
     // MARK:- Initializer
     public required init() {
         super.init()
@@ -22,6 +24,10 @@ open class GPXExtensions: GPXElement, Codable {
     // MARK:- Tag
     override func tagName() -> String {
         return "extensions"
+    }
+    
+    init(with Dictionary: [String : String]) {
+        self.attributes = Dictionary
     }
     
     // MARK:- GPX

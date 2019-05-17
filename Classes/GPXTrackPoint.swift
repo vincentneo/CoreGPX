@@ -48,6 +48,15 @@ open class GPXTrackPoint: GPXWaypoint {
         self.positionDilution = Convert.toDouble(from: dictionary["pdop"])
         self.DGPSid = Convert.toInt(from: dictionary["dgpsid"])
         self.ageofDGPSData = Convert.toDouble(from: dictionary["ageofdgpsdata"])
+        
+        let Extensions = GPXExtensions()
+        for type in GPXWaypoint.waypointTypes {
+            if dictionary[type] == nil {
+                Extensions.attributes[type] = dictionary[type]
+            }
+        }
+        self.extensions = Extensions
+        
     }
     
     /// For initializing with a `Decoder`

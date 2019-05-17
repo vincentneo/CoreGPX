@@ -50,6 +50,9 @@ open class GPXWaypoint: GPXElement, Codable {
     
     // MARK:- Attributes of a waypoint
     
+    /// All attributes of a waypoint and its types, in an `Array`.
+    static let waypointTypes = ["time", "ele", "lat", "lon", "magvar", "geoidheight", "name", "cmt", "desc", "src", "sym", "type", "fix", "sat", "hdop", "vdop", "pdop", "dgpsid", "ageofdgpsdata"]
+    
     /// A value type for link properties (see `GPXLink`)
     ///
     /// Intended for additional information about current point through a web link.
@@ -241,6 +244,15 @@ open class GPXWaypoint: GPXElement, Codable {
         self.positionDilution = Convert.toDouble(from: dictionary["pdop"])
         self.DGPSid = Convert.toInt(from: dictionary["dgpsid"])
         self.ageofDGPSData = Convert.toDouble(from: dictionary["ageofdgpsdata"])
+        
+        let Extensions = GPXExtensions()
+        for type in GPXWaypoint.waypointTypes {
+            if dictionary[type] == nil {
+                Extensions.attributes[type] = dictionary[type]
+            }
+        }
+        self.extensions = Extensions
+        
     }
     
     // MARK:- Public Methods
