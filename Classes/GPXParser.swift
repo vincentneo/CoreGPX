@@ -167,8 +167,6 @@ extension GPXParser: XMLParserDelegate {
         
         element = elementName
         
-        print("strEle: \(elementName), \(namespaceURI ?? "nil"), \(qName ?? "nil"), \(attributeDict)")
-        
         switch elementName {
         case "gpx":
             gpxHeaderDict = attributeDict
@@ -233,8 +231,6 @@ extension GPXParser: XMLParserDelegate {
         let foundString = string.trimmingCharacters(in: .whitespacesAndNewlines)
         if foundString.isEmpty == false {
             if element != "trkpt" || element != "wpt" || element != "rtept" || element != "metadata" || element != "extensions" {
-                
-                print("foundChar: \(element), \(string)")
                 
                 if isExtensions {
                     element = "\(element), \(extensionIndex)"
@@ -373,7 +369,6 @@ extension GPXParser: XMLParserDelegate {
             // clear values
             isTrackPoint = false
             extensionIndex = 0
-            print("TrkPtDict \(trackpointDict)")
             trackpointDict.removeAll()
             
         case "wpt":
