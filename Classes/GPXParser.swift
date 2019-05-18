@@ -162,7 +162,6 @@ open class GPXParser: NSObject {
  This extension handles all the data, as the parser works its way through the XML elements.
  */
 extension GPXParser: XMLParserDelegate {
-    indenta
     
     public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         
@@ -215,13 +214,13 @@ extension GPXParser: XMLParserDelegate {
             copyrightDict["author"] = attributeDict["author"]
         default:
             if isTrackPoint && isExtensions {
-                trackpointDict["\(element), \(extensionIndex)"] = "extensionName \(extensionIndex)"
+                trackpointDict["\(element), \(extensionIndex)"] = "index \(extensionIndex)"
             }
             else if isRoutePoint && isExtensions {
-                routepointDict["\(element), \(extensionIndex)"] = "extensionName \(extensionIndex)"
+                routepointDict["\(element), \(extensionIndex)"] = "index \(extensionIndex)"
             }
             else if isWaypoint && isExtensions {
-                waypointDict["\(element), \(extensionIndex)"] = "extensionName \(extensionIndex)"
+                waypointDict["\(element), \(extensionIndex)"] = "index \(extensionIndex)"
             }
             else {
                 break
@@ -480,7 +479,7 @@ extension GPXParser: XMLParserDelegate {
             isCopyright = false
         default:
             let key = "\(elementName), \(extensionIndex)"
-            if trackpointDict.keys.contains(key) || routepointDict.keys.contains(key) || waypointDict.keys.contains(key) {
+            if trackpointDict[key] == "index \(extensionIndex)" || routepointDict[key] == "index \(extensionIndex)" || waypointDict[key] == "index \(extensionIndex)" {
                 extensionIndex += 1
             }
             else {
