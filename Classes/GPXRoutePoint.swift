@@ -48,7 +48,7 @@ open class GPXRoutePoint: GPXWaypoint {
             newDict.removeValue(forKey: type)
         }
         if newDict.count > 0 {
-            self.extensions = GPXExtensions(with: newDict)
+            self.extensions = GPXExtensions(dictionary: newDict)
         }
         
     }

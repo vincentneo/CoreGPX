@@ -14,7 +14,8 @@ import Foundation
  */
 open class GPXExtensions: GPXElement, Codable {
     
-    var attributes = [String : String]()
+    /// attributes will be in format of 
+    var attributes = [[String : String]]()
     
     // MARK:- Initializer
     public required init() {
@@ -26,8 +27,18 @@ open class GPXExtensions: GPXElement, Codable {
         return "extensions"
     }
     
-    init(with Dictionary: [String : String]) {
-        self.attributes = Dictionary
+    init(dictionary: [String : String]) {
+
+        for key in dictionary.keys {
+            let strings = key.components(separatedBy: ", ")
+            let index = Int(strings[1])!
+            if !attributes.indices.contains(index) {
+                attributes.append([String : String]())
+            }
+            
+            attributes[index][strings[0]] = dictionary[key]
+        }
+        
     }
     
     // MARK:- GPX
