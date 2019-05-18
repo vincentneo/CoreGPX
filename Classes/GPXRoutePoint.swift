@@ -43,13 +43,13 @@ open class GPXRoutePoint: GPXWaypoint {
         self.DGPSid = Convert.toInt(from: dictionary["dgpsid"])
         self.ageofDGPSData = Convert.toDouble(from: dictionary["ageofdgpsdata"])
         
-        let Extensions = GPXExtensions()
+        var newDict = dictionary
         for type in GPXWaypoint.waypointTypes {
-            if dictionary[type] == nil {
-                Extensions.attributes[type] = dictionary[type]
-            }
+            newDict.removeValue(forKey: type)
         }
-        self.extensions = Extensions
+        if newDict.count > 0 {
+            self.extensions = GPXExtensions(with: newDict)
+        }
         
     }
     

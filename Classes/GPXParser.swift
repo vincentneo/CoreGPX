@@ -135,6 +135,8 @@ open class GPXParser: NSObject {
     private var isCopyright = false
     private var elementHasCopyright = false
     
+    private var extensionIndex = 0
+    
     // MARK:- Export parsed data
     
     public func parsedData() -> GPXRoot {
@@ -160,10 +162,13 @@ open class GPXParser: NSObject {
  This extension handles all the data, as the parser works its way through the XML elements.
  */
 extension GPXParser: XMLParserDelegate {
+    indenta
     
     public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         
         element = elementName
+        
+        print("strEle: \(elementName), \(namespaceURI ?? "nil"), \(qName ?? "nil"), \(attributeDict)")
         
         switch elementName {
         case "gpx":
@@ -209,7 +214,18 @@ extension GPXParser: XMLParserDelegate {
             isCopyright = true
             copyrightDict["author"] = attributeDict["author"]
         default:
-            break
+            if isTrackPoint && isExtensions {
+                trackpointDict["\(element), \(extensionIndex)"] = "extensionName \(extensionIndex)"
+            }
+            else if isRoutePoint && isExtensions {
+                routepointDict["\(element), \(extensionIndex)"] = "extensionName \(extensionIndex)"
+            }
+            else if isWaypoint && isExtensions {
+                waypointDict["\(element), \(extensionIndex)"] = "extensionName \(extensionIndex)"
+            }
+            else {
+                break
+            }
         }
         
     }
@@ -218,6 +234,12 @@ extension GPXParser: XMLParserDelegate {
         let foundString = string.trimmingCharacters(in: .whitespacesAndNewlines)
         if foundString.isEmpty == false {
             if element != "trkpt" || element != "wpt" || element != "rtept" || element != "metadata" || element != "extensions" {
+                
+                print("foundChar: \(element), \(string)")
+                
+                if isExtensions {
+                    element = "\(element), \(extensionIndex)"
+                }
                 
                 if isWaypoint {
                     if isLink {
@@ -351,6 +373,7 @@ extension GPXParser: XMLParserDelegate {
             
             // clear values
             isTrackPoint = false
+            extensionIndex = 0
             print("TrkPtDict \(trackpointDict)")
             trackpointDict.removeAll()
             
@@ -365,6 +388,7 @@ extension GPXParser: XMLParserDelegate {
             
             // clear values
             isWaypoint = false
+            extensionIndex = 0
             waypointDict.removeAll()
             
         case "rte":
@@ -392,6 +416,7 @@ extension GPXParser: XMLParserDelegate {
             
             // clear values
             isRoutePoint = false
+            extensionIndex = 0
             self.routepointDict.removeAll()
             
         case "trk":
@@ -454,7 +479,13 @@ extension GPXParser: XMLParserDelegate {
             // clear values
             isCopyright = false
         default:
-            break
+            let key = "\(elementName), \(extensionIndex)"
+            if trackpointDict.keys.contains(key) || routepointDict.keys.contains(key) || waypointDict.keys.contains(key) {
+                extensionIndex += 1
+            }
+            else {
+                break
+            }
         }
     }
 
