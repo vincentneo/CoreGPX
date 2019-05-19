@@ -15,7 +15,7 @@ import Foundation
 open class GPXExtensions: GPXElement, Codable {
     
     /// attributes will be in format of 
-    var attributes = [[String : String]]()
+    public var attributes = [[String : String]]()
     
     // MARK:- Initializer
     public required init() {

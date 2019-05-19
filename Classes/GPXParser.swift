@@ -474,7 +474,8 @@ extension GPXParser: XMLParserDelegate {
             isCopyright = false
         default:
             let key = "\(elementName), \(extensionIndex)"
-            if trackpointDict[key] == "index \(extensionIndex)" || routepointDict[key] == "index \(extensionIndex)" || waypointDict[key] == "index \(extensionIndex)" {
+            let def = "index \(extensionIndex)"
+            if trackpointDict[key] == def || routepointDict[key] == def || waypointDict[key] == def || tracksegDict[key] == def || trackDict[key] == def || routeDict[key] == def || linkDict[key] == def || metadataDict[key] == def || boundsDict[key] == def || authorDict[key] == def || emailDict[key] == def || copyrightDict[key] == def {
                 extensionIndex += 1
             }
             else {
