@@ -95,12 +95,12 @@ open class GPXParser: NSObject {
     // MARK:- Dictionary of element for parsing use.
     private var waypointDict = [String : String]()
     private var trackDict = [String : String]()
+    private var tracksegDict = [String : String]()
     private var trackpointDict = [String : String]()
     private var routeDict = [String : String]()
     private var routepointDict = [String : String]()
     
     private var linkDict = [String : String]()
-    private var extensionsDict = [String : String]()
     
     // Metadata types
     private var metadataDict = [String : String]()
@@ -110,7 +110,7 @@ open class GPXParser: NSObject {
     private var copyrightDict = [String : String]()
     
     // for GPX Header
-    private var gpxHeaderDict = [String : String]()
+    private var rootDict = [String : String]()
     
     // MARK:- GPX v1.1 XML Schema tag types check
     private var isWaypoint = false
@@ -143,7 +143,7 @@ open class GPXParser: NSObject {
         self.parser.delegate = self
         self.parser.parse()
         
-        let root = GPXRoot(dictionary: gpxHeaderDict)
+        let root = GPXRoot(dictionary: rootDict)
         
         root.metadata = metadata
         root.extensions = extensions
@@ -169,7 +169,7 @@ extension GPXParser: XMLParserDelegate {
         
         switch elementName {
         case "gpx":
-            gpxHeaderDict = attributeDict
+            rootDict = attributeDict
         case "wpt":
             isWaypoint = true
             waypointDict["lat"] = attributeDict["lat"]
@@ -298,7 +298,7 @@ extension GPXParser: XMLParserDelegate {
                     }
                 }
                 if isExtensions {
-                    extensionsDict[element] = foundString
+                    rootDict[element] = foundString
                 }
             }
             
