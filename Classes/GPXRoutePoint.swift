@@ -44,7 +44,7 @@ open class GPXRoutePoint: GPXWaypoint {
         self.ageofDGPSData = Convert.toDouble(from: dictionary["ageofdgpsdata"])
         
         var newDict = dictionary
-        for type in GPXWaypoint.waypointTypes {
+        for type in DefaultTypes.waypoint {
             newDict.removeValue(forKey: type)
         }
         if newDict.count > 0 {
