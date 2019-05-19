@@ -30,6 +30,12 @@ open class GPXTrackSegment: GPXElement, Codable {
         super.init()
     }
     
+    init(dictionary: [String : String]) {
+        if dictionary.count > 0 {
+            self.extensions = GPXExtensions(dictionary: dictionary)
+        }
+    }
+    
     // MARK:- Public Methods
     
     open func newTrackpointWith(latitude: Double, longitude: Double) -> GPXTrackPoint {
