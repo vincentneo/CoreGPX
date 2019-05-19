@@ -106,7 +106,7 @@ class ParseViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     for trackpoint in tracksegment.trackpoints {
                         
                         coordinates.append("Lat=\(trackpoint.latitude!), Lon=\(trackpoint.longitude!)")
-                        subtitles.append("Date:\(trackpoint.time ?? Date()), Ele:\(trackpoint.elevation ?? 0)")
+                        subtitles.append("Date:\(trackpoint.time ?? Date()), Ele:\(trackpoint.elevation ?? 0), Ext:\(trackpoint.extensions?.attributes ?? [[String:String]]())")
                         
                     }
                 }
