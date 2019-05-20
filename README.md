@@ -28,6 +28,7 @@ As it makes use of `XMLParser` for parsing GPX files, CoreGPX is fully dependent
 - [x] Parses GPX files using native XMLParser
 - [x] Support for iOS, macOS & watchOS
 - [x] **(new)** Supports `Codable` in essential classes
+- [x] **(new)** Enhanced support for `GPXExtensions` for both parsing and creating.
 
 ## Documentation
 
