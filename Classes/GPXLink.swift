@@ -84,7 +84,7 @@ open class GPXLink: GPXElement, Codable {
     ///
     init(dictionary: [String : String]) {
         self.href = dictionary["href"]
-        self.mimetype = dictionary["mimetype"]
+        self.mimetype = dictionary["type"]
         self.text = dictionary["text"]
     }
     
