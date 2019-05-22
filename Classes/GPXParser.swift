@@ -172,57 +172,43 @@ extension GPXParser: XMLParserDelegate {
             rootDict = attributeDict
         case "wpt":
             isWaypoint = true
-            waypointDict["lat"] = attributeDict["lat"]
-            waypointDict["lon"] = attributeDict["lon"]
+            waypointDict = attributeDict
         case "trk":
             isTrack = true
         case "trkseg":
             isTrackSegment = true
         case "trkpt":
             isTrackPoint = true
-            trackpointDict["lat"] = attributeDict["lat"]
-            trackpointDict["lon"] = attributeDict["lon"]
+            trackpointDict = attributeDict
         case "rte":
             isRoute = true
         case "rtept":
             isRoutePoint = true
-            routepointDict["lat"] = attributeDict["lat"]
-            routepointDict["lon"] = attributeDict["lon"]
+            routepointDict = attributeDict
         case "metadata":
             isMetadata = true
         case "extensions":
             isExtensions = true
         case "link":
             isLink = true
-            linkDict["href"] = attributeDict["href"]
+            linkDict = attributeDict
             
         // for metadata
         case "bounds":
             isBounds = true
-            boundsDict["minlon"] = attributeDict["minlon"]
-            boundsDict["maxlon"] = attributeDict["maxlon"]
-            boundsDict["minlat"] = attributeDict["minlat"]
-            boundsDict["maxlat"] = attributeDict["maxlat"]
+            boundsDict = attributeDict
         case "author":
             isAuthor = true
         case "email":
             isEmail = true
         case "copyright":
             isCopyright = true
-            copyrightDict["author"] = attributeDict["author"]
+            copyrightDict = attributeDict
         default:
-            if isTrackPoint && isExtensions {
-                trackpointDict["\(element), \(extensionIndex)"] = "index \(extensionIndex)"
+            if isExtensions {
+                parserFoundExtensionCode()
             }
-            else if isRoutePoint && isExtensions {
-                routepointDict["\(element), \(extensionIndex)"] = "index \(extensionIndex)"
-            }
-            else if isWaypoint && isExtensions {
-                waypointDict["\(element), \(extensionIndex)"] = "index \(extensionIndex)"
-            }
-            else {
-                break
-            }
+            break
         }
         
     }
@@ -475,7 +461,7 @@ extension GPXParser: XMLParserDelegate {
         default:
             let key = "\(elementName), \(extensionIndex)"
             let def = "index \(extensionIndex)"
-            if trackpointDict[key] == def || routepointDict[key] == def || waypointDict[key] == def || tracksegDict[key] == def || trackDict[key] == def || routeDict[key] == def || linkDict[key] == def || metadataDict[key] == def || boundsDict[key] == def || authorDict[key] == def || emailDict[key] == def || copyrightDict[key] == def {
+            if trackpointDict[key] == def || routepointDict[key] == def || waypointDict[key] == def || tracksegDict[key] == def || trackDict[key] == def || routeDict[key] == def || linkDict[key] == def || metadataDict[key] == def || boundsDict[key] == def || authorDict[key] == def || emailDict[key] == def || copyrightDict[key] == def || rootDict[key] == def {
                 extensionIndex += 1
             }
             else {
@@ -484,4 +470,51 @@ extension GPXParser: XMLParserDelegate {
         }
     }
 
+}
+
+extension GPXParser {
+    
+    func parserFoundExtensionCode() {
+        
+        let key = "\(element), \(extensionIndex)"
+        let indexValue = "index \(extensionIndex)"
+        
+        
+        if isTrackPoint {
+            trackpointDict[key] = indexValue
+        }
+        else if isRoutePoint {
+            routepointDict[key] = indexValue
+        }
+        else if isWaypoint {
+            waypointDict[key] = indexValue
+        }
+        else if isTrack {
+            trackDict[key] = indexValue
+        }
+        else if isTrackSegment {
+            tracksegDict[key] = indexValue
+        }
+        else if isAuthor {
+            authorDict[key] = indexValue
+        }
+        else if isBounds {
+            boundsDict[key] = indexValue
+        }
+        else if isCopyright {
+            copyrightDict[key] = indexValue
+        }
+        else if isEmail {
+            emailDict[key] = indexValue
+        }
+        else if isLink {
+            linkDict[key] = indexValue
+        }
+        else if isRoute {
+            routeDict[key] = indexValue
+        }
+        else { // for extension directly on GPXRoot
+            rootDict[key] = indexValue
+        }
+    }
 }
