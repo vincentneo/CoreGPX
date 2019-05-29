@@ -18,4 +18,13 @@ internal class DefaultTypes {
     /// All attributes of a metadata, in an `Array`.
     static let metadata = ["name", "desc", "author", "copyright", "link", "time", "keyword", "bounds"]
     
+    static let link = ["href", "type", "text"]
+    
+    static let email = ["id", "domain"]
+    
+    static let copyright = ["year", "license", "user"]
+    
+    static let track = ["number", "name", "cmt", "desc", "src", "type"]
+    
+    
 }
