@@ -242,10 +242,14 @@ open class GPXWaypoint: GPXElement, Codable {
         self.DGPSid = Convert.toInt(from: dictionary["dgpsid"])
         self.ageofDGPSData = Convert.toDouble(from: dictionary["ageofdgpsdata"])
         
-        var newDict = dictionary
-        for type in DefaultTypes.waypoint {
-            newDict.removeValue(forKey: type)
+        var newDict = [String : String]()
+
+        for key in dictionary.keys {
+            if DefaultTypes.waypoint.contains(key) == false {
+                newDict[key] = dictionary[key]
+            }
         }
+        
         if newDict.count > 0 {
             self.extensions = GPXExtensions(dictionary: newDict)
         }
