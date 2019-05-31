@@ -76,6 +76,18 @@ open class GPXMetadata: GPXElement {
         self.name = dictionary["name"]
         self.desc = dictionary["desc"]
         self.keyword = dictionary["keyword"]
+        
+        var newDict = [String : String]()
+        
+        for key in dictionary.keys {
+            if DefaultTypes.metadata.contains(key) == false {
+                newDict[key] = dictionary[key]
+            }
+        }
+        
+        if newDict.count > 0 {
+            self.extensions = GPXExtensions(dictionary: newDict)
+        }
     }
     
     // MARK:- Tag

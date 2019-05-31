@@ -24,7 +24,6 @@ internal struct DefaultTypes {
     
     static let copyright: Set = ["year", "license", "user"]
     
-    static let track:Set = ["number", "name", "cmt", "desc", "src", "type"]
-    
-    
+    static let track: Set = ["number", "name", "cmt", "desc", "src", "type"]
+
 }
