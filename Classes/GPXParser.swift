@@ -424,6 +424,7 @@ extension GPXParser: XMLParserDelegate {
             self.trackpoints.removeAll()
             
         case "extensions":
+            self.extensions = GPXExtensions()
             
             // clear values
             isExtensions = false
