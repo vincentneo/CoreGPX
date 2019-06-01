@@ -67,18 +67,6 @@ open class GPXTrack: GPXElement, Codable {
         self.desc = dictionary["desc"]
         self.source = dictionary["src"]
         self.type = dictionary["type"]
-        
-        var newDict = [String : String]()
-        
-        for key in dictionary.keys {
-            if DefaultTypes.track.contains(key) == false {
-                newDict[key] = dictionary[key]
-            }
-        }
-        
-        if newDict.count > 0 {
-            self.extensions = GPXExtensions(dictionary: newDict)
-        }
     }
     
     // MARK:- Public Methods
