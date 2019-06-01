@@ -344,7 +344,7 @@ extension GPXParser: XMLParserDelegate {
             metadataDict.removeAll()
             
         case "trkpt":
-            let tempTrackPoint = GPXTrackPoint(dictionary: trackpointDict)
+            let tempTrackPoint = GPXTrackPoint(dictionary: &trackpointDict)
             if elementHasLink {
                 tempTrackPoint.link = GPXLink(dictionary: linkDict)
                 linkDict.removeAll()
@@ -358,7 +358,7 @@ extension GPXParser: XMLParserDelegate {
             trackpointDict.removeAll()
             
         case "wpt":
-            let tempWaypoint = GPXWaypoint(dictionary: waypointDict)
+            let tempWaypoint = GPXWaypoint(dictionary: &waypointDict)
             if elementHasLink {
                 tempWaypoint.link = GPXLink(dictionary: linkDict)
                 linkDict.removeAll()
@@ -386,7 +386,7 @@ extension GPXParser: XMLParserDelegate {
             self.routepoints.removeAll()
             
         case "rtept":
-            let tempRoutePoint = GPXRoutePoint(dictionary: routepointDict)
+            let tempRoutePoint = GPXRoutePoint(dictionary: &routepointDict)
             if elementHasLink {
                 tempRoutePoint.link = GPXLink(dictionary: linkDict)
                 linkDict.removeAll()
