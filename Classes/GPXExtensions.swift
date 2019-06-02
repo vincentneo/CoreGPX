@@ -38,6 +38,17 @@ open class GPXExtensions: GPXElement, Codable {
         self.attributes[index][tagName] = "index \(index)"
     }
     
+    func addChildTag(inIndexOfParent index: Int, withContents contents: [String : String]) {
+        if attributes[index].values.contains("index \(index)") {
+            for key in contents.keys {
+                self.attributes[index][key] = contents[key]
+            }
+        }
+        else {
+            self.attributes.append(contents)
+        }
+    }
+    
     init(dictionary: [String : String]) {
 
         for key in dictionary.keys {
@@ -50,12 +61,6 @@ open class GPXExtensions: GPXElement, Codable {
             attributes[index][strings[0]] = dictionary[key]
         }
         
-    }
-    private var hasParentTag = false
-    func addChildTag(fromIndexOfAttributes index: Int) {
-        if attributes[index].values.contains("index \(index)") {
-            
-        }
     }
     
     // MARK:- GPX
