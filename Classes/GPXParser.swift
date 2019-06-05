@@ -78,6 +78,8 @@ open class GPXParser: NSObject {
     
     private var element = String()
     
+    private var root = GPXRoot()
+    
     // MARK:- Main element types or components
     private var waypoints = [GPXWaypoint]()
     
@@ -143,10 +145,7 @@ open class GPXParser: NSObject {
         self.parser.delegate = self
         self.parser.parse()
         
-        let root = GPXRoot(dictionary: rootDict)
-        
         root.metadata = metadata
-        root.extensions = extensions
         root.add(waypoints: waypoints)
         root.add(routes: routes)
         root.add(tracks: tracks)
@@ -230,7 +229,7 @@ extension GPXParser: XMLParserDelegate {
                         waypointDict[element] = foundString
                     }
                 }
-                if isTrack {
+                if isTrack && !isTrackPoint && !isTrackSegment {
                     if isLink {
                         linkDict[element] = foundString
                     }
@@ -244,7 +243,7 @@ extension GPXParser: XMLParserDelegate {
                         trackpointDict[element] = foundString
                     }
                 }
-                if isRoute {
+                if isRoute && !isRoutePoint {
                     if isLink {
                         linkDict[element] = foundString
                     }
@@ -294,7 +293,7 @@ extension GPXParser: XMLParserDelegate {
     public func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         switch elementName {
         case "metadata":
-            self.metadata = GPXMetadata(dictionary: metadataDict)
+            self.metadata = GPXMetadata(dictionary: &metadataDict)
             if elementHasLink && !elementHasAuthor {
                 self.metadata?.link = GPXLink(dictionary: linkDict)
                 
@@ -372,7 +371,7 @@ extension GPXParser: XMLParserDelegate {
             waypointDict.removeAll()
             
         case "rte":
-            let tempRoute = GPXRoute(dictionary: routeDict)
+            let tempRoute = GPXRoute(dictionary: &routeDict)
             tempRoute.add(routepoints: self.routepoints)
             if elementHasLink {
                 tempRoute.link = GPXLink(dictionary: linkDict)
@@ -383,6 +382,7 @@ extension GPXParser: XMLParserDelegate {
             
             // clear values
             isRoute = false
+            extensionIndex = 0
             self.routepoints.removeAll()
             
         case "rtept":
@@ -400,7 +400,7 @@ extension GPXParser: XMLParserDelegate {
             self.routepointDict.removeAll()
             
         case "trk":
-            let tempTrack = GPXTrack(dictionary: trackDict)
+            let tempTrack = GPXTrack(dictionary: &trackDict)
             tempTrack.add(trackSegments: self.tracksegements)
             if elementHasLink {
                 tempTrack.link = GPXLink(dictionary: linkDict)
@@ -411,6 +411,7 @@ extension GPXParser: XMLParserDelegate {
             
             //clear values
             isTrack = false
+            extensionIndex = 0
             self.trackDict.removeAll()
             self.tracksegements.removeAll()
             
@@ -421,12 +422,14 @@ extension GPXParser: XMLParserDelegate {
             
             // clear values
             isTrackSegment = false
+            extensionIndex = 0
             self.trackpoints.removeAll()
             
         case "extensions":
             self.extensions = GPXExtensions()
             
             // clear values
+            extensionIndex = 0
             isExtensions = false
             
         case "link":
@@ -458,6 +461,9 @@ extension GPXParser: XMLParserDelegate {
             
             // clear values
             isCopyright = false
+        case "gpx":
+            self.root = GPXRoot(dictionary: &rootDict)
+            rootDict.removeAll()
         default:
             let key = "\(elementName), \(extensionIndex)"
             let def = "index \(extensionIndex)"
@@ -468,6 +474,10 @@ extension GPXParser: XMLParserDelegate {
                 break
             }
         }
+    }
+    
+    public func parserDidEndDocument(_ parser: XMLParser) {
+        rootDict.removeAll()
     }
 
 }

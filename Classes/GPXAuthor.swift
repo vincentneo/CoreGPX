@@ -15,8 +15,7 @@ open class GPXAuthor: GPXPerson {
     }
     
     override init(dictionary: [String : String]) {
-        super.init()
-        self.name = dictionary["name"]
+        super.init(dictionary: dictionary)
     }
     
     // MARK: Tag
