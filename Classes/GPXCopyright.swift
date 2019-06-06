@@ -84,7 +84,7 @@ open class GPXCopyright: GPXElement {
             attribute.appendFormat(" author=\"%@\"", author)
         }
         
-        gpx.appendFormat("%@<%@%@>\r\n", tagName())
+        gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)
     }
     
     override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {

@@ -77,6 +77,6 @@ open class GPXEmail: GPXElement {
         if let domain = domain {
             attribute.appendFormat(" domain=\"%@\"", domain)
         }
-        gpx.appendFormat("%@<%@%@>\r\n", indent(forIndentationLevel: indentationLevel), self.tagName(), attribute)
+        gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)
     }
 }

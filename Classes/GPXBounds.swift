@@ -85,7 +85,6 @@ open class GPXBounds: GPXElement {
         if let maxLongitude = maxLongitude {
             attribute.appendFormat(" maxlon=\"%f\"", maxLongitude)
         }
-        
-        gpx.appendFormat("%@<%@%@>\r\n", indent(forIndentationLevel: indentationLevel))
+        gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)
     }
 }

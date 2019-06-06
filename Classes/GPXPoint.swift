@@ -56,7 +56,7 @@ open class GPXPoint: GPXElement {
             attribute.appendFormat(" lon=\"%f\"", longitude)
         }
         
-        gpx.appendFormat("%@<%@%@>\r\n", indent(forIndentationLevel: indentationLevel), self.tagName(), attribute)
+        gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)
     }
     
     override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {

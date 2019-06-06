@@ -107,7 +107,7 @@ open class GPXLink: GPXElement, Codable {
         if let href = href {
             attribute.appendFormat(" href=\"%@\"", href)
         }
-        gpx.appendFormat("%@<%@%@>\r\n", indent(forIndentationLevel: indentationLevel), self.tagName(), attribute)
+        gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)
     }
     
     override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {

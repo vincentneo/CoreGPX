@@ -303,7 +303,7 @@ open class GPXRoot: GPXElement {
         
         gpx.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n")
         
-        gpx.appendFormat("%@<%@%@>\r\n", self.indent(forIndentationLevel: indentationLevel), self.tagName(), attribute)
+        gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)
     }
     
     override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
