@@ -224,6 +224,7 @@ open class GPXWaypoint: GPXElement, Codable {
         
         self.time = ISO8601DateParser.parse(dictionary.removeValue(forKey: "time"))
         super.init()
+        dictionary.removeValue(forKey: self.tagName())
         self.elevation = Convert.toDouble(from: dictionary.removeValue(forKey: "ele"))
         self.latitude = Convert.toDouble(from: dictionary.removeValue(forKey: "lat"))
         self.longitude = Convert.toDouble(from: dictionary.removeValue(forKey: "lon"))

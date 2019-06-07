@@ -86,8 +86,10 @@ open class GPXRoot: GPXElement {
     ///     - dictionary: a dictionary with a key of an attribute, followed by the value which is set as the GPX file is parsed.
     ///
     internal init(dictionary: inout [String : String]) {
+        super.init()
         self.creator = dictionary.removeValue(forKey: "creator")
         self.version = dictionary.removeValue(forKey: "version")
+        dictionary.removeValue(forKey: self.tagName())
         
         if dictionary.count > 0 {
             self.extensions = GPXExtensions(dictionary: dictionary)

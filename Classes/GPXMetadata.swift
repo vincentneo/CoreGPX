@@ -73,6 +73,7 @@ open class GPXMetadata: GPXElement {
     init(dictionary: inout [String : String]) {
         self.time = ISO8601DateParser.parse(dictionary.removeValue(forKey: "time"))
         super.init()
+        dictionary.removeValue(forKey: self.tagName())
         self.name = dictionary.removeValue(forKey: "name")
         self.desc = dictionary.removeValue(forKey: "desc")
         self.keyword = dictionary.removeValue(forKey: "keyword")

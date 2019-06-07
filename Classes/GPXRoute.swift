@@ -62,6 +62,7 @@ open class GPXRoute: GPXElement, Codable {
     
     init(dictionary: inout [String : String]) {
         super.init()
+        dictionary.removeValue(forKey: self.tagName())
         self.name = dictionary.removeValue(forKey: "name")
         self.comment = dictionary.removeValue(forKey: "cmt")
         self.desc = dictionary.removeValue(forKey: "desc")

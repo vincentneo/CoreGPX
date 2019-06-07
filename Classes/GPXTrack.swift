@@ -61,6 +61,7 @@ open class GPXTrack: GPXElement, Codable {
     
     init(dictionary: inout [String : String]) {
         super.init()
+        dictionary.removeValue(forKey: self.tagName())
         self.number = Convert.toInt(from: dictionary.removeValue(forKey: "number"))
         self.name = dictionary.removeValue(forKey: "name")
         self.comment = dictionary.removeValue(forKey: "cmt")

@@ -30,7 +30,9 @@ open class GPXTrackSegment: GPXElement, Codable {
         super.init()
     }
     
-    init(dictionary: [String : String]) {
+    init(dictionary: inout [String : String]) {
+        super.init()
+        dictionary.removeValue(forKey: self.tagName())
         if dictionary.count > 0 {
             self.extensions = GPXExtensions(dictionary: dictionary)
         }

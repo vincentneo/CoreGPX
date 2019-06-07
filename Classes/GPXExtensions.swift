@@ -35,11 +35,11 @@ open class GPXExtensions: GPXElement, Codable {
         if !attributes.indices.contains(index) {
             attributes.append([String : String]())
         }
-        self.attributes[index][tagName] = "index \(index)"
+        self.attributes[index][tagName] = "internalParsingIndex \(index)"
     }
     
     public func addChildTag(inIndexOfParent index: Int, withContents contents: [String : String]) {
-        if attributes[index].values.contains("index \(index)") {
+        if attributes[index].values.contains("internalParsingIndex \(index)") {
             for key in contents.keys {
                 self.attributes[index][key] = contents[key]
             }
@@ -77,9 +77,9 @@ open class GPXExtensions: GPXElement, Codable {
         var index = Int()
         
         for attribute in attributes {
-            if attribute.values.contains("index \(index)") {
+            if attribute.values.contains("internalParsingIndex \(index)") {
                 for key in attribute.keys {
-                    if attribute[key] == "index \(index)" {
+                    if attribute[key] == "internalParsingIndex \(index)" {
                         newIndentationLevel += 1
                         gpx.append(String(format: "%@<%@>\r\n", indent(forIndentationLevel: newIndentationLevel), key))
                         parentKey = key
@@ -89,7 +89,7 @@ open class GPXExtensions: GPXElement, Codable {
             }
             
             for key in attribute.keys {
-                if attribute[key] != "index \(index)" {
+                if attribute[key] != "internalParsingIndex \(index)" {
                     gpx.appendFormat("%@<%@>%@</%@>\r\n", indent(forIndentationLevel: newIndentationLevel + 1), key, attribute[key] ?? "", key)
                 }
             }
