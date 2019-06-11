@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>GPXRoutePoint Class Reference</title>
+    <title>NSMutableString Extension Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/GPXRoutePoint" class="dashAnchor"></a>
-    <a title="GPXRoutePoint Class Reference"></a>
+    <a name="//apple_ref/swift/Extension/NSMutableString" class="dashAnchor"></a>
+    <a title="NSMutableString Extension Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">CoreGPX Docs</a> (72% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">CoreGPX Reference</a>
         <img id="carat" src="../img/carat.png" />
-        GPXRoutePoint Class Reference
+        NSMutableString Extension Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -149,14 +149,16 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>GPXRoutePoint</h1>
+            <h1>NSMutableString</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">GPXRoutePoint</span> <span class="p">:</span> <span class="kt"><a href="../Classes/GPXWaypoint.html">GPXWaypoint</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NSMutableString</span> <span class="p">:</span> <span class="kt">NSString</span></code></pre>
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>To ensure that all appended tags are appended with the right formats.</p>
+
+<p>For both open and close tags.</p>
 
           </section>
           <section class="section task-group-section">
@@ -165,9 +167,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@CoreGPX@objc(cs)GPXRoutePoint(im)init"></a>
-                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@CoreGPX@objc(cs)GPXRoutePoint(im)init">init()</a>
+                    <a name="/s:So15NSMutableStringC7CoreGPXE13appendOpenTag11indentation3tag9attributeyAB_SSABtF"></a>
+                    <a name="//apple_ref/swift/Method/appendOpenTag(indentation:tag:attribute:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So15NSMutableStringC7CoreGPXE13appendOpenTag11indentation3tag9attributeyAB_SSABtF">appendOpenTag(indentation:tag:attribute:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -175,18 +177,26 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Appends an open tag</p>
+
+<p>This function will append an open tag with the right format.</p>
+
+<p><strong>Format it will append to:</strong></p>
+<pre class="highlight swift"><code><span class="s">"%@&lt;%@%@&gt;</span><span class="se">\r\n</span><span class="s">"</span>
+<span class="c1">//indentations &lt;tagName attributes&gt; \r\n</span>
+</code></pre>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">required</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">appendOpenTag</span><span class="p">(</span><span class="nv">indentation</span><span class="p">:</span> <span class="kt">NSMutableString</span><span class="p">,</span> <span class="nv">tag</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">attribute</span><span class="p">:</span> <span class="kt">NSMutableString</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXRoutePoint.swift#L12-L14">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/NSMutableString+XML.swift#L25-L27">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -194,9 +204,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7CoreGPX13GPXRoutePointC8latitude9longitudeACSd_Sdtcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(latitude:longitude:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX13GPXRoutePointC8latitude9longitudeACSd_Sdtcfc">init(latitude:longitude:)</a>
+                    <a name="/s:So15NSMutableStringC7CoreGPXE14appendCloseTag11indentation3tagyAB_SStF"></a>
+                    <a name="//apple_ref/swift/Method/appendCloseTag(indentation:tag:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So15NSMutableStringC7CoreGPXE14appendCloseTag11indentation3tagyAB_SStF">appendCloseTag(indentation:tag:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -204,108 +214,27 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">latitude</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">longitude</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span></code></pre>
+                        <p>Appends a close tag</p>
 
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXRoutePoint.swift#L18-L22">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7CoreGPX13GPXRoutePointC10dictionaryACSDyS2SG_tcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(dictionary:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX13GPXRoutePointC10dictionaryACSDyS2SG_tcfc">init(dictionary:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">dictionary</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">])</span></code></pre>
+<p>This function will append an close tag with the right format.
+Not currently used, but included, for ease of use when needed.</p>
 
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXRoutePoint.swift#L24-L45">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7CoreGPX13GPXRoutePointC4fromACs7Decoder_p_tKcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(from:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX13GPXRoutePointC4fromACs7Decoder_p_tKcfc">init(from:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>For initializing with a <code>Decoder</code></p>
-
-<p>Declared here for use of Codable functionalities.</p>
+<p><strong>Format it will append to:</strong></p>
+<pre class="highlight swift"><code><span class="s">"%@&lt;/%@&gt;</span><span class="se">\r\n</span><span class="s">"</span>
+<span class="c1">//indentations &lt;/tagName&gt; \r\n</span>
+</code></pre>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">required</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">from</span> <span class="nv">decoder</span><span class="p">:</span> <span class="kt">Decoder</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">appendCloseTag</span><span class="p">(</span><span class="nv">indentation</span><span class="p">:</span> <span class="kt">NSMutableString</span><span class="p">,</span> <span class="nv">tag</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXRoutePoint.swift#L50-L52">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7CoreGPX13GPXRoutePointC7tagNameSSyF"></a>
-                    <a name="//apple_ref/swift/Method/tagName()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX13GPXRoutePointC7tagNameSSyF">tagName()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">tagName</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXRoutePoint.swift#L56-L58">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/NSMutableString+XML.swift#L38-L40">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
