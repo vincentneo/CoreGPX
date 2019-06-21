@@ -112,7 +112,7 @@ open class GPXParser: NSObject {
     private var copyrightDict = [String : String]()
     
     // for GPX Header
-    private var rootDict = [String : String]()
+    // private var rootDict = [String : String]()
     
     // MARK:- GPX v1.1 XML Schema tag types check
     private var isWaypoint = false
@@ -167,8 +167,8 @@ extension GPXParser: XMLParserDelegate {
         element = elementName
         
         switch elementName {
-        case "gpx":
-            rootDict = attributeDict
+        //case "gpx":
+            //rootDict = attributeDict
         case "wpt":
             isWaypoint = true
             waypointDict = attributeDict
@@ -280,10 +280,11 @@ extension GPXParser: XMLParserDelegate {
                     metadataDict[element] = foundString
                 }
             }
+            /*
             if isExtensions && !isMetadata && !isBounds && !isAuthor && !isCopyright && !isEmail && !isRoute && !isRoutePoint && !isTrack && !isTrackPoint && !isTrackSegment && !isWaypoint {
                 rootDict[element] = foundString
             }
-            
+            */
         }
     }
     
@@ -458,23 +459,21 @@ extension GPXParser: XMLParserDelegate {
             
             // clear values
             isCopyright = false
+            /*
         case "gpx":
             self.root = GPXRoot(dictionary: &rootDict)
             rootDict.removeAll()
+ */
         default:
             let key = "\(elementName), \(extensionIndex)"
             let def = "internalParsingIndex \(extensionIndex)"
-            if trackpointDict[key] == def || routepointDict[key] == def || waypointDict[key] == def || tracksegDict[key] == def || trackDict[key] == def || routeDict[key] == def || linkDict[key] == def || metadataDict[key] == def || boundsDict[key] == def || authorDict[key] == def || emailDict[key] == def || copyrightDict[key] == def || rootDict[key] == def {
+            if trackpointDict[key] == def || routepointDict[key] == def || waypointDict[key] == def || tracksegDict[key] == def || trackDict[key] == def || routeDict[key] == def || linkDict[key] == def || metadataDict[key] == def || boundsDict[key] == def || authorDict[key] == def || emailDict[key] == def || copyrightDict[key] == def {
                 extensionIndex += 1
             }
             else {
                 break
             }
         }
-    }
-    
-    public func parserDidEndDocument(_ parser: XMLParser) {
-        rootDict.removeAll()
     }
 
 }
@@ -520,8 +519,10 @@ extension GPXParser {
         else if isRoute {
             routeDict[key] = indexValue
         }
+            /* DOES NOT WORK
         else { // for extension directly on GPXRoot
             rootDict[key] = indexValue
         }
+ */
     }
 }
