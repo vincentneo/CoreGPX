@@ -14,12 +14,24 @@ import Foundation
  */
 open class GPXExtensions: GPXElement, Codable {
     
-    /// attributes will be in format of 
-    public var attributes = [[String : String]]()
+    /// for attributes without parent tags
+    private var rootAttributes = [String : String]()
     
-    // MARK:- Initializer
+    /// for attributes with parent tags
+    private var childAttributes = [String : [String : String]]()
+    
+    // MARK:- Initializers
     public required init() {
         super.init()
+    }
+    
+    public subscript(parentTag: String?) -> [String : String]? {
+        get {
+            guard let parentTag = parentTag else {
+                return rootAttributes
+            }
+            return childAttributes[parentTag]
+        }
     }
     
     // MARK:- Tag
@@ -27,82 +39,79 @@ open class GPXExtensions: GPXElement, Codable {
         return "extensions"
     }
     
-    public init(custom: [[String : String]]) {
-        self.attributes = custom
-    }
-    
-    public func insertParentTag(at index: Int, tagName: String) {
-        if !attributes.indices.contains(index) {
-            attributes.append([String : String]())
-        }
-        self.attributes[index][tagName] = "internalParsingIndex \(index)"
-    }
-    
-    public func addChildTag(inIndexOfParent index: Int, withContents contents: [String : String]) {
-        if attributes[index].values.contains("internalParsingIndex \(index)") {
-            for key in contents.keys {
-                self.attributes[index][key] = contents[key]
-            }
-        }
-        else {
-            self.attributes.append(contents)
-        }
-    }
-    
+    /// for GPXParser use only.
     init(dictionary: [String : String]) {
         var dictionary = dictionary
+        var attributes = [[String : String]]()
+        var elementNames = [Int : String]()
         
         for key in dictionary.keys {
-            let strings = key.components(separatedBy: ", ")
-            if strings.count == 2 {
-                let index = Int(strings[1])!
+            let keySegments = key.components(separatedBy: ", ")
+            if keySegments.count == 2 {
+                let index = Int(keySegments[1])!
+                let elementName = keySegments[0]
+                let value = dictionary[key]
+                
                 while !attributes.indices.contains(index) {
                     attributes.append([String : String]())
                 }
                 
-                attributes[index][strings[0]] = dictionary[key]
+                if value == "internalParsingIndex \(index)" {
+                    elementNames[index] = elementName
+                }
+                else {
+                    attributes[index][elementName] = value
+                }
             }
             // ignore any key that does not conform to GPXExtension's parsing naming convention.
         }
+        if elementNames.isEmpty {
+            rootAttributes = attributes[0]
+        }
+        else {
+            for elementNameIndex in elementNames.keys {
+                let value = elementNames[elementNameIndex]!
+                childAttributes[value] = attributes[elementNameIndex]
+            }
+        }
         
+    }
+    
+    // MARK:- For Creation
+    
+    /// Insert a dictionary of extension objects
+    public func insert(withParentTag tag: String?, withContents contents: [String : String]) {
+        guard let tag = tag else {
+            self.rootAttributes = contents
+            return
+        }
+        self.childAttributes[tag] = contents
+    }
+    
+    /// Remove a dictionary of extension objects
+    public func remove(contentsOfParentTag tag: String?) {
+        guard let tag = tag else {
+            self.rootAttributes.removeAll()
+            return
+        }
+        self.childAttributes[tag] = nil
     }
     
     // MARK:- GPX
     override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
+
+        for key in rootAttributes.keys {
+            gpx.appendFormat("%@<%@>%@</%@>\r\n", indent(forIndentationLevel: indentationLevel + 1), key, rootAttributes[key] ?? "", key)
+        }
         
-        var hasParentElement = false
-        var parentKey = String()
-        var newIndentationLevel = indentationLevel
-        var index = Int()
-        
-        for attribute in attributes {
-            if attribute.values.contains("internalParsingIndex \(index)") {
-                for key in attribute.keys {
-                    if attribute[key] == "internalParsingIndex \(index)" {
-                        newIndentationLevel += 1
-                        gpx.append(String(format: "%@<%@>\r\n", indent(forIndentationLevel: newIndentationLevel), key))
-                        parentKey = key
-                        hasParentElement = true
-                    }
-                }
+        for key in childAttributes.keys {
+            let newIndentationLevel = indentationLevel + 1
+            gpx.append(String(format: "%@<%@>\r\n", indent(forIndentationLevel: newIndentationLevel), key))
+            for childKey in childAttributes[key]!.keys {
+                gpx.appendFormat("%@<%@>%@</%@>\r\n", indent(forIndentationLevel: newIndentationLevel + 1), childKey, childAttributes[key]![childKey] ?? "", childKey)
             }
-            
-            for key in attribute.keys {
-                if attribute[key] != "internalParsingIndex \(index)" {
-                    gpx.appendFormat("%@<%@>%@</%@>\r\n", indent(forIndentationLevel: newIndentationLevel + 1), key, attribute[key] ?? "", key)
-                }
-            }
-            
-            if hasParentElement {
-                gpx.append(String(format: "%@</%@>\r\n", indent(forIndentationLevel: newIndentationLevel), parentKey))
-                hasParentElement = false
-            }
-            // increment index
-            index += 1
-            
-            //reset
-            newIndentationLevel = indentationLevel
+            gpx.append(String(format: "%@</%@>\r\n", indent(forIndentationLevel: newIndentationLevel), key))
         }
         
     }
