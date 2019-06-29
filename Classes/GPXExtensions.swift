@@ -8,9 +8,11 @@
 import Foundation
 
 /**
- For adding an extension tag.
+ For adding/obtaining data stored as extensions in GPX file.
  
- If extended, tags should be inbetween the open and close tags of **\<extensions>**
+ Typical GPX extended data, would have data that should be inbetween the open and close tags of **\<extensions>**
+ 
+ This class represents the extended data in a GPX file.
  */
 open class GPXExtensions: GPXElement, Codable {
     
@@ -21,33 +23,13 @@ open class GPXExtensions: GPXElement, Codable {
     private var childAttributes = [String : [String : String]]()
     
     // MARK:- Initializers
+    
+    /// Default Initializer.
     public required init() {
         super.init()
     }
     
-    public subscript(parentTag: String?) -> [String : String]? {
-        get {
-            guard let parentTag = parentTag else {
-                return rootAttributes
-            }
-            return childAttributes[parentTag]
-        }
-        set {
-            guard let newValue = newValue else { return }
-            guard let parentTag = parentTag else {
-                rootAttributes = newValue
-                return
-            }
-            childAttributes[parentTag] = newValue
-        }
-    }
-    
-    // MARK:- Tag
-    override func tagName() -> String {
-        return "extensions"
-    }
-    
-    /// for GPXParser use only.
+    /// for parsing uses only. Internal Initializer.
     init(dictionary: [String : String]) {
         var dictionary = dictionary
         var attributes = [[String : String]]()
@@ -83,6 +65,50 @@ open class GPXExtensions: GPXElement, Codable {
             }
         }
         
+    }
+    
+    // MARK:- Subscript
+    
+    /**
+    Access/Write dictionaries in extensions this way.
+     
+     If extended data does not have a parent tag, **i.e**:
+     
+        <Tag>50</Tag>
+     Access it via `extensions[nil]`, to get value of **["Tag" : "50"]**.
+     Write it via `extensions[nil]` = **["Tag" : "50"]**.
+     
+     If extended data does not have a parent tag, **i.e**:
+     
+        <ParentTag>
+            <Tag>50</Tag>
+        </ParentTag>
+     Access it via `extensions["ParentTag"]`, to get value of **["Tag" : "50"]**.
+     Write it via `extensions["ParentTag"]` = **["Tag" : "50"]**.
+     
+     - Parameters:
+        - parentTag: **nil** if no parent tag, if not, insert parent tag name here.
+    */
+    public subscript(parentTag: String?) -> [String : String]? {
+        get {
+            guard let parentTag = parentTag else {
+                return rootAttributes
+            }
+            return childAttributes[parentTag]
+        }
+        set {
+            guard let newValue = newValue else { return }
+            guard let parentTag = parentTag else {
+                rootAttributes = newValue
+                return
+            }
+            childAttributes[parentTag] = newValue
+        }
+    }
+    
+    // MARK:- Tag
+    override func tagName() -> String {
+        return "extensions"
     }
     
     // MARK:- For Creation
