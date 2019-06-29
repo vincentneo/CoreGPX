@@ -44,11 +44,13 @@ open class GPXRoot: GPXElement {
     // MARK: GPX v1.1 Namespaces
     
     /// Link to the GPX v1.1 schema
-    let schema = "http://www.topografix.com/GPX/1/1"
+    private let schema = "http://www.topografix.com/GPX/1/1"
     /// Link to the schema locations. If extended, the extended schema should be added.
-    let schemaLocation = "http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd"
+    private var schemaLocation = "http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd"
     /// Link to XML schema instance
-    let xsi = "http://www.w3.org/2001/XMLSchema-instance"
+    private let xsi = "http://www.w3.org/2001/XMLSchema-instance"
+    /// For if GPX file is extended, and contains extra attributes on gpx main tag.
+    private var extensionAttributes: String?
     
     
     
@@ -73,6 +75,13 @@ open class GPXRoot: GPXElement {
         super.init()
         self.creator = creator
         self.version = "1.1"
+    }
+    
+    public init(withExtensionAttributes attributes: String,  schemaLocation: String) {
+        super.init()
+        self.version = "1.1"
+        self.schemaLocation += " \(schemaLocation)"
+        self.extensionAttributes = attributes
     }
     
     /// For internal use only
@@ -294,6 +303,10 @@ open class GPXRoot: GPXElement {
     // MARK:- GPX
     override func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         let attribute = NSMutableString()
+        
+        if let extensionAttributes = self.extensionAttributes {
+            attribute.appendFormat(" @", extensionAttributes)
+        }
         
         attribute.appendFormat(" xmlns:xsi=\"%@\"", self.xsi)
         attribute.appendFormat(" xmlns=\"%@\"", self.schema)
