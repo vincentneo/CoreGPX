@@ -32,6 +32,14 @@ open class GPXExtensions: GPXElement, Codable {
             }
             return childAttributes[parentTag]
         }
+        set {
+            guard let newValue = newValue else { return }
+            guard let parentTag = parentTag else {
+                rootAttributes = newValue
+                return
+            }
+            childAttributes[parentTag] = newValue
+        }
     }
     
     // MARK:- Tag
