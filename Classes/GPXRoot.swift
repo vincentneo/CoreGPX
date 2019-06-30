@@ -315,15 +315,15 @@ open class GPXRoot: GPXElement {
     override func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         let attribute = NSMutableString()
         
-        if let extensionAttributes = self.extensionAttributes {
-            for attributeKey in extensionAttributes.keys {
-                attribute.appendFormat(" %@=\"%@\"", attributeKey, extensionAttributes[attributeKey]!)
-            }
-            
-        }
-        
         attribute.appendFormat(" xmlns:xsi=\"%@\"", self.xsi)
         attribute.appendFormat(" xmlns=\"%@\"", self.schema)
+        
+        if let extensionAttributes = self.extensionAttributes {
+            for attributeKey in extensionAttributes.keys {
+                attribute.appendFormat(" %@=\"%@\"", attributeKey, extensionAttributes[attributeKey] ?? "Data is invalid")
+            }
+        }
+        
         attribute.appendFormat(" xsi:schemaLocation=\"%@\"", self.schemaLocation)
         
         if let version = self.version {
