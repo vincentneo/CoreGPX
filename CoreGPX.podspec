@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CoreGPX'
-  s.version          = '0.5.6'
+  s.version          = '0.6.0'
   s.summary          = 'A library for reading and creation of GPX location log files.'
 
 # This description is used to generate tags and improve search results.
