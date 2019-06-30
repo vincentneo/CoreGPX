@@ -41,6 +41,7 @@ open class GPXPoint: GPXElement {
         self.latitude = Convert.toDouble(from: dictionary["lat"])
         self.longitude = Convert.toDouble(from: dictionary["lon"])
         self.elevation = Convert.toDouble(from: dictionary["ele"])
+        self.time = GPXDateParser.parse(date: dictionary["time"])
     }
     
     // MARK:- Tag

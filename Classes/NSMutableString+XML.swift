@@ -1,6 +1,6 @@
 //
 //  NSMutableString+XML.swift
-//  Pods
+//  CoreGPX
 //
 //  Created by Vincent Neo on 6/6/19.
 //

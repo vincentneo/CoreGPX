@@ -222,7 +222,7 @@ open class GPXWaypoint: GPXElement, Codable {
     ///
     init(dictionary: inout [String : String]) {
         
-        self.time = ISO8601DateParser.parse(dictionary.removeValue(forKey: "time"))
+        self.time = GPXDateParser.parse(date: dictionary.removeValue(forKey: "time"))
         super.init()
         dictionary.removeValue(forKey: self.tagName())
         self.elevation = Convert.toDouble(from: dictionary.removeValue(forKey: "ele"))
