@@ -50,7 +50,7 @@ open class GPXRoot: GPXElement {
     /// Link to XML schema instance
     private let xsi = "http://www.w3.org/2001/XMLSchema-instance"
     /// For if GPX file is extended, and contains extra attributes on gpx main tag.
-    private var extensionAttributes: String?
+    private var extensionAttributes: [String : String]?
     
     
     
@@ -77,7 +77,12 @@ open class GPXRoot: GPXElement {
         self.version = "1.1"
     }
     
-    public init(withExtensionAttributes attributes: String,  schemaLocation: String) {
+    /// Initialize if planned to use with extensions
+    ///
+    /// - Parameters:
+    ///     - attributes: Extension attributes to be placed in the gpx tag header. Key should be name of attribute, while Value contains the value of the attribute.
+    ///     - schemaLocation: Location/Website of the extension schema
+    public init(withExtensionAttributes attributes: [String : String],  schemaLocation: String) {
         super.init()
         self.version = "1.1"
         self.schemaLocation += " \(schemaLocation)"
@@ -305,7 +310,10 @@ open class GPXRoot: GPXElement {
         let attribute = NSMutableString()
         
         if let extensionAttributes = self.extensionAttributes {
-            attribute.appendFormat(" @", extensionAttributes)
+            for attributeKey in extensionAttributes.keys {
+                attribute.appendFormat(" %@=\"%@\"", attributeKey, extensionAttributes[attributeKey]!)
+            }
+            
         }
         
         attribute.appendFormat(" xmlns:xsi=\"%@\"", self.xsi)
