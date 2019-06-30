@@ -89,6 +89,12 @@ open class GPXRoot: GPXElement {
         self.extensionAttributes = attributes
     }
     
+    /// Initialize if planned to use with extensions, with creator name.
+    public convenience init(withExtensionAttributes attributes: [String : String],  schemaLocation: String, creator: String) {
+        self.init(withExtensionAttributes: attributes, schemaLocation: schemaLocation)
+        self.creator = creator
+    }
+    
     /// For internal use only
     ///
     /// Initializes the metadata using a dictionary, with each key being an attribute name.

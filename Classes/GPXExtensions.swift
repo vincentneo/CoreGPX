@@ -114,6 +114,10 @@ open class GPXExtensions: GPXElement, Codable {
     // MARK:- For Creation
     
     /// Insert a dictionary of extension objects
+    ///
+    /// - Parameters:
+    ///     - tag: Parent Tag. If inserting without the parent tag, this value should be `nil`
+    ///     - contents: Contents as a dictionary to be inserted to this object.
     public func insert(withParentTag tag: String?, withContents contents: [String : String]) {
         guard let tag = tag else {
             self.rootAttributes = contents
@@ -123,6 +127,9 @@ open class GPXExtensions: GPXElement, Codable {
     }
     
     /// Remove a dictionary of extension objects
+    ///
+    /// - Parameters:
+    ///     - tag: Parent Tag of contents for removal. If removing without the parent tag, this value should be `nil`
     public func remove(contentsOfParentTag tag: String?) {
         guard let tag = tag else {
             self.rootAttributes.removeAll()
