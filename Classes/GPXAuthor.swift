@@ -10,10 +10,12 @@ import Foundation
 /// Author type, holds information of the creator of the GPX file. A subclass of `GPXPerson`.
 open class GPXAuthor: GPXPerson {
     
+    /// Default Initializer
     public required init() {
         super.init()
     }
     
+    /// Internal use only. For parsing use.
     override init(dictionary: [String : String]) {
         super.init(dictionary: dictionary)
     }

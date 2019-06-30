@@ -25,6 +25,7 @@ open class GPXBounds: GPXElement {
     
     // MARK:- Instance
     
+    /// Default initializer.
     public required init() {
         super.init()
     }

@@ -15,6 +15,7 @@ import Foundation
  */
 open class GPXTrackPoint: GPXWaypoint {
     
+    /// Default Initializer.
     public required init() {
         super.init()
     }

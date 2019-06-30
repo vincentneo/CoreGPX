@@ -480,6 +480,7 @@ extension GPXParser: XMLParserDelegate {
 
 extension GPXParser {
     
+    /// Invoked when parser finds non standard data, which will be treated as extensions data.
     func parserFoundExtensionCode() {
         
         let key = "\(element), \(extensionIndex)"

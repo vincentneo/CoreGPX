@@ -56,10 +56,12 @@ open class GPXRoute: GPXElement, Codable {
     
     // MARK:- Instance
     
+    /// Default initializer.
     public required init() {
         super.init()
     }
     
+    /// Internal initializer. For parsing use only.
     init(dictionary: inout [String : String]) {
         super.init()
         dictionary.removeValue(forKey: self.tagName())

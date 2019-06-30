@@ -20,16 +20,22 @@ open class GPXTrackSegment: GPXElement, Codable {
         case extensions
     }
     
+    
+    /// Track points stored in current segment.
     public var trackpoints = [GPXTrackPoint]()
+    
+    /// Custom Extensions, if needed.
     public var extensions: GPXExtensions?
     
     
     // MARK:- Instance
     
+    /// Default Initializer.
     public required init() {
         super.init()
     }
     
+    /// Internal Initializer, for parsing use only.
     init(dictionary: inout [String : String]) {
         super.init()
         dictionary.removeValue(forKey: self.tagName())
@@ -40,6 +46,7 @@ open class GPXTrackSegment: GPXElement, Codable {
     
     // MARK:- Public Methods
     
+    /// Initializes a new trackpoint to segment, and returns the trackpoint.
     open func newTrackpointWith(latitude: Double, longitude: Double) -> GPXTrackPoint {
         let trackpoint = GPXTrackPoint(latitude: latitude, longitude: longitude)
         

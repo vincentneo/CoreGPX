@@ -318,6 +318,7 @@ open class GPXRoot: GPXElement {
         attribute.appendFormat(" xmlns:xsi=\"%@\"", self.xsi)
         attribute.appendFormat(" xmlns=\"%@\"", self.schema)
         
+        // for extensions attributes to be appended.
         if let extensionAttributes = self.extensionAttributes {
             for attributeKey in extensionAttributes.keys {
                 attribute.appendFormat(" %@=\"%@\"", attributeKey, extensionAttributes[attributeKey] ?? "Data is invalid")
