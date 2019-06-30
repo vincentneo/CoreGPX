@@ -40,13 +40,6 @@ open class GPXEmail: GPXElement {
         self.domain = splitedEmail[1]
     }
     
-    /// Initialize with seperate values of both email ID and domain.
-    @available(*, deprecated: 0.5.0, renamed: "init(withFullEmailAddress:)")
-    public init(emailID: String, domain: String) {
-        self.emailID = emailID
-        self.domain = domain
-    }
-    
     /// For internal use only
     ///
     /// Initializes a waypoint through a dictionary, with each key being an attribute name.
