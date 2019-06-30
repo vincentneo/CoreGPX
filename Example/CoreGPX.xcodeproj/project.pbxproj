@@ -50,6 +50,7 @@
 		B1FA67C144CC465C6B228AB8 /* GPXKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GPXKit.podspec; path = ../GPXKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BF67E9292217F2EE008B6202 /* GPXTest-TrackPointOnly.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "GPXTest-TrackPointOnly.gpx"; sourceTree = "<group>"; };
 		BF693E5022C8A69A00CBCE5A /* CoreGPX.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; name = CoreGPX.podspec; path = ../CoreGPX.podspec; sourceTree = "<group>"; };
+		BF693E5422C8E71B00CBCE5A /* CoreGPX Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "CoreGPX Playground.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BF7F905C21F7501800359484 /* CreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 		BFD4523C21E9F17A002ECA3A /* ParseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseViewController.swift; sourceTree = "<group>"; };
 		E4C0F7E2E749B02F23048D43 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -100,6 +101,7 @@
 		607FACD21AFB9204008FA782 /* Example for CoreGPX */ = {
 			isa = PBXGroup;
 			children = (
+				BF693E5422C8E71B00CBCE5A /* CoreGPX Playground.playground */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				BF7F905C21F7501800359484 /* CreationViewController.swift */,
