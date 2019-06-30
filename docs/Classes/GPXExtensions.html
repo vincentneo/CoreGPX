@@ -14,7 +14,7 @@
     <a title="GPXExtensions Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CoreGPX Docs</a> (72% documented)</p>
+        <p><a href="../index.html">CoreGPX Docs</a> (82% documented)</p>
         <p class="header-right"><a href="https://www.github.com/vincentneo/CoreGPX"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -35,9 +35,6 @@
                 <a href="../Classes/Convert.html">Convert</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/CopyrightYearParser.html">CopyrightYearParser</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/GPXAuthor.html">GPXAuthor</a>
               </li>
               <li class="nav-group-task">
@@ -45,6 +42,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/GPXCopyright.html">GPXCopyright</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXDateParser.html">GPXDateParser</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/GPXElement.html">GPXElement</a>
@@ -112,20 +112,6 @@
               <li class="nav-group-task">
                 <a href="../Classes/GPXWaypoint/CodingKeys.html">– CodingKeys</a>
               </li>
-              <li class="nav-group-task">
-                <a href="../Classes/ISO8601DateParser.html">ISO8601DateParser</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="../Global Variables.html">Global Variables</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Global Variables.html#/s:7CoreGPX18kGPXDescriptionKeySSvp">kGPXDescriptionKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Global Variables.html#/s:7CoreGPX32kGPXInvalidGPXFormatNotificationSSvp">kGPXInvalidGPXFormatNotification</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -156,9 +142,11 @@
 
                 </div>
               </div>
-            <p>For adding an extension tag.</p>
+            <p>For adding/obtaining data stored as extensions in GPX file.</p>
 
-<p>If extended, tags should be inbetween the open and close tags of <strong>&lt;extensions&gt;</strong></p>
+<p>Typical GPX extended data, would have data that should be inbetween the open and close tags of <strong>&lt;extensions&gt;</strong></p>
+
+<p>This class represents the extended data in a GPX file.</p>
 
           </section>
           <section class="section task-group-section">
@@ -177,7 +165,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Default Initializer.</p>
 
                       </div>
                       <div class="declaration">
@@ -189,7 +177,102 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXExtensions.swift#L18-L20">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXExtensions.swift#L28-L30">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX13GPXExtensionsC10dictionaryACSDyS2SG_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(dictionary:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX13GPXExtensionsC10dictionaryACSDyS2SG_tcfc">init(dictionary:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>for parsing uses only. Internal Initializer.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">dictionary</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXExtensions.swift#L33-L68">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX13GPXExtensionsCySDyS2SGSgSSSgcip"></a>
+                    <a name="//apple_ref/swift/Method/subscript(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX13GPXExtensionsCySDyS2SGSgSSSgcip">subscript(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Access/Write dictionaries in extensions this way.</p>
+
+<p>If extended data does not have a parent tag, <strong>i.e</strong>:</p>
+<pre class="highlight swift"><code><span class="o">&lt;</span><span class="kt">Tag</span><span class="o">&gt;</span><span class="mi">50</span><span class="o">&lt;/</span><span class="kt">Tag</span><span class="o">&gt;</span>
+</code></pre>
+
+<p>Access it via <code>extensions[nil]</code>, to get value of <strong>[<q>Tag</q> : <q>50</q>]</strong>.
+ Write it via <code>extensions[nil]</code> = <strong>[<q>Tag</q> : <q>50</q>]</strong>.</p>
+
+<p>If extended data does not have a parent tag, <strong>i.e</strong>:</p>
+<pre class="highlight swift"><code><span class="o">&lt;</span><span class="kt">ParentTag</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="kt">Tag</span><span class="o">&gt;</span><span class="mi">50</span><span class="o">&lt;/</span><span class="kt">Tag</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="kt">ParentTag</span><span class="o">&gt;</span>
+</code></pre>
+
+<p>Access it via <code>extensions[&quot;ParentTag&quot;]</code>, to get value of <strong>[<q>Tag</q> : <q>50</q>]</strong>.
+ Write it via <code>extensions[&quot;ParentTag&quot;]</code> = <strong>[<q>Tag</q> : <q>50</q>]</strong>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">subscript</span><span class="p">(</span><span class="nv">parentTag</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parentTag</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><strong>nil</strong> if no parent tag, if not, insert parent tag name here.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXExtensions.swift#L92-L107">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -218,7 +301,117 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXExtensions.swift#L23-L25">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXExtensions.swift#L110-L112">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX13GPXExtensionsC6insert13withParentTag0E8ContentsySSSg_SDyS2SGtF"></a>
+                    <a name="//apple_ref/swift/Method/insert(withParentTag:withContents:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX13GPXExtensionsC6insert13withParentTag0E8ContentsySSSg_SDyS2SGtF">insert(withParentTag:withContents:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Insert a dictionary of extension objects</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">insert</span><span class="p">(</span><span class="n">withParentTag</span> <span class="nv">tag</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="n">withContents</span> <span class="nv">contents</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tag</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Parent Tag. If inserting without the parent tag, this value should be <code>nil</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>contents</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Contents as a dictionary to be inserted to this object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXExtensions.swift#L121-L127">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX13GPXExtensionsC6remove19contentsOfParentTagySSSg_tF"></a>
+                    <a name="//apple_ref/swift/Method/remove(contentsOfParentTag:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX13GPXExtensionsC6remove19contentsOfParentTagySSSg_tF">remove(contentsOfParentTag:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Remove a dictionary of extension objects</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="n">contentsOfParentTag</span> <span class="nv">tag</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tag</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Parent Tag of contents for removal. If removing without the parent tag, this value should be <code>nil</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXExtensions.swift#L133-L139">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -247,7 +440,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXExtensions.swift#L28-L30">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXExtensions.swift#L142-L158">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -257,7 +450,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.github.com/vincentneo" target="_blank" rel="external">Vincent</a>. All rights reserved. (Last updated: 2019-06-11)</p>
+          <p>&copy; 2019 <a class="link" href="https://www.github.com/vincentneo" target="_blank" rel="external">Vincent</a>. All rights reserved. (Last updated: 2019-06-30)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

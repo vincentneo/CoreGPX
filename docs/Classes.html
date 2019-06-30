@@ -14,7 +14,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">CoreGPX Docs</a> (72% documented)</p>
+        <p><a href="index.html">CoreGPX Docs</a> (82% documented)</p>
         <p class="header-right"><a href="https://www.github.com/vincentneo/CoreGPX"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -35,9 +35,6 @@
                 <a href="Classes/Convert.html">Convert</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/CopyrightYearParser.html">CopyrightYearParser</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes/GPXAuthor.html">GPXAuthor</a>
               </li>
               <li class="nav-group-task">
@@ -45,6 +42,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/GPXCopyright.html">GPXCopyright</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GPXDateParser.html">GPXDateParser</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/GPXElement.html">GPXElement</a>
@@ -112,20 +112,6 @@
               <li class="nav-group-task">
                 <a href="Classes/GPXWaypoint/CodingKeys.html">– CodingKeys</a>
               </li>
-              <li class="nav-group-task">
-                <a href="Classes/ISO8601DateParser.html">ISO8601DateParser</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="Global Variables.html">Global Variables</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Global Variables.html#/s:7CoreGPX18kGPXDescriptionKeySSvp">kGPXDescriptionKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Global Variables.html#/s:7CoreGPX32kGPXInvalidGPXFormatNotificationSSvp">kGPXInvalidGPXFormatNotification</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -184,7 +170,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/Converters.swift#L13-L110">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/Converters.swift#L13-L112">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -196,9 +182,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7CoreGPX17ISO8601DateParserC"></a>
-                    <a name="//apple_ref/swift/Class/ISO8601DateParser" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX17ISO8601DateParserC">ISO8601DateParser</a>
+                    <a name="/s:7CoreGPX13GPXDateParserC"></a>
+                    <a name="//apple_ref/swift/Class/GPXDateParser" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX13GPXDateParserC">GPXDateParser</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -206,51 +192,24 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Date Parser for use when parsing GPX files, containing elements with date attributions.</p>
 
-                        <a href="Classes/ISO8601DateParser.html" class="slightly-smaller">See more</a>
+<p>It can parse ISO8601 formatted date strings, along with year strings to native <code>Date</code> types.</p>
+
+<p>Formerly Named: <code>ISO8601DateParser</code> &amp; <code>CopyrightYearParser</code></p>
+
+                        <a href="Classes/GPXDateParser.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ISO8601DateParser</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">GPXDateParser</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/DateTimeParsers.swift#L15-L54">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7CoreGPX19CopyrightYearParserC"></a>
-                    <a name="//apple_ref/swift/Class/CopyrightYearParser" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX19CopyrightYearParserC">CopyrightYearParser</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Special parser that only parses year for the copyright attribute when <code><a href="Classes/GPXParser.html">GPXParser</a></code> parses.</p>
-
-                        <a href="Classes/CopyrightYearParser.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">CopyrightYearParser</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/DateTimeParsers.swift#L59-L87">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/DateTimeParsers.swift#L20-L91">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -285,7 +244,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXAuthor.swift#L11-L27">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXAuthor.swift#L11-L28">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -322,7 +281,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXBounds.swift#L15-L90">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXBounds.swift#L15-L91">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -368,7 +327,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXCopyright.swift#L21-L95">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXCopyright.swift#L21-L96">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -411,7 +370,7 @@ This class brings important methods that aids towards creation of a GPX file.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXElement.swift#L25-L258">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXElement.swift#L19-L252">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -450,7 +409,7 @@ This class brings important methods that aids towards creation of a GPX file.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXEmail.swift#L17-L82">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXEmail.swift#L17-L75">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -472,9 +431,11 @@ This class brings important methods that aids towards creation of a GPX file.</p
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>For adding an extension tag.</p>
+                        <p>For adding/obtaining data stored as extensions in GPX file.</p>
 
-<p>If extended, tags should be inbetween the open and close tags of <strong>&lt;extensions&gt;</strong></p>
+<p>Typical GPX extended data, would have data that should be inbetween the open and close tags of <strong>&lt;extensions&gt;</strong></p>
+
+<p>This class represents the extended data in a GPX file.</p>
 
                         <a href="Classes/GPXExtensions.html" class="slightly-smaller">See more</a>
                       </div>
@@ -487,7 +448,7 @@ This class brings important methods that aids towards creation of a GPX file.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXExtensions.swift#L15-L31">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXExtensions.swift#L17-L159">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -529,7 +490,7 @@ This class brings important methods that aids towards creation of a GPX file.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXLink.swift#L17-L119">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXLink.swift#L20-L119">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -591,7 +552,7 @@ This class brings important methods that aids towards creation of a GPX file.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXMetadata.swift#L24-L118">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXMetadata.swift#L24-L123">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -629,7 +590,7 @@ To get the parsed data from a GPX file, simply initialize the parser, and get th
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXParser.swift#L15-L153">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXParser.swift#L15-L154">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -664,7 +625,7 @@ To get the parsed data from a GPX file, simply initialize the parser, and get th
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXPerson.swift#L11-L64">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXPerson.swift#L11-L65">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -704,7 +665,7 @@ To get the parsed data from a GPX file, simply initialize the parser, and get th
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXPoint.swift#L15-L69">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXPoint.swift#L15-L74">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -744,7 +705,7 @@ To get the parsed data from a GPX file, simply initialize the parser, and get th
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXPointSegment.swift#L15-L72">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXPointSegment.swift#L15-L78">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -781,7 +742,7 @@ To get the parsed data from a GPX file, simply initialize the parser, and get th
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXRoot.swift#L15-L332">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXRoot.swift#L15-L366">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -818,7 +779,7 @@ To get the parsed data from a GPX file, simply initialize the parser, and get th
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXRoute.swift#L15-L150">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXRoute.swift#L15-L157">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -853,7 +814,7 @@ To get the parsed data from a GPX file, simply initialize the parser, and get th
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXRoutePoint.swift#L10-L59">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXRoutePoint.swift#L10-L39">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -892,7 +853,7 @@ To get the parsed data from a GPX file, simply initialize the parser, and get th
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXTrack.swift#L17-L160">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXTrack.swift#L17-L169">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -930,7 +891,7 @@ To get the parsed data from a GPX file, simply initialize the parser, and get th
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXTrackPoint.swift#L16-L67">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXTrackPoint.swift#L16-L47">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -967,7 +928,7 @@ To get the parsed data from a GPX file, simply initialize the parser, and get th
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXTrackSegment.swift#L15-L82">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXTrackSegment.swift#L15-L97">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -997,6 +958,7 @@ To get the parsed data from a GPX file, simply initialize the parser, and get th
     This class is intended to be internally used only.
 
 </div>
+<li>Might be depreciated soon.</li>
 
                         <a href="Classes/GPXType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -1009,7 +971,7 @@ To get the parsed data from a GPX file, simply initialize the parser, and get th
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXType.swift#L18-L225">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXType.swift#L19-L226">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1054,7 +1016,7 @@ To get the parsed data from a GPX file, simply initialize the parser, and get th
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/GPXWaypoint.swift#L20-L314">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/GPXWaypoint.swift#L20-L321">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1064,7 +1026,7 @@ To get the parsed data from a GPX file, simply initialize the parser, and get th
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.github.com/vincentneo" target="_blank" rel="external">Vincent</a>. All rights reserved. (Last updated: 2019-06-11)</p>
+          <p>&copy; 2019 <a class="link" href="https://www.github.com/vincentneo" target="_blank" rel="external">Vincent</a>. All rights reserved. (Last updated: 2019-06-30)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

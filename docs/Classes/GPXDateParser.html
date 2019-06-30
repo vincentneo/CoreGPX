@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>ISO8601DateParser Class Reference</title>
+    <title>GPXDateParser Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,11 +10,11 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/ISO8601DateParser" class="dashAnchor"></a>
-    <a title="ISO8601DateParser Class Reference"></a>
+    <a name="//apple_ref/swift/Class/GPXDateParser" class="dashAnchor"></a>
+    <a title="GPXDateParser Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CoreGPX Docs</a> (72% documented)</p>
+        <p><a href="../index.html">CoreGPX Docs</a> (82% documented)</p>
         <p class="header-right"><a href="https://www.github.com/vincentneo/CoreGPX"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">CoreGPX Reference</a>
         <img id="carat" src="../img/carat.png" />
-        ISO8601DateParser Class Reference
+        GPXDateParser Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -35,9 +35,6 @@
                 <a href="../Classes/Convert.html">Convert</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/CopyrightYearParser.html">CopyrightYearParser</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/GPXAuthor.html">GPXAuthor</a>
               </li>
               <li class="nav-group-task">
@@ -45,6 +42,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/GPXCopyright.html">GPXCopyright</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GPXDateParser.html">GPXDateParser</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/GPXElement.html">GPXElement</a>
@@ -112,20 +112,6 @@
               <li class="nav-group-task">
                 <a href="../Classes/GPXWaypoint/CodingKeys.html">– CodingKeys</a>
               </li>
-              <li class="nav-group-task">
-                <a href="../Classes/ISO8601DateParser.html">ISO8601DateParser</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="../Global Variables.html">Global Variables</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Global Variables.html#/s:7CoreGPX18kGPXDescriptionKeySSvp">kGPXDescriptionKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Global Variables.html#/s:7CoreGPX32kGPXInvalidGPXFormatNotificationSSvp">kGPXInvalidGPXFormatNotification</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -149,14 +135,18 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>ISO8601DateParser</h1>
+            <h1>GPXDateParser</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ISO8601DateParser</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">GPXDateParser</span></code></pre>
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>Date Parser for use when parsing GPX files, containing elements with date attributions.</p>
+
+<p>It can parse ISO8601 formatted date strings, along with year strings to native <code>Date</code> types.</p>
+
+<p>Formerly Named: <code>ISO8601DateParser</code> &amp; <code>CopyrightYearParser</code></p>
 
           </section>
           <section class="section task-group-section">
@@ -165,9 +155,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7CoreGPX17ISO8601DateParserC5parsey10Foundation0D0VSgSSSgFZ"></a>
-                    <a name="//apple_ref/swift/Method/parse(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX17ISO8601DateParserC5parsey10Foundation0D0VSgSSSgFZ">parse(_:)</a>
+                    <a name="/s:7CoreGPX13GPXDateParserC5parse4date10Foundation4DateVSgSSSg_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/parse(date:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX13GPXDateParserC5parse4date10Foundation4DateVSgSSSg_tFZ">parse(date:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -175,19 +165,49 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Parses an ISO8601 formatted date string as native Date type.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">parse</span><span class="p">(</span><span class="n">_</span> <span class="nv">dateString</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Date</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">parse</span><span class="p">(</span><span class="n">date</span> <span class="nv">string</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Date</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.5.6/Classes/DateTimeParsers.swift#L27-L53">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/DateTimeParsers.swift#L41-L67">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7CoreGPX13GPXDateParserC5parse4year10Foundation4DateVSgSSSg_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/parse(year:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX13GPXDateParserC5parse4year10Foundation4DateVSgSSSg_tFZ">parse(year:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Parses a year string as native Date type.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">parse</span><span class="p">(</span><span class="n">year</span> <span class="nv">string</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Date</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.0/Classes/DateTimeParsers.swift#L70-L90">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -197,7 +217,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.github.com/vincentneo" target="_blank" rel="external">Vincent</a>. All rights reserved. (Last updated: 2019-06-11)</p>
+          <p>&copy; 2019 <a class="link" href="https://www.github.com/vincentneo" target="_blank" rel="external">Vincent</a>. All rights reserved. (Last updated: 2019-06-30)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
