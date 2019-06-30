@@ -46,6 +46,14 @@ class CreationViewController: UIViewController, UITextFieldDelegate {
             let trackpoint = GPXTrackPoint(latitude: latitude ?? 0, longitude: longitude ?? 0)
             trackpoint.elevation = elevation ?? 0
             trackpoint.time = Date()
+            
+            /* example for adding an extension in here.
+            let dictionary = [["ext1" : "302", "ext1:speed" : "80"], ["ext2" : "03f"]]
+            trackpoint.extensions = GPXExtensions(custom: dictionary)
+            trackpoint.extensions?.insertParentTag(at: 0, tagName: "extension for 1")
+            trackpoint.extensions?.insertParentTag(at: 1, tagName: "extension for 2")
+            */
+            
             trackpoints.append(trackpoint)
             
             //clear fields

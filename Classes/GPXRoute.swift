@@ -60,14 +60,19 @@ open class GPXRoute: GPXElement, Codable {
         super.init()
     }
     
-    init(dictionary: [String : String]) {
+    init(dictionary: inout [String : String]) {
         super.init()
-        self.name = dictionary["name"]
-        self.comment = dictionary["cmt"]
-        self.desc = dictionary["desc"]
-        self.source = dictionary["src"]
-        self.type = dictionary["type"]
-        self.number = Convert.toInt(from: dictionary["number"])
+        dictionary.removeValue(forKey: self.tagName())
+        self.name = dictionary.removeValue(forKey: "name")
+        self.comment = dictionary.removeValue(forKey: "cmt")
+        self.desc = dictionary.removeValue(forKey: "desc")
+        self.source = dictionary.removeValue(forKey: "src")
+        self.type = dictionary.removeValue(forKey: "type")
+        self.number = Convert.toInt(from: dictionary.removeValue(forKey: "number"))
+        
+        if dictionary.count > 0 {
+            self.extensions = GPXExtensions(dictionary: dictionary)
+        }
     }
     
     // MARK: Public Methods
