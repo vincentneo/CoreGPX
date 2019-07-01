@@ -17,7 +17,36 @@ import Foundation
  
  The waypoint should at least contain the attributes of both `latitude` and `longitude` in order to be considered a valid waypoint. Most attributes are optional, and are not required to be implemented.
 */
-open class GPXWaypoint: GPXElement {
+open class GPXWaypoint: GPXElement, Codable {
+    
+    // MARK: Codable Implementation
+    
+    /// For Codable use
+    enum CodingKeys: String, CodingKey {
+        case time
+        case elevation = "ele"
+        case latitude = "lat"
+        case longitude = "lon"
+        case magneticVariation = "magvar"
+        case geoidHeight = "geoidheight"
+        case name
+        case comment = "cmt"
+        case desc = "desc"
+        case source = "src"
+        case symbol = "sym"
+        case type
+        case fix
+        case satellites = "sat"
+        case horizontalDilution = "hdop"
+        case verticalDilution = "vdop"
+        case positionDilution = "pdop"
+        case DGPSid = "dgpsid"
+        case ageofDGPSData = "ageofdgpsdata"
+        case link
+        case extensions
+    }
+    
+    
     
     // MARK:- Attributes of a waypoint
     
@@ -146,6 +175,9 @@ open class GPXWaypoint: GPXElement {
     ///
     public var longitude: Double?
     
+    
+    
+    
     // MARK:- Initializers
     
     /// Initialize with current date and time
@@ -188,27 +220,34 @@ open class GPXWaypoint: GPXElement {
     /// - Parameters:
     ///     - dictionary: a dictionary with a key of an attribute, followed by the value which is set as the GPX file is parsed.
     ///
-    init(dictionary: [String : String]) {
-        self.time = ISO8601DateParser.parse(dictionary ["time"])
+    init(dictionary: inout [String : String]) {
+        
+        self.time = GPXDateParser.parse(date: dictionary.removeValue(forKey: "time"))
         super.init()
-        self.elevation = Convert.toDouble(from: dictionary["ele"])
-        self.latitude = Convert.toDouble(from: dictionary["lat"])
-        self.longitude = Convert.toDouble(from: dictionary["lon"])
-        self.magneticVariation = Convert.toDouble(from: dictionary["magvar"])
-        self.geoidHeight = Convert.toDouble(from: dictionary["geoidheight"])
-        self.name = dictionary["name"]
-        self.comment = dictionary["cmt"]
-        self.desc = dictionary["desc"]
-        self.source = dictionary["src"]
-        self.symbol = dictionary["sym"]
-        self.type = dictionary["type"]
-        self.fix = Convert.toInt(from: dictionary["fix"])
-        self.satellites = Convert.toInt(from: dictionary["sat"])
-        self.horizontalDilution = Convert.toDouble(from: dictionary["hdop"])
-        self.verticalDilution = Convert.toDouble(from: dictionary["vdop"])
-        self.positionDilution = Convert.toDouble(from: dictionary["pdop"])
-        self.DGPSid = Convert.toInt(from: dictionary["dgpsid"])
-        self.ageofDGPSData = Convert.toDouble(from: dictionary["ageofdgpsdata"])
+        dictionary.removeValue(forKey: self.tagName())
+        self.elevation = Convert.toDouble(from: dictionary.removeValue(forKey: "ele"))
+        self.latitude = Convert.toDouble(from: dictionary.removeValue(forKey: "lat"))
+        self.longitude = Convert.toDouble(from: dictionary.removeValue(forKey: "lon"))
+        self.magneticVariation = Convert.toDouble(from: dictionary.removeValue(forKey: "magvar"))
+        self.geoidHeight = Convert.toDouble(from: dictionary.removeValue(forKey: "geoidheight"))
+        self.name = dictionary.removeValue(forKey: "name")
+        self.comment = dictionary.removeValue(forKey: "cmt")
+        self.desc = dictionary.removeValue(forKey: "desc")
+        self.source = dictionary.removeValue(forKey: "src")
+        self.symbol = dictionary.removeValue(forKey: "sym")
+        self.type = dictionary.removeValue(forKey: "type")
+        self.fix = Convert.toInt(from: dictionary.removeValue(forKey: "fix"))
+        self.satellites = Convert.toInt(from: dictionary.removeValue(forKey: "sat"))
+        self.horizontalDilution = Convert.toDouble(from: dictionary.removeValue(forKey: "hdop"))
+        self.verticalDilution = Convert.toDouble(from: dictionary.removeValue(forKey: "vdop"))
+        self.positionDilution = Convert.toDouble(from: dictionary.removeValue(forKey: "pdop"))
+        self.DGPSid = Convert.toInt(from: dictionary.removeValue(forKey: "dgpsid"))
+        self.ageofDGPSData = Convert.toDouble(from: dictionary.removeValue(forKey: "ageofdgpsdata"))
+        
+        if dictionary.count > 0 {
+            self.extensions = GPXExtensions(dictionary: dictionary)
+        }
+        
     }
     
     // MARK:- Public Methods
@@ -246,7 +285,7 @@ open class GPXWaypoint: GPXElement {
             attribute.appendFormat(" lon=\"%f\"", longitude!)
         }
         
-        gpx.appendFormat("%@<%@%@>\r\n", indent(forIndentationLevel: indentationLevel), self.tagName(), attribute)
+        gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)
     }
     
     override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
@@ -280,3 +319,5 @@ open class GPXWaypoint: GPXElement {
         }
     }
 }
+
+

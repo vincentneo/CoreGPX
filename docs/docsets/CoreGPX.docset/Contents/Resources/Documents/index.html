@@ -13,7 +13,7 @@
     <a title="CoreGPX  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">CoreGPX Docs</a> (83% documented)</p>
+        <p><a href="index.html">CoreGPX Docs</a> (82% documented)</p>
         <p class="header-right"><a href="https://www.github.com/vincentneo/CoreGPX"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -34,9 +34,6 @@
                 <a href="Classes/Convert.html">Convert</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/CopyrightYearParser.html">CopyrightYearParser</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes/GPXAuthor.html">GPXAuthor</a>
               </li>
               <li class="nav-group-task">
@@ -44,6 +41,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/GPXCopyright.html">GPXCopyright</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GPXDateParser.html">GPXDateParser</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/GPXElement.html">GPXElement</a>
@@ -56,6 +56,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/GPXLink.html">GPXLink</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GPXLink/CodingKeys.html">– CodingKeys</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/GPXMetadata.html">GPXMetadata</a>
@@ -79,10 +82,16 @@
                 <a href="Classes/GPXRoute.html">GPXRoute</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/GPXRoute/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/GPXRoutePoint.html">GPXRoutePoint</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/GPXTrack.html">GPXTrack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GPXTrack/CodingKeys.html">– CodingKeys</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/GPXTrackPoint.html">GPXTrackPoint</a>
@@ -91,24 +100,16 @@
                 <a href="Classes/GPXTrackSegment.html">GPXTrackSegment</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/GPXTrackSegment/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/GPXType.html">GPXType</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/GPXWaypoint.html">GPXWaypoint</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ISO8601DateParser.html">ISO8601DateParser</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="Global Variables.html">Global Variables</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Global Variables.html#/s:7CoreGPX18kGPXDescriptionKeySSvp">kGPXDescriptionKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Global Variables.html#/s:7CoreGPX32kGPXInvalidGPXFormatNotificationSSvp">kGPXInvalidGPXFormatNotification</a>
+                <a href="Classes/GPXWaypoint/CodingKeys.html">– CodingKeys</a>
               </li>
             </ul>
           </li>
@@ -117,6 +118,14 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Enums/GPXFix.html">GPXFix</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/NSMutableString.html">NSMutableString</a>
               </li>
             </ul>
           </li>
@@ -157,6 +166,8 @@
 <li>[x] Successfully outputs string that can be packaged into a GPX file</li>
 <li>[x] Parses GPX files using native XMLParser</li>
 <li>[x] Support for iOS, macOS &amp; watchOS</li>
+<li>[x] <strong>(new)</strong> Supports <code>Codable</code> in essential classes</li>
+<li>[x] <strong>(beta)</strong> Enhanced support for <code><a href="Classes/GPXExtensions.html">GPXExtensions</a></code> for both parsing and creating. (Currently only for various elements, but not root extensions itself.)</li>
 </ul>
 <h2 id='documentation' class='heading'>Documentation</h2>
 
@@ -273,6 +284,29 @@ print(root.gpx())               // prints the GPX formatted string
 <li><code>.gpx()</code> of <code><a href="Classes/GPXRoot.html">GPXRoot</a></code> outputs a <code>String</code> which can then be packaged as a .GPX file.</li>
 <li><code>.OutputToFile(saveAt:fileName:)</code> directly saves GPX contents to a URL specified.</li>
 </ul>
+<h2 id='dealing-with-extensions' class='heading'>Dealing with Extensions</h2>
+
+<p>Extensions in GPX files are represented as <code><a href="Classes/GPXExtensions.html">GPXExtensions</a></code> in CoreGPX. </p>
+
+<p>### Accessing GPX Files&rsquo;s extensions
+ Once a GPX file is parsed, you can access the extensions, by using subscript, with the parent tag.</p>
+
+<ul>
+<li>Use <code>extensions[nil]</code>  to get extension data without parent tags.</li>
+<li>Use <code>extensions[&quot;ParentTag&quot;]</code> to get extension data with parent tags (in this case, its <code>&quot;ParentTag&quot;</code>)</li>
+</ul>
+
+<p>### Writing GPX extensions</p>
+
+<ul>
+<li>Firstly, initialize GPXRoot using <code>init(withExtensionAttributes:, schemaLocation:)</code> to initialize with extension schema information on the main gpx header tag.</li>
+<li>Secondly, initialize GPXExtensions whenever needed, to be added to the GPXRoot/or other elements, when needed.</li>
+<li>Use <code>extensions[nil] = [&quot;Key1&quot; : &quot;Value1&quot;]</code>  to write extension data without parent tags.</li>
+<li>Use <code>extensions[&quot;ParentTag&quot;] = [&quot;ChildKey1&quot; : &quot;ChildValue1&quot;]</code> to write extension data with parent tags (in this case, its <code>&quot;ParentTag&quot;</code>)
+Alternatively, you can use functions like:</li>
+<li><code>insert(withParentTag:, withContents:)</code> to insert data with/without a parent tag.</li>
+<li><code>remove(contentsOfParentTag:)</code> to remove data with/without a parent tag.</li>
+</ul>
 <h2 id='example' class='heading'>Example</h2>
 
 <p>To know in depth of what <code>CoreGPX</code> can bring, do check out the Example app.
@@ -288,7 +322,7 @@ If you require a feature that has yet to be available, do open an issue, describ
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.github.com/vincentneo" target="_blank" rel="external">Vincent</a>. All rights reserved. (Last updated: 2019-03-26)</p>
+          <p>&copy; 2019 <a class="link" href="https://www.github.com/vincentneo" target="_blank" rel="external">Vincent</a>. All rights reserved. (Last updated: 2019-06-30)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

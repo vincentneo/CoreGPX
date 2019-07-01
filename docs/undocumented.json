@@ -1,71 +1,15 @@
 {
   "warnings": [
     {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/DateTimeParsers.swift",
-      "line": 15,
-      "symbol": "ISO8601DateParser",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/DateTimeParsers.swift",
-      "line": 27,
-      "symbol": "ISO8601DateParser.parse(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/DateTimeParsers.swift",
-      "line": 66,
-      "symbol": "CopyrightYearParser.parse(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXAuthor.swift",
-      "line": 13,
-      "symbol": "GPXAuthor.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXBounds.swift",
-      "line": 28,
-      "symbol": "GPXBounds.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXCopyright.swift",
-      "line": 43,
-      "symbol": "GPXCopyright.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXElement.swift",
-      "line": 12,
-      "symbol": "kGPXInvalidGPXFormatNotification",
-      "symbol_kind": "source.lang.swift.decl.var.global",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXElement.swift",
-      "line": 14,
-      "symbol": "kGPXDescriptionKey",
-      "symbol_kind": "source.lang.swift.decl.var.global",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXElement.swift",
-      "line": 27,
+      "line": 21,
       "symbol": "GPXElement.parent",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXElement.swift",
-      "line": 40,
+      "line": 34,
       "symbol": "GPXElement.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -78,15 +22,29 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXExtensions.swift",
-      "line": 18,
-      "symbol": "GPXExtensions.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXLink.swift",
+      "line": 24,
+      "symbol": "GPXLink.CodingKeys.text",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXLink.swift",
-      "line": 35,
+      "line": 25,
+      "symbol": "GPXLink.CodingKeys.mimetype",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXLink.swift",
+      "line": 26,
+      "symbol": "GPXLink.CodingKeys.href",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXLink.swift",
+      "line": 42,
       "symbol": "GPXLink.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -100,21 +58,21 @@
     },
     {
       "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXParser.swift",
-      "line": 140,
+      "line": 144,
       "symbol": "GPXParser.parsedData()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXParser.swift",
-      "line": 164,
+      "line": 165,
       "symbol": "GPXParser.parser(_:didStartElement:namespaceURI:qualifiedName:attributes:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXParser.swift",
-      "line": 217,
+      "line": 215,
       "symbol": "GPXParser.parser(_:foundCharacters:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -128,114 +86,65 @@
     },
     {
       "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXPerson.swift",
-      "line": 23,
+      "line": 24,
       "symbol": "GPXPerson.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXPoint.swift",
-      "line": 17,
-      "symbol": "GPXPoint.elevation",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXRoot.swift",
+      "line": 200,
+      "symbol": "GPXRoot.remove(WaypointAtIndex:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXPoint.swift",
-      "line": 18,
-      "symbol": "GPXPoint.time",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXPoint.swift",
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXRoute.swift",
       "line": 19,
-      "symbol": "GPXPoint.latitude",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "symbol": "GPXRoute.CodingKeys.name",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXPoint.swift",
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXRoute.swift",
       "line": 20,
-      "symbol": "GPXPoint.longitude",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "symbol": "GPXRoute.CodingKeys.comment",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXPoint.swift",
-      "line": 24,
-      "symbol": "GPXPoint.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXPoint.swift",
-      "line": 28,
-      "symbol": "GPXPoint.init(latitude:longitude:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXPoint.swift",
-      "line": 34,
-      "symbol": "GPXPoint.init(dictionary:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXPointSegment.swift",
-      "line": 17,
-      "symbol": "GPXPointSegment.points",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXPointSegment.swift",
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXRoute.swift",
       "line": 21,
-      "symbol": "GPXPointSegment.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXPointSegment.swift",
-      "line": 27,
-      "symbol": "GPXPointSegment.newPoint(with:longitude:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXPointSegment.swift",
-      "line": 36,
-      "symbol": "GPXPointSegment.add(point:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXPointSegment.swift",
-      "line": 43,
-      "symbol": "GPXPointSegment.add(points:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXPointSegment.swift",
-      "line": 47,
-      "symbol": "GPXPointSegment.remove(point:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "symbol": "GPXRoute.CodingKeys.desc",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXRoute.swift",
-      "line": 48,
-      "symbol": "GPXRoute.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "line": 22,
+      "symbol": "GPXRoute.CodingKeys.source",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXRoute.swift",
-      "line": 52,
-      "symbol": "GPXRoute.init(dictionary:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "line": 23,
+      "symbol": "GPXRoute.CodingKeys.link",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXRoute.swift",
+      "line": 24,
+      "symbol": "GPXRoute.CodingKeys.type",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXRoute.swift",
+      "line": 25,
+      "symbol": "GPXRoute.CodingKeys.extensions",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
@@ -247,58 +156,226 @@
     },
     {
       "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXTrack.swift",
-      "line": 43,
-      "symbol": "GPXTrack.extensions",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "line": 21,
+      "symbol": "GPXTrack.CodingKeys.link",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXTrack.swift",
-      "line": 46,
-      "symbol": "GPXTrack.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "line": 22,
+      "symbol": "GPXTrack.CodingKeys.tracksegments",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXTrack.swift",
-      "line": 50,
-      "symbol": "GPXTrack.init(dictionary:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXTrack.swift",
-      "line": 104,
-      "symbol": "GPXTrack.newTrackPointWith(latitude:longitude:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXTrackSegment.swift",
-      "line": 17,
-      "symbol": "GPXTrackSegment.trackpoints",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXTrackSegment.swift",
-      "line": 18,
-      "symbol": "GPXTrackSegment.extensions",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXTrackSegment.swift",
       "line": 23,
-      "symbol": "GPXTrackSegment.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "symbol": "GPXTrack.CodingKeys.name",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXTrack.swift",
+      "line": 24,
+      "symbol": "GPXTrack.CodingKeys.comment",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXTrack.swift",
+      "line": 25,
+      "symbol": "GPXTrack.CodingKeys.desc",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXTrack.swift",
+      "line": 26,
+      "symbol": "GPXTrack.CodingKeys.source",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXTrack.swift",
+      "line": 27,
+      "symbol": "GPXTrack.CodingKeys.number",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXTrack.swift",
+      "line": 28,
+      "symbol": "GPXTrack.CodingKeys.type",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXTrack.swift",
+      "line": 29,
+      "symbol": "GPXTrack.CodingKeys.extensions",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXTrackSegment.swift",
+      "line": 19,
+      "symbol": "GPXTrackSegment.CodingKeys.trackpoints",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXTrackSegment.swift",
+      "line": 20,
+      "symbol": "GPXTrackSegment.CodingKeys.extensions",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXWaypoint.swift",
+      "line": 26,
+      "symbol": "GPXWaypoint.CodingKeys.time",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXWaypoint.swift",
+      "line": 27,
+      "symbol": "GPXWaypoint.CodingKeys.elevation",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXWaypoint.swift",
+      "line": 28,
+      "symbol": "GPXWaypoint.CodingKeys.latitude",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXWaypoint.swift",
       "line": 29,
-      "symbol": "GPXTrackSegment.newTrackpointWith(latitude:longitude:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "symbol": "GPXWaypoint.CodingKeys.longitude",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXWaypoint.swift",
+      "line": 30,
+      "symbol": "GPXWaypoint.CodingKeys.magneticVariation",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXWaypoint.swift",
+      "line": 31,
+      "symbol": "GPXWaypoint.CodingKeys.geoidHeight",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXWaypoint.swift",
+      "line": 32,
+      "symbol": "GPXWaypoint.CodingKeys.name",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXWaypoint.swift",
+      "line": 33,
+      "symbol": "GPXWaypoint.CodingKeys.comment",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXWaypoint.swift",
+      "line": 34,
+      "symbol": "GPXWaypoint.CodingKeys.desc",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXWaypoint.swift",
+      "line": 35,
+      "symbol": "GPXWaypoint.CodingKeys.source",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXWaypoint.swift",
+      "line": 36,
+      "symbol": "GPXWaypoint.CodingKeys.symbol",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXWaypoint.swift",
+      "line": 37,
+      "symbol": "GPXWaypoint.CodingKeys.type",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXWaypoint.swift",
+      "line": 38,
+      "symbol": "GPXWaypoint.CodingKeys.fix",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXWaypoint.swift",
+      "line": 39,
+      "symbol": "GPXWaypoint.CodingKeys.satellites",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXWaypoint.swift",
+      "line": 40,
+      "symbol": "GPXWaypoint.CodingKeys.horizontalDilution",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXWaypoint.swift",
+      "line": 41,
+      "symbol": "GPXWaypoint.CodingKeys.verticalDilution",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXWaypoint.swift",
+      "line": 42,
+      "symbol": "GPXWaypoint.CodingKeys.positionDilution",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXWaypoint.swift",
+      "line": 43,
+      "symbol": "GPXWaypoint.CodingKeys.DGPSid",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXWaypoint.swift",
+      "line": 44,
+      "symbol": "GPXWaypoint.CodingKeys.ageofDGPSData",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXWaypoint.swift",
+      "line": 45,
+      "symbol": "GPXWaypoint.CodingKeys.link",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXWaypoint.swift",
+      "line": 46,
+      "symbol": "GPXWaypoint.CodingKeys.extensions",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     }
   ],

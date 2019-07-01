@@ -44,11 +44,13 @@ open class GPXRoot: GPXElement {
     // MARK: GPX v1.1 Namespaces
     
     /// Link to the GPX v1.1 schema
-    let schema = "http://www.topografix.com/GPX/1/1"
+    private let schema = "http://www.topografix.com/GPX/1/1"
     /// Link to the schema locations. If extended, the extended schema should be added.
-    let schemaLocation = "http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd"
+    private var schemaLocation = "http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd"
     /// Link to XML schema instance
-    let xsi = "http://www.w3.org/2001/XMLSchema-instance"
+    private let xsi = "http://www.w3.org/2001/XMLSchema-instance"
+    /// For if GPX file is extended, and contains extra attributes on gpx main tag.
+    private var extensionAttributes: [String : String]?
     
     
     
@@ -75,6 +77,24 @@ open class GPXRoot: GPXElement {
         self.version = "1.1"
     }
     
+    /// Initialize if planned to use with extensions
+    ///
+    /// - Parameters:
+    ///     - attributes: Extension attributes to be placed in the gpx tag header. Key should be name of attribute, while Value contains the value of the attribute.
+    ///     - schemaLocation: Location/Website of the extension schema
+    public init(withExtensionAttributes attributes: [String : String],  schemaLocation: String) {
+        super.init()
+        self.version = "1.1"
+        self.schemaLocation += " \(schemaLocation)"
+        self.extensionAttributes = attributes
+    }
+    
+    /// Initialize if planned to use with extensions, with creator name.
+    public convenience init(withExtensionAttributes attributes: [String : String],  schemaLocation: String, creator: String) {
+        self.init(withExtensionAttributes: attributes, schemaLocation: schemaLocation)
+        self.creator = creator
+    }
+    
     /// For internal use only
     ///
     /// Initializes the metadata using a dictionary, with each key being an attribute name.
@@ -85,9 +105,15 @@ open class GPXRoot: GPXElement {
     /// - Parameters:
     ///     - dictionary: a dictionary with a key of an attribute, followed by the value which is set as the GPX file is parsed.
     ///
-    internal init(dictionary: [String : String]) {
-        self.creator = dictionary["creator"]
-        self.version = dictionary["version"]
+    internal init(dictionary: inout [String : String]) {
+        super.init()
+        self.creator = dictionary.removeValue(forKey: "creator")
+        self.version = dictionary.removeValue(forKey: "version")
+        dictionary.removeValue(forKey: self.tagName())
+        
+        if dictionary.count > 0 {
+            self.extensions = GPXExtensions(dictionary: dictionary)
+        }
     }
     
     
@@ -136,7 +162,7 @@ open class GPXRoot: GPXElement {
         return waypoint
     }
     
-    /// Add a pre-initalized and configured waypoint to `GPXRoot`
+    /// Add a pre-initialized and configured waypoint to `GPXRoot`
     ///
     /// - Parameters:
     ///     - waypoint: The waypoint that you wish to include in `GPXRoot`
@@ -147,7 +173,7 @@ open class GPXRoot: GPXElement {
         }
     }
     
-    /// Add an array of pre-initalized and configured waypoints to `GPXRoot`
+    /// Add an array of pre-initialized and configured waypoints to `GPXRoot`
     ///
     /// - Parameters:
     ///     - waypoints: Array of waypoints that you wish to include in `GPXRoot`
@@ -171,6 +197,10 @@ open class GPXRoot: GPXElement {
         }
     }
     
+    public func remove(WaypointAtIndex index: Int) {
+        self.waypoints.remove(at: index)
+    }
+    
     /// Initializes a new `route` which is also added to `GPXRoot` automatically
     ///
     /// A route is initialized, then added into the array of routes in this `GPXRoot`.
@@ -189,7 +219,7 @@ open class GPXRoot: GPXElement {
         return route
     }
     
-    /// Add a pre-initalized and configured route to `GPXRoot`
+    /// Add a pre-initialized and configured route to `GPXRoot`
     ///
     /// - Parameters:
     ///     - route: The route that you wish to include in `GPXRoot`
@@ -200,7 +230,7 @@ open class GPXRoot: GPXElement {
         }
     }
     
-    /// Add an array of pre-initalized and configured routes to `GPXRoot`
+    /// Add an array of pre-initialized and configured routes to `GPXRoot`
     ///
     /// - Parameters:
     ///     - routes: The array of routes that you wish to include in `GPXRoot`
@@ -240,7 +270,7 @@ open class GPXRoot: GPXElement {
         return track
     }
     
-    /// Add a pre-initalized and configured track to `GPXRoot`
+    /// Add a pre-initialized and configured track to `GPXRoot`
     ///
     /// - Parameters:
     ///     - track: The track that you wish to include in `GPXRoot`
@@ -251,7 +281,7 @@ open class GPXRoot: GPXElement {
         }
     }
     
-    /// Add an array of pre-initalized and configured tracks to `GPXRoot`
+    /// Add an array of pre-initialized and configured tracks to `GPXRoot`
     ///
     /// - Parameters:
     ///     - tracks: The array of tracks that you wish to include in `GPXRoot`
@@ -287,6 +317,14 @@ open class GPXRoot: GPXElement {
         
         attribute.appendFormat(" xmlns:xsi=\"%@\"", self.xsi)
         attribute.appendFormat(" xmlns=\"%@\"", self.schema)
+        
+        // for extensions attributes to be appended.
+        if let extensionAttributes = self.extensionAttributes {
+            for attributeKey in extensionAttributes.keys {
+                attribute.appendFormat(" %@=\"%@\"", attributeKey, extensionAttributes[attributeKey] ?? "Data is invalid")
+            }
+        }
+        
         attribute.appendFormat(" xsi:schemaLocation=\"%@\"", self.schemaLocation)
         
         if let version = self.version {
@@ -299,7 +337,7 @@ open class GPXRoot: GPXElement {
         
         gpx.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n")
         
-        gpx.appendFormat("%@<%@%@>\r\n", self.indent(forIndentationLevel: indentationLevel), self.tagName(), attribute)
+        gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)
     }
     
     override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {

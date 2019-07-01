@@ -192,4 +192,69 @@ class CoreGPX_Tests: XCTestCase {
             XCTAssert(true, "testCreation: successfully created")
         }
     }
+    
+    func testEncoding() {
+        guard let data = data else {
+            XCTAssert(false, "testEncoding: Data invalid")
+            return
+        }
+        let parsedData = GPXParser(withData: data).parsedData()
+        let trackpoints = parsedData.tracks[0].tracksegments[0].trackpoints
+        
+        do {
+            let data = try JSONEncoder().encode(trackpoints.first)
+            
+            guard let stringData = String(data: data, encoding: .utf8) else {
+                XCTAssert(false, "testEncoding: Data to String invalid")
+                return
+            }
+            
+            print("data: \(stringData)")
+            
+            if stringData == "{\"lat\":35.675032000000002,\"lon\":139.722148,\"ele\":31.098351999999998,\"time\":565148938}" {
+                
+                XCTAssert(true, "testEncoding: Data encoding passed")
+                
+            }
+        }
+        catch {
+            XCTAssert(false, "testEncoding: Failed to serialize trackpoint as Data")
+            print("encode: \(error)")
+        }
+    }
+    
+    func testDecoding() {
+        guard let data = data else {
+            XCTAssert(false, "testDecoding: Data invalid")
+            return
+        }
+        let parsedData = GPXParser(withData: data).parsedData()
+        let trackpoints = parsedData.tracks[0].tracksegments[0].trackpoints
+        
+        /// `data` declared above != `serializedData`
+        ///
+        /// `data` is data that is structured as XML (GPX-style)
+        ///
+        /// `serializedData` is data that is structured as JSON (in this case), or plist (if PropertyListDecoder is used instead)
+        var serializedData = Data()
+        
+        do { // encode
+            serializedData = try JSONEncoder().encode(trackpoints.first)
+        }
+        catch {
+            XCTAssert(false, "testDecoding: Failed to serialize/encode trackpoint as Data")
+            print("encode: \(error)")
+        }
+        
+        do { // decode
+            let decode = try JSONDecoder().decode(GPXTrackPoint.self, from: serializedData)
+            if decode.latitude == 35.675032 && decode.longitude == 139.722148 && decode.elevation == 31.098352 {
+                XCTAssert(true, "testDecoding: Decoding serialized trackpoint as Data passed")
+            }
+        }
+        catch {
+            XCTAssert(false, "testDecoding: Failed to decode serialized trackpoint as Data")
+            print("decode: \(error)")
+        }
+    }
 }

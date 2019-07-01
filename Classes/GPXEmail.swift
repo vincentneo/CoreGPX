@@ -40,13 +40,7 @@ open class GPXEmail: GPXElement {
         self.domain = splitedEmail[1]
     }
     
-    /// Initialize with seperate values of both email ID and domain.
-    @available(*, deprecated, renamed: "init(withFullEmailAddress:)")
-    public init(emailID: String, domain: String) {
-        self.emailID = emailID
-        self.domain = domain
-    }
-    
+
     /// For internal use only
     ///
     /// Initializes a waypoint through a dictionary, with each key being an attribute name.
@@ -77,6 +71,6 @@ open class GPXEmail: GPXElement {
         if let domain = domain {
             attribute.appendFormat(" domain=\"%@\"", domain)
         }
-        gpx.appendFormat("%@<%@%@>\r\n", indent(forIndentationLevel: indentationLevel), self.tagName(), attribute)
+        gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)
     }
 }

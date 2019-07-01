@@ -7,6 +7,9 @@
 
 import Foundation
 
+/// Some common web extensions used for `init(withURL:)`
+fileprivate let kCommonWebExtensions: Set = ["htm", "html", "asp", "aspx", "jsp", "jspx", "do", "js", "php", "php3", "php4", "cgi", ".htaccess"]
+
 /**
  A value type that can hold a web link to a external resource, or external information about a certain attribute.
  
@@ -14,7 +17,14 @@ import Foundation
     - type of content
     - text of web link (probably a description kind of thing)
  */
-open class GPXLink: GPXElement {
+open class GPXLink: GPXElement, Codable {
+    
+    /// For Codable use
+    enum CodingKeys: String, CodingKey {
+        case text
+        case mimetype = "type"
+        case href
+    }
     
     // MARK:- Properties
 
@@ -26,9 +36,6 @@ open class GPXLink: GPXElement {
     
     /// URL of hyperlink
     public var href: String?
-    
-    /// Some common web extensions used for `init(withURL:)`
-    private let commonWebExtensions = ["htm", "html", "asp", "aspx", "php", "cgi", ".htaccess"]
    
     // MARK:- Instance
     
@@ -54,12 +61,12 @@ open class GPXLink: GPXElement {
     /// - Parameters:
     ///     - url: input URL, intended as a web link reference.
     public init(withURL url: URL?) {
-        guard let isURL = url?.isFileURL else { return }
-        if isURL {
+        guard let isFileURL = url?.isFileURL else { return }
+        if !isFileURL {
             self.href = url?.absoluteString
             guard let pathExtension = url?.pathExtension else { return }
             // may not work if web extension is not shown. (etc, using .htaccess)
-            if commonWebExtensions.contains(pathExtension) {
+            if kCommonWebExtensions.contains(pathExtension) {
                 self.mimetype = "Website"
             }
         }
@@ -77,7 +84,7 @@ open class GPXLink: GPXElement {
     ///
     init(dictionary: [String : String]) {
         self.href = dictionary["href"]
-        self.mimetype = dictionary["mimetype"]
+        self.mimetype = dictionary["type"]
         self.text = dictionary["text"]
     }
     
@@ -100,7 +107,7 @@ open class GPXLink: GPXElement {
         if let href = href {
             attribute.appendFormat(" href=\"%@\"", href)
         }
-        gpx.appendFormat("%@<%@%@>\r\n", indent(forIndentationLevel: indentationLevel), self.tagName(), attribute)
+        gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)
     }
     
     override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
