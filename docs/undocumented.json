@@ -16,7 +16,7 @@
     },
     {
       "file": "/Users/vincent/Documents/Xcode Project/GPXKit/Classes/GPXEmail.swift",
-      "line": 27,
+      "line": 30,
       "symbol": "GPXEmail.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
