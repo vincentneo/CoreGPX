@@ -37,8 +37,6 @@
 		AC613BE2782CB345D67CA6161D274529 /* GPXRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FC7E6D90521F471B7DF7C9C7719C19 /* GPXRoot.swift */; };
 		AF08350B73D09B7E2F4601E9C8173977 /* GPXMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42FE81053B5813BD472CFE7B19B3BA5 /* GPXMetadata.swift */; };
 		B2B43EAB18CA3EF9E0D1003115269631 /* GPXType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37941B65FCF9E06DD2336C3FD37996D0 /* GPXType.swift */; };
-		BF5A9E1C22088463003A5379 /* CoreGPX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF5A9E1322088463003A5379 /* CoreGPX.framework */; };
-		BF5A9E2122088463003A5379 /* CoreGPX_macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A9E2022088463003A5379 /* CoreGPX_macOSTests.swift */; };
 		BF5A9E2322088463003A5379 /* CoreGPX_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = BF5A9E1522088463003A5379 /* CoreGPX_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF5A9E342208856F003A5379 /* CoreGPX_watchOS.h in Headers */ = {isa = PBXBuildFile; fileRef = BF5A9E322208856F003A5379 /* CoreGPX_watchOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF5A9E38220885F7003A5379 /* GPXAuthor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFE9B5F15EF40449A8A82D34D4C81A6 /* GPXAuthor.swift */; };
@@ -120,13 +118,6 @@
 			remoteGlobalIDString = 1FF6BE2AF737A7CF5E77D983FE99CC8E;
 			remoteInfo = CoreGPX;
 		};
-		BF5A9E1D22088463003A5379 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BF5A9E1222088463003A5379;
-			remoteInfo = "CoreGPX-macOS";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -175,7 +166,6 @@
 		BF5A9E1322088463003A5379 /* CoreGPX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreGPX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5A9E1522088463003A5379 /* CoreGPX_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreGPX_macOS.h; sourceTree = "<group>"; };
 		BF5A9E1622088463003A5379 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF5A9E1B22088463003A5379 /* CoreGPX-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CoreGPX-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5A9E2022088463003A5379 /* CoreGPX_macOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreGPX_macOSTests.swift; sourceTree = "<group>"; };
 		BF5A9E2222088463003A5379 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF5A9E302208856F003A5379 /* CoreGPX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreGPX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,14 +210,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BF5A9E1822088463003A5379 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BF5A9E1C22088463003A5379 /* CoreGPX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,7 +338,6 @@
 				38833BE920F9C399D9C5F1F6FBF942EC /* Pods_CoreGPX_Example.framework */,
 				CB2662C72CB5E937FE7DE83CEE76304F /* Pods_CoreGPX_Tests.framework */,
 				BF5A9E1322088463003A5379 /* CoreGPX.framework */,
-				BF5A9E1B22088463003A5379 /* CoreGPX-macOSTests.xctest */,
 				BF5A9E302208856F003A5379 /* CoreGPX.framework */,
 			);
 			name = Products;
@@ -564,24 +545,6 @@
 			productReference = BF5A9E1322088463003A5379 /* CoreGPX.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		BF5A9E1A22088463003A5379 /* CoreGPX-macOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BF5A9E2922088463003A5379 /* Build configuration list for PBXNativeTarget "CoreGPX-macOSTests" */;
-			buildPhases = (
-				BF5A9E1722088463003A5379 /* Sources */,
-				BF5A9E1822088463003A5379 /* Frameworks */,
-				BF5A9E1922088463003A5379 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BF5A9E1E22088463003A5379 /* PBXTargetDependency */,
-			);
-			name = "CoreGPX-macOSTests";
-			productName = "CoreGPX-macOSTests";
-			productReference = BF5A9E1B22088463003A5379 /* CoreGPX-macOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		BF5A9E2F2208856F003A5379 /* CoreGPX-watchOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF5A9E352208856F003A5379 /* Build configuration list for PBXNativeTarget "CoreGPX-watchOS" */;
@@ -607,14 +570,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1020;
 				TargetAttributes = {
-					BF5A9E1222088463003A5379 = {
-						CreatedOnToolsVersion = 10.1;
-						DevelopmentTeam = 3X69W4AQD6;
-						ProvisioningStyle = Automatic;
+					1FF6BE2AF737A7CF5E77D983FE99CC8E = {
+						LastSwiftMigration = 1020;
 					};
-					BF5A9E1A22088463003A5379 = {
+					BF5A9E1222088463003A5379 = {
 						CreatedOnToolsVersion = 10.1;
 						DevelopmentTeam = 3X69W4AQD6;
 						ProvisioningStyle = Automatic;
@@ -628,7 +589,7 @@
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				English,
@@ -648,7 +609,6 @@
 				1FF6BE2AF737A7CF5E77D983FE99CC8E /* CoreGPX */,
 				BF5A9E2F2208856F003A5379 /* CoreGPX-watchOS */,
 				BF5A9E1222088463003A5379 /* CoreGPX-macOS */,
-				BF5A9E1A22088463003A5379 /* CoreGPX-macOSTests */,
 				0D851909C24A61CD5DC2FE112328BE0F /* Pods-CoreGPX_Example */,
 				727FF6C6A337ADFEF950A0D2A03B450C /* Pods-CoreGPX_Tests */,
 			);
@@ -674,13 +634,6 @@
 
 /* Begin PBXResourcesBuildPhase section */
 		BF5A9E1122088463003A5379 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BF5A9E1922088463003A5379 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -766,14 +719,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BF5A9E1722088463003A5379 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BF5A9E2122088463003A5379 /* CoreGPX_macOSTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		BF5A9E2C2208856F003A5379 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -820,11 +765,6 @@
 			name = CoreGPX;
 			target = 1FF6BE2AF737A7CF5E77D983FE99CC8E /* CoreGPX */;
 			targetProxy = B1DD7E7E7D9C5D877CC7349DEA4931C7 /* PBXContainerItemProxy */;
-		};
-		BF5A9E1E22088463003A5379 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BF5A9E1222088463003A5379 /* CoreGPX-macOS */;
-			targetProxy = BF5A9E1D22088463003A5379 /* PBXContainerItemProxy */;
 		};
 		EE45C14D5A71F9919A21946304C48D04 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -927,7 +867,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1009,6 +949,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1094,7 +1035,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1105,6 +1046,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1224,51 +1166,6 @@
 			};
 			name = Release;
 		};
-		BF5A9E2622088463003A5379 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 3X69W4AQD6;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "CoreGPX-macOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "neo.vincent.CoreGPX-macOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
-			};
-			name = Debug;
-		};
-		BF5A9E2722088463003A5379 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 3X69W4AQD6;
-				INFOPLIST_FILE = "CoreGPX-macOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "neo.vincent.CoreGPX-macOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
-			};
-			name = Release;
-		};
 		BF5A9E362208856F003A5379 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1359,15 +1256,6 @@
 			buildConfigurations = (
 				BF5A9E2422088463003A5379 /* Debug */,
 				BF5A9E2522088463003A5379 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BF5A9E2922088463003A5379 /* Build configuration list for PBXNativeTarget "CoreGPX-macOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BF5A9E2622088463003A5379 /* Debug */,
-				BF5A9E2722088463003A5379 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -3,7 +3,7 @@
 # * https://github.com/supermarin/xcpretty#usage
 
 os: osx
-osx_image: xcode10.1
+osx_image: xcode10.2
 language: swift
 env: 
   global:
@@ -16,12 +16,12 @@ env:
   - EXAMPLE_SCHEME="CoreGPX-Example"
   - TEST_SCHEME="CoreGPX Tests"
   matrix:
-  - DESTINATION="OS=5.1,name=Apple Watch Series 4 - 44mm" SCHEME="$WATCHOS_FRAMEWORK_SCHEME" RUN_TESTS="NO" BUILD_EXAMPLE="NO" SDK="watchsimulator5.1"
-  - DESTINATION="OS=2.0,name=Apple Watch - 38mm" SCHEME="$WATCHOS_FRAMEWORK_SCHEME" RUN_TESTS="NO" BUILD_EXAMPLE="NO" SDK="watchsimulator5.1"
+  - DESTINATION="OS=5.2,name=Apple Watch Series 4 - 44mm" SCHEME="$WATCHOS_FRAMEWORK_SCHEME" RUN_TESTS="NO" BUILD_EXAMPLE="NO" SDK="watchsimulator5.2"
+  - DESTINATION="OS=2.0,name=Apple Watch - 38mm" SCHEME="$WATCHOS_FRAMEWORK_SCHEME" RUN_TESTS="NO" BUILD_EXAMPLE="NO" SDK="watchsimulator5.2"
   
-  - DESTINATION="OS=12.1,name=iPhone XS"       SCHEME="$IOS_FRAMEWORK_SCHEME" RUN_TESTS="NO" BUILD_EXAMPLE="YES" SDK="iphonesimulator12.1"
-  - DESTINATION="OS=12.1,name=iPhone XS"       SCHEME="$IOS_FRAMEWORK_SCHEME" RUN_TESTS="YES" BUILD_EXAMPLE="NO" SDK="iphonesimulator12.1"
-  - DESTINATION="OS=10.3.1,name=iPhone 6 Plus" SCHEME="$IOS_FRAMEWORK_SCHEME" RUN_TESTS="NO" BUILD_EXAMPLE="NO" SDK="iphonesimulator12.1"
+  - DESTINATION="OS=12.2,name=iPhone XS"       SCHEME="$IOS_FRAMEWORK_SCHEME" RUN_TESTS="NO" BUILD_EXAMPLE="YES" SDK="iphonesimulator12.2"
+  - DESTINATION="OS=12.2,name=iPhone XS"       SCHEME="$IOS_FRAMEWORK_SCHEME" RUN_TESTS="YES" BUILD_EXAMPLE="NO" SDK="iphonesimulator12.2"
+  - DESTINATION="OS=10.3.1,name=iPhone 6 Plus" SCHEME="$IOS_FRAMEWORK_SCHEME" RUN_TESTS="NO" BUILD_EXAMPLE="NO" SDK="iphonesimulator12.2"
   
   - DESTINATION="arch=x86_64" SCHEME="$MACOS_FRAMEWORK_SCHEME" RUN_TESTS="NO" BUILD_EXAMPLE="NO" SDK="macosx10.14"
   

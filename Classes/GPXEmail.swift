@@ -43,6 +43,7 @@ open class GPXEmail: GPXElement {
         self.domain = splitedEmail[1]
     }
     
+
     /// For internal use only
     ///
     /// Initializes a waypoint through a dictionary, with each key being an attribute name.
