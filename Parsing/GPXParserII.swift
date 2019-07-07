@@ -10,15 +10,15 @@ import Foundation
 public class GPXParserII: NSObject, XMLParserDelegate {
     
     func parse(_ data: Data) {
-        stack = [ParserElement]()
+        stack = [GPXRawElement]()
         stack.append(documentRoot)
         let parser = XMLParser(data: data)
         parser.delegate = self
         parser.parse()
     }
     
-    public func parse(_ url: URL) -> [ParserElement] {
-        stack = [ParserElement]()
+    public func parse(_ url: URL) -> [GPXRawElement] {
+        stack = [GPXRawElement]()
         stack.append(documentRoot)
         let parser = XMLParser(contentsOf: url)
         parser?.delegate = self
@@ -27,11 +27,11 @@ public class GPXParserII: NSObject, XMLParserDelegate {
     }
     
     // MARK:- private
-    fileprivate var documentRoot = ParserElement(name: "GPXRoot")
-    public var stack = [ParserElement]()
+    fileprivate var documentRoot = GPXRawElement(name: "GPXRoot")
+    public var stack = [GPXRawElement]()
     
     public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
-        let node = ParserElement(name: elementName)
+        let node = GPXRawElement(name: elementName)
         if !attributeDict.isEmpty {
             node.attributes = attributeDict
         }
@@ -58,15 +58,25 @@ public class GPXParserII: NSObject, XMLParserDelegate {
         stack.removeLast()
     }
     
-    func convertToGPX() {
+    public func convertToGPX() {
         guard let gpx = stack.first else { return }
+        
+        let rootDict = gpx.attributes
         
         for child in gpx.children {
             let name = child.name
             
             switch name {
             case "metadata":
+                let metadata = GPXMetadata(rawElement: child)
+            case "wpt":
                 let metadata = GPXMetadata()
+            case "rte":
+                let metadata = GPXMetadata()
+            case "trk":
+                let me = GPXMetadata()
+            case "extensions":
+                let extensions = GPXExtensions()
             default:
                 break
             }

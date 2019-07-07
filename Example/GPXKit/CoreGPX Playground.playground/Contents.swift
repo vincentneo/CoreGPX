@@ -32,3 +32,20 @@ root.add(track: track)
 
 print(root.gpx())
 
+let url = URL(string: "https://dl.dropboxusercontent.com/s/qomkwzrqj2punqy/multi-actIds.gpx.txt")
+let gpx = GPXParserII().parse(url!)
+
+print(gpx)
+
+for Root in gpx {
+    for child in Root.children {
+        print(child.name)
+        for child2 in child.children {
+            print(child2.name)
+            for tracking in child2.children {
+                print(tracking.name)
+                print(tracking.text)
+            }
+        }
+    }
+}

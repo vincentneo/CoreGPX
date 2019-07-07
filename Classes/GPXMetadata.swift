@@ -83,6 +83,27 @@ open class GPXMetadata: GPXElement {
         }
     }
     
+    init(rawElement: GPXRawElement) {
+        super.init()
+        for child in rawElement.children {
+            let text = child.text
+            
+            switch child.name {
+            case "name":        self.name = text
+            case "desc":        self.desc = text
+            case "author":      self.author = GPXAuthor(raw: child)
+            case "copyright":   self.copyright = GPXCopyright(raw: child)
+            case "link":        self.link = GPXLink()
+            case "time":        self.time = GPXDateParser.parse(date: text)
+            case "keywords":    self.keyword = text
+            case "bounds":      self.bounds = GPXBounds()
+            case "extensions":  self.extensions = GPXExtensions()
+            default:
+                continue
+            }
+        }
+    }
+    
     // MARK:- Tag
     
     override func tagName() -> String {
