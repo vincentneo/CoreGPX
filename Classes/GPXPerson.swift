@@ -43,7 +43,8 @@ open class GPXPerson: GPXElement {
         for child in raw.children {
             switch child.name {
             case "name": self.name = child.text
-            case "email": self.email = GPXEmail()
+            case "email": self.email = GPXEmail(raw: child)
+            case "link": self.link = GPXLink(raw: child)
             default: continue
             }
         }

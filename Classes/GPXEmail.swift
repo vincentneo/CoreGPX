@@ -56,13 +56,8 @@ open class GPXEmail: GPXElement {
     }
     
     init(raw: GPXRawElement) {
-        for child in raw.children {
-            switch child.name {
-            case "id":      self.emailID = child.text
-            case "domain":  self.domain = child.text
-            default: continue
-            }
-        }
+        self.emailID = raw.attributes["id"]
+        self.domain = raw.attributes["domain"]
     }
     
     // MARK:- Tag
