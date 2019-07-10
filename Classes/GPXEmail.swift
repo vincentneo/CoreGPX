@@ -55,6 +55,16 @@ open class GPXEmail: GPXElement {
         self.domain = dictionary["domain"]
     }
     
+    init(raw: GPXRawElement) {
+        for child in raw.children {
+            switch child.name {
+            case "id":      self.emailID = child.text
+            case "domain":  self.domain = child.text
+            default: break
+            }
+        }
+    }
+    
     // MARK:- Tag
     override func tagName() -> String {
         return "email"
