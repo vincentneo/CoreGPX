@@ -44,6 +44,18 @@ open class GPXPoint: GPXElement {
         self.time = GPXDateParser.parse(date: dictionary["time"])
     }
     
+    init(raw: GPXRawElement) {
+        self.latitude = Convert.toDouble(from: raw.attributes["lat"])
+        self.longitude = Convert.toDouble(from: raw.attributes["lon"])
+        for child in raw.children {
+            switch child.name {
+            case "ele": self.elevation = Convert.toDouble(from: child.text)
+            case "time": self.time = GPXDateParser.parse(date: child.text)
+            default: continue
+            }
+        }
+    }
+    
     // MARK:- Tag
     
     override func tagName() -> String {
