@@ -47,7 +47,7 @@ open class GPXTrackSegment: GPXElement, Codable {
     init(raw: GPXRawElement) {
         for child in raw.children {
             switch child.name {
-            case "trkpt":       self.trackpoints = [GPXTrackPoint]()
+            case "trkpt":       self.trackpoints.append(GPXTrackPoint(raw: child))
             case "extensions":  self.extensions = GPXExtensions()
             default: break
             }

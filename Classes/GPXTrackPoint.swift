@@ -30,6 +30,10 @@ open class GPXTrackPoint: GPXWaypoint {
         super.init(dictionary: &dictionary)
     }
     
+    override init(raw: GPXRawElement) {
+        super.init(raw: raw)
+    }
+    
     /// For initializing with a `Decoder`
     ///
     /// Declared here for use of Codable functionalities.

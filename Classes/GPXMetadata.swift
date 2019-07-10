@@ -93,10 +93,10 @@ open class GPXMetadata: GPXElement {
             case "desc":        self.desc = text
             case "author":      self.author = GPXAuthor(raw: child)
             case "copyright":   self.copyright = GPXCopyright(raw: child)
-            case "link":        self.link = GPXLink()
+            case "link":        self.link = GPXLink(raw: child)
             case "time":        self.time = GPXDateParser.parse(date: text)
             case "keywords":    self.keyword = text
-            case "bounds":      self.bounds = GPXBounds()
+            case "bounds":      self.bounds = GPXBounds(raw: child)
             case "extensions":  self.extensions = GPXExtensions()
             default:
                 continue

@@ -9,6 +9,8 @@ import Foundation
 
 public class GPXParserII: NSObject, XMLParserDelegate {
     
+    var parser = XMLParser()
+    
     func parse(_ data: Data) {
         stack = [GPXRawElement]()
         stack.append(documentRoot)
@@ -24,6 +26,15 @@ public class GPXParserII: NSObject, XMLParserDelegate {
         parser?.delegate = self
         parser?.parse()
         return stack
+    }
+    
+    public init(_ url: URL) {
+        super.init()
+        parser = XMLParser(contentsOf: url)!
+        parser.delegate = self
+        stack = [GPXRawElement]()
+        stack.append(documentRoot)
+        parser.parse()
     }
     
     // MARK:- private
@@ -58,28 +69,36 @@ public class GPXParserII: NSObject, XMLParserDelegate {
         stack.removeLast()
     }
     
-    public func convertToGPX() {
-        guard let gpx = stack.first else { return }
+    public func convertToGPX() -> GPXRoot? {
+        guard let firstTag = stack.first else { return nil }
+        guard let rawGPX = firstTag.children.first else { return nil }
         
-        let rootDict = gpx.attributes
+        let root = GPXRoot() // to be returned via function.
         
-        for child in gpx.children {
+        for child in rawGPX.children {
             let name = child.name
             
             switch name {
             case "metadata":
                 let metadata = GPXMetadata(raw: child)
+                root.metadata = metadata
             case "wpt":
-                let metadata = GPXMetadata()
+                let waypoint = GPXWaypoint(raw: child)
+                root.add(waypoint: waypoint)
             case "rte":
-                let metadata = GPXMetadata()
+                let route = GPXRoute(raw: child)
+                root.add(route: route)
             case "trk":
-                let me = GPXMetadata()
+                let track = GPXTrack(raw: child)
+                root.add(track: track)
             case "extensions":
                 let extensions = GPXExtensions()
+                root.extensions = extensions
             default:
                 break
             }
         }
+        
+        return root
     }
 }

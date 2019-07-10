@@ -67,6 +67,10 @@ open class GPXExtensions: GPXElement, Codable {
         
     }
     
+    init(raw: GPXRawElement) {
+        super.init()
+    }
+    
     // MARK:- Subscript
     
     /**

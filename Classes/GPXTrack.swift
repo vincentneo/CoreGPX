@@ -80,8 +80,8 @@ open class GPXTrack: GPXElement, Codable {
     init(raw: GPXRawElement) {
         for child in raw.children {
             switch child.name {
-            case "link":        self.link = GPXLink()
-            case "trkseg":      self.tracksegments = [GPXTrackSegment]()
+            case "link":        self.link = GPXLink(raw: child)
+            case "trkseg":      self.tracksegments.append(GPXTrackSegment(raw: child))
             case "name":        self.name = child.text
             case "cmt":         self.comment = child.text
             case "desc":        self.desc = child.text
