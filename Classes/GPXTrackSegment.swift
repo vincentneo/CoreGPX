@@ -44,6 +44,16 @@ open class GPXTrackSegment: GPXElement, Codable {
         }
     }
     
+    init(raw: GPXRawElement) {
+        for child in raw.children {
+            switch child.name {
+            case "trkpt":       self.trackpoints = [GPXTrackPoint]()
+            case "extensions":  self.extensions = GPXExtensions()
+            default: break
+            }
+        }
+    }
+    
     // MARK:- Public Methods
     
     /// Initializes a new trackpoint to segment, and returns the trackpoint.
