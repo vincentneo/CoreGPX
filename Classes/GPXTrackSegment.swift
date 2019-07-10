@@ -49,7 +49,7 @@ open class GPXTrackSegment: GPXElement, Codable {
             switch child.name {
             case "trkpt":       self.trackpoints.append(GPXTrackPoint(raw: child))
             case "extensions":  self.extensions = GPXExtensions()
-            default: break
+            default: continue
             }
         }
     }

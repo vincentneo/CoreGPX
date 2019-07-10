@@ -88,7 +88,7 @@ open class GPXTrack: GPXElement, Codable {
             case "src":         self.source = child.text
             case "type":        self.type = child.text
             case "extensions":  self.extensions = GPXExtensions()
-            default: break
+            default: continue
             }
         }
     }

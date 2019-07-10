@@ -89,7 +89,7 @@ open class GPXRoute: GPXElement, Codable {
             case "type":        self.type = child.text
             case "number":      self.number = Convert.toInt(from: child.text)
             case "extensions":  self.extensions = GPXExtensions()
-            default: break
+            default: continue
             }
         }
     }

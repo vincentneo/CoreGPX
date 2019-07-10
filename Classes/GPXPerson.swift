@@ -44,7 +44,7 @@ open class GPXPerson: GPXElement {
             switch child.name {
             case "name": self.name = child.text
             case "email": self.email = GPXEmail()
-            default: break
+            default: continue
             }
         }
     }
