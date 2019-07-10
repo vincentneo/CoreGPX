@@ -94,8 +94,7 @@ public class GPXParserII: NSObject, XMLParserDelegate {
             case "extensions":
                 let extensions = GPXExtensions()
                 root.extensions = extensions
-            default:
-                break
+            default: continue
             }
         }
         

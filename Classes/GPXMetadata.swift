@@ -98,8 +98,7 @@ open class GPXMetadata: GPXElement {
             case "keywords":    self.keyword = text
             case "bounds":      self.bounds = GPXBounds(raw: child)
             case "extensions":  self.extensions = GPXExtensions()
-            default:
-                continue
+            default: continue
             }
         }
     }

@@ -76,7 +76,7 @@ open class GPXCopyright: GPXElement {
             switch child.name {
             case "year":    self.year = GPXDateParser.parse(year: child.text)
             case "license": self.license = child.text
-            default: break
+            default: continue
             }
         }
         self.author = raw.attributes["author"]

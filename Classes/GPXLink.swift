@@ -93,7 +93,7 @@ open class GPXLink: GPXElement, Codable {
             switch child.name {
             case "type":    self.mimetype = child.text
             case "text":    self.text = child.text
-            default: break
+            default: continue
             }
         }
         self.href = raw.attributes["href"]

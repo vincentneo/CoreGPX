@@ -60,7 +60,7 @@ open class GPXEmail: GPXElement {
             switch child.name {
             case "id":      self.emailID = child.text
             case "domain":  self.domain = child.text
-            default: break
+            default: continue
             }
         }
     }
