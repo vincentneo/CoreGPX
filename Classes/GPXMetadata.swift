@@ -83,9 +83,9 @@ open class GPXMetadata: GPXElement {
         }
     }
     
-    init(rawElement: GPXRawElement) {
+    init(raw: GPXRawElement) {
         super.init()
-        for child in rawElement.children {
+        for child in raw.children {
             let text = child.text
             
             switch child.name {

@@ -76,10 +76,10 @@ open class GPXCopyright: GPXElement {
             switch child.name {
             case "year":    self.year = GPXDateParser.parse(year: child.text)
             case "license": self.license = child.text
-            case "author":  self.author = child.text
             default: break
             }
         }
+        self.author = raw.attributes["author"]
     }
     
     // MARK: Tag

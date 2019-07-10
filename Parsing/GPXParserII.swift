@@ -68,7 +68,7 @@ public class GPXParserII: NSObject, XMLParserDelegate {
             
             switch name {
             case "metadata":
-                let metadata = GPXMetadata(rawElement: child)
+                let metadata = GPXMetadata(raw: child)
             case "wpt":
                 let metadata = GPXMetadata()
             case "rte":
