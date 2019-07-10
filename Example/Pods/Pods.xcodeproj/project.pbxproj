@@ -188,8 +188,8 @@
 		BF5A9E322208856F003A5379 /* CoreGPX_watchOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreGPX_watchOS.h; sourceTree = "<group>"; };
 		BF5A9E332208856F003A5379 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF6BBEF322439E6A007ED5A9 /* Converters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Converters.swift; path = Classes/Converters.swift; sourceTree = "<group>"; };
-		BF71852822CB85260068C2AD /* GPXRawElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXRawElement.swift; sourceTree = "<group>"; };
-		BF71852C22CB920D0068C2AD /* GPXParserII.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXParserII.swift; sourceTree = "<group>"; };
+		BF71852822CB85260068C2AD /* GPXRawElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GPXRawElement.swift; path = Classes/GPXRawElement.swift; sourceTree = "<group>"; };
+		BF71852C22CB920D0068C2AD /* GPXParserII.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GPXParserII.swift; path = Classes/GPXParserII.swift; sourceTree = "<group>"; };
 		BF75731C224663AD009DB87D /* DateTimeParsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateTimeParsers.swift; path = Classes/DateTimeParsers.swift; sourceTree = "<group>"; };
 		C1528DF9C2E16DA52E83190564BFBBF1 /* Pods-CoreGPX_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CoreGPX_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		C8226A2AF2988FE6006D11A4DF1D5076 /* GPXEmail.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXEmail.swift; path = Classes/GPXEmail.swift; sourceTree = "<group>"; };
@@ -320,6 +320,7 @@
 				BF75731C224663AD009DB87D /* DateTimeParsers.swift */,
 				BF6BBEF322439E6A007ED5A9 /* Converters.swift */,
 				124A780822A8A52300D51D50 /* NSMutableString+XML.swift */,
+				BFF7283E22D62816002EEAE6 /* Parser */,
 				BF71852E22CB92170068C2AD /* Parsing */,
 				13E2CBACE1AF75A1A31B6C368F9F5EB1 /* Pod */,
 				DBC58D84A5ED8C67B7F8FCDEA83C9DD6 /* Support Files */,
@@ -445,10 +446,17 @@
 		BF71852E22CB92170068C2AD /* Parsing */ = {
 			isa = PBXGroup;
 			children = (
-				BF71852822CB85260068C2AD /* GPXRawElement.swift */,
-				BF71852C22CB920D0068C2AD /* GPXParserII.swift */,
 			);
 			path = Parsing;
+			sourceTree = "<group>";
+		};
+		BFF7283E22D62816002EEAE6 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				BF71852C22CB920D0068C2AD /* GPXParserII.swift */,
+				BF71852822CB85260068C2AD /* GPXRawElement.swift */,
+			);
+			name = Parser;
 			sourceTree = "<group>";
 		};
 		DBC58D84A5ED8C67B7F8FCDEA83C9DD6 /* Support Files */ = {

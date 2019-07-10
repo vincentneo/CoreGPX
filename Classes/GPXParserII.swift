@@ -34,7 +34,8 @@ public class GPXParserII: NSObject, XMLParserDelegate {
         parser.delegate = self
         stack = [GPXRawElement]()
         stack.append(documentRoot)
-        parser.parse()
+        self.parser.parse()
+        
     }
     
     // MARK:- private
