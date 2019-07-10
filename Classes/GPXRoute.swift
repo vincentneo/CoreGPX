@@ -77,6 +77,23 @@ open class GPXRoute: GPXElement, Codable {
         }
     }
     
+    init(raw: GPXRawElement) {
+        for child in raw.children {
+            switch child.name {
+            case "link":        self.link = GPXLink()
+            case "rtept":       self.routepoints = [GPXRoutePoint]()
+            case "name":        self.name = child.text
+            case "cmt":         self.comment = child.text
+            case "desc":        self.desc = child.text
+            case "src":         self.source = child.text
+            case "type":        self.type = child.text
+            case "number":      self.number = Convert.toInt(from: child.text)
+            case "extensions":  self.extensions = GPXExtensions()
+            default: break
+            }
+        }
+    }
+    
     // MARK: Public Methods
     
     /// Creates a `GPXLink` which is added to the route and also returned.
