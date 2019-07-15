@@ -29,7 +29,7 @@ open class GPXPointSegment: GPXElement {
             if child.name == "pt" {
                 points.append(GPXPoint(raw: child))
             }
-            else { continue }
+            else { break }
         }
     }
     

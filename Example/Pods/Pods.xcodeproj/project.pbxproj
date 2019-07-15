@@ -325,7 +325,6 @@
 				BF6BBEF322439E6A007ED5A9 /* Converters.swift */,
 				124A780822A8A52300D51D50 /* NSMutableString+XML.swift */,
 				BFF7283E22D62816002EEAE6 /* Parser */,
-				BF71852E22CB92170068C2AD /* Parsing */,
 				13E2CBACE1AF75A1A31B6C368F9F5EB1 /* Pod */,
 				DBC58D84A5ED8C67B7F8FCDEA83C9DD6 /* Support Files */,
 			);
@@ -454,13 +453,6 @@
 				BF6F12AD22DB633600B6FD37 /* GPXExtensionsElement.swift */,
 			);
 			name = GPXExtensions;
-			sourceTree = "<group>";
-		};
-		BF71852E22CB92170068C2AD /* Parsing */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Parsing;
 			sourceTree = "<group>";
 		};
 		BFF7283E22D62816002EEAE6 /* Parser */ = {

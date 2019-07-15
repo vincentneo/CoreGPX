@@ -104,7 +104,7 @@ public class GPXParserII: NSObject {
                 let track = GPXTrack(raw: child)
                 root.add(track: track)
             case "extensions":
-                let extensions = GPXExtensions()
+                let extensions = GPXExtensions(raw: child)
                 root.extensions = extensions
             default: continue
             }

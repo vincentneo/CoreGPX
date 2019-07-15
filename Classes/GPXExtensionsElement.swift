@@ -8,6 +8,7 @@
 import Foundation
 
 public class GPXExtensionsElement: GPXElement, Codable {
+    
     public var name: String
     public var text: String?
     public var attributes = [String : String]()

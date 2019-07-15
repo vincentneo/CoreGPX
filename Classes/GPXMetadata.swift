@@ -97,7 +97,7 @@ open class GPXMetadata: GPXElement {
             case "time":        self.time = GPXDateParser.parse(date: text)
             case "keywords":    self.keyword = text
             case "bounds":      self.bounds = GPXBounds(raw: child)
-            case "extensions":  self.extensions = GPXExtensions()
+            case "extensions":  self.extensions = GPXExtensions(raw: child)
             default: continue
             }
         }

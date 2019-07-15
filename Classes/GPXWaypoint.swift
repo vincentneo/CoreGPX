@@ -273,6 +273,7 @@ open class GPXWaypoint: GPXElement, Codable {
             case "pdop":        self.positionDilution = Convert.toDouble(from: child.text)
             case "dgpsid":      self.DGPSid = Convert.toInt(from: child.text)
             case "ageofdgpsid": self.ageofDGPSData = Convert.toDouble(from: child.text)
+            case "extensions":  self.extensions = GPXExtensions(raw: child)
             default: continue
             }
         }
