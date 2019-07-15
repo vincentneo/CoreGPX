@@ -19,7 +19,6 @@ public class GPXExtensionsElement: GPXElement, Codable {
                 if child.name == name {
                     return child
                 }
-                let ex = GPXExtensions().insert(withParentTag: "", withContents: ["":""])
             }
             return GPXExtensionsElement()
         }
