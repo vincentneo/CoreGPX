@@ -26,7 +26,7 @@ open class GPXExtensions: GPXElement, Codable {
     }
 
     
-    public func simpleAppend(parent: String?, contents: [String : String]) {
+    public func append(at parent: String?, contents: [String : String]) {
         if let parent = parent {
             let parentElement = GPXExtensionsElement(name: parent)
             for (key, value) in contents {
@@ -43,6 +43,34 @@ open class GPXExtensions: GPXElement, Codable {
                 children.append(element)
             }
         }
+    }
+    
+    public func get(from parent: String?) -> [String : String]? {
+        var data = [String : String]()
+        
+        if let parent = parent {
+            var hasChild = false
+            for child in children {
+                if child.name == parent {
+                    data = child.attributes
+                    
+                    for child2 in child.children {
+                        data[child2.name] = child2.text
+                    }
+                    hasChild = true
+                }
+            }
+            if !hasChild {
+                return nil
+            }
+        }
+        else {
+            guard let child = children.first else { return nil }
+            data = child.attributes
+            data[child.name] = child.text
+        }
+        
+        return data
     }
     
     /*
