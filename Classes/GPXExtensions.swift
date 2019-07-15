@@ -16,11 +16,7 @@ import Foundation
  */
 open class GPXExtensions: GPXElement, Codable {
     
-    /// for attributes without parent tags
-    private var rootAttributes = [String : String]()
-    
-    /// for attributes with parent tags
-    private var childAttributes = [String : [String : String]]()
+    public var children = [GPXExtensionsElement]()
     
     // MARK:- Initializers
     
@@ -28,7 +24,28 @@ open class GPXExtensions: GPXElement, Codable {
     public required init() {
         super.init()
     }
+
     
+    public func simpleAppend(parent: String?, contents: [String : String]) {
+        if let parent = parent {
+            let parentElement = GPXExtensionsElement(name: parent)
+            for (key, value) in contents {
+                let element = GPXExtensionsElement(name: key)
+                element.text = value
+                parentElement.children.append(element)
+            }
+            children.append(parentElement)
+        }
+        else {
+            for (key, value) in contents {
+                let element = GPXExtensionsElement(name: key)
+                element.text = value
+                children.append(element)
+            }
+        }
+    }
+    
+    /*
     /// for parsing uses only. Internal Initializer.
     init(dictionary: [String : String]) {
         var dictionary = dictionary
@@ -66,9 +83,17 @@ open class GPXExtensions: GPXElement, Codable {
         }
         
     }
+    */
     
     init(raw: GPXRawElement) {
         super.init()
+        for child in raw.children {
+            let tmp = GPXExtensionsElement(name: child.name)
+            tmp.text = child.text
+            tmp.attributes = child.attributes
+            children.append(tmp)
+        }
+        
     }
     
     // MARK:- Subscript
@@ -92,21 +117,15 @@ open class GPXExtensions: GPXElement, Codable {
      
      - Parameters:
         - parentTag: **nil** if no parent tag, if not, insert parent tag name here.
-    */
-    public subscript(parentTag: String?) -> [String : String]? {
+     */
+    public subscript(name: String) -> GPXExtensionsElement {
         get {
-            guard let parentTag = parentTag else {
-                return rootAttributes
+            for child in children {
+                if child.name == name {
+                    return child
+                }
             }
-            return childAttributes[parentTag]
-        }
-        set {
-            guard let newValue = newValue else { return }
-            guard let parentTag = parentTag else {
-                rootAttributes = newValue
-                return
-            }
-            childAttributes[parentTag] = newValue
+            return GPXExtensionsElement()
         }
     }
     
@@ -115,49 +134,31 @@ open class GPXExtensions: GPXElement, Codable {
         return "extensions"
     }
     
-    // MARK:- For Creation
+    // MARK:- Unavailable classes
     
     /// Insert a dictionary of extension objects
     ///
     /// - Parameters:
     ///     - tag: Parent Tag. If inserting without the parent tag, this value should be `nil`
     ///     - contents: Contents as a dictionary to be inserted to this object.
-    public func insert(withParentTag tag: String?, withContents contents: [String : String]) {
-        guard let tag = tag else {
-            self.rootAttributes = contents
-            return
-        }
-        self.childAttributes[tag] = contents
-    }
+    @available( *, unavailable, message: "Please append GPXExtensionsElement to this extension instead, or use simpleAppend(). Will be removed in future releases.")
+    public func insert(withParentTag tag: String?, withContents contents: [String : String]) {}
     
     /// Remove a dictionary of extension objects
     ///
     /// - Parameters:
     ///     - tag: Parent Tag of contents for removal. If removing without the parent tag, this value should be `nil`
-    public func remove(contentsOfParentTag tag: String?) {
-        guard let tag = tag else {
-            self.rootAttributes.removeAll()
-            return
-        }
-        self.childAttributes[tag] = nil
-    }
+    @available( *, unavailable, message: "Please append GPXExtensionsElement to this extension instead, or use simpleAppend(). Will be removed in future releases.")
+    public func remove(contentsOfParentTag tag: String?) {}
+    
     
     // MARK:- GPX
+    
     override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
+        for child in children {
+            child.gpx(gpx, indentationLevel: indentationLevel)
+        }
 
-        for key in rootAttributes.keys {
-            gpx.appendFormat("%@<%@>%@</%@>\r\n", indent(forIndentationLevel: indentationLevel + 1), key, rootAttributes[key] ?? "", key)
-        }
-        
-        for key in childAttributes.keys {
-            let newIndentationLevel = indentationLevel + 1
-            gpx.append(String(format: "%@<%@>\r\n", indent(forIndentationLevel: newIndentationLevel), key))
-            for childKey in childAttributes[key]!.keys {
-                gpx.appendFormat("%@<%@>%@</%@>\r\n", indent(forIndentationLevel: newIndentationLevel + 1), childKey, childAttributes[key]![childKey] ?? "", childKey)
-            }
-            gpx.append(String(format: "%@</%@>\r\n", indent(forIndentationLevel: newIndentationLevel), key))
-        }
-        
     }
 }

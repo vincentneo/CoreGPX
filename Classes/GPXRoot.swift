@@ -112,7 +112,7 @@ open class GPXRoot: GPXElement {
         dictionary.removeValue(forKey: self.tagName())
         
         if dictionary.count > 0 {
-            self.extensions = GPXExtensions(dictionary: dictionary)
+            //self.extensions = GPXExtensions(dictionary: dictionary)
         }
     }
     

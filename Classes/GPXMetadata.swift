@@ -79,7 +79,7 @@ open class GPXMetadata: GPXElement {
         self.keyword = dictionary.removeValue(forKey: "keyword")
         
         if dictionary.count > 0 {
-            self.extensions = GPXExtensions(dictionary: dictionary)
+            //self.extensions = GPXExtensions(dictionary: dictionary)
         }
     }
     

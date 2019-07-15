@@ -73,7 +73,7 @@ open class GPXRoute: GPXElement, Codable {
         self.number = Convert.toInt(from: dictionary.removeValue(forKey: "number"))
         
         if dictionary.count > 0 {
-            self.extensions = GPXExtensions(dictionary: dictionary)
+            //self.extensions = GPXExtensions(dictionary: dictionary)
         }
     }
     

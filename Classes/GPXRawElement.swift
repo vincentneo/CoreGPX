@@ -7,17 +7,15 @@
 
 import Foundation
 
-public class GPXRawElement {
-    public var name: String
-    public var text: String?
-    public var attributes = [String : String]()
-    public var children = [GPXRawElement]()
+class GPXRawElement {
+    var name: String
+    var text: String?
+    var attributes = [String : String]()
+    var children = [GPXRawElement]()
     
-    public weak var parent: GPXRawElement?
+    weak var parent: GPXRawElement?
     
-    public init(name: String) {
+    init(name: String) {
         self.name = name
     }
-    
-    //subscript(children) -> ParserElement
 }

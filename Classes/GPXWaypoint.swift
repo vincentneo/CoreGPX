@@ -245,7 +245,7 @@ open class GPXWaypoint: GPXElement, Codable {
         self.ageofDGPSData = Convert.toDouble(from: dictionary.removeValue(forKey: "ageofdgpsdata"))
         
         if dictionary.count > 0 {
-            self.extensions = GPXExtensions(dictionary: dictionary)
+            //self.extensions = GPXExtensions(dictionary: dictionary)
         }
         
     }

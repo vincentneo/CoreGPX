@@ -168,7 +168,8 @@ class CoreGPX_Tests: XCTestCase {
             return
         }
         self.measure() {
-            _ = GPXParser(withURL: url)?.parsedData()
+            //_ = GPXParser(withURL: url)?.parsedData()
+            _ = GPXParserII(withURL: url)?.parsedData() //convertToGPX()
         }
     }
     

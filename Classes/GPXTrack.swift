@@ -73,7 +73,7 @@ open class GPXTrack: GPXElement, Codable {
         self.type = dictionary.removeValue(forKey: "type")
         
         if dictionary.count > 0 {
-            self.extensions = GPXExtensions(dictionary: dictionary)
+            //self.extensions = GPXExtensions(dictionary: dictionary)
         }
     }
     
