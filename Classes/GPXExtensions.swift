@@ -55,7 +55,7 @@ open class GPXExtensions: GPXElement, Codable {
             }
             // ignore any key that does not conform to GPXExtension's parsing naming convention.
         }
-        if elementNames.isEmpty {
+        if !attributes.isEmpty, elementNames.isEmpty {
             rootAttributes = attributes[0]
         }
         else {
