@@ -4,6 +4,7 @@
 //
 //  Created by Vincent on 2/7/19.
 //
+//  Referenced from GitHub, yahoojapan/SwiftyXMLParser
 
 import Foundation
 
@@ -130,7 +131,6 @@ extension GPXParserII: XMLParserDelegate {
         
         let parentNode = stack.last
         
-        node.parent = parentNode
         parentNode?.children.append(node)
         stack.append(node)
     }

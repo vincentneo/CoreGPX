@@ -173,6 +173,17 @@ class CoreGPX_Tests: XCTestCase {
         }
     }
     
+    func testPerformanceForParsingWithData() {
+        guard let data = data else {
+            XCTAssert(false, "testParseWithData: Data is nil")
+            return
+        }
+        self.measure() {
+            //_ = GPXParser(withURL: url)?.parsedData()
+            _ = GPXParserII(withData: data).parsedData() //convertToGPX()
+        }
+    }
+    
     
     // MARK:- Creation Test
     

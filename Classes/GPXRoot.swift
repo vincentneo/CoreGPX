@@ -126,9 +126,7 @@ open class GPXRoot: GPXElement {
             case "xmlns:xsi":           continue
             case "xmlns":               continue
             default:
-                if extensionAttributes != nil {
-                    extensionAttributes = [String : String]()
-                }
+                if extensionAttributes == nil { extensionAttributes = [String : String]() }
                 extensionAttributes?[key] = value
             }
         }
