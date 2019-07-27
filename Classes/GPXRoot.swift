@@ -15,7 +15,7 @@ import Foundation
 open class GPXRoot: GPXElement {
     
     /// GPX version that will be generated. Currently, only the latest (version 1.1) is supported.
-    public var version: String?
+    public var version: String = "1.1"
     
     /// Name of the creator of the GPX content.
     ///
@@ -108,7 +108,7 @@ open class GPXRoot: GPXElement {
     internal init(dictionary: inout [String : String]) {
         super.init()
         self.creator = dictionary.removeValue(forKey: "creator")
-        self.version = dictionary.removeValue(forKey: "version")
+        self.version = dictionary.removeValue(forKey: "version") ?? ""
         dictionary.removeValue(forKey: self.tagName())
         
         if dictionary.count > 0 {
@@ -116,6 +116,26 @@ open class GPXRoot: GPXElement {
         }
     }
     
+    init(raw: GPXRawElement) {
+        super.init()
+        for (key, value) in raw.attributes {
+            switch key {
+            case "creator":             self.creator = value
+            case "version":             self.version = value
+            case "xsi:schemaLocation":  self.schemaLocation = value
+            default:
+                if key != "xmlns:xsi" || key != "xmlns" {
+                    if extensionAttributes == nil {
+                        extensionAttributes = [String : String]()
+                    }
+                    extensionAttributes?[key] = value
+                }
+                else {
+                    continue
+                }
+            }
+        }
+    }
     
     // MARK:- Public Methods
     
@@ -327,9 +347,8 @@ open class GPXRoot: GPXElement {
         
         attribute.appendFormat(" xsi:schemaLocation=\"%@\"", self.schemaLocation)
         
-        if let version = self.version {
-            attribute.appendFormat(" version=\"%@\"", version)
-        }
+        attribute.appendFormat(" version=\"%@\"", version)
+        
         
         if let creator = self.creator {
             attribute.appendFormat(" creator=\"%@\"", creator)

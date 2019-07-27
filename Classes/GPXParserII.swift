@@ -85,7 +85,7 @@ public class GPXParserII: NSObject {
         guard let firstTag = stack.first else { return nil }
         guard let rawGPX = firstTag.children.first else { return nil }
         
-        let root = GPXRoot() // to be returned via function.
+        let root = GPXRoot(raw: rawGPX) // to be returned via function.
         
         for child in rawGPX.children {
             let name = child.name
