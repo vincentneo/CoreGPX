@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CoreGPX'
-  s.version          = '0.6.0'
+  s.version          = '0.6.6'
   s.summary          = 'A library for reading and creation of GPX location log files.'
 
 # This description is used to generate tags and improve search results.
@@ -28,6 +28,7 @@ GPXKit is designed to replace the aging, and abandoned project, iOS-GPX-Framewor
   s.source           = { :git => 'https://github.com/vincentneo/CoreGPX.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/ivincentneo'
 
+  s.swift_versions = ['4.2', '5.0']
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.9'
   s.watchos.deployment_target = '2.0'
