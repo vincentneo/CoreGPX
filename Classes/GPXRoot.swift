@@ -123,16 +123,13 @@ open class GPXRoot: GPXElement {
             case "creator":             self.creator = value
             case "version":             self.version = value
             case "xsi:schemaLocation":  self.schemaLocation = value
+            case "xmlns:xsi":           continue
+            case "xmlns":               continue
             default:
-                if key != "xmlns:xsi" || key != "xmlns" {
-                    if extensionAttributes == nil {
-                        extensionAttributes = [String : String]()
-                    }
-                    extensionAttributes?[key] = value
+                if extensionAttributes != nil {
+                    extensionAttributes = [String : String]()
                 }
-                else {
-                    continue
-                }
+                extensionAttributes?[key] = value
             }
         }
     }

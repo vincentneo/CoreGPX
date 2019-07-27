@@ -110,6 +110,8 @@ public class GPXParserII: NSObject {
             }
         }
         
+        stack = [GPXRawElement]()
+        
         return root
     }
     
@@ -147,4 +149,5 @@ extension GPXParserII: XMLParserDelegate {
         
         stack.removeLast()
     }
+    
 }
