@@ -16,6 +16,7 @@ import Foundation
  */
 open class GPXExtensions: GPXElement, Codable {
     
+    /// Extended children tags
     public var children = [GPXExtensionsElement]()
     
     // MARK:- Initializers
@@ -24,8 +25,29 @@ open class GPXExtensions: GPXElement, Codable {
     public required init() {
         super.init()
     }
-
     
+    /// For initializing with a raw element. Parser use only.
+    ///
+    /// - Parameters:
+    ///     - raw: parser's raw element
+    init(raw: GPXRawElement) {
+        super.init()
+        for child in raw.children {
+            let tmp = GPXExtensionsElement(name: child.name)
+            tmp.text = child.text
+            tmp.attributes = child.attributes
+            children.append(tmp)
+        }
+        
+    }
+    
+    // MARK:- Append and Retrieve
+    
+    /// Appending children tags to extension tag, easily.
+    ///
+    /// - Parameters:
+    ///     - parent: parent tag's name. If you do not wish to have a parent tag, leave it as `nil`.
+    ///     - contents: data to be represented as extended tag and values.
     public func append(at parent: String?, contents: [String : String]) {
         if let parent = parent {
             let parentElement = GPXExtensionsElement(name: parent)
@@ -45,6 +67,10 @@ open class GPXExtensions: GPXElement, Codable {
         }
     }
     
+    /// Get a dictionary of data from a parent tag name, easily.
+    ///
+    /// - Parameters:
+    ///     - parent: parent tag name, to retrieve from. Leave it as `nil` if parent tag should not be expected.
     public func get(from parent: String?) -> [String : String]? {
         var data = [String : String]()
         
@@ -73,78 +99,29 @@ open class GPXExtensions: GPXElement, Codable {
         return data
     }
     
-    /*
-    /// for parsing uses only. Internal Initializer.
-    init(dictionary: [String : String]) {
-        var dictionary = dictionary
-        var attributes = [[String : String]]()
-        var elementNames = [Int : String]()
-        
-        for key in dictionary.keys {
-            let keySegments = key.components(separatedBy: ", ")
-            if keySegments.count == 2 {
-                let index = Int(keySegments[1])!
-                let elementName = keySegments[0]
-                let value = dictionary[key]
-                
-                while !attributes.indices.contains(index) {
-                    attributes.append([String : String]())
-                }
-                
-                if value == "internalParsingIndex \(index)" {
-                    elementNames[index] = elementName
-                }
-                else {
-                    attributes[index][elementName] = value
-                }
-            }
-            // ignore any key that does not conform to GPXExtension's parsing naming convention.
-        }
-        if elementNames.isEmpty {
-            rootAttributes = attributes[0]
-        }
-        else {
-            for elementNameIndex in elementNames.keys {
-                let value = elementNames[elementNameIndex]!
-                childAttributes[value] = attributes[elementNameIndex]
-            }
-        }
-        
-    }
-    */
-    
-    init(raw: GPXRawElement) {
-        super.init()
-        for child in raw.children {
-            let tmp = GPXExtensionsElement(name: child.name)
-            tmp.text = child.text
-            tmp.attributes = child.attributes
-            children.append(tmp)
-        }
-        
-    }
-    
     // MARK:- Subscript
     
     /**
-    Access/Write dictionaries in extensions this way.
+     Access child element in extensions.
+     
+     If extended data does not have a parent tag, **i.e**:
+
+            <extensions>
+                <tag>50</tag>
+            </extensions>
+     
+     Access it directly by `extensions["tag"]`, and access the text attribute of it.
      
      If extended data does not have a parent tag, **i.e**:
      
-        <Tag>50</Tag>
-     Access it via `extensions[nil]`, to get value of **["Tag" : "50"]**.
-     Write it via `extensions[nil]` = **["Tag" : "50"]**.
+            <ParentTag>
+                <Tag>80</Tag>
+            </ParentTag>
      
-     If extended data does not have a parent tag, **i.e**:
-     
-        <ParentTag>
-            <Tag>50</Tag>
-        </ParentTag>
-     Access it via `extensions["ParentTag"]`, to get value of **["Tag" : "50"]**.
-     Write it via `extensions["ParentTag"]` = **["Tag" : "50"]**.
+     Access it directly by `extensions["ParentTag"]["tag"]`, and access the text attribute of it.
      
      - Parameters:
-        - parentTag: **nil** if no parent tag, if not, insert parent tag name here.
+        - name: name of child tag.
      */
     public subscript(name: String) -> GPXExtensionsElement {
         get {
@@ -169,14 +146,14 @@ open class GPXExtensions: GPXElement, Codable {
     /// - Parameters:
     ///     - tag: Parent Tag. If inserting without the parent tag, this value should be `nil`
     ///     - contents: Contents as a dictionary to be inserted to this object.
-    @available( *, unavailable, message: "Please append GPXExtensionsElement to this extension instead, or use simpleAppend(). Will be removed in future releases.")
+    @available( *, unavailable, message: "Please append GPXExtensionsElement to this extension instead, or use append(at:). Read documentation to learn more.")
     public func insert(withParentTag tag: String?, withContents contents: [String : String]) {}
     
     /// Remove a dictionary of extension objects
     ///
     /// - Parameters:
     ///     - tag: Parent Tag of contents for removal. If removing without the parent tag, this value should be `nil`
-    @available( *, unavailable, message: "Please append GPXExtensionsElement to this extension instead, or use simpleAppend(). Will be removed in future releases.")
+    @available( *, unavailable, message: "Please append GPXExtensionsElement to this extension instead, or use get(from:). Read documentation to learn more.")
     public func remove(contentsOfParentTag tag: String?) {}
     
     

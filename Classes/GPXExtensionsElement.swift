@@ -7,13 +7,26 @@
 
 import Foundation
 
+/// A duplicated class of `GPXRawElement`
+///
+/// This class is a public class as it is representative of all child extension tag types.
+///
+/// It is also inherits `GPXElement`, and therefore, works like any other 'native' element types.
 public class GPXExtensionsElement: GPXElement, Codable {
     
+    /// Tag name of extension element.
     public var name: String
+    
+    /// Text data content of the element.
     public var text: String?
+    
+    /// Attributes data of the element.
     public var attributes = [String : String]()
+    
+    /// Children tags of this element.
     public var children = [GPXExtensionsElement]()
     
+    /// Easily get child tags via subscript.
     public subscript(name: String) -> GPXExtensionsElement {
         get {
             for child in children {
@@ -25,17 +38,21 @@ public class GPXExtensionsElement: GPXElement, Codable {
         }
     }
     
+    /// Initialize with a tagName.
     public init(name: String) {
         self.name = name
         super.init()
     }
     
-    override func tagName() -> String {
-        return name
-    }
-    
+    /// Default initializer.
     required init() {
         self.name = "Undefined"
+    }
+    
+    // MARK:- GPX File Mutation
+    
+    override func tagName() -> String {
+        return name
     }
     
     override func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {

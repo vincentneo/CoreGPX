@@ -10,7 +10,7 @@ import Foundation
 public class GPXParserII: NSObject {
     
     private let parser: XMLParser
-    private var documentRoot = GPXRawElement(name: "DocumentStart")
+    private let documentRoot = GPXRawElement(name: "DocumentStart")
     private var stack = [GPXRawElement]()
     
     private func didInit() {
