@@ -4,11 +4,17 @@
 //
 //  Created by Vincent on 2/7/19.
 //
-//  Referenced from GitHub, yahoojapan/SwiftyXMLParser
+//  XML Parser is referenced from GitHub, yahoojapan/SwiftyXMLParser.
 
 import Foundation
 
-public class GPXParserII: NSObject {
+ /**
+ An event-driven parser (SAX parser), currently parses GPX v1.1 files only.
+ 
+ This parser is already setted up, hence, does not require any handling, and will parse files directly as objects.
+ To get the parsed data from a GPX file, simply initialize the parser, and get the `GPXRoot` from `parsedData()`.
+ */
+public class GPXParser: NSObject {
     
     private let parser: XMLParser
     private let documentRoot = GPXRawElement(name: "DocumentStart")
@@ -18,7 +24,6 @@ public class GPXParserII: NSObject {
         stack = [GPXRawElement]()
         stack.append(documentRoot)
         parser.delegate = self
-        parser.parse()
     }
     
     // MARK:- Initializers
@@ -78,11 +83,21 @@ public class GPXParserII: NSObject {
     ///     - path: The input path, with type `String`, must contain a path that points to a GPX file used to facilitate parsing.
     ///
     public convenience init?(withPath path: String) {
-        guard let url = URL(string: path) else { return nil }
-        self.init(withURL: url)
+        do {
+            let file = try String(contentsOfFile: path, encoding: .utf8)
+            self.init(withRawString: file)
+        }
+        catch {
+            print("InitWithPath Error")
+            return nil
+        }
+        
     }
     
+    // MARK: GPX
+    
     public func parsedData() -> GPXRoot? {
+        self.parser.parse() // parse when requested
         guard let firstTag = stack.first else { return nil }
         guard let rawGPX = firstTag.children.first else { return nil }
         
@@ -111,6 +126,7 @@ public class GPXParserII: NSObject {
             }
         }
         
+        // reset stack
         stack = [GPXRawElement]()
         
         return root
@@ -122,7 +138,7 @@ public class GPXParserII: NSObject {
 ///
 /// XML Parser Delegate Implementation
 ///
-extension GPXParserII: XMLParserDelegate {
+extension GPXParser: XMLParserDelegate {
     public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         let node = GPXRawElement(name: elementName)
         if !attributeDict.isEmpty {

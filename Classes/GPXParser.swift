@@ -6,6 +6,7 @@
 //  
 
 import Foundation
+/*
 /**
  An event-driven parser (SAX parser), that specifically parses GPX v1.1 files only.
  
@@ -527,3 +528,4 @@ extension GPXParser {
  */
     }
 }
+*/
