@@ -3,7 +3,7 @@ import CoreGPX
 
 // Example: Generate GPX string
 
-let root = GPXRoot(creator: "CoreGPX Playground")
+let root = GPXRoot(creator: "CoreGPX Playground") // Init with a creator name.
 
 let track = GPXTrack()
 let firstSegment = GPXTrackSegment()
@@ -17,20 +17,20 @@ metadata.desc = "This GPX File is created to facilitate the understanding of Cor
 root.metadata = metadata
 
 let firstTrkPt = GPXTrackPoint(latitude: 1.2345, longitude: 2.3456)
+let secondTrkPt = GPXTrackPoint(latitude: 0.294, longitude: 38.019)
 
 firstTrkPt.elevation = 31.92492
 firstTrkPt.extensions = GPXExtensions()
-firstTrkPt.extensions?.simpleAppend(parent: "customproperties", contents: ["Location" : "Sembawang, Singapore", "CompassDegree" : "120"])
+firstTrkPt.extensions?.append(at: "customproperties", contents: ["Location" : "Sembawang, Singapore", "CompassDegree" : "120"])
 
-let secondTrkPt = GPXTrackPoint(latitude: 0.294, longitude: 38.019)
 
-firstSegment.add(trackpoint: firstTrkPt)
-firstSegment.add(trackpoint: secondTrkPt)
-
+firstSegment.add(trackpoints: [firstTrkPt, secondTrkPt])
 track.add(trackSegment: firstSegment)
 
 root.add(track: track)
 
+
+// Dealing with extensions
 let rootExtensions = GPXExtensions()
 let child = GPXExtensionsElement(name: "trkExtensions")
 let speed = GPXExtensionsElement(name: "speed")
@@ -46,15 +46,5 @@ rootExtensions.children.append(child)
 
 root.extensions = rootExtensions
 
-//let ext = rootExtensions["trkExtenions"]["speed"].text
-
-print(rootExtensions["trkExtensions"]["speedd"].text)
-
-print(root.gpx())
-
-let url = URL(string: "https://dl.dropboxusercontent.com/s/qomkwzrqj2punqy/multi-actIds.gpx.txt")
-//let gpx = GPXParserII().parse(url!)
-let gpx = GPXParserII(withURL: url!)?.parsedData()
-
-print(gpx)
+print("Completed GPXRoot: \(root.gpx())")
 
