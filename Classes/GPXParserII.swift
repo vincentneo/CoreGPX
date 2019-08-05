@@ -16,13 +16,28 @@ import Foundation
  */
 public class GPXParser: NSObject {
     
+    // MARK:- Private Declarations
+    
+    /// XML parser of current object
     private let parser: XMLParser
+    
+    /// Default base element
     private let documentRoot = GPXRawElement(name: "DocumentStart")
+    
+    /// Temporary stack of raw elements.
     private var stack = [GPXRawElement]()
     
-    private func didInit() {
+    // MARK:- Private Methods
+    
+    /// Resets stack
+    private func stackReset() {
         stack = [GPXRawElement]()
         stack.append(documentRoot)
+    }
+    
+    /// Common init setup
+    private func didInit() {
+        stackReset()
         parser.delegate = self
     }
     
@@ -88,7 +103,7 @@ public class GPXParser: NSObject {
             self.init(withRawString: file)
         }
         catch {
-            print("InitWithPath Error")
+            print("CoreGPX: Failed parsing with path")
             return nil
         }
         
@@ -96,12 +111,15 @@ public class GPXParser: NSObject {
     
     // MARK: GPX
     
+    ///
+    /// Starts parsing, returns parsed `GPXRoot` when done.
+    ///
     public func parsedData() -> GPXRoot? {
         self.parser.parse() // parse when requested
         guard let firstTag = stack.first else { return nil }
         guard let rawGPX = firstTag.children.first else { return nil }
         
-        let root = GPXRoot(raw: rawGPX) // to be returned via function.
+        let root = GPXRoot(raw: rawGPX) // to be returned; includes attributes.
         
         for child in rawGPX.children {
             let name = child.name
@@ -127,7 +145,7 @@ public class GPXParser: NSObject {
         }
         
         // reset stack
-        stack = [GPXRawElement]()
+        stackReset()
         
         return root
     }
