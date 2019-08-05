@@ -71,6 +71,17 @@ open class GPXCopyright: GPXElement {
         self.author = dictionary["author"]
     }
     
+    init(raw: GPXRawElement) {
+        for child in raw.children {
+            switch child.name {
+            case "year":    self.year = GPXDateParser.parse(year: child.text)
+            case "license": self.license = child.text
+            default: continue
+            }
+        }
+        self.author = raw.attributes["author"]
+    }
+    
     // MARK: Tag
     
     override func tagName() -> String {

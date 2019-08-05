@@ -39,6 +39,16 @@ open class GPXPerson: GPXElement {
         name = dictionary["name"]
         super.init()
     }
+    init(raw: GPXRawElement) {
+        for child in raw.children {
+            switch child.name {
+            case "name": self.name = child.text
+            case "email": self.email = GPXEmail(raw: child)
+            case "link": self.link = GPXLink(raw: child)
+            default: continue
+            }
+        }
+    }
     
     // MARK:- Tag
     

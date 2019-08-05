@@ -73,7 +73,23 @@ open class GPXTrack: GPXElement, Codable {
         self.type = dictionary.removeValue(forKey: "type")
         
         if dictionary.count > 0 {
-            self.extensions = GPXExtensions(dictionary: dictionary)
+            //self.extensions = GPXExtensions(dictionary: dictionary)
+        }
+    }
+    
+    init(raw: GPXRawElement) {
+        for child in raw.children {
+            switch child.name {
+            case "link":        self.link = GPXLink(raw: child)
+            case "trkseg":      self.tracksegments.append(GPXTrackSegment(raw: child))
+            case "name":        self.name = child.text
+            case "cmt":         self.comment = child.text
+            case "desc":        self.desc = child.text
+            case "src":         self.source = child.text
+            case "type":        self.type = child.text
+            case "extensions":  self.extensions = GPXExtensions(raw: child)
+            default: continue
+            }
         }
     }
     

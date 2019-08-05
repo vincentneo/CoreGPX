@@ -20,6 +20,10 @@ open class GPXAuthor: GPXPerson {
         super.init(dictionary: dictionary)
     }
     
+    override init(raw: GPXRawElement) {
+        super.init(raw: raw)
+    }
+    
     // MARK: Tag
     
     override func tagName() -> String {

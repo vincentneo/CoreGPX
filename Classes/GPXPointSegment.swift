@@ -24,6 +24,15 @@ open class GPXPointSegment: GPXElement {
         super.init()
     }
     
+    init(raw: GPXRawElement) {
+        for child in raw.children {
+            if child.name == "pt" {
+                points.append(GPXPoint(raw: child))
+            }
+            else { break }
+        }
+    }
+    
     // MARK:- Public Methods
     
     /// Adds a new point to segment, and returns the added point.

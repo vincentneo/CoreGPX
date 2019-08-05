@@ -3,7 +3,7 @@ import CoreGPX
 
 // Example: Generate GPX string
 
-let root = GPXRoot(creator: "CoreGPX Playground")
+let root = GPXRoot(creator: "CoreGPX Playground") // Init with a creator name.
 
 let track = GPXTrack()
 let firstSegment = GPXTrackSegment()
@@ -17,18 +17,34 @@ metadata.desc = "This GPX File is created to facilitate the understanding of Cor
 root.metadata = metadata
 
 let firstTrkPt = GPXTrackPoint(latitude: 1.2345, longitude: 2.3456)
-firstTrkPt.elevation = 31.92492
-firstTrkPt.extensions = GPXExtensions()
-firstTrkPt.extensions!["customproperties"] = ["Location" : "Sembawang, Singapore", "CompassDegree" : "120"]
-
 let secondTrkPt = GPXTrackPoint(latitude: 0.294, longitude: 38.019)
 
-firstSegment.add(trackpoint: firstTrkPt)
-firstSegment.add(trackpoint: secondTrkPt)
+firstTrkPt.elevation = 31.92492
+firstTrkPt.extensions = GPXExtensions()
+firstTrkPt.extensions?.append(at: "customproperties", contents: ["Location" : "Sembawang, Singapore", "CompassDegree" : "120"])
 
+
+firstSegment.add(trackpoints: [firstTrkPt, secondTrkPt])
 track.add(trackSegment: firstSegment)
 
 root.add(track: track)
 
-print(root.gpx())
+
+// Dealing with extensions
+let rootExtensions = GPXExtensions()
+let child = GPXExtensionsElement(name: "trkExtensions")
+let speed = GPXExtensionsElement(name: "speed")
+speed.text = "50.49"
+let airQuality = GPXExtensionsElement(name: "AirQuality")
+airQuality.text = "82"
+child.attributes = ["purpose" : "test"]
+
+child.children.append(speed)
+child.children.append(airQuality)
+
+rootExtensions.children.append(child)
+
+root.extensions = rootExtensions
+
+print("Completed GPXRoot: \(root.gpx())")
 

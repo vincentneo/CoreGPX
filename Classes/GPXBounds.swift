@@ -63,6 +63,13 @@ open class GPXBounds: GPXElement {
         self.maxLongitude = Convert.toDouble(from: dictionary["maxlon"])
     }
     
+    init(raw: GPXRawElement) {
+        self.minLatitude = Convert.toDouble(from: raw.attributes["minlat"])
+        self.maxLatitude = Convert.toDouble(from: raw.attributes["maxlat"])
+        self.minLongitude = Convert.toDouble(from: raw.attributes["minlon"])
+        self.maxLongitude = Convert.toDouble(from: raw.attributes["maxlon"])
+    }
+    
     // MARK:- Tag
     
     override func tagName() -> String {

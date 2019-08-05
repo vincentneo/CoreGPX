@@ -73,7 +73,24 @@ open class GPXRoute: GPXElement, Codable {
         self.number = Convert.toInt(from: dictionary.removeValue(forKey: "number"))
         
         if dictionary.count > 0 {
-            self.extensions = GPXExtensions(dictionary: dictionary)
+            //self.extensions = GPXExtensions(dictionary: dictionary)
+        }
+    }
+    
+    init(raw: GPXRawElement) {
+        for child in raw.children {
+            switch child.name {
+            case "link":        self.link = GPXLink()
+            case "rtept":       self.routepoints = [GPXRoutePoint]()
+            case "name":        self.name = child.text
+            case "cmt":         self.comment = child.text
+            case "desc":        self.desc = child.text
+            case "src":         self.source = child.text
+            case "type":        self.type = child.text
+            case "number":      self.number = Convert.toInt(from: child.text)
+            case "extensions":  self.extensions = GPXExtensions(raw: child)
+            default: continue
+            }
         }
     }
     

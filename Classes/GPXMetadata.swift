@@ -79,7 +79,27 @@ open class GPXMetadata: GPXElement {
         self.keyword = dictionary.removeValue(forKey: "keyword")
         
         if dictionary.count > 0 {
-            self.extensions = GPXExtensions(dictionary: dictionary)
+            //self.extensions = GPXExtensions(dictionary: dictionary)
+        }
+    }
+    
+    init(raw: GPXRawElement) {
+        super.init()
+        for child in raw.children {
+            let text = child.text
+            
+            switch child.name {
+            case "name":        self.name = text
+            case "desc":        self.desc = text
+            case "author":      self.author = GPXAuthor(raw: child)
+            case "copyright":   self.copyright = GPXCopyright(raw: child)
+            case "link":        self.link = GPXLink(raw: child)
+            case "time":        self.time = GPXDateParser.parse(date: text)
+            case "keywords":    self.keyword = text
+            case "bounds":      self.bounds = GPXBounds(raw: child)
+            case "extensions":  self.extensions = GPXExtensions(raw: child)
+            default: continue
+            }
         }
     }
     

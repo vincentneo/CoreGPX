@@ -88,6 +88,17 @@ open class GPXLink: GPXElement, Codable {
         self.text = dictionary["text"]
     }
     
+    init(raw: GPXRawElement) {
+        for child in raw.children {
+            switch child.name {
+            case "type":    self.mimetype = child.text
+            case "text":    self.text = child.text
+            default: continue
+            }
+        }
+        self.href = raw.attributes["href"]
+    }
+    
     
     // MARK:- Public Methods
     

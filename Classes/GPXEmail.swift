@@ -64,6 +64,11 @@ open class GPXEmail: GPXElement {
         
     }
     
+    init(raw: GPXRawElement) {
+        self.emailID = raw.attributes["id"]
+        self.domain = raw.attributes["domain"]
+    }
+    
     // MARK:- Tag
     override func tagName() -> String {
         return "email"

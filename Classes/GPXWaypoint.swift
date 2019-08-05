@@ -245,9 +245,38 @@ open class GPXWaypoint: GPXElement, Codable {
         self.ageofDGPSData = Convert.toDouble(from: dictionary.removeValue(forKey: "ageofdgpsdata"))
         
         if dictionary.count > 0 {
-            self.extensions = GPXExtensions(dictionary: dictionary)
+            //self.extensions = GPXExtensions(dictionary: dictionary)
         }
         
+    }
+    
+    init(raw: GPXRawElement) {
+        self.latitude = Convert.toDouble(from: raw.attributes["lat"])
+        self.longitude = Convert.toDouble(from: raw.attributes["lon"])
+        
+        for child in raw.children {
+            switch child.name {
+            case "time":        self.time = GPXDateParser.parse(date: child.text)
+            case "ele":         self.elevation = Convert.toDouble(from: child.text)
+            case "magvar":      self.magneticVariation = Convert.toDouble(from: child.text)
+            case "geoidheight": self.geoidHeight = Convert.toDouble(from: child.text)
+            case "name":        self.name = child.text
+            case "cmt":         self.comment = child.text
+            case "desc":        self.desc = child.text
+            case "src":         self.source = child.text
+            case "sym":         self.symbol = child.text
+            case "type":        self.type = child.text
+            case "fix":         self.fix = Convert.toInt(from: child.text)
+            case "sat":         self.satellites = Convert.toInt(from: child.text)
+            case "hdop":        self.horizontalDilution = Convert.toDouble(from: child.text)
+            case "vdop":        self.verticalDilution = Convert.toDouble(from: child.text)
+            case "pdop":        self.positionDilution = Convert.toDouble(from: child.text)
+            case "dgpsid":      self.DGPSid = Convert.toInt(from: child.text)
+            case "ageofdgpsid": self.ageofDGPSData = Convert.toDouble(from: child.text)
+            case "extensions":  self.extensions = GPXExtensions(raw: child)
+            default: continue
+            }
+        }
     }
     
     // MARK:- Public Methods

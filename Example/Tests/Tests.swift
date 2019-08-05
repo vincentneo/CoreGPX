@@ -43,7 +43,7 @@ class CoreGPX_Tests: XCTestCase {
         var firstLatitude = Double()
         var firstLongitude = Double()
         
-        for track in parsedData.tracks {
+        for track in parsedData!.tracks {
             for tracksegment in track.tracksegments {
                 count += tracksegment.trackpoints.count
                 firstLatitude = (tracksegment.trackpoints.first?.latitude)!
@@ -121,7 +121,7 @@ class CoreGPX_Tests: XCTestCase {
         var firstLatitude = Double()
         var firstLongitude = Double()
         
-        for track in parsedData.tracks {
+        for track in parsedData!.tracks {
             for tracksegment in track.tracksegments {
                 count += tracksegment.trackpoints.count
                 firstLatitude = (tracksegment.trackpoints.first?.latitude)!
@@ -168,7 +168,19 @@ class CoreGPX_Tests: XCTestCase {
             return
         }
         self.measure() {
-            _ = GPXParser(withURL: url)?.parsedData()
+            //_ = GPXParser(withURL: url)?.parsedData()
+            _ = GPXParser(withURL: url)?.parsedData() //convertToGPX()
+        }
+    }
+    
+    func testPerformanceForParsingWithData() {
+        guard let data = data else {
+            XCTAssert(false, "testParseWithData: Data is nil")
+            return
+        }
+        self.measure() {
+            //_ = GPXParser(withURL: url)?.parsedData()
+            _ = GPXParser(withData: data).parsedData() //convertToGPX()
         }
     }
     
@@ -199,7 +211,7 @@ class CoreGPX_Tests: XCTestCase {
             return
         }
         let parsedData = GPXParser(withData: data).parsedData()
-        let trackpoints = parsedData.tracks[0].tracksegments[0].trackpoints
+        let trackpoints = parsedData!.tracks[0].tracksegments[0].trackpoints
         
         do {
             let data = try JSONEncoder().encode(trackpoints.first)
@@ -229,7 +241,7 @@ class CoreGPX_Tests: XCTestCase {
             return
         }
         let parsedData = GPXParser(withData: data).parsedData()
-        let trackpoints = parsedData.tracks[0].tracksegments[0].trackpoints
+        let trackpoints = parsedData!.tracks[0].tracksegments[0].trackpoints
         
         /// `data` declared above != `serializedData`
         ///

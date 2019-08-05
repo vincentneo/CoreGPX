@@ -32,11 +32,12 @@ class ParseViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         if input != nil {
             if let inputURL = URL(string: input!) {
+                //guard let gpx = GPXParser(withURL: inputURL)?.parsedData() else { return }
                 guard let gpx = GPXParser(withURL: inputURL)?.parsedData() else { return }
                 self.tracks = gpx.tracks
                 self.waypoints = gpx.waypoints
                 self.tableView.reloadData()
-                print("gpx creator: \(gpx.creator ?? "") ver: \(gpx.version ?? "")")
+                //print("gpx creator: \(gpx.creator ?? "") ver: \(gpx.version ?? "")")
             }
         }
     }
@@ -104,9 +105,8 @@ class ParseViewController: UIViewController, UITableViewDelegate, UITableViewDat
             for track in self.tracks {
                 for tracksegment in track.tracksegments {
                     for trackpoint in tracksegment.trackpoints {
-                        
                         coordinates.append("Lat=\(trackpoint.latitude!), Lon=\(trackpoint.longitude!)")
-                        subtitles.append("Date:\(trackpoint.time ?? Date()), Ele:\(trackpoint.elevation ?? 0), Ext:\(trackpoint.extensions?[nil] ?? [String:String]())")
+                        subtitles.append("Date:\(trackpoint.time ?? Date()), Ele:\(trackpoint.elevation ?? 0), Ext:\(trackpoint.extensions?.get(from: nil) ?? [String:String]())")
                         
                     }
                 }
