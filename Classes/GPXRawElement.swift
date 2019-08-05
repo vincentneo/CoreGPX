@@ -9,11 +9,19 @@
 import Foundation
 
 class GPXRawElement {
+    /// name tag of element
     var name: String
+    
+    /// text contents of element
     var text: String?
+    
+    /// open tag attributes of element
     var attributes = [String : String]()
+    
+    /// child of element tag
     var children = [GPXRawElement]()
     
+    /// init with name tag name
     init(name: String) {
         self.name = name
     }

@@ -2,7 +2,8 @@
 //  GPXParserII.swift
 //  CoreGPX
 //
-//  Created by Vincent on 2/7/19.
+//  Version 1 created on 2/11/18.
+//  Version 2 created on 2/7/19.
 //
 //  XML Parser is referenced from GitHub, yahoojapan/SwiftyXMLParser.
 
