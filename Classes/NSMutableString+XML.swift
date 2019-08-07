@@ -39,4 +39,7 @@ extension NSMutableString {
         self.appendFormat("%@</%@>\r\n", indentation, tag)
     }
     
+    func appendAttributeTag(_ attribution: String, value: CVarArg) {
+        self.appendFormat(" %@=\"%@\"", attribution, value)
+    }
 }
