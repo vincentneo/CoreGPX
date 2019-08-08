@@ -17,7 +17,7 @@ import Foundation
 open class GPXTrack: GPXElement, Codable {
     
     /// for Codable
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case link
         case tracksegments = "trkseg"
         case name
