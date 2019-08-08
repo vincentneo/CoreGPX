@@ -12,8 +12,16 @@ import Foundation
  
  This is meant for having two pairs of longitude and latitude, signifying the maximum and minimum, defining the extent / boundaries of a particular element.
  */
-open class GPXBounds: GPXElement {
-
+open class GPXBounds: GPXElement, Codable {
+    
+    /// Codable Implementation
+    private enum CodingKeys: String, CodingKey {
+        case minLatitude = "minlat"
+        case maxLatitude = "maxLat"
+        case minLongitude = "minlon"
+        case maxLongitude = "maxlon"
+    }
+    
     /// Minimum latitude of boundaries to a element.
     public var minLatitude: Double?
     /// Maximum latitude of boundaries to a element.
