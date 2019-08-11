@@ -12,7 +12,7 @@ import Foundation
  
  `ptsegType` of GPX schema. Not supported in GPXRoot, nor GPXParser's parsing.
  */
-open class GPXPointSegment: GPXElement {
+open class GPXPointSegment: GPXElement, Codable {
     
     /// points of segment
     public var points = [GPXPoint]()
