@@ -48,7 +48,6 @@ open class GPXPointSegment: GPXElement, Codable {
     /// Appends a point to the point segment
     public func add(point: GPXPoint?) {
         if let validPoint = point {
-            point?.parent = self
             points.append(validPoint)
         }
     }
@@ -62,7 +61,6 @@ open class GPXPointSegment: GPXElement, Codable {
     public func remove(point: GPXPoint) {
         let contains = points.contains(point)
         if contains == true {
-            point.parent = nil
             if let index = points.firstIndex(of: point) {
                 points.remove(at: index)
             }

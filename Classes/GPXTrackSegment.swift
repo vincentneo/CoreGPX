@@ -79,7 +79,6 @@ open class GPXTrackSegment: GPXElement, Codable {
     
     /// Removes a track point from this track segment.
     open func remove(trackpoint: GPXTrackPoint) {
-        trackpoint.parent = nil
         if let index = trackpoints.firstIndex(of: trackpoint) {
             trackpoints.remove(at: index)
         }

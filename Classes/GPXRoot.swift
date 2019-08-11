@@ -205,7 +205,6 @@ open class GPXRoot: GPXElement, Codable {
     public func remove(waypoint: GPXWaypoint) {
         let contains = waypoints.contains(waypoint)
         if contains == true {
-            waypoint.parent = nil
             if let index = waypoints.firstIndex(of: waypoint) {
                 self.waypoints.remove(at: index)
             }
@@ -262,7 +261,6 @@ open class GPXRoot: GPXElement, Codable {
     public func remove(route: GPXRoute) {
         let contains = routes.contains(route)
         if contains == true {
-            route.parent = nil
             if let index = routes.firstIndex(of: route) {
                 self.waypoints.remove(at: index)
             }
@@ -313,7 +311,6 @@ open class GPXRoot: GPXElement, Codable {
     public func remove(track: GPXTrack) {
         let contains = tracks.contains(track)
         if contains == true {
-            track.parent = nil
             if let index = tracks.firstIndex(of: track) {
                self.waypoints.remove(at: index)
             }

@@ -18,8 +18,6 @@ import Foundation
  */
 open class GPXElement: NSObject {
     
-    var parent: GPXElement?
-
     // MARK:- Tag
     
     /// Tag name of the element.

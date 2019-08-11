@@ -132,7 +132,6 @@ open class GPXRoute: GPXElement, Codable {
     func remove(routepoint: GPXRoutePoint) {
         let contains = routepoints.contains(routepoint)
         if contains == true {
-            routepoint.parent = nil
             if let index = routepoints.firstIndex(of: routepoint) {
                 routepoints.remove(at: index)
             }

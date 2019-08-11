@@ -115,7 +115,6 @@ open class GPXTrack: GPXElement, Codable {
     /// Adds a single track segment to the track.
     open func add(trackSegment: GPXTrackSegment?) {
         if let validTrackSegment = trackSegment {
-            validTrackSegment.parent = self
             tracksegments.append(validTrackSegment)
         }
     }
@@ -130,7 +129,6 @@ open class GPXTrack: GPXElement, Codable {
         let contains = tracksegments.contains(trackSegment)
         
         if contains == true {
-            trackSegment.parent = nil
             if let index = tracksegments.firstIndex(of: trackSegment) {
                 tracksegments.remove(at: index)
             }
