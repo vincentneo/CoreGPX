@@ -21,7 +21,7 @@ import Foundation
     - Bounds
     - Also supports extensions
  */
-open class GPXMetadata: GPXElement {
+open class GPXMetadata: GPXElement, Codable {
     
     /// Name intended for the GPX file.
     public var name: String?
