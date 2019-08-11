@@ -15,7 +15,7 @@ import Foundation
 open class GPXRoute: GPXElement, Codable {
     
     /// For Codable use
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case name
         case comment = "cmt"
         case desc

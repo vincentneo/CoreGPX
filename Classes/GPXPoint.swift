@@ -12,7 +12,7 @@ import Foundation
  
  `ptType` of GPX schema. Not supported in GPXRoot, nor GPXParser's parsing.
  */
-open class GPXPoint: GPXElement {
+open class GPXPoint: GPXElement, Codable {
 
     /// Elevation Value in (metre, m)
     public var elevation: Double?

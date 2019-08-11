@@ -22,7 +22,7 @@ open class GPXWaypoint: GPXElement, Codable {
     // MARK: Codable Implementation
     
     /// For Codable use
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case time
         case elevation = "ele"
         case latitude = "lat"
@@ -31,7 +31,7 @@ open class GPXWaypoint: GPXElement, Codable {
         case geoidHeight = "geoidheight"
         case name
         case comment = "cmt"
-        case desc = "desc"
+        case desc
         case source = "src"
         case symbol = "sym"
         case type

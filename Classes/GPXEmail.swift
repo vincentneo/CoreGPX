@@ -14,7 +14,14 @@ import Foundation
  
  For example, an email of **"yourname@thisisawebsite.com"**, would have an id of **'yourname'** and a domain of **'thisisawebsite.com'**.
  */
-open class GPXEmail: GPXElement {
+open class GPXEmail: GPXElement, Codable {
+    
+    /// Codable Implementation
+    private enum CodingKeys: String, CodingKey {
+        case emailID = "id"
+        case domain
+        case fullAddress
+    }
     
     /// Email ID refers to the front part of the email address, before the **@**
     public var emailID: String?

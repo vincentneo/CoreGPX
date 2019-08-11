@@ -8,10 +8,11 @@
 import Foundation
 
 /// A value type that is designated to hold information regarding the person or organisation who has created the GPX file.
-open class GPXPerson: GPXElement {
+open class GPXPerson: GPXElement, Codable {
     
     /// Name of person who has created the GPX file.
     public var name: String?
+    
     /// The email address of the person who has created the GPX file.
     public var email: GPXEmail?
     

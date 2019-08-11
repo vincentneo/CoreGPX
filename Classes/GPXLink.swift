@@ -20,7 +20,7 @@ fileprivate let kCommonWebExtensions: Set = ["htm", "html", "asp", "aspx", "jsp"
 open class GPXLink: GPXElement, Codable {
     
     /// For Codable use
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case text
         case mimetype = "type"
         case href
