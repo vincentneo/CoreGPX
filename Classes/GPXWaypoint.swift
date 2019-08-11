@@ -31,7 +31,7 @@ open class GPXWaypoint: GPXElement, Codable {
         case geoidHeight = "geoidheight"
         case name
         case comment = "cmt"
-        case desc = "desc"
+        case desc
         case source = "src"
         case symbol = "sym"
         case type
