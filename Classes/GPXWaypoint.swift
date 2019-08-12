@@ -349,4 +349,54 @@ open class GPXWaypoint: GPXElement, Codable {
     }
 }
 
+// MARK:- Hashable Implementation
 
+extension GPXWaypoint: Hashable {
+    
+    /// Equatable Implementation
+    public static func == (lhs: GPXWaypoint, rhs: GPXWaypoint) -> Bool {
+        return lhs.tagName() == rhs.tagName() // in case wpt is == with trkpt / rtept
+            && lhs.time == rhs.time
+            && lhs.elevation == rhs.elevation
+            && lhs.latitude == rhs.latitude
+            && lhs.longitude == rhs.longitude
+            && lhs.geoidHeight == rhs.geoidHeight
+            && lhs.magneticVariation == rhs.magneticVariation
+            && lhs.name == rhs.name
+            && lhs.comment == rhs.comment
+            && lhs.desc == rhs.desc
+            && lhs.source == rhs.source
+            && lhs.symbol == rhs.symbol
+            && lhs.type == rhs.type
+            && lhs.fix == rhs.fix
+            && lhs.satellites == rhs.satellites
+            && lhs.horizontalDilution == rhs.horizontalDilution
+            && lhs.verticalDilution == rhs.verticalDilution
+            && lhs.positionDilution == rhs.positionDilution
+            && lhs.DGPSid == rhs.DGPSid
+            && lhs.ageofDGPSData == rhs.ageofDGPSData
+            && lhs.extensions == rhs.extensions
+    }
+    
+    /// Hasher Implementation
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(time)
+        hasher.combine(elevation)
+        hasher.combine(magneticVariation)
+        hasher.combine(geoidHeight)
+        hasher.combine(name)
+        hasher.combine(comment)
+        hasher.combine(desc)
+        hasher.combine(source)
+        hasher.combine(symbol)
+        hasher.combine(type)
+        hasher.combine(fix)
+        hasher.combine(satellites)
+        hasher.combine(horizontalDilution)
+        hasher.combine(verticalDilution)
+        hasher.combine(positionDilution)
+        hasher.combine(DGPSid)
+        hasher.combine(ageofDGPSData)
+        hasher.combine(extensions)
+    }
+}

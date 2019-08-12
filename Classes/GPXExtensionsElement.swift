@@ -79,3 +79,18 @@ public class GPXExtensionsElement: GPXElement, Codable {
         
     }
 }
+extension GPXExtensionsElement: Hashable {
+    public static func == (lhs: GPXExtensionsElement, rhs: GPXExtensionsElement) -> Bool {
+        return lhs.name == rhs.name
+            && lhs.text == rhs.text
+            && lhs.attributes == rhs.attributes
+            && lhs.children == rhs.children
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(text)
+        hasher.combine(attributes)
+        hasher.combine(children)
+    }
+}

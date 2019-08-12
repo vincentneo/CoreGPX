@@ -15,7 +15,7 @@ import Foundation
  This class represents the extended data in a GPX file.
  */
 open class GPXExtensions: GPXElement, Codable {
-    
+
     /// Extended children tags
     public var children = [GPXExtensionsElement]()
     
@@ -165,5 +165,15 @@ open class GPXExtensions: GPXElement, Codable {
             child.gpx(gpx, indentationLevel: indentationLevel)
         }
 
+    }
+}
+
+extension GPXExtensions: Hashable {
+    public static func == (lhs: GPXExtensions, rhs: GPXExtensions) -> Bool {
+        return lhs.children == rhs.children
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(children)
     }
 }
