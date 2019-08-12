@@ -104,3 +104,14 @@ open class GPXTrackSegment: GPXElement, Codable {
         }
     }
 }
+
+extension GPXTrackSegment: Hashable {
+    public static func == (lhs: GPXTrackSegment, rhs: GPXTrackSegment) -> Bool {
+        return lhs.trackpoints == rhs.trackpoints && lhs.extensions == rhs.extensions
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(trackpoints)
+        hasher.combine(extensions)
+    }
+}

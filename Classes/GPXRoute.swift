@@ -171,3 +171,29 @@ open class GPXRoute: GPXElement, Codable {
         }
     }
 }
+
+extension GPXRoute: Hashable {
+    public static func == (lhs: GPXRoute, rhs: GPXRoute) -> Bool {
+        return lhs.link == rhs.link
+            && lhs.routepoints == rhs.routepoints
+            && lhs.name == rhs.name
+            && lhs.comment == rhs.comment
+            && lhs.desc == rhs.desc
+            && lhs.source == rhs.source
+            && lhs.number == rhs.number
+            && lhs.type == rhs.type
+            && lhs.extensions == rhs.extensions
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(link)
+        hasher.combine(routepoints)
+        hasher.combine(name)
+        hasher.combine(comment)
+        hasher.combine(desc)
+        hasher.combine(source)
+        hasher.combine(number)
+        hasher.combine(type)
+        hasher.combine(extensions)
+    }
+}

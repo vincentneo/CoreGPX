@@ -380,6 +380,7 @@ extension GPXWaypoint: Hashable {
     
     /// Hasher Implementation
     public func hash(into hasher: inout Hasher) {
+        hasher.combine(tagName())
         hasher.combine(time)
         hasher.combine(elevation)
         hasher.combine(magneticVariation)

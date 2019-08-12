@@ -181,3 +181,31 @@ open class GPXTrack: GPXElement, Codable {
         
     }
 }
+
+extension GPXTrack: Hashable {
+    public static func == (lhs: GPXTrack, rhs: GPXTrack) -> Bool {
+        return lhs.link == rhs.link
+            && lhs.tracksegments == rhs.tracksegments
+            && lhs.name == rhs.name
+            && lhs.comment == rhs.comment
+            && lhs.desc == rhs.desc
+            && lhs.source == rhs.source
+            && lhs.number == rhs.number
+            && lhs.type == rhs.type
+            && lhs.extensions == rhs.extensions
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(link)
+        hasher.combine(tracksegments)
+        hasher.combine(name)
+        hasher.combine(comment)
+        hasher.combine(desc)
+        hasher.combine(source)
+        hasher.combine(number)
+        hasher.combine(type)
+        hasher.combine(extensions)
+    }
+
+    
+}

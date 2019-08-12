@@ -128,3 +128,17 @@ open class GPXLink: GPXElement, Codable {
         self.addProperty(forValue: mimetype, gpx: gpx, tagName: "type", indentationLevel: indentationLevel)
     }
 }
+
+extension GPXLink: Hashable {
+    public static func == (lhs: GPXLink, rhs: GPXLink) -> Bool {
+        return lhs.href == rhs.href
+            && lhs.mimetype == rhs.mimetype
+            && lhs.text == rhs.text
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(href)
+        hasher.combine(mimetype)
+        hasher.combine(text)
+    }
+}
