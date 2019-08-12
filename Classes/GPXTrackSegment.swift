@@ -31,7 +31,7 @@ open class GPXTrackSegment: GPXElement, Codable {
     // MARK:- Instance
     
     /// Default Initializer.
-    public required init() {
+    public override init() {
         super.init()
     }
     

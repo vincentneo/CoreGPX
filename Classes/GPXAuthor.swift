@@ -11,7 +11,7 @@ import Foundation
 open class GPXAuthor: GPXPerson {
     
     /// Default Initializer
-    public required init() {
+    public override init() {
         super.init()
     }
     

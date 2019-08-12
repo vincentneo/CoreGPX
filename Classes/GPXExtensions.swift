@@ -22,7 +22,7 @@ open class GPXExtensions: GPXElement, Codable {
     // MARK:- Initializers
     
     /// Default Initializer.
-    public required init() {
+    public override init() {
         super.init()
     }
     

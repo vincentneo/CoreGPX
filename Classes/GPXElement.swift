@@ -16,7 +16,7 @@ import Foundation
  - Note:
     This class should not be used as is. To use its functionalities, please subclass it instead.
  */
-open class GPXElement: NSObject {
+open class GPXElement {
     
     // MARK:- Tag
     
@@ -27,12 +27,6 @@ open class GPXElement: NSObject {
         fatalError("Subclass must override tagName()")
     }
     
-    // MARK:- Instance
-  
-    public required override init() {
-        super.init()
-    }
-
     // MARK:- GPX
    
     /// for generating newly tracked data straight into a formatted `String` that holds formatted data according to GPX syntax

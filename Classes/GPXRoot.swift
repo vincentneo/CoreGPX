@@ -60,7 +60,7 @@ open class GPXRoot: GPXElement, Codable {
     ///
     /// It will initialize with the creator name set to its defaults.
     ///
-    public required init() {
+    public override init() {
         super.init()
         self.creator = "Powered by Open Source CoreGPX Project"
         self.version = "1.1"

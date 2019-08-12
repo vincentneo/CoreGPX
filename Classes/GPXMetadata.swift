@@ -55,7 +55,7 @@ open class GPXMetadata: GPXElement, Codable {
     
     // MARK:- Instance
     
-    required public init() {
+    public override init() {
         self.time = Date()
         super.init()
     }

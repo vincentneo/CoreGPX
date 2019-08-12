@@ -45,7 +45,7 @@ public class GPXExtensionsElement: GPXElement, Codable {
     }
     
     /// Default initializer.
-    required init() {
+    override init() {
         self.name = "Undefined"
     }
     

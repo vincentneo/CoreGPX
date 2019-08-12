@@ -187,7 +187,7 @@ open class GPXWaypoint: GPXElement, Codable {
     /// - Note:
     ///     At least latitude and longitude should be configured as required by the GPX v1.1 schema.
     ///
-    public required init() {
+    public override init() {
         self.time = Date()
         super.init()
     }

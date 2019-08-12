@@ -23,10 +23,11 @@ open class GPXPoint: GPXElement, Codable {
     /// Longitude of point
     public var longitude: Double?
     
+    
     // MARK:- Instance
     
     /// Default Initializer.
-    required public init() {
+    public override init() {
         super.init()
     }
     /// Initialize with latitude and longitude

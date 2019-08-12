@@ -57,7 +57,7 @@ open class GPXTrack: GPXElement, Codable {
     public var extensions: GPXExtensions?
 
     /// Default Initializer
-    public required init() {
+    public override init() {
         super.init()
     }
     

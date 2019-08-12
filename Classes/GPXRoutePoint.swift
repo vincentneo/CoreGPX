@@ -10,7 +10,7 @@ import Foundation
 open class GPXRoutePoint: GPXWaypoint {
     
     /// Default initializer
-    public required init() {
+    public override init() {
         super.init()
     }
     

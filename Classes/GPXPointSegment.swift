@@ -20,7 +20,7 @@ open class GPXPointSegment: GPXElement, Codable {
     // MARK:- Instance
     
     /// Default initializer.
-    public required init() {
+    public override init() {
         super.init()
     }
     

@@ -34,7 +34,7 @@ open class GPXEmail: GPXElement, Codable {
     
     // MARK:- Instance
     
-    public required init() {
+    public override init() {
         super.init()
     }
     
