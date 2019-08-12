@@ -85,3 +85,17 @@ open class GPXPoint: GPXElement, Codable {
     }
     
 }
+
+extension GPXPoint: Hashable {
+    public static func == (lhs: GPXPoint, rhs: GPXPoint) -> Bool {
+        return lhs.elevation == rhs.elevation && lhs.time == rhs.time && lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude && lhs.tagName() == rhs.tagName()
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(elevation)
+        hasher.combine(time)
+        hasher.combine(latitude)
+        hasher.combine(longitude)
+    }
+    
+}
