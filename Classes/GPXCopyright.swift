@@ -106,3 +106,19 @@ open class GPXCopyright: GPXElement, Codable {
         self.addProperty(forValue: license, gpx: gpx, tagName: "license", indentationLevel: indentationLevel)
     }
 }
+
+extension GPXCopyright: Hashable {
+    public static func == (lhs: GPXCopyright, rhs: GPXCopyright) -> Bool {
+        return lhs.author == rhs.author
+            && lhs.license == rhs.license
+            && lhs.year == rhs.year
+            && lhs.tagName() == lhs.tagName()
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(author)
+        hasher.combine(license)
+        hasher.combine(year)
+        hasher.combine(tagName())
+    }
+}

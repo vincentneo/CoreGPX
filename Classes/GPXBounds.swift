@@ -104,3 +104,19 @@ open class GPXBounds: GPXElement, Codable {
         gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)
     }
 }
+
+extension GPXBounds: Hashable {
+    public static func == (lhs: GPXBounds, rhs: GPXBounds) -> Bool {
+        return lhs.minLatitude == rhs.minLatitude
+            && lhs.maxLatitude == rhs.maxLatitude
+            && lhs.minLongitude == rhs.minLongitude
+            && lhs.maxLongitude == rhs.maxLongitude
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(minLatitude)
+        hasher.combine(maxLatitude)
+        hasher.combine(minLongitude)
+        hasher.combine(maxLongitude)
+    }
+}

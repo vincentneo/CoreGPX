@@ -94,3 +94,21 @@ open class GPXEmail: GPXElement, Codable {
         gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)
     }
 }
+
+extension GPXEmail: Hashable {
+    public static func == (lhs: GPXEmail, rhs: GPXEmail) -> Bool {
+        return lhs.domain == rhs.domain
+            && lhs.emailID == rhs.emailID
+            && lhs.fullAddress == rhs.fullAddress
+            && lhs.tagName() == rhs.tagName()
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(domain)
+        hasher.combine(emailID)
+        hasher.combine(fullAddress)
+        hasher.combine(tagName())
+        
+    }
+    
+}

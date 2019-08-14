@@ -74,3 +74,17 @@ open class GPXPerson: GPXElement, Codable {
         
     }
 }
+
+extension GPXPerson: Hashable {
+    public static func == (lhs: GPXPerson, rhs: GPXPerson) -> Bool {
+        return lhs.name == rhs.name
+            && lhs.email == rhs.email
+            && lhs.link == rhs.link
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(email)
+        hasher.combine(link)
+    }
+}

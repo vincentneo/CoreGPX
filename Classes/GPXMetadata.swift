@@ -141,3 +141,32 @@ open class GPXMetadata: GPXElement, Codable {
         }
     }
 }
+
+extension GPXMetadata: Hashable {
+    public static func == (lhs: GPXMetadata, rhs: GPXMetadata) -> Bool {
+        return lhs.name == rhs.name
+            && lhs.desc == rhs.desc
+            && lhs.author == rhs.author
+            && lhs.copyright == rhs.copyright
+            && lhs.link == rhs.link
+            && lhs.time == rhs.time
+            && lhs.keyword == rhs.keyword
+            && lhs.bounds == rhs.bounds
+            && lhs.extensions == rhs.extensions
+            && lhs.tagName() == rhs.tagName()
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(desc)
+        hasher.combine(author)
+        hasher.combine(copyright)
+        hasher.combine(link)
+        hasher.combine(time)
+        hasher.combine(keyword)
+        hasher.combine(bounds)
+        hasher.combine(extensions)
+        hasher.combine(tagName())
+        
+    }
+}
