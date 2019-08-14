@@ -153,7 +153,6 @@ extension GPXMetadata: Hashable {
             && lhs.keyword == rhs.keyword
             && lhs.bounds == rhs.bounds
             && lhs.extensions == rhs.extensions
-            && lhs.tagName() == rhs.tagName()
     }
     
     public func hash(into hasher: inout Hasher) {
@@ -166,7 +165,5 @@ extension GPXMetadata: Hashable {
         hasher.combine(keyword)
         hasher.combine(bounds)
         hasher.combine(extensions)
-        hasher.combine(tagName())
-        
     }
 }

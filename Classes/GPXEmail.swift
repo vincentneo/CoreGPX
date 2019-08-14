@@ -100,15 +100,12 @@ extension GPXEmail: Hashable {
         return lhs.domain == rhs.domain
             && lhs.emailID == rhs.emailID
             && lhs.fullAddress == rhs.fullAddress
-            && lhs.tagName() == rhs.tagName()
     }
     
     public func hash(into hasher: inout Hasher) {
         hasher.combine(domain)
         hasher.combine(emailID)
         hasher.combine(fullAddress)
-        hasher.combine(tagName())
-        
     }
     
 }

@@ -112,13 +112,11 @@ extension GPXCopyright: Hashable {
         return lhs.author == rhs.author
             && lhs.license == rhs.license
             && lhs.year == rhs.year
-            && lhs.tagName() == lhs.tagName()
     }
     
     public func hash(into hasher: inout Hasher) {
         hasher.combine(author)
         hasher.combine(license)
         hasher.combine(year)
-        hasher.combine(tagName())
     }
 }
