@@ -17,7 +17,7 @@ public class GPXBounds: GPXElement, Codable {
     /// Codable Implementation
     private enum CodingKeys: String, CodingKey {
         case minLatitude = "minlat"
-        case maxLatitude = "maxLat"
+        case maxLatitude = "maxlat"
         case minLongitude = "minlon"
         case maxLongitude = "maxlon"
     }
@@ -105,7 +105,10 @@ public class GPXBounds: GPXElement, Codable {
     }
 }
 
+// MARK:- Hashable Implementation
+
 extension GPXBounds: Hashable {
+    
     public static func == (lhs: GPXBounds, rhs: GPXBounds) -> Bool {
         return lhs.minLatitude == rhs.minLatitude
             && lhs.maxLatitude == rhs.maxLatitude
