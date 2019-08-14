@@ -14,7 +14,7 @@ import Foundation
  
  Tracks are meant to show the start and finish of a journey, through the track segments that it holds.
  */
-open class GPXTrack: GPXElement, Codable {
+public class GPXTrack: GPXElement, Codable {
     
     /// for Codable
     private enum CodingKeys: String, CodingKey {

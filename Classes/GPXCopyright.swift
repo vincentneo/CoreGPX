@@ -18,7 +18,7 @@ import Foundation
  - Author / Copyright Holder's name
  
 */
-open class GPXCopyright: GPXElement, Codable {
+public class GPXCopyright: GPXElement, Codable {
     
     /// Year of the first publication of this copyrighted work.
     ///

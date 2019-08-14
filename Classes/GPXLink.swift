@@ -17,7 +17,7 @@ fileprivate let kCommonWebExtensions: Set = ["htm", "html", "asp", "aspx", "jsp"
     - type of content
     - text of web link (probably a description kind of thing)
  */
-open class GPXLink: GPXElement, Codable {
+public class GPXLink: GPXElement, Codable {
     
     /// For Codable use
     private enum CodingKeys: String, CodingKey {

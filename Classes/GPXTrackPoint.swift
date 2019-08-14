@@ -13,7 +13,7 @@ import Foundation
  A bunch of track points can be used to form a track segement, while track segments form a track.
  (though a single track segment itself is enough to form a track.)
  */
-open class GPXTrackPoint: GPXWaypoint {
+public class GPXTrackPoint: GPXWaypoint {
     
     /// Default Initializer.
     public override init() {

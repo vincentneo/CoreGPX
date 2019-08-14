@@ -12,7 +12,7 @@ import Foundation
 
  Does not hold additional information by default.
  */
-open class GPXTrackSegment: GPXElement, Codable {
+public class GPXTrackSegment: GPXElement, Codable {
     
     /// For Codable use
     private enum CodingKeys: String, CodingKey {
