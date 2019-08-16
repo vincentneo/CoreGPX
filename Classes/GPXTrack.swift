@@ -197,7 +197,7 @@ extension GPXTrack: Hashable {
     
     public func hash(into hasher: inout Hasher) {
         hasher.combine(link)
-        hasher.combine(tracksegments)
+        hasher.combine(tracksegments.hashValue)
         hasher.combine(name)
         hasher.combine(comment)
         hasher.combine(desc)

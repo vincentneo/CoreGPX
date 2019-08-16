@@ -170,10 +170,11 @@ public class GPXExtensions: GPXElement, Codable {
 
 extension GPXExtensions: Hashable {
     public static func == (lhs: GPXExtensions, rhs: GPXExtensions) -> Bool {
-        return lhs.children == rhs.children
+        return lhs.children.hashValue == rhs.children.hashValue
     }
     
     public func hash(into hasher: inout Hasher) {
-        hasher.combine(children)
+        hasher.combine(children.hashValue)
+        hasher.combine(tagName())
     }
 }

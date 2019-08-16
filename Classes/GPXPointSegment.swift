@@ -86,10 +86,10 @@ open class GPXPointSegment: GPXElement, Codable {
 
 extension GPXPointSegment: Hashable {
     public static func == (lhs: GPXPointSegment, rhs: GPXPointSegment) -> Bool {
-        return lhs.points == rhs.points
+        return lhs.points == rhs.points && lhs.tagName() == rhs.tagName()
     }
     
     public func hash(into hasher: inout Hasher) {
-        hasher.combine(points)
+        hasher.combine(points.hashValue)
     }
 }

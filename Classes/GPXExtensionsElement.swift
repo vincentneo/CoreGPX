@@ -81,7 +81,7 @@ open class GPXExtensionsElement: GPXElement, Codable {
 }
 extension GPXExtensionsElement: Hashable {
     public static func == (lhs: GPXExtensionsElement, rhs: GPXExtensionsElement) -> Bool {
-        return lhs.name == rhs.name
+        return lhs.name == rhs.name // no need to check for tagName() as element's name == tagName
             && lhs.text == rhs.text
             && lhs.attributes == rhs.attributes
             && lhs.children == rhs.children
@@ -91,6 +91,6 @@ extension GPXExtensionsElement: Hashable {
         hasher.combine(name)
         hasher.combine(text)
         hasher.combine(attributes)
-        hasher.combine(children)
+        hasher.combine(children.hashValue)
     }
 }

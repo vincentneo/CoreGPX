@@ -84,7 +84,7 @@ extension GPXPerson: Hashable {
     
     public func hash(into hasher: inout Hasher) {
         hasher.combine(name)
-        hasher.combine(email)
-        hasher.combine(link)
+        hasher.combine(email.hashValue)
+        hasher.combine(link.hashValue)
     }
 }

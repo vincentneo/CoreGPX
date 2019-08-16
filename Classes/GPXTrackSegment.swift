@@ -107,11 +107,12 @@ public class GPXTrackSegment: GPXElement, Codable {
 
 extension GPXTrackSegment: Hashable {
     public static func == (lhs: GPXTrackSegment, rhs: GPXTrackSegment) -> Bool {
-        return lhs.trackpoints == rhs.trackpoints && lhs.extensions == rhs.extensions
+        return lhs.trackpoints == rhs.trackpoints && lhs.extensions == rhs.extensions && lhs.tagName() == rhs.tagName()
     }
     
     public func hash(into hasher: inout Hasher) {
-        hasher.combine(trackpoints)
+        hasher.combine(trackpoints.hashValue)
         hasher.combine(extensions)
+        hasher.combine(tagName())
     }
 }

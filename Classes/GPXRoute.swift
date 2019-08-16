@@ -187,7 +187,7 @@ extension GPXRoute: Hashable {
     
     public func hash(into hasher: inout Hasher) {
         hasher.combine(link)
-        hasher.combine(routepoints)
+        hasher.combine(routepoints.hashValue)
         hasher.combine(name)
         hasher.combine(comment)
         hasher.combine(desc)
