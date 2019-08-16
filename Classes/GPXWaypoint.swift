@@ -17,7 +17,7 @@ import Foundation
  
  The waypoint should at least contain the attributes of both `latitude` and `longitude` in order to be considered a valid waypoint. Most attributes are optional, and are not required to be implemented.
 */
-public class GPXWaypoint: GPXElement, Codable {
+public class GPXWaypoint: Element, Codable {
     
     // MARK: Codable Implementation
     
@@ -187,9 +187,9 @@ public class GPXWaypoint: GPXElement, Codable {
     /// - Note:
     ///     At least latitude and longitude should be configured as required by the GPX v1.1 schema.
     ///
-    public override init() {
+    public init() {
         self.time = Date()
-        super.init()
+        //super.init()
     }
     
     /// Initialize with current date and time, with latitude and longitude.
@@ -205,7 +205,7 @@ public class GPXWaypoint: GPXElement, Codable {
     ///
     public init(latitude: Double, longitude: Double) {
         self.time = Date()
-        super.init()
+        //super.init()
         self.latitude = latitude
         self.longitude = longitude
     }
@@ -223,7 +223,7 @@ public class GPXWaypoint: GPXElement, Codable {
     init(dictionary: inout [String : String]) {
         
         self.time = GPXDateParser.parse(date: dictionary.removeValue(forKey: "time"))
-        super.init()
+        //super.init()
         dictionary.removeValue(forKey: self.tagName())
         self.elevation = Convert.toDouble(from: dictionary.removeValue(forKey: "ele"))
         self.latitude = Convert.toDouble(from: dictionary.removeValue(forKey: "lat"))
@@ -297,13 +297,13 @@ public class GPXWaypoint: GPXElement, Codable {
     
     // MARK:- Tag
     
-    override func tagName() -> String {
+    func tagName() -> String {
         return "wpt"
     }
     
     // MARK:- GPX
     
-    override func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+    func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         let attribute = NSMutableString()
         
         if latitude != nil {
@@ -317,8 +317,8 @@ public class GPXWaypoint: GPXElement, Codable {
         gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)
     }
     
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
+    func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+        //super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
         
         self.addProperty(forDoubleValue: elevation, gpx: gpx, tagName: "ele", indentationLevel: indentationLevel)
         self.addProperty(forValue: Convert.toString(from: time), gpx: gpx, tagName: "time", indentationLevel: indentationLevel)

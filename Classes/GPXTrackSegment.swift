@@ -12,7 +12,7 @@ import Foundation
 
  Does not hold additional information by default.
  */
-public class GPXTrackSegment: GPXElement, Codable {
+public class GPXTrackSegment: Element, Codable {
     
     /// For Codable use
     private enum CodingKeys: String, CodingKey {
@@ -31,13 +31,13 @@ public class GPXTrackSegment: GPXElement, Codable {
     // MARK:- Instance
     
     /// Default Initializer.
-    public override init() {
-        super.init()
+    public init() {
+        //super.init()
     }
     
     /// Internal Initializer, for parsing use only.
     init(dictionary: inout [String : String]) {
-        super.init()
+        //super.init()
         dictionary.removeValue(forKey: self.tagName())
         if dictionary.count > 0 {
             //self.extensions = GPXExtensions(dictionary: dictionary)
@@ -86,14 +86,14 @@ public class GPXTrackSegment: GPXElement, Codable {
     
     // MARK:- Tag
     
-    override func tagName() -> String {
+    func tagName() -> String {
         return "trkseg"
     }
     
     // MARK:- GPX
     
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
+    func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+        //addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
         
         if self.extensions != nil {
             self.extensions?.gpx(gpx, indentationLevel: indentationLevel)

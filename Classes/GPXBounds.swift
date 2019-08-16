@@ -12,7 +12,7 @@ import Foundation
  
  This is meant for having two pairs of longitude and latitude, signifying the maximum and minimum, defining the extent / boundaries of a particular element.
  */
-public class GPXBounds: GPXElement, Codable {
+public class GPXBounds: Element, Codable {
     
     /// Codable Implementation
     private enum CodingKeys: String, CodingKey {
@@ -34,8 +34,8 @@ public class GPXBounds: GPXElement, Codable {
     // MARK:- Instance
     
     /// Default initializer.
-    public override init() {
-        super.init()
+    public init() {
+    //    self.init()
     }
     
     /// Initializes with all values
@@ -46,7 +46,7 @@ public class GPXBounds: GPXElement, Codable {
     ///     - minLongitude: Minimum longitude
     ///     - maxLongitude: Maximum longitude
     public init(minLatitude: Double, maxLatitude: Double, minLongitude: Double, maxLongitude: Double) {
-        super.init()
+        //self.init()
         self.minLatitude = minLatitude
         self.maxLatitude = maxLatitude
         self.minLongitude = minLongitude
@@ -64,7 +64,7 @@ public class GPXBounds: GPXElement, Codable {
     ///     - dictionary: a dictionary with a key of an attribute, followed by the value which is set as the GPX file is parsed.
     ///
     init(dictionary: [String : String]) {
-        super.init()
+        //self.init()
         self.minLatitude = Convert.toDouble(from: dictionary["minlat"])
         self.maxLatitude = Convert.toDouble(from: dictionary["maxlat"])
         self.minLongitude = Convert.toDouble(from: dictionary["minlon"])
@@ -80,13 +80,13 @@ public class GPXBounds: GPXElement, Codable {
     
     // MARK:- Tag
     
-    override func tagName() -> String {
+    func tagName() -> String {
         return "bounds"
     }
     
     // MARK:- GPX
     
-    override func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+    func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         let attribute = NSMutableString()
         
         if let minLatitude = minLatitude {
