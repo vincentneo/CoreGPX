@@ -12,7 +12,7 @@ import Foundation
  
  The route can represent the planned route of a specific trip.
  */
-open class GPXRoute: GPXElement, Codable {
+open class GPXRoute: Element, Codable {
     
     /// For Codable use
     private enum CodingKeys: String, CodingKey {
@@ -57,13 +57,12 @@ open class GPXRoute: GPXElement, Codable {
     // MARK:- Instance
     
     /// Default initializer.
-    public override init() {
-        super.init()
+    public init() {
+        
     }
     
     /// Internal initializer. For parsing use only.
     init(dictionary: inout [String : String]) {
-        super.init()
         dictionary.removeValue(forKey: self.tagName())
         self.name = dictionary.removeValue(forKey: "name")
         self.comment = dictionary.removeValue(forKey: "cmt")
@@ -141,14 +140,14 @@ open class GPXRoute: GPXElement, Codable {
     
     // MARK:- Tag
     
-    override func tagName() -> String {
+    func tagName() -> String {
         return "rte"
     }
     
     // MARK:- GPX
     
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
+    func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+        //super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
         
         self.addProperty(forValue: name, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
         self.addProperty(forValue: comment, gpx: gpx, tagName: "comment", indentationLevel: indentationLevel)

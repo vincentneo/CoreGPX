@@ -14,7 +14,7 @@ import Foundation
  
  For example, an email of **"yourname@thisisawebsite.com"**, would have an id of **'yourname'** and a domain of **'thisisawebsite.com'**.
  */
-public class GPXEmail: GPXElement, Codable {
+public class GPXEmail: Element, Codable {
     
     /// Codable Implementation
     private enum CodingKeys: String, CodingKey {
@@ -34,8 +34,8 @@ public class GPXEmail: GPXElement, Codable {
     
     // MARK:- Instance
     
-    public override init() {
-        super.init()
+    public init() {
+        //super.init()
     }
     
     /// Initialize with a full email address.
@@ -77,12 +77,12 @@ public class GPXEmail: GPXElement, Codable {
     }
     
     // MARK:- Tag
-    override func tagName() -> String {
+    func tagName() -> String {
         return "email"
     }
     
     // MARK:- GPX
-    override func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+    func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         let attribute = NSMutableString()
         
         if let emailID = emailID {

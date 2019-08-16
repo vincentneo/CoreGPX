@@ -8,7 +8,7 @@
 import Foundation
 
 /// A value type that is designated to hold information regarding the person or organisation who has created the GPX file.
-public class GPXPerson: GPXElement, Codable {
+public class GPXPerson: Element, Codable {
     
     /// Name of person who has created the GPX file.
     public var name: String?
@@ -22,8 +22,8 @@ public class GPXPerson: GPXElement, Codable {
     // MARK:- Instance
     
     // Default Initializer.
-    public override init() {
-        super.init()
+    public init() {
+        //super.init()
     }
     
     /// For internal use only
@@ -38,7 +38,7 @@ public class GPXPerson: GPXElement, Codable {
     ///
     init(dictionary: [String : String]) {
         name = dictionary["name"]
-        super.init()
+        //super.init()
     }
     init(raw: GPXRawElement) {
         for child in raw.children {
@@ -53,14 +53,14 @@ public class GPXPerson: GPXElement, Codable {
     
     // MARK:- Tag
     
-    override func tagName() -> String {
+    func tagName() -> String {
         return "person"
     }
     
     // MARK:- GPX
     
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
+    func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+        //super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
         
         self.addProperty(forValue: name, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
         

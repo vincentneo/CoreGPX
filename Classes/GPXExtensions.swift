@@ -14,7 +14,7 @@ import Foundation
  
  This class represents the extended data in a GPX file.
  */
-public class GPXExtensions: GPXElement, Codable {
+public class GPXExtensions: Element, Codable {
 
     /// Extended children tags
     public var children = [GPXExtensionsElement]()
@@ -22,8 +22,8 @@ public class GPXExtensions: GPXElement, Codable {
     // MARK:- Initializers
     
     /// Default Initializer.
-    public override init() {
-        super.init()
+    public init() {
+        //uper.init()
     }
     
     /// For initializing with a raw element. Parser use only.
@@ -31,7 +31,7 @@ public class GPXExtensions: GPXElement, Codable {
     /// - Parameters:
     ///     - raw: parser's raw element
     init(raw: GPXRawElement) {
-        super.init()
+        //super.init()
         for child in raw.children {
             let tmp = GPXExtensionsElement(name: child.name)
             tmp.text = child.text
@@ -135,7 +135,7 @@ public class GPXExtensions: GPXElement, Codable {
     }
     
     // MARK:- Tag
-    override func tagName() -> String {
+    func tagName() -> String {
         return "extensions"
     }
     
@@ -159,8 +159,8 @@ public class GPXExtensions: GPXElement, Codable {
     
     // MARK:- GPX
     
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
+    func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+        //super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
         for child in children {
             child.gpx(gpx, indentationLevel: indentationLevel)
         }

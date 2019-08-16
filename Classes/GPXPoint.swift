@@ -12,7 +12,7 @@ import Foundation
  
  `ptType` of GPX schema. Not supported in GPXRoot, nor GPXParser's parsing.
  */
-open class GPXPoint: GPXElement, Codable {
+open class GPXPoint: Element, Codable {
 
     /// Elevation Value in (metre, m)
     public var elevation: Double?
@@ -27,18 +27,18 @@ open class GPXPoint: GPXElement, Codable {
     // MARK:- Instance
     
     /// Default Initializer.
-    public override init() {
-        super.init()
+    public init() {
+        //super.init()
     }
     /// Initialize with latitude and longitude
     public init(latitude: Double, longitude: Double) {
-        super.init()
+        //super.init()
         self.latitude = latitude
         self.longitude = longitude
     }
     /// Internal initializer, for parsing only.
     init(dictionary: [String : String]) {
-        super.init()
+        //super.init()
         self.latitude = Convert.toDouble(from: dictionary["lat"])
         self.longitude = Convert.toDouble(from: dictionary["lon"])
         self.elevation = Convert.toDouble(from: dictionary["ele"])
@@ -59,13 +59,13 @@ open class GPXPoint: GPXElement, Codable {
     
     // MARK:- Tag
     
-    override func tagName() -> String {
+    func tagName() -> String {
         return "pt"
     }
     
     // MARK: GPX
     
-    override func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+    func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         let attribute = NSMutableString()
         if let latitude = latitude {
             attribute.appendFormat(" lat=\"%f\"", latitude)
@@ -77,8 +77,8 @@ open class GPXPoint: GPXElement, Codable {
         gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)
     }
     
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
+    func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+        //super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
         
         self.addProperty(forDoubleValue: elevation, gpx: gpx, tagName: "ele", indentationLevel: indentationLevel)
         self.addProperty(forValue: Convert.toString(from: time), gpx: gpx, tagName: "time", indentationLevel: indentationLevel)

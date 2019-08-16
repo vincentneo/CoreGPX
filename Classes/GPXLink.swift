@@ -17,7 +17,7 @@ fileprivate let kCommonWebExtensions: Set = ["htm", "html", "asp", "aspx", "jsp"
     - type of content
     - text of web link (probably a description kind of thing)
  */
-public class GPXLink: GPXElement, Codable {
+public class GPXLink: Element, Codable {
     
     /// For Codable use
     private enum CodingKeys: String, CodingKey {
@@ -39,8 +39,8 @@ public class GPXLink: GPXElement, Codable {
    
     // MARK:- Instance
     
-    public override init() {
-        super.init()
+    public init() {
+        //super.init()
     }
     
     /// Initializes with a web link attribute
@@ -105,14 +105,14 @@ public class GPXLink: GPXElement, Codable {
     
     // MARK:- Tag
     
-    override func tagName() -> String {
+    func tagName() -> String {
         return "link"
     }
    
     
     // MARK:- GPX
     
-    override func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+    func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         let attribute = NSMutableString()
         
         if let href = href {
@@ -121,8 +121,8 @@ public class GPXLink: GPXElement, Codable {
         gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)
     }
     
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
+    func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+        //super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
         
         self.addProperty(forValue: text, gpx: gpx, tagName: "text", indentationLevel: indentationLevel)
         self.addProperty(forValue: mimetype, gpx: gpx, tagName: "type", indentationLevel: indentationLevel)

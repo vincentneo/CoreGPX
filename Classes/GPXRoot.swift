@@ -12,7 +12,7 @@ import Foundation
  
     `GPXRoot` holds all `metadata`, `waypoints`, `tracks`, `routes` and `extensions` types together before being packaged as a GPX file, or formatted as per GPX schema's requirements.
 */
-open class GPXRoot: GPXElement, Codable {
+open class GPXRoot: Element, Codable {
     
     /// GPX version that will be generated. Currently, only the latest (version 1.1) is supported.
     public var version: String = "1.1"
@@ -60,8 +60,8 @@ open class GPXRoot: GPXElement, Codable {
     ///
     /// It will initialize with the creator name set to its defaults.
     ///
-    public override init() {
-        super.init()
+    public init() {
+        //super.init()
         self.creator = "Powered by Open Source CoreGPX Project"
         self.version = "1.1"
     }
@@ -72,7 +72,7 @@ open class GPXRoot: GPXElement, Codable {
     ///    - creator: name of your app, or whichever product that ends up generating a GPX file
     ///
     public init(creator: String) {
-        super.init()
+        //super.init()
         self.creator = creator
         self.version = "1.1"
     }
@@ -83,7 +83,7 @@ open class GPXRoot: GPXElement, Codable {
     ///     - attributes: Extension attributes to be placed in the gpx tag header. Key should be name of attribute, while Value contains the value of the attribute.
     ///     - schemaLocation: Location/Website of the extension schema
     public init(withExtensionAttributes attributes: [String : String],  schemaLocation: String) {
-        super.init()
+        //super.init()
         self.version = "1.1"
         self.schemaLocation += " \(schemaLocation)"
         self.extensionAttributes = attributes
@@ -106,7 +106,7 @@ open class GPXRoot: GPXElement, Codable {
     ///     - dictionary: a dictionary with a key of an attribute, followed by the value which is set as the GPX file is parsed.
     ///
     internal init(dictionary: inout [String : String]) {
-        super.init()
+        //super.init()
         self.creator = dictionary.removeValue(forKey: "creator")
         self.version = dictionary.removeValue(forKey: "version") ?? ""
         dictionary.removeValue(forKey: self.tagName())
@@ -117,7 +117,7 @@ open class GPXRoot: GPXElement, Codable {
     }
     
     init(raw: GPXRawElement) {
-        super.init()
+        //super.init()
         for (key, value) in raw.attributes {
             switch key {
             case "creator":             self.creator = value
@@ -319,12 +319,12 @@ open class GPXRoot: GPXElement, Codable {
     
     // MARK:- Tag
     
-    override func tagName() -> String {
+    func tagName() -> String {
         return "gpx"
     }
     
     // MARK:- GPX
-    override func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+    func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         let attribute = NSMutableString()
         
         attribute.appendFormat(" xmlns:xsi=\"%@\"", self.xsi)
@@ -351,8 +351,8 @@ open class GPXRoot: GPXElement, Codable {
         gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)
     }
     
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
+    func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+        //super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
         
         if self.metadata != nil {
             self.metadata?.gpx(gpx, indentationLevel: indentationLevel)

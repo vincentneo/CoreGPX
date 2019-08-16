@@ -12,7 +12,7 @@ import Foundation
  
  `ptsegType` of GPX schema. Not supported in GPXRoot, nor GPXParser's parsing.
  */
-open class GPXPointSegment: GPXElement, Codable {
+open class GPXPointSegment: Element, Codable {
     
     /// points of segment
     public var points = [GPXPoint]()
@@ -20,8 +20,8 @@ open class GPXPointSegment: GPXElement, Codable {
     // MARK:- Instance
     
     /// Default initializer.
-    public override init() {
-        super.init()
+    public init() {
+        //super.init()
     }
     
     init(raw: GPXRawElement) {
@@ -69,14 +69,14 @@ open class GPXPointSegment: GPXElement, Codable {
     
     // MARK:- Tag
     
-    override func tagName() -> String {
+    func tagName() -> String {
         return "ptseg"
     }
     
     // MARK:- GPX
     
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
+    func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+        //super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
         
         for point in points {
             point.gpx(gpx, indentationLevel: indentationLevel)

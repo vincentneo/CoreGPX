@@ -21,7 +21,7 @@ import Foundation
     - Bounds
     - Also supports extensions
  */
-public class GPXMetadata: GPXElement, Codable {
+public class GPXMetadata: Element, Codable {
     
     /// Name intended for the GPX file.
     public var name: String?
@@ -55,9 +55,9 @@ public class GPXMetadata: GPXElement, Codable {
     
     // MARK:- Instance
     
-    public override init() {
+    public init() {
         self.time = Date()
-        super.init()
+        //super.init()
     }
     
     /// For internal use only
@@ -72,7 +72,7 @@ public class GPXMetadata: GPXElement, Codable {
     ///
     init(dictionary: inout [String : String]) {
         self.time = GPXDateParser.parse(date: dictionary.removeValue(forKey: "time"))
-        super.init()
+        //super.init()
         dictionary.removeValue(forKey: self.tagName())
         self.name = dictionary.removeValue(forKey: "name")
         self.desc = dictionary.removeValue(forKey: "desc")
@@ -84,7 +84,7 @@ public class GPXMetadata: GPXElement, Codable {
     }
     
     init(raw: GPXRawElement) {
-        super.init()
+        //super.init()
         for child in raw.children {
             let text = child.text
             
@@ -105,14 +105,14 @@ public class GPXMetadata: GPXElement, Codable {
     
     // MARK:- Tag
     
-    override func tagName() -> String {
+    func tagName() -> String {
         return "metadata"
     }
     
     // MARK:- GPX
     
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
+    func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+        //super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
         
         self.addProperty(forValue: name, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
         self.addProperty(forValue: desc, gpx: gpx, tagName: "desc", indentationLevel: indentationLevel)

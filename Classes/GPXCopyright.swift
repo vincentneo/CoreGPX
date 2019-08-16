@@ -18,7 +18,7 @@ import Foundation
  - Author / Copyright Holder's name
  
 */
-public class GPXCopyright: GPXElement, Codable {
+public class GPXCopyright: Element, Codable {
     
     /// Year of the first publication of this copyrighted work.
     ///
@@ -41,15 +41,15 @@ public class GPXCopyright: GPXElement, Codable {
     // MARK:- Instance
     
     /// Default Initializer.
-    public override init() {
-        super.init()
+    public init() {
+        //super.init()
     }
     
     /// Initializes with author
     ///
     /// At least the author name must be valid in order for a `GPXCopyright` to be valid.
     public init(author: String) {
-        super.init()
+        //super.init()
         self.author = author
         self.year = Date()
     }
@@ -65,7 +65,7 @@ public class GPXCopyright: GPXElement, Codable {
     ///     - dictionary: a dictionary with a key of an attribute, followed by the value which is set as the GPX file is parsed.
     ///
     init(dictionary: [String : String]) {
-        super.init()
+        //super.init()
         self.year = GPXDateParser.parse(year: dictionary["year"])
         self.license = dictionary["license"]
         self.author = dictionary["author"]
@@ -84,13 +84,13 @@ public class GPXCopyright: GPXElement, Codable {
     
     // MARK: Tag
     
-    override func tagName() -> String {
+    func tagName() -> String {
         return "copyright"
     }
     
     // MARK: GPX
     
-    override func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+    func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         let attribute = NSMutableString()
         
         if let author = author {
@@ -100,8 +100,8 @@ public class GPXCopyright: GPXElement, Codable {
         gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)
     }
     
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
+    func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+        //super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
         self.addProperty(forValue: Convert.toString(fromYear: year), gpx: gpx, tagName: "year", indentationLevel: indentationLevel)
         self.addProperty(forValue: license, gpx: gpx, tagName: "license", indentationLevel: indentationLevel)
     }

@@ -14,7 +14,7 @@ import Foundation
  
  Tracks are meant to show the start and finish of a journey, through the track segments that it holds.
  */
-public class GPXTrack: GPXElement, Codable {
+public class GPXTrack: Element, Codable {
     
     /// for Codable
     private enum CodingKeys: String, CodingKey {
@@ -57,13 +57,13 @@ public class GPXTrack: GPXElement, Codable {
     public var extensions: GPXExtensions?
 
     /// Default Initializer
-    public override init() {
-        super.init()
+    public init() {
+        //super.init()
     }
     
     /// Internal Initializer, for parsing use only.
     init(dictionary: inout [String : String]) {
-        super.init()
+        //supeinit()
         dictionary.removeValue(forKey: self.tagName())
         self.number = Convert.toInt(from: dictionary.removeValue(forKey: "number"))
         self.name = dictionary.removeValue(forKey: "name")
@@ -150,14 +150,14 @@ public class GPXTrack: GPXElement, Codable {
     
     // MARK:- Tag
     
-    override func tagName() -> String {
+    func tagName() -> String {
         return "trk"
     }
     
     // MARK:- GPX
     
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
+    func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+        //super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
         
         self.addProperty(forValue: name, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
         self.addProperty(forValue: comment, gpx: gpx, tagName: "cmt", indentationLevel: indentationLevel)
