@@ -51,10 +51,9 @@ class CoreGPX_Tests: XCTestCase {
             }
         }
         
-        if count == 4142 && firstLatitude == 35.675032 && firstLongitude == 139.722148 {
-            XCTAssert(true, "testParseWithData: GPX Parsing using `Data` passed")
-        }
-        
+        XCTAssertEqual(count, 4142, "testParseWithData: GPX Parsing using `Data` passed")
+        XCTAssertEqual(firstLatitude, 35.675032, "testParseWithData: GPX Parsing using `Data` passed")
+        XCTAssertEqual(firstLongitude, 139.722148, "testParseWithData: GPX Parsing using `Data` passed")
     }
     
     func testParseWithURL() {
@@ -78,9 +77,9 @@ class CoreGPX_Tests: XCTestCase {
             }
         }
         
-        if count == 4142 && firstLatitude == 35.675032 && firstLongitude == 139.722148 {
-            XCTAssert(true, "testParseWithURL: GPX Parsing using `URL` passed")
-        }
+        XCTAssertEqual(count, 4142, "testParseWithURL: GPX Parsing using `URL` passed")
+        XCTAssertEqual(firstLatitude, 35.675032, "testParseWithURL: GPX Parsing using `URL` passed")
+        XCTAssertEqual(firstLongitude, 139.722148, "testParseWithURL: GPX Parsing using `URL` passed")
         
     }
     
@@ -105,9 +104,9 @@ class CoreGPX_Tests: XCTestCase {
             }
         }
         
-        if count == 4142 && firstLatitude == 35.675032 && firstLongitude == 139.722148 {
-            XCTAssert(true, "testParseWithPath: GPX Parsing using path passed")
-        }
+        XCTAssertEqual(count, 4142, "testParseWithPath: GPX Parsing using path passed")
+        XCTAssertEqual(firstLatitude, 35.675032, "testParseWithPath: GPX Parsing using path passed")
+        XCTAssertEqual(firstLongitude, 139.722148, "testParseWithPath: GPX Parsing using path passed")
         
     }
     
@@ -129,9 +128,9 @@ class CoreGPX_Tests: XCTestCase {
             }
         }
         
-        if count == 4142 && firstLatitude == 35.675032 && firstLongitude == 139.722148 {
-            XCTAssert(true, "testParseWithInputStream: GPX Parsing using input stream passed")
-        }
+        XCTAssertEqual(count, 4142, "testParseWithInputStream: GPX Parsing using input stream passed")
+        XCTAssertEqual(firstLatitude, 35.675032, "testParseWithInputStream: GPX Parsing using input stream passed")
+        XCTAssertEqual(firstLongitude, 139.722148, "testParseWithInputStream: GPX Parsing using input stream passed")
         
     }
     
@@ -153,9 +152,9 @@ class CoreGPX_Tests: XCTestCase {
             }
         }
         
-        if count == 2 && firstLatitude == 35.678507 && firstLongitude == 139.733723 {
-            XCTAssert(true, "testParseWithRawString: GPX Parsing using string passed")
-        }
+        XCTAssertEqual(count, 2, "testParseWithRawString: GPX Parsing using string passed")
+        XCTAssertEqual(firstLatitude, 35.678507, "testParseWithRawString: GPX Parsing using string passed")
+        XCTAssertEqual(firstLongitude, 139.733723, "testParseWithRawString: GPX Parsing using string passed")
         
     }
     
@@ -189,7 +188,7 @@ class CoreGPX_Tests: XCTestCase {
     
     func testCreation() {
         let root = GPXRoot(creator: "CoreGPX tests")
-
+        
         let trackpoint1 = GPXTrackPoint(latitude: 35.678507, longitude: 139.733723)
         let trackpoint2 = GPXTrackPoint(latitude: 35.678525, longitude: 139.733723)
         let tracksegment = GPXTrackSegment()
@@ -200,9 +199,7 @@ class CoreGPX_Tests: XCTestCase {
         root.add(track: track)
         
         let string = root.gpx()
-        if !string.isEmpty {
-            XCTAssert(true, "testCreation: successfully created")
-        }
+        XCTAssert(!string.isEmpty, "testCreation: successfully created")
     }
     
     func testEncoding() {
@@ -223,11 +220,7 @@ class CoreGPX_Tests: XCTestCase {
             
             print("data: \(stringData)")
             
-            if stringData == "{\"lat\":35.675032000000002,\"lon\":139.722148,\"ele\":31.098351999999998,\"time\":565148938}" {
-                
-                XCTAssert(true, "testEncoding: Data encoding passed")
-                
-            }
+            XCTAssertEqual(stringData, "{\"lat\":35.675032000000002,\"lon\":139.722148,\"ele\":31.098351999999998,\"time\":565148938}", "testEncoding: Data encoding passed")
         }
         catch {
             XCTAssert(false, "testEncoding: Failed to serialize trackpoint as Data")
@@ -260,9 +253,9 @@ class CoreGPX_Tests: XCTestCase {
         
         do { // decode
             let decode = try JSONDecoder().decode(GPXTrackPoint.self, from: serializedData)
-            if decode.latitude == 35.675032 && decode.longitude == 139.722148 && decode.elevation == 31.098352 {
-                XCTAssert(true, "testDecoding: Decoding serialized trackpoint as Data passed")
-            }
+            XCTAssertEqual(decode.latitude, 35.675032, "testDecoding: Decoding serialized trackpoint as Data passed")
+            XCTAssertEqual(decode.longitude, 139.722148, "testDecoding: Decoding serialized trackpoint as Data passed")
+            XCTAssertEqual(decode.elevation, 31.098352, "testDecoding: Decoding serialized trackpoint as Data passed")
         }
         catch {
             XCTAssert(false, "testDecoding: Failed to decode serialized trackpoint as Data")
