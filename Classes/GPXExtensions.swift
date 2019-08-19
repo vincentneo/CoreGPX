@@ -14,7 +14,7 @@ import Foundation
  
  This class represents the extended data in a GPX file.
  */
-open class GPXExtensions: GPXElement, Codable {
+public final class GPXExtensions: GPXElement, Codable {
     
     /// Extended children tags
     public var children = [GPXExtensionsElement]()

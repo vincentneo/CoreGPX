@@ -15,7 +15,7 @@ import Foundation
  This parser is already setted up, hence, does not require any handling, and will parse files directly as objects.
  To get the parsed data from a GPX file, simply initialize the parser, and get the `GPXRoot` from `parsedData()`.
  */
-public class GPXParser: NSObject {
+public final class GPXParser: NSObject {
     
     // MARK:- Private Declarations
     

@@ -14,7 +14,7 @@ import Foundation
  
  For example, an email of **"yourname@thisisawebsite.com"**, would have an id of **'yourname'** and a domain of **'thisisawebsite.com'**.
  */
-open class GPXEmail: GPXElement, Codable {
+public final class GPXEmail: GPXElement, Codable {
     
     /// Codable Implementation
     private enum CodingKeys: String, CodingKey {
