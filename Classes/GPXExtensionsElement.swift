@@ -45,7 +45,7 @@ open class GPXExtensionsElement: GPXElement, Codable {
     }
     
     /// Default initializer.
-    required init() {
+    required public init() {
         self.name = "Undefined"
     }
     
