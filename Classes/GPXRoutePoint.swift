@@ -7,7 +7,7 @@
 
 import Foundation
 
-open class GPXRoutePoint: GPXWaypoint {
+public final class GPXRoutePoint: GPXWaypoint {
     
     /// Default initializer
     public required init() {

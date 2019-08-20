@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GPXRawElement {
+final class GPXRawElement {
     /// name tag of element
     var name: String
     

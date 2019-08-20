@@ -17,7 +17,7 @@ import Foundation
  
  The waypoint should at least contain the attributes of both `latitude` and `longitude` in order to be considered a valid waypoint. Most attributes are optional, and are not required to be implemented.
 */
-open class GPXWaypoint: GPXElement, Codable {
+public class GPXWaypoint: GPXElement, Codable {
     
     // MARK: Codable Implementation
     
@@ -289,7 +289,7 @@ open class GPXWaypoint: GPXElement, Codable {
     ///
     ///   - Warning: Will be deprecated starting version 0.5.0
     @available(*, deprecated, message: "Initialize GPXLink first then, add it to this point type instead.")
-    open func newLink(withHref href: String) -> GPXLink {
+    public func newLink(withHref href: String) -> GPXLink {
         let link = GPXLink(withHref: href)
         self.link = link
         return link

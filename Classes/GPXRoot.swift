@@ -12,7 +12,7 @@ import Foundation
  
     `GPXRoot` holds all `metadata`, `waypoints`, `tracks`, `routes` and `extensions` types together before being packaged as a GPX file, or formatted as per GPX schema's requirements.
 */
-open class GPXRoot: GPXElement, Codable {
+public final class GPXRoot: GPXElement, Codable {
     
     /// GPX version that will be generated. Currently, only the latest (version 1.1) is supported.
     public var version: String = "1.1"

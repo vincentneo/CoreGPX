@@ -12,7 +12,7 @@ import Foundation
 
  Does not hold additional information by default.
  */
-open class GPXTrackSegment: GPXElement, Codable {
+public final class GPXTrackSegment: GPXElement, Codable {
     
     /// For Codable use
     private enum CodingKeys: String, CodingKey {
@@ -57,7 +57,7 @@ open class GPXTrackSegment: GPXElement, Codable {
     // MARK:- Public Methods
     
     /// Initializes a new trackpoint to segment, and returns the trackpoint.
-    open func newTrackpointWith(latitude: Double, longitude: Double) -> GPXTrackPoint {
+    public func newTrackpointWith(latitude: Double, longitude: Double) -> GPXTrackPoint {
         let trackpoint = GPXTrackPoint(latitude: latitude, longitude: longitude)
         
         self.add(trackpoint: trackpoint)
@@ -66,19 +66,19 @@ open class GPXTrackSegment: GPXElement, Codable {
     }
     
     /// Adds a single track point to this track segment.
-    open func add(trackpoint: GPXTrackPoint?) {
+    public func add(trackpoint: GPXTrackPoint?) {
         if let validPoint = trackpoint {
             trackpoints.append(validPoint)
         }
     }
     
     /// Adds an array of track points to this track segment.
-    open func add(trackpoints: [GPXTrackPoint]) {
+    public func add(trackpoints: [GPXTrackPoint]) {
         self.trackpoints.append(contentsOf: trackpoints)
     }
     
     /// Removes a track point from this track segment.
-    open func remove(trackpoint: GPXTrackPoint) {
+    public func remove(trackpoint: GPXTrackPoint) {
         if let index = trackpoints.firstIndex(of: trackpoint) {
             trackpoints.remove(at: index)
         }

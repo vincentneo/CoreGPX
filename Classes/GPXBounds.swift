@@ -12,7 +12,7 @@ import Foundation
  
  This is meant for having two pairs of longitude and latitude, signifying the maximum and minimum, defining the extent / boundaries of a particular element.
  */
-open class GPXBounds: GPXElement, Codable {
+public final class GPXBounds: GPXElement, Codable {
     
     /// Codable Implementation
     private enum CodingKeys: String, CodingKey {

@@ -12,7 +12,7 @@ import Foundation
 /// This class is a public class as it is representative of all child extension tag types.
 ///
 /// It is also inherits `GPXElement`, and therefore, works like any other 'native' element types.
-public class GPXExtensionsElement: GPXElement, Codable {
+open class GPXExtensionsElement: GPXElement, Codable {
     
     /// Tag name of extension element.
     public var name: String
@@ -45,7 +45,7 @@ public class GPXExtensionsElement: GPXElement, Codable {
     }
     
     /// Default initializer.
-    required init() {
+    required public init() {
         self.name = "Undefined"
     }
     
