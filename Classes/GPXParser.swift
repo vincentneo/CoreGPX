@@ -158,6 +158,7 @@ public final class GPXParser: NSObject {
 /// XML Parser Delegate Implementation
 ///
 extension GPXParser: XMLParserDelegate {
+    /// Default XML Parser Delegate's start element (<element>) callback.
     public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         let node = GPXRawElement(name: elementName)
         if !attributeDict.isEmpty {
@@ -170,6 +171,7 @@ extension GPXParser: XMLParserDelegate {
         stack.append(node)
     }
     
+    /// Default XML Parser Delegate callback when characters are found.
     public func parser(_ parser: XMLParser, foundCharacters string: String) {
         let foundString = string.trimmingCharacters(in: .whitespacesAndNewlines)
         if let text = stack.last?.text {
@@ -179,6 +181,7 @@ extension GPXParser: XMLParserDelegate {
         }
     }
     
+    /// Default XML Parser Delegate's end element (</element>) callback.
     public func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         stack.last?.text = stack.last?.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         
