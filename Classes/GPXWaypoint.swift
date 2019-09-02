@@ -124,7 +124,7 @@ public class GPXWaypoint: GPXElement, Codable {
     /// - Warning:
     ///     - This attribute may have limited usefulness due to `CoreLocation` API.
     ///     - This is carried over from GPX schema, to be compliant with the schema.
-    public var fix: Int?
+    public var fix: GPXFix?
     
     /// Number of satellites used to calculate GPS fix of current point
     public var satellites: Int?
@@ -236,7 +236,7 @@ public class GPXWaypoint: GPXElement, Codable {
         self.source = dictionary.removeValue(forKey: "src")
         self.symbol = dictionary.removeValue(forKey: "sym")
         self.type = dictionary.removeValue(forKey: "type")
-        self.fix = Convert.toInt(from: dictionary.removeValue(forKey: "fix"))
+        self.fix = GPXFix(rawValue: dictionary.removeValue(forKey: "fix") ?? "none")
         self.satellites = Convert.toInt(from: dictionary.removeValue(forKey: "sat"))
         self.horizontalDilution = Convert.toDouble(from: dictionary.removeValue(forKey: "hdop"))
         self.verticalDilution = Convert.toDouble(from: dictionary.removeValue(forKey: "vdop"))
@@ -266,7 +266,7 @@ public class GPXWaypoint: GPXElement, Codable {
             case "src":         self.source = child.text
             case "sym":         self.symbol = child.text
             case "type":        self.type = child.text
-            case "fix":         self.fix = Convert.toInt(from: child.text)
+            case "fix":         self.fix = GPXFix(rawValue: child.text ?? "none")
             case "sat":         self.satellites = Convert.toInt(from: child.text)
             case "hdop":        self.horizontalDilution = Convert.toDouble(from: child.text)
             case "vdop":        self.verticalDilution = Convert.toDouble(from: child.text)
@@ -335,7 +335,11 @@ public class GPXWaypoint: GPXElement, Codable {
  
         self.addProperty(forValue: symbol, gpx: gpx, tagName: "sym", indentationLevel: indentationLevel)
         self.addProperty(forValue: type, gpx: gpx, tagName: "type", indentationLevel: indentationLevel)
-        self.addProperty(forIntegerValue: fix, gpx: gpx, tagName: "source", indentationLevel: indentationLevel)
+        
+        if let fix = self.fix?.rawValue {
+            self.addProperty(forValue: fix, gpx: gpx, tagName: "fix", indentationLevel: indentationLevel)
+        }
+        
         self.addProperty(forIntegerValue: satellites, gpx: gpx, tagName: "sat", indentationLevel: indentationLevel)
         self.addProperty(forDoubleValue: horizontalDilution, gpx: gpx, tagName: "hdop", indentationLevel: indentationLevel)
         self.addProperty(forDoubleValue: verticalDilution, gpx: gpx, tagName: "vdop", indentationLevel: indentationLevel)
