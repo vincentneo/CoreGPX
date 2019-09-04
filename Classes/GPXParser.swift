@@ -28,6 +28,9 @@ public final class GPXParser: NSObject {
     /// Temporary stack of raw elements.
     private var stack = [GPXRawElement]()
     
+    public var parserError: Error?
+    private var errorAtLine = Int()
+    
     // MARK:- Private Methods
     
     /// Resets stack
@@ -151,6 +154,46 @@ public final class GPXParser: NSObject {
         return root
     }
     
+    public func failibleParsedData() throws -> GPXRoot? {
+        self.parser.parse() // parse when requested
+        guard let firstTag = stack.first else { throw GPXError.parser.fileIsNotXMLBased }
+        guard let rawGPX = firstTag.children.first else { throw GPXError.parser.fileIsEmpty }
+        
+        guard parserError == nil else { throw GPXError.parser.issueAt(line: errorAtLine) }
+        
+        let root = GPXRoot(raw: rawGPX) // to be returned; includes attributes.
+        guard root.version == "1.1" else { throw GPXError.parser.unsupportedVersion }
+        
+        for child in rawGPX.children {
+            let name = child.name
+            
+            switch name {
+            case "metadata":
+                let metadata = GPXMetadata(raw: child)
+                root.metadata = metadata
+            case "wpt":
+                let waypoint = GPXWaypoint(raw: child)
+                root.add(waypoint: waypoint)
+            case "rte":
+                let route = GPXRoute(raw: child)
+                root.add(route: route)
+            case "trk":
+                let track = GPXTrack(raw: child)
+                root.add(track: track)
+            case "extensions":
+                let extensions = GPXExtensions(raw: child)
+                root.extensions = extensions
+            default: continue
+            }
+        }
+        
+        // reset stack
+        stackReset()
+        
+        return root
+    }
+    
+    
 }
 
 
@@ -188,4 +231,8 @@ extension GPXParser: XMLParserDelegate {
         stack.removeLast()
     }
     
+    public func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
+        errorAtLine = parser.lineNumber
+        parserError = parseError
+    }
 }

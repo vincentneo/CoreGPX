@@ -26,7 +26,9 @@ public struct GPXError {
         case unsupportedVersion
         case issueAt(line: Int)
         case fileIsNotGPX
+        case fileIsNotXMLBased
         case fileDoesNotConformSchema
+        case fileIsEmpty
     }
 }
 
