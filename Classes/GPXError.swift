@@ -12,8 +12,13 @@ public struct GPXError {
     
     /// Coordinates related errors
     public enum coordinates: Error {
-        case invalidLatitude
-        case invalidLongitude
+        case invalidLatitude(dueTo: reason)
+        case invalidLongitude(dueTo: reason)
+        
+        public enum reason {
+            case underLimit
+            case overLimit
+        }
     }
     
     /// Parser related errors

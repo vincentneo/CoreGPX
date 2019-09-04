@@ -210,12 +210,22 @@ public class GPXWaypoint: GPXElement, Codable {
         self.longitude = longitude
     }
     
-    convenience init(_ latitude: Double,_ longitude: Double) throws {
+    public convenience init(_ latitude: Double,_ longitude: Double) throws {
         guard latitude >= -90 && latitude <= 90 else {
-            throw GPXError.coordinates.invalidLatitude
+            if latitude <= -90 {
+                throw GPXError.coordinates.invalidLatitude(dueTo: .underLimit)
+            }
+            else {
+                throw GPXError.coordinates.invalidLatitude(dueTo: .overLimit)
+            }
         }
         guard longitude >= -180 && longitude <= 180 else {
-            throw GPXError.coordinates.invalidLongitude
+            if longitude <= -180 {
+                throw GPXError.coordinates.invalidLongitude(dueTo: .underLimit)
+            }
+            else {
+                throw GPXError.coordinates.invalidLongitude(dueTo: .overLimit)
+            }
         }
         self.init(latitude: latitude, longitude: longitude)
     }
