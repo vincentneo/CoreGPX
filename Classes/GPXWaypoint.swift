@@ -210,6 +210,16 @@ public class GPXWaypoint: GPXElement, Codable {
         self.longitude = longitude
     }
     
+    convenience init(_ latitude: Double,_ longitude: Double) throws {
+        guard latitude >= -90 && latitude <= 90 else {
+            throw GPXError.coordinates.invalidLatitude
+        }
+        guard longitude >= -180 && longitude <= 180 else {
+            throw GPXError.coordinates.invalidLongitude
+        }
+        self.init(latitude: latitude, longitude: longitude)
+    }
+    
     /// For internal use only
     ///
     /// Initializes a waypoint through a dictionary, with each key being an attribute name.
