@@ -211,23 +211,12 @@ public class GPXWaypoint: GPXElement, Codable {
     }
     
     public convenience init(_ latitude: Double,_ longitude: Double) throws {
-        guard latitude >= -90 && latitude <= 90 else {
-            if latitude <= -90 {
-                throw GPXError.coordinates.invalidLatitude(dueTo: .underLimit)
-            }
-            else {
-                throw GPXError.coordinates.invalidLatitude(dueTo: .overLimit)
-            }
-        }
-        guard longitude >= -180 && longitude <= 180 else {
-            if longitude <= -180 {
-                throw GPXError.coordinates.invalidLongitude(dueTo: .underLimit)
-            }
-            else {
-                throw GPXError.coordinates.invalidLongitude(dueTo: .overLimit)
-            }
-        }
-        self.init(latitude: latitude, longitude: longitude)
+        guard let error = coordinatesChecker.checkError(latitude: latitude, longitude: longitude) else {
+            self.init(latitude: latitude, longitude: longitude)
+            return }
+        
+        throw error
+        
     }
     
     /// For internal use only
@@ -372,5 +361,3 @@ public class GPXWaypoint: GPXElement, Codable {
         }
     }
 }
-
-

@@ -28,8 +28,13 @@ public final class GPXParser: NSObject {
     /// Temporary stack of raw elements.
     private var stack = [GPXRawElement]()
     
-    public var parserError: Error?
+    // MARK:- Error Checking Declarations
+    
+    private var parserError: Error?
     private var errorAtLine = Int()
+    private var isErrorCheckEnabled = false
+    private var shouldContinueAfterFirstError = false
+    public var errorsOccurred = [Error]()
     
     // MARK:- Private Methods
     
@@ -154,15 +159,30 @@ public final class GPXParser: NSObject {
         return root
     }
     
-    public func failibleParsedData() throws -> GPXRoot? {
+    ///
+    /// Starts parsing, returns parsed `GPXRoot` when done.
+    ///
+    /// - Parameters:
+    ///     - forceContinue: If `true`, parser will continue parsing even if non XML-based issues like invalid coordinates have occurred
+    ///
+    /// - Throws: `GPXError` errors if an incident has occurred while midway or after parsing the GPX file.
+    ///
+    public func failibleParsedData(forceContinue: Bool) throws -> GPXRoot? {
+        self.isErrorCheckEnabled = true
+        self.shouldContinueAfterFirstError = forceContinue
         self.parser.parse() // parse when requested
+        
         guard let firstTag = stack.first else { throw GPXError.parser.fileIsNotXMLBased }
         guard let rawGPX = firstTag.children.first else { throw GPXError.parser.fileIsEmpty }
         
-        guard parserError == nil else { throw GPXError.parser.issueAt(line: errorAtLine) }
+        guard parserError == nil else { throw GPXError.parser.issueAt(line: errorAtLine, error: parserError!) }
         
         let root = GPXRoot(raw: rawGPX) // to be returned; includes attributes.
         guard root.version == "1.1" else { throw GPXError.parser.unsupportedVersion }
+        
+        guard errorsOccurred.isEmpty else { if errorsOccurred.count > 1 {
+            throw GPXError.parser.multipleErrorsOccurred } else {
+            throw errorsOccurred.first! } }
         
         for child in rawGPX.children {
             let name = child.name
@@ -183,7 +203,7 @@ public final class GPXParser: NSObject {
             case "extensions":
                 let extensions = GPXExtensions(raw: child)
                 root.extensions = extensions
-            default: continue
+            default: throw GPXError.parser.fileDoesNotConformSchema
             }
         }
         
@@ -203,6 +223,11 @@ public final class GPXParser: NSObject {
 extension GPXParser: XMLParserDelegate {
     /// Default XML Parser Delegate's start element (<element>) callback.
     public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
+        
+        if isErrorCheckEnabled {
+            parserGPXErrorHandling(parser, elementName: elementName, attributeDict: attributeDict)
+        }
+        
         let node = GPXRawElement(name: elementName)
         if !attributeDict.isEmpty {
             node.attributes = attributeDict
@@ -234,5 +259,22 @@ extension GPXParser: XMLParserDelegate {
     public func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
         errorAtLine = parser.lineNumber
         parserError = parseError
+    }
+    
+    func parserGPXErrorHandling(_ parser: XMLParser, elementName: String, attributeDict: [String : String]) {
+        if elementName == "gpx" && attributeDict["version"] != "1.1" && !shouldContinueAfterFirstError {
+            parserError = GPXError.parser.unsupportedVersion
+        }
+        if elementName == "wpt" || elementName == "trkpt" || elementName == "rtept" {
+            guard let lat = Convert.toDouble(from: attributeDict["lat"]) else { errorsOccurred.append(GPXError.parser.issueAt(line: parser.lineNumber)); return }
+            guard let lon = Convert.toDouble(from: attributeDict["lon"]) else { errorsOccurred.append(GPXError.parser.issueAt(line: parser.lineNumber)); return }
+            guard let error = coordinatesChecker.checkError(latitude: lat, longitude: lon) else {
+                return }
+            errorsOccurred.append(GPXError.parser.issueAt(line: parser.lineNumber, error: error))
+            
+            if !shouldContinueAfterFirstError {
+                parser.abortParsing()
+            }
+        }
     }
 }
