@@ -34,7 +34,7 @@ public final class GPXParser: NSObject {
     private var errorAtLine = Int()
     private var isErrorCheckEnabled = false
     private var shouldContinueAfterFirstError = false
-    public var errorsOccurred = [Error]()
+    private var errorsOccurred = [Error]()
     
     // MARK:- Private Methods
     
@@ -181,7 +181,7 @@ public final class GPXParser: NSObject {
         guard root.version == "1.1" else { throw GPXError.parser.unsupportedVersion }
         
         guard errorsOccurred.isEmpty else { if errorsOccurred.count > 1 {
-            throw GPXError.parser.multipleErrorsOccurred } else {
+            throw GPXError.parser.multipleErrorsOccurred(errorsOccurred) } else {
             throw errorsOccurred.first! } }
         
         for child in rawGPX.children {
@@ -261,9 +261,11 @@ extension GPXParser: XMLParserDelegate {
         parserError = parseError
     }
     
-    func parserGPXErrorHandling(_ parser: XMLParser, elementName: String, attributeDict: [String : String]) {
+    private func parserGPXErrorHandling(_ parser: XMLParser, elementName: String, attributeDict: [String : String]) {
         if elementName == "gpx" && attributeDict["version"] != "1.1" && !shouldContinueAfterFirstError {
             parserError = GPXError.parser.unsupportedVersion
+            
+            if !shouldContinueAfterFirstError { parser.abortParsing() }
         }
         if elementName == "wpt" || elementName == "trkpt" || elementName == "rtept" {
             guard let lat = Convert.toDouble(from: attributeDict["lat"]) else { errorsOccurred.append(GPXError.parser.issueAt(line: parser.lineNumber)); return }
@@ -272,9 +274,7 @@ extension GPXParser: XMLParserDelegate {
                 return }
             errorsOccurred.append(GPXError.parser.issueAt(line: parser.lineNumber, error: error))
             
-            if !shouldContinueAfterFirstError {
-                parser.abortParsing()
-            }
+            if !shouldContinueAfterFirstError { parser.abortParsing() }
         }
     }
 }

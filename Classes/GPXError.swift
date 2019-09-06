@@ -30,7 +30,7 @@ public struct GPXError {
         case fileIsNotXMLBased
         case fileDoesNotConformSchema
         case fileIsEmpty
-        case multipleErrorsOccurred
+        case multipleErrorsOccurred(_ errors: [Error])
     }
 }
 

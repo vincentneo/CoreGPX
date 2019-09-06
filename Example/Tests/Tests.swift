@@ -8,10 +8,14 @@ class CoreGPX_Tests: XCTestCase {
     var url: URL?
     var stream: InputStream?
     
+    // error tests
+    var wptError: URL?
+    
     override func setUp() {
         super.setUp()
         let bundle = Bundle(for: type(of: self))
         let url = bundle.url(forResource: "GPXTest-TrackPointOnly", withExtension: "gpx")!
+        let wptError = bundle.url(forResource: "wptError", withExtension: "gpx")!
         let path = bundle.path(forResource: "GPXTest-TrackPointOnly", ofType: "gpx")!
         do {
             let data = try Data(contentsOf: url)
@@ -22,6 +26,7 @@ class CoreGPX_Tests: XCTestCase {
         self.path = path
         self.url = url
         self.stream = inputStream
+        self.wptError = wptError
         
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -158,6 +163,30 @@ class CoreGPX_Tests: XCTestCase {
         
     }
     
+    // MARK: Parse Errors Test
+    
+    func testParseFileWithCoordinatesError() {
+        guard let kUrl = wptError else {
+            XCTAssert(false, "testParseFileWithCoordinatesError: URL invalid")
+            return
+        }
+        do {
+            _ = try GPXParser(withURL: kUrl)?.failibleParsedData(forceContinue: true)
+        }
+        catch GPXError.parser.multipleErrorsOccurred(let errors) {
+            if case GPXError.parser.issueAt(line: 3, error: GPXError.coordinates.invalidLatitude(dueTo: .overLimit)) = errors[0],
+                case GPXError.parser.issueAt(line: 10, error: GPXError.coordinates.invalidLongitude(dueTo: .overLimit)) = errors[1] {
+                XCTAssert(true, "testParseFileWithCoordinatesError: 2 errors correctly identified")
+            }
+            else {
+                XCTAssert(false, "testParseFileWithCoordinatesError: errors were incorrectly identified")
+            }
+        }
+        catch {
+            XCTAssert(false, "testParseFileWithCoordinatesError: unexpected error caught: \(error)")
+        }
+    }
+    
     
     // MARK: Performace Parsing Test
     
@@ -262,4 +291,5 @@ class CoreGPX_Tests: XCTestCase {
             print("decode: \(error)")
         }
     }
+    
 }

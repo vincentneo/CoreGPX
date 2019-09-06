@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="Open GPX Tracker for iOS">
+	<wpt lat="91.38389" lon="103.785436">
+		<time>2019-05-10T08:53:34Z</time>
+		<name>8:53:34 am</name>
+		<desc>10 May 2019 at 8:53:34 am</desc>
+	</wpt>
+	<trk>
+		<trkseg>
+			<trkpt lat="12.430875" lon="180.87702">
+				<ele>27.882911682128906</ele>
+				<time>2019-05-10T08:19:27Z</time>
+			</trkpt>
+			<trkpt lat="12.449862" lon="131.00468">
+				<ele>27.79437255859375</ele>
+				<time>2019-05-10T08:19:33Z</time>
+			</trkpt>
+		</trkseg>
+	</trk>
+</gpx>
