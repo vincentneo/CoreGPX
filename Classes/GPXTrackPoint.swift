@@ -15,12 +15,12 @@ import Foundation
  */
 public final class GPXTrackPoint: GPXWaypoint {
     
+    // MARK:- Initializers
+    
     /// Default Initializer.
     public required init() {
         super.init()
     }
-    
-    // MARK:- Instance
     
     public override init(latitude: Double, longitude: Double) {
         super.init(latitude: latitude, longitude: longitude)

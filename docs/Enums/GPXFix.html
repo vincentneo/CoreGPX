@@ -14,7 +14,7 @@
     <a title="GPXFix Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CoreGPX 0.6.5 Docs</a> (83% documented)</p>
+        <p><a href="../index.html">CoreGPX 0.7.0 Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://www.github.com/vincentneo/CoreGPX"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -32,9 +32,6 @@
             <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/Convert.html">Convert</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/GPXAuthor.html">GPXAuthor</a>
               </li>
               <li class="nav-group-task">
@@ -42,9 +39,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/GPXCopyright.html">GPXCopyright</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/GPXDateParser.html">GPXDateParser</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/GPXElement.html">GPXElement</a>
@@ -56,10 +50,10 @@
                 <a href="../Classes/GPXExtensions.html">GPXExtensions</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/GPXLink.html">GPXLink</a>
+                <a href="../Classes/GPXExtensionsElement.html">GPXExtensionsElement</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/GPXLink/CodingKeys.html">– CodingKeys</a>
+                <a href="../Classes/GPXLink.html">GPXLink</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/GPXMetadata.html">GPXMetadata</a>
@@ -83,16 +77,10 @@
                 <a href="../Classes/GPXRoute.html">GPXRoute</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/GPXRoute/CodingKeys.html">– CodingKeys</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/GPXRoutePoint.html">GPXRoutePoint</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/GPXTrack.html">GPXTrack</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/GPXTrack/CodingKeys.html">– CodingKeys</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/GPXTrackPoint.html">GPXTrackPoint</a>
@@ -101,16 +89,7 @@
                 <a href="../Classes/GPXTrackSegment.html">GPXTrackSegment</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/GPXTrackSegment/CodingKeys.html">– CodingKeys</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/GPXType.html">GPXType</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/GPXWaypoint.html">GPXWaypoint</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/GPXWaypoint/CodingKeys.html">– CodingKeys</a>
               </li>
             </ul>
           </li>
@@ -123,10 +102,16 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Extensions.html">Extensions</a>
+            <a href="../Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Extensions/NSMutableString.html">NSMutableString</a>
+                <a href="../Structs/GPXError.html">GPXError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/GPXError/coordinates.html">– coordinates</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/GPXError/parser.html">– parser</a>
               </li>
             </ul>
           </li>
@@ -138,11 +123,11 @@
             <h1>GPXFix</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">GPXFix</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">GPXFix</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
 
                 </div>
               </div>
-            <p>Carried forward from legacy code</p>
+            <p>Type of GPS fix.</p>
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
     I believe this enum may not be useful as <code>CoreLocation</code> API does not appear to state GPS Fix type.
@@ -173,12 +158,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="k">none</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="k">none</span> <span class="o">=</span> <span class="s">"none"</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXType.swift#L235">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXFix.swift#L17">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -203,12 +188,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">TwoDimensional</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">TwoDimensional</span> <span class="o">=</span> <span class="s">"2d"</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXType.swift#L238">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXFix.swift#L20">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -233,12 +218,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">ThreeDimensional</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">ThreeDimensional</span> <span class="o">=</span> <span class="s">"3d"</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXType.swift#L241">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXFix.swift#L23">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -263,12 +248,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">Dgps</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">Dgps</span> <span class="o">=</span> <span class="s">"dgps"</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXType.swift#L244">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXFix.swift#L26">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -293,12 +278,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">Pps</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">Pps</span> <span class="o">=</span> <span class="s">"pps"</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXType.swift#L247">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXFix.swift#L29">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -308,7 +293,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.github.com/vincentneo" target="_blank" rel="external">Vincent</a>. All rights reserved. (Last updated: 2019-07-07)</p>
+          <p>&copy; 2019 <a class="link" href="https://www.github.com/vincentneo" target="_blank" rel="external">Vincent</a>. All rights reserved. (Last updated: 2019-09-11)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

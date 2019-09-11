@@ -24,6 +24,10 @@ open class GPXPointSegment: GPXElement, Codable {
         super.init()
     }
     
+    /// Inits native element from raw parser value
+    ///
+    /// - Parameters:
+    ///     - raw: Raw element expected from parser
     init(raw: GPXRawElement) {
         for child in raw.children {
             if child.name == "pt" {

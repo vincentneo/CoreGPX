@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>CodingKeys Enumeration Reference</title>
+    <title>parser Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,11 +10,11 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/CodingKeys" class="dashAnchor"></a>
-    <a title="CodingKeys Enumeration Reference"></a>
+    <a name="//apple_ref/swift/Enum/parser" class="dashAnchor"></a>
+    <a title="parser Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../../index.html">CoreGPX 0.6.5 Docs</a> (83% documented)</p>
+        <p><a href="../../index.html">CoreGPX 0.7.0 Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://www.github.com/vincentneo/CoreGPX"><img src="../../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../../index.html">CoreGPX Reference</a>
         <img id="carat" src="../../img/carat.png" />
-        CodingKeys Enumeration Reference
+        parser Enumeration Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -32,9 +32,6 @@
             <a href="../../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../../Classes/Convert.html">Convert</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../../Classes/GPXAuthor.html">GPXAuthor</a>
               </li>
               <li class="nav-group-task">
@@ -42,9 +39,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../../Classes/GPXCopyright.html">GPXCopyright</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../../Classes/GPXDateParser.html">GPXDateParser</a>
               </li>
               <li class="nav-group-task">
                 <a href="../../Classes/GPXElement.html">GPXElement</a>
@@ -56,10 +50,10 @@
                 <a href="../../Classes/GPXExtensions.html">GPXExtensions</a>
               </li>
               <li class="nav-group-task">
-                <a href="../../Classes/GPXLink.html">GPXLink</a>
+                <a href="../../Classes/GPXExtensionsElement.html">GPXExtensionsElement</a>
               </li>
               <li class="nav-group-task">
-                <a href="../../Classes/GPXLink/CodingKeys.html">– CodingKeys</a>
+                <a href="../../Classes/GPXLink.html">GPXLink</a>
               </li>
               <li class="nav-group-task">
                 <a href="../../Classes/GPXMetadata.html">GPXMetadata</a>
@@ -83,16 +77,10 @@
                 <a href="../../Classes/GPXRoute.html">GPXRoute</a>
               </li>
               <li class="nav-group-task">
-                <a href="../../Classes/GPXRoute/CodingKeys.html">– CodingKeys</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../../Classes/GPXRoutePoint.html">GPXRoutePoint</a>
               </li>
               <li class="nav-group-task">
                 <a href="../../Classes/GPXTrack.html">GPXTrack</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../../Classes/GPXTrack/CodingKeys.html">– CodingKeys</a>
               </li>
               <li class="nav-group-task">
                 <a href="../../Classes/GPXTrackPoint.html">GPXTrackPoint</a>
@@ -101,16 +89,7 @@
                 <a href="../../Classes/GPXTrackSegment.html">GPXTrackSegment</a>
               </li>
               <li class="nav-group-task">
-                <a href="../../Classes/GPXTrackSegment/CodingKeys.html">– CodingKeys</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../../Classes/GPXType.html">GPXType</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../../Classes/GPXWaypoint.html">GPXWaypoint</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../../Classes/GPXWaypoint/CodingKeys.html">– CodingKeys</a>
               </li>
             </ul>
           </li>
@@ -123,10 +102,16 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../../Extensions.html">Extensions</a>
+            <a href="../../Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../../Extensions/NSMutableString.html">NSMutableString</a>
+                <a href="../../Structs/GPXError.html">GPXError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/GPXError/coordinates.html">– coordinates</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/GPXError/parser.html">– parser</a>
               </li>
             </ul>
           </li>
@@ -135,14 +120,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>CodingKeys</h1>
+            <h1>parser</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">CodingKeys</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CodingKey</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="nv">parser</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
 
                 </div>
               </div>
-            <p>for Codable</p>
+            <p>Parser related errors</p>
 
           </section>
           <section class="section task-group-section">
@@ -151,9 +136,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7CoreGPX8GPXTrackC10CodingKeysO4linkyA2EmF"></a>
-                    <a name="//apple_ref/swift/Element/link" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX8GPXTrackC10CodingKeysO4linkyA2EmF">link</a>
+                    <a name="/s:7CoreGPX8GPXErrorV6parserO18unsupportedVersionyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/unsupportedVersion" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX8GPXErrorV6parserO18unsupportedVersionyA2EmF">unsupportedVersion</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -161,19 +146,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Thrown when GPX version is &lt; 1.1</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">link</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unsupportedVersion</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXError.swift#L32">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -181,9 +166,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7CoreGPX8GPXTrackC10CodingKeysO13tracksegmentsyA2EmF"></a>
-                    <a name="//apple_ref/swift/Element/tracksegments" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX8GPXTrackC10CodingKeysO13tracksegmentsyA2EmF">tracksegments</a>
+                    <a name="/s:7CoreGPX8GPXErrorV6parserO7issueAtyAESi_tcAEmF"></a>
+                    <a name="//apple_ref/swift/Element/issueAt(line:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX8GPXErrorV6parserO7issueAtyAESi_tcAEmF">issueAt(line:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -191,19 +176,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>When an issue occurred at line, but without further comment.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">tracksegments</span> <span class="o">=</span> <span class="s">"trkseg"</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">issueAt</span><span class="p">(</span><span class="nv">line</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXError.swift#L34">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -211,9 +196,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7CoreGPX8GPXTrackC10CodingKeysO4nameyA2EmF"></a>
-                    <a name="//apple_ref/swift/Element/name" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX8GPXTrackC10CodingKeysO4nameyA2EmF">name</a>
+                    <a name="/s:7CoreGPX8GPXErrorV6parserO7issueAtyAESi_s5Error_ptcAEmF"></a>
+                    <a name="//apple_ref/swift/Element/issueAt(line:error:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX8GPXErrorV6parserO7issueAtyAESi_s5Error_ptcAEmF">issueAt(line:error:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -221,19 +206,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Thrown when issue occurred at line. (Mostly wraps XML parser errors)</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">name</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">issueAt</span><span class="p">(</span><span class="nv">line</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXError.swift#L36">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -241,9 +226,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7CoreGPX8GPXTrackC10CodingKeysO7commentyA2EmF"></a>
-                    <a name="//apple_ref/swift/Element/comment" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX8GPXTrackC10CodingKeysO7commentyA2EmF">comment</a>
+                    <a name="/s:7CoreGPX8GPXErrorV6parserO09fileIsNotB0yA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/fileIsNotGPX" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX8GPXErrorV6parserO09fileIsNotB0yA2EmF">fileIsNotGPX</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -251,19 +236,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Thrown when file is XML, but not GPX.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">comment</span> <span class="o">=</span> <span class="s">"cmt"</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">fileIsNotGPX</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXError.swift#L38">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -271,9 +256,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7CoreGPX8GPXTrackC10CodingKeysO4descyA2EmF"></a>
-                    <a name="//apple_ref/swift/Element/desc" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX8GPXTrackC10CodingKeysO4descyA2EmF">desc</a>
+                    <a name="/s:7CoreGPX8GPXErrorV6parserO17fileIsNotXMLBasedyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/fileIsNotXMLBased" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX8GPXErrorV6parserO17fileIsNotXMLBasedyA2EmF">fileIsNotXMLBased</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -281,19 +266,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Thrown when file is not XML, let alone GPX.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">desc</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">fileIsNotXMLBased</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXError.swift#L40">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -301,9 +286,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7CoreGPX8GPXTrackC10CodingKeysO6sourceyA2EmF"></a>
-                    <a name="//apple_ref/swift/Element/source" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX8GPXTrackC10CodingKeysO6sourceyA2EmF">source</a>
+                    <a name="/s:7CoreGPX8GPXErrorV6parserO24fileDoesNotConformSchemayA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/fileDoesNotConformSchema" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX8GPXErrorV6parserO24fileDoesNotConformSchemayA2EmF">fileDoesNotConformSchema</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -311,19 +296,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Thrown when file does not conform schema. (unused)</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">source</span> <span class="o">=</span> <span class="s">"src"</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">fileDoesNotConformSchema</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXError.swift#L42">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -331,9 +316,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7CoreGPX8GPXTrackC10CodingKeysO6numberyA2EmF"></a>
-                    <a name="//apple_ref/swift/Element/number" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX8GPXTrackC10CodingKeysO6numberyA2EmF">number</a>
+                    <a name="/s:7CoreGPX8GPXErrorV6parserO11fileIsEmptyyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/fileIsEmpty" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX8GPXErrorV6parserO11fileIsEmptyyA2EmF">fileIsEmpty</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -341,19 +326,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Thrown when file is presumed to be empty.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">number</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">fileIsEmpty</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXError.swift#L44">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -361,9 +346,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7CoreGPX8GPXTrackC10CodingKeysO4typeyA2EmF"></a>
-                    <a name="//apple_ref/swift/Element/type" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX8GPXTrackC10CodingKeysO4typeyA2EmF">type</a>
+                    <a name="/s:7CoreGPX8GPXErrorV6parserO22multipleErrorsOccurredyAESays5Error_pGcAEmF"></a>
+                    <a name="//apple_ref/swift/Element/multipleErrorsOccurred(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7CoreGPX8GPXErrorV6parserO22multipleErrorsOccurredyAESays5Error_pGcAEmF">multipleErrorsOccurred(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -371,49 +356,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>When multiple errors occurred, to give an array of errors.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">type</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">multipleErrorsOccurred</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="p">[</span><span class="kt">Error</span><span class="p">])</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7CoreGPX8GPXTrackC10CodingKeysO10extensionsyA2EmF"></a>
-                    <a name="//apple_ref/swift/Element/extensions" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX8GPXTrackC10CodingKeysO10extensionsyA2EmF">extensions</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">extensions</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXError.swift#L46">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -423,7 +378,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.github.com/vincentneo" target="_blank" rel="external">Vincent</a>. All rights reserved. (Last updated: 2019-07-07)</p>
+          <p>&copy; 2019 <a class="link" href="https://www.github.com/vincentneo" target="_blank" rel="external">Vincent</a>. All rights reserved. (Last updated: 2019-09-11)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

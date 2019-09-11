@@ -14,7 +14,7 @@
     <a title="GPXTrack Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CoreGPX 0.6.5 Docs</a> (83% documented)</p>
+        <p><a href="../index.html">CoreGPX 0.7.0 Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://www.github.com/vincentneo/CoreGPX"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -32,9 +32,6 @@
             <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/Convert.html">Convert</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/GPXAuthor.html">GPXAuthor</a>
               </li>
               <li class="nav-group-task">
@@ -42,9 +39,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/GPXCopyright.html">GPXCopyright</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/GPXDateParser.html">GPXDateParser</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/GPXElement.html">GPXElement</a>
@@ -56,10 +50,10 @@
                 <a href="../Classes/GPXExtensions.html">GPXExtensions</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/GPXLink.html">GPXLink</a>
+                <a href="../Classes/GPXExtensionsElement.html">GPXExtensionsElement</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/GPXLink/CodingKeys.html">– CodingKeys</a>
+                <a href="../Classes/GPXLink.html">GPXLink</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/GPXMetadata.html">GPXMetadata</a>
@@ -83,16 +77,10 @@
                 <a href="../Classes/GPXRoute.html">GPXRoute</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/GPXRoute/CodingKeys.html">– CodingKeys</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/GPXRoutePoint.html">GPXRoutePoint</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/GPXTrack.html">GPXTrack</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/GPXTrack/CodingKeys.html">– CodingKeys</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/GPXTrackPoint.html">GPXTrackPoint</a>
@@ -101,16 +89,7 @@
                 <a href="../Classes/GPXTrackSegment.html">GPXTrackSegment</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/GPXTrackSegment/CodingKeys.html">– CodingKeys</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/GPXType.html">GPXType</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/GPXWaypoint.html">GPXWaypoint</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/GPXWaypoint/CodingKeys.html">– CodingKeys</a>
               </li>
             </ul>
           </li>
@@ -123,10 +102,16 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Extensions.html">Extensions</a>
+            <a href="../Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Extensions/NSMutableString.html">NSMutableString</a>
+                <a href="../Structs/GPXError.html">GPXError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/GPXError/coordinates.html">– coordinates</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/GPXError/parser.html">– parser</a>
               </li>
             </ul>
           </li>
@@ -138,7 +123,7 @@
             <h1>GPXTrack</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">GPXTrack</span> <span class="p">:</span> <span class="kt"><a href="../Classes/GPXElement.html">GPXElement</a></span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">GPXTrack</span> <span class="p">:</span> <span class="kt"><a href="../Classes/GPXElement.html">GPXElement</a></span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
 
                 </div>
               </div>
@@ -152,37 +137,6 @@
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7CoreGPX8GPXTrackC10CodingKeysO"></a>
-                    <a name="//apple_ref/swift/Enum/CodingKeys" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX8GPXTrackC10CodingKeysO">CodingKeys</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>for Codable</p>
-
-                        <a href="../Classes/GPXTrack/CodingKeys.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">CodingKeys</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CodingKey</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L20-L30">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -208,7 +162,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L33">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXTrack.swift#L33">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -238,7 +192,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L36">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXTrack.swift#L36">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -268,7 +222,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L39">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXTrack.swift#L39">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -298,7 +252,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L42">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXTrack.swift#L42">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -328,7 +282,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L45">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXTrack.swift#L45">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -358,7 +312,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L48">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXTrack.swift#L48">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -388,7 +342,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L51">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXTrack.swift#L51">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -418,7 +372,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L54">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXTrack.swift#L54">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -448,7 +402,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L57">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXTrack.swift#L57">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -478,37 +432,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L60-L62">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7CoreGPX8GPXTrackC10dictionaryACSDyS2SGz_tcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(dictionary:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX8GPXTrackC10dictionaryACSDyS2SGz_tcfc">init(dictionary:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Internal Initializer, for parsing use only.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">dictionary</span><span class="p">:</span> <span class="k">inout</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">])</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L65-L78">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXTrack.swift#L60-L62">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -535,12 +459,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">newLink</span><span class="p">(</span><span class="n">withHref</span> <span class="nv">href</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/GPXLink.html">GPXLink</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">newLink</span><span class="p">(</span><span class="n">withHref</span> <span class="nv">href</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/GPXLink.html">GPXLink</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L85-L88">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXTrack.swift#L89-L92">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -567,12 +491,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">newTrackSegment</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/GPXTrackSegment.html">GPXTrackSegment</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">newTrackSegment</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/GPXTrackSegment.html">GPXTrackSegment</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L93-L97">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXTrack.swift#L97-L101">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -597,12 +521,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">trackSegment</span><span class="p">:</span> <span class="kt"><a href="../Classes/GPXTrackSegment.html">GPXTrackSegment</a></span><span class="p">?)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">trackSegment</span><span class="p">:</span> <span class="kt"><a href="../Classes/GPXTrackSegment.html">GPXTrackSegment</a></span><span class="p">?)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L100-L105">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXTrack.swift#L104-L108">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -627,12 +551,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">trackSegments</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/GPXTrackSegment.html">GPXTrackSegment</a></span><span class="p">])</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">trackSegments</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/GPXTrackSegment.html">GPXTrackSegment</a></span><span class="p">])</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L108-L110">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXTrack.swift#L111-L113">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -657,12 +581,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="nv">trackSegment</span><span class="p">:</span> <span class="kt"><a href="../Classes/GPXTrackSegment.html">GPXTrackSegment</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="nv">trackSegment</span><span class="p">:</span> <span class="kt"><a href="../Classes/GPXTrackSegment.html">GPXTrackSegment</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L113-L122">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXTrack.swift#L116-L124">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -687,70 +611,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">newTrackPointWith</span><span class="p">(</span><span class="nv">latitude</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">longitude</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/GPXTrackPoint.html">GPXTrackPoint</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">newTrackPointWith</span><span class="p">(</span><span class="nv">latitude</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">longitude</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/GPXTrackPoint.html">GPXTrackPoint</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L125-L135">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7CoreGPX8GPXTrackC7tagNameSSyF"></a>
-                    <a name="//apple_ref/swift/Method/tagName()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX8GPXTrackC7tagNameSSyF">tagName()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">tagName</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L139-L141">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7CoreGPX8GPXTrackC11addChildTag02toB016indentationLevelySo15NSMutableStringC_SitF"></a>
-                    <a name="//apple_ref/swift/Method/addChildTag(toGPX:indentationLevel:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX8GPXTrackC11addChildTag02toB016indentationLevelySo15NSMutableStringC_SitF">addChildTag(toGPX:indentationLevel:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">addChildTag</span><span class="p">(</span><span class="n">toGPX</span> <span class="nv">gpx</span><span class="p">:</span> <span class="kt">NSMutableString</span><span class="p">,</span> <span class="nv">indentationLevel</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXTrack.swift#L145-L168">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXTrack.swift#L127-L137">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -760,7 +626,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.github.com/vincentneo" target="_blank" rel="external">Vincent</a>. All rights reserved. (Last updated: 2019-07-07)</p>
+          <p>&copy; 2019 <a class="link" href="https://www.github.com/vincentneo" target="_blank" rel="external">Vincent</a>. All rights reserved. (Last updated: 2019-09-11)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

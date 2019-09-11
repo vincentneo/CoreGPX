@@ -14,7 +14,7 @@
     <a title="GPXRoute Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CoreGPX 0.6.5 Docs</a> (83% documented)</p>
+        <p><a href="../index.html">CoreGPX 0.7.0 Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://www.github.com/vincentneo/CoreGPX"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -32,9 +32,6 @@
             <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/Convert.html">Convert</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/GPXAuthor.html">GPXAuthor</a>
               </li>
               <li class="nav-group-task">
@@ -42,9 +39,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/GPXCopyright.html">GPXCopyright</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/GPXDateParser.html">GPXDateParser</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/GPXElement.html">GPXElement</a>
@@ -56,10 +50,10 @@
                 <a href="../Classes/GPXExtensions.html">GPXExtensions</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/GPXLink.html">GPXLink</a>
+                <a href="../Classes/GPXExtensionsElement.html">GPXExtensionsElement</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/GPXLink/CodingKeys.html">– CodingKeys</a>
+                <a href="../Classes/GPXLink.html">GPXLink</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/GPXMetadata.html">GPXMetadata</a>
@@ -83,16 +77,10 @@
                 <a href="../Classes/GPXRoute.html">GPXRoute</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/GPXRoute/CodingKeys.html">– CodingKeys</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/GPXRoutePoint.html">GPXRoutePoint</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/GPXTrack.html">GPXTrack</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/GPXTrack/CodingKeys.html">– CodingKeys</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/GPXTrackPoint.html">GPXTrackPoint</a>
@@ -101,16 +89,7 @@
                 <a href="../Classes/GPXTrackSegment.html">GPXTrackSegment</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/GPXTrackSegment/CodingKeys.html">– CodingKeys</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/GPXType.html">GPXType</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/GPXWaypoint.html">GPXWaypoint</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/GPXWaypoint/CodingKeys.html">– CodingKeys</a>
               </li>
             </ul>
           </li>
@@ -123,10 +102,16 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Extensions.html">Extensions</a>
+            <a href="../Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Extensions/NSMutableString.html">NSMutableString</a>
+                <a href="../Structs/GPXError.html">GPXError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/GPXError/coordinates.html">– coordinates</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/GPXError/parser.html">– parser</a>
               </li>
             </ul>
           </li>
@@ -138,7 +123,7 @@
             <h1>GPXRoute</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">GPXRoute</span> <span class="p">:</span> <span class="kt"><a href="../Classes/GPXElement.html">GPXElement</a></span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">GPXRoute</span> <span class="p">:</span> <span class="kt"><a href="../Classes/GPXElement.html">GPXElement</a></span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
 
                 </div>
               </div>
@@ -150,37 +135,6 @@
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7CoreGPX8GPXRouteC10CodingKeysO"></a>
-                    <a name="//apple_ref/swift/Enum/CodingKeys" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX8GPXRouteC10CodingKeysO">CodingKeys</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>For Codable use</p>
-
-                        <a href="../Classes/GPXRoute/CodingKeys.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">CodingKeys</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CodingKey</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXRoute.swift#L18-L26">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -206,7 +160,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXRoute.swift#L29">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXRoute.swift#L29">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -236,7 +190,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXRoute.swift#L32">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXRoute.swift#L32">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -266,7 +220,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXRoute.swift#L35">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXRoute.swift#L35">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -296,7 +250,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXRoute.swift#L38">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXRoute.swift#L38">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -326,7 +280,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXRoute.swift#L41">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXRoute.swift#L41">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -356,7 +310,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXRoute.swift#L44">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXRoute.swift#L44">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -386,7 +340,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXRoute.swift#L47">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXRoute.swift#L47">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -418,7 +372,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXRoute.swift#L52">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXRoute.swift#L52">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -448,7 +402,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXRoute.swift#L55">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXRoute.swift#L55">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -478,260 +432,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXRoute.swift#L60-L62">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7CoreGPX8GPXRouteC10dictionaryACSDyS2SGz_tcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(dictionary:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX8GPXRouteC10dictionaryACSDyS2SGz_tcfc">init(dictionary:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Internal initializer. For parsing use only.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">dictionary</span><span class="p">:</span> <span class="k">inout</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">])</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXRoute.swift#L65-L78">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Public%20Methods"></a>
-                <a name="//apple_ref/swift/Section/Public Methods" class="dashAnchor"></a>
-                <a href="#/Public%20Methods">
-                  <h3 class="section-name">Public Methods</h3>
-                </a>
-              </div>
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7CoreGPX8GPXRouteC7newLink8withHrefAA7GPXLinkCSS_tF"></a>
-                    <a name="//apple_ref/swift/Method/newLink(withHref:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX8GPXRouteC7newLink8withHrefAA7GPXLinkCSS_tF">newLink(withHref:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Creates a <code><a href="../Classes/GPXLink.html">GPXLink</a></code> which is added to the route and also returned.</p>
-
-<p>Not recommended for use. Init <code><a href="../Classes/GPXRoutePoint.html">GPXRoutePoint</a></code> manually, then adding it to route, instead.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">newLink</span><span class="p">(</span><span class="n">withHref</span> <span class="nv">href</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/GPXLink.html">GPXLink</a></span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXRoute.swift#L85-L89">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7CoreGPX8GPXRouteC17newRoutePointWith8latitude9longitudeAA0cF0CSd_SdtF"></a>
-                    <a name="//apple_ref/swift/Method/newRoutePointWith(latitude:longitude:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX8GPXRouteC17newRoutePointWith8latitude9longitudeAA0cF0CSd_SdtF">newRoutePointWith(latitude:longitude:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Creates a <code><a href="../Classes/GPXRoutePoint.html">GPXRoutePoint</a></code> which is added to the route and also returned.</p>
-
-<p>Not recommended for use. Init <code><a href="../Classes/GPXRoutePoint.html">GPXRoutePoint</a></code> manually, then adding it to route, instead.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">newRoutePointWith</span><span class="p">(</span><span class="nv">latitude</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">longitude</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/GPXRoutePoint.html">GPXRoutePoint</a></span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXRoute.swift#L94-L100">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7CoreGPX8GPXRouteC3add10routepointyAA0C5PointCSg_tF"></a>
-                    <a name="//apple_ref/swift/Method/add(routepoint:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX8GPXRouteC3add10routepointyAA0C5PointCSg_tF">add(routepoint:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Adds a singular route point to the route.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">routepoint</span><span class="p">:</span> <span class="kt"><a href="../Classes/GPXRoutePoint.html">GPXRoutePoint</a></span><span class="p">?)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXRoute.swift#L103-L107">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7CoreGPX8GPXRouteC3add11routepointsySayAA0C5PointCG_tF"></a>
-                    <a name="//apple_ref/swift/Method/add(routepoints:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX8GPXRouteC3add11routepointsySayAA0C5PointCG_tF">add(routepoints:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Adds an array of route points to the route.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">routepoints</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/GPXRoutePoint.html">GPXRoutePoint</a></span><span class="p">])</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXRoute.swift#L110-L112">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7CoreGPX8GPXRouteC6remove10routepointyAA0C5PointC_tF"></a>
-                    <a name="//apple_ref/swift/Method/remove(routepoint:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX8GPXRouteC6remove10routepointyAA0C5PointC_tF">remove(routepoint:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Removes a route point from the route.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="nv">routepoint</span><span class="p">:</span> <span class="kt"><a href="../Classes/GPXRoutePoint.html">GPXRoutePoint</a></span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXRoute.swift#L115-L124">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7CoreGPX8GPXRouteC7tagNameSSyF"></a>
-                    <a name="//apple_ref/swift/Method/tagName()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX8GPXRouteC7tagNameSSyF">tagName()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">tagName</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXRoute.swift#L128-L130">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7CoreGPX8GPXRouteC11addChildTag02toB016indentationLevelySo15NSMutableStringC_SitF"></a>
-                    <a name="//apple_ref/swift/Method/addChildTag(toGPX:indentationLevel:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7CoreGPX8GPXRouteC11addChildTag02toB016indentationLevelySo15NSMutableStringC_SitF">addChildTag(toGPX:indentationLevel:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">addChildTag</span><span class="p">(</span><span class="n">toGPX</span> <span class="nv">gpx</span><span class="p">:</span> <span class="kt">NSMutableString</span><span class="p">,</span> <span class="nv">indentationLevel</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.6.5/Classes/GPXRoute.swift#L134-L156">Show on GitHub</a>
+                        <a href="https://www.github.com/vincentneo/CoreGPX/tree/0.7.0/Classes/GPXRoute.swift#L60-L62">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -741,7 +442,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.github.com/vincentneo" target="_blank" rel="external">Vincent</a>. All rights reserved. (Last updated: 2019-07-07)</p>
+          <p>&copy; 2019 <a class="link" href="https://www.github.com/vincentneo" target="_blank" rel="external">Vincent</a>. All rights reserved. (Last updated: 2019-09-11)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

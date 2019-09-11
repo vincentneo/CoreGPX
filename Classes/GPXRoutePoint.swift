@@ -7,6 +7,11 @@
 
 import Foundation
 
+/**
+ A route point is just like a waypoint or track point, but is suited to be part of a route.
+ 
+ These route points in collective, forms a valid route.
+ */
 public final class GPXRoutePoint: GPXWaypoint {
     
     /// Default initializer

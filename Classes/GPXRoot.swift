@@ -194,6 +194,7 @@ public final class GPXRoot: GPXElement, Codable {
         }
     }
     
+    /// Remove waypoint from root's array at index.
     public func remove(WaypointAtIndex index: Int) {
         self.waypoints.remove(at: index)
     }

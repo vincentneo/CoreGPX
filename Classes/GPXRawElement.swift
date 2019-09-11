@@ -12,6 +12,7 @@ import Foundation
 ///
 /// Should not be used as is, and should be disposed off once done with parsing.
 final class GPXRawElement {
+    
     /// name tag of element
     var name: String
     

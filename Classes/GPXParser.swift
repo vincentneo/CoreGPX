@@ -256,11 +256,13 @@ extension GPXParser: XMLParserDelegate {
         stack.removeLast()
     }
     
+    /// Handling of XML parser's thrown error. (if there is any)
     public func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
         errorAtLine = parser.lineNumber
         parserError = parseError
     }
     
+    /// Handles GPX errors during parse, unrelated to XML formatting.
     private func parserGPXErrorHandling(_ parser: XMLParser, elementName: String, attributeDict: [String : String]) {
         if elementName == "gpx" && attributeDict["version"] != "1.1" && !shouldContinueAfterFirstError {
             parserError = GPXError.parser.unsupportedVersion
