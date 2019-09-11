@@ -75,7 +75,7 @@ public final class GPXCopyright: GPXElement, Codable {
         return "copyright"
     }
     
-    // MARK: GPX
+    // MARK: GPX XML markup
     
     override func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         let attribute = NSMutableString()

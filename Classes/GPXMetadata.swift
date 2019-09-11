@@ -53,8 +53,9 @@ public final class GPXMetadata: GPXElement, Codable {
     public var extensions: GPXExtensions?
     
     
-    // MARK:- Instance
+    // MARK:- Initializers
     
+    /// Default initializer.
     required public init() {
         self.time = Date()
         super.init()

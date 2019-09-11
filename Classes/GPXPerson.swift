@@ -19,7 +19,7 @@ public class GPXPerson: GPXElement, Codable {
     /// An external website that holds information on the person who has created the GPX file. Additional information may be supported as well.
     public var link: GPXLink?
     
-    // MARK:- Instance
+    // MARK:- Initializers
     
     // Default Initializer.
     public required init() {

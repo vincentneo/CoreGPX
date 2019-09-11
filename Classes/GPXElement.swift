@@ -29,6 +29,7 @@ open class GPXElement: NSObject {
     
     // MARK:- Instance
   
+    /// Default Initializer
     public required override init() {
         super.init()
     }

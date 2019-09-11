@@ -37,8 +37,9 @@ public final class GPXLink: GPXElement, Codable {
     /// URL of hyperlink
     public var href: String?
    
-    // MARK:- Instance
+    // MARK:- Initializers
     
+    /// Default Initializer.
     public required init() {
         super.init()
     }
@@ -87,17 +88,12 @@ public final class GPXLink: GPXElement, Codable {
         self.href = raw.attributes["href"]
     }
     
-    
-    // MARK:- Public Methods
-    
-    
     // MARK:- Tag
     
     override func tagName() -> String {
         return "link"
     }
    
-    
     // MARK:- GPX
     
     override func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {

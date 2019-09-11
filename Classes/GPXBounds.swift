@@ -31,7 +31,7 @@ public final class GPXBounds: GPXElement, Codable {
     /// Maximum longitude of boundaries to a element.
     public var maxLongitude: Double?
     
-    // MARK:- Instance
+    // MARK:- Initalizers
     
     /// Default initializer.
     public required init() {
