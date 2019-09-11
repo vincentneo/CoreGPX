@@ -54,23 +54,10 @@ public final class GPXCopyright: GPXElement, Codable {
         self.year = Date()
     }
     
-    /// For internal use only
-    ///
-    /// Initializes a waypoint through a dictionary, with each key being an attribute name.
-    ///
-    /// - Remark:
-    /// This initializer is designed only for use when parsing GPX files, and shouldn't be used in other ways.
+    /// Inits native element from raw parser value
     ///
     /// - Parameters:
-    ///     - dictionary: a dictionary with a key of an attribute, followed by the value which is set as the GPX file is parsed.
-    ///
-    init(dictionary: [String : String]) {
-        super.init()
-        self.year = GPXDateParser.parse(year: dictionary["year"])
-        self.license = dictionary["license"]
-        self.author = dictionary["author"]
-    }
-    
+    ///     - raw: Raw element expected from parser
     init(raw: GPXRawElement) {
         for child in raw.children {
             switch child.name {

@@ -15,15 +15,12 @@ public final class GPXAuthor: GPXPerson {
         super.init()
     }
     
-    /// Internal use only. For parsing use.
-    override init(dictionary: [String : String]) {
-        super.init(dictionary: dictionary)
-    }
-    
+    /// Inits native element from raw parser value
     override init(raw: GPXRawElement) {
         super.init(raw: raw)
     }
     
+    /// Decoder handling (from superclass)
     required public init(from decoder: Decoder) throws {
         try super.init(from: decoder)
     }

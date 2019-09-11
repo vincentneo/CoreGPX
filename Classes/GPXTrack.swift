@@ -61,22 +61,10 @@ public final class GPXTrack: GPXElement, Codable {
         super.init()
     }
     
-    /// Internal Initializer, for parsing use only.
-    init(dictionary: inout [String : String]) {
-        super.init()
-        dictionary.removeValue(forKey: self.tagName())
-        self.number = Convert.toInt(from: dictionary.removeValue(forKey: "number"))
-        self.name = dictionary.removeValue(forKey: "name")
-        self.comment = dictionary.removeValue(forKey: "cmt")
-        self.desc = dictionary.removeValue(forKey: "desc")
-        self.source = dictionary.removeValue(forKey: "src")
-        self.type = dictionary.removeValue(forKey: "type")
-        
-        if dictionary.count > 0 {
-            //self.extensions = GPXExtensions(dictionary: dictionary)
-        }
-    }
-    
+    /// Inits native element from raw parser value
+    ///
+    /// - Parameters:
+    ///     - raw: Raw element expected from parser
     init(raw: GPXRawElement) {
         for child in raw.children {
             switch child.name {

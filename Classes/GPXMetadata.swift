@@ -60,29 +60,10 @@ public final class GPXMetadata: GPXElement, Codable {
         super.init()
     }
     
-    /// For internal use only
-    ///
-    /// Initializes the metadata using a dictionary, with each key being an attribute name.
-    ///
-    /// - Remark:
-    /// This initializer is designed only for use when parsing GPX files, and shouldn't be used in other ways.
+    /// Inits native element from raw parser value
     ///
     /// - Parameters:
-    ///     - dictionary: a dictionary with a key of an attribute, followed by the value which is set as the GPX file is parsed.
-    ///
-    init(dictionary: inout [String : String]) {
-        self.time = GPXDateParser.parse(date: dictionary.removeValue(forKey: "time"))
-        super.init()
-        dictionary.removeValue(forKey: self.tagName())
-        self.name = dictionary.removeValue(forKey: "name")
-        self.desc = dictionary.removeValue(forKey: "desc")
-        self.keyword = dictionary.removeValue(forKey: "keyword")
-        
-        if dictionary.count > 0 {
-            //self.extensions = GPXExtensions(dictionary: dictionary)
-        }
-    }
-    
+    ///     - raw: Raw element expected from parser
     init(raw: GPXRawElement) {
         super.init()
         for child in raw.children {

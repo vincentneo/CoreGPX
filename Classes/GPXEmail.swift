@@ -50,27 +50,10 @@ public final class GPXEmail: GPXElement, Codable {
         self.domain = splitedEmail[1]
     }
     
-
-    /// For internal use only
-    ///
-    /// Initializes a waypoint through a dictionary, with each key being an attribute name.
-    ///
-    /// - Remark:
-    /// This initializer is designed only for use when parsing GPX files, and shouldn't be used in other ways.
+    /// Inits native element from raw parser value
     ///
     /// - Parameters:
-    ///     - dictionary: a dictionary with a key of an attribute, followed by the value which is set as the GPX file is parsed.
-    ///
-    init(dictionary: [String : String]) {
-        self.emailID = dictionary["id"]
-        self.domain = dictionary["domain"]
-        
-        guard let id = dictionary["id"] else { return }
-        guard let domain = dictionary["domain"] else { return }
-        self.fullAddress = id + "@" + domain
-        
-    }
-    
+    ///     - raw: Raw element expected from parser
     init(raw: GPXRawElement) {
         self.emailID = raw.attributes["id"]
         self.domain = raw.attributes["domain"]

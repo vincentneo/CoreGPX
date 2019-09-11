@@ -20,10 +20,6 @@ public final class GPXRoutePoint: GPXWaypoint {
         super.init(latitude: latitude, longitude: longitude)
     }
     
-    override init(dictionary: inout [String : String]) {
-        super.init(dictionary: &dictionary)
-    }
-    
     override init(raw: GPXRawElement) {
         super.init(raw: raw)
     }

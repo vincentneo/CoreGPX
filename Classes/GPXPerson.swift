@@ -26,20 +26,10 @@ public class GPXPerson: GPXElement, Codable {
         super.init()
     }
     
-    /// For internal use only
-    ///
-    /// Initializes through a dictionary, with each key being an attribute name.
-    ///
-    /// - Remark:
-    /// This initializer is designed only for use when parsing GPX files, and shouldn't be used in other ways.
+    /// Inits native element from raw parser value
     ///
     /// - Parameters:
-    ///     - dictionary: a dictionary with a key of an attribute, followed by the value which is set as the GPX file is parsed.
-    ///
-    init(dictionary: [String : String]) {
-        name = dictionary["name"]
-        super.init()
-    }
+    ///     - raw: Raw element expected from parser
     init(raw: GPXRawElement) {
         for child in raw.children {
             switch child.name {

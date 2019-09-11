@@ -35,15 +35,11 @@ open class GPXPoint: GPXElement, Codable {
         self.latitude = latitude
         self.longitude = longitude
     }
-    /// Internal initializer, for parsing only.
-    init(dictionary: [String : String]) {
-        super.init()
-        self.latitude = Convert.toDouble(from: dictionary["lat"])
-        self.longitude = Convert.toDouble(from: dictionary["lon"])
-        self.elevation = Convert.toDouble(from: dictionary["ele"])
-        self.time = GPXDateParser.parse(date: dictionary["time"])
-    }
     
+    /// Inits native element from raw parser value
+    ///
+    /// - Parameters:
+    ///     - raw: Raw element expected from parser
     init(raw: GPXRawElement) {
         self.latitude = Convert.toDouble(from: raw.attributes["lat"])
         self.longitude = Convert.toDouble(from: raw.attributes["lon"])

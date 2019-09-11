@@ -53,24 +53,10 @@ public final class GPXBounds: GPXElement, Codable {
         self.maxLongitude = maxLongitude
     }
     
-    /// For internal use only
-    ///
-    /// Initializes through a dictionary, with each key being an attribute name.
-    ///
-    /// - Remark:
-    /// This initializer is designed only for use when parsing GPX files, and shouldn't be used in other ways.
+    /// Inits native element from raw parser value
     ///
     /// - Parameters:
-    ///     - dictionary: a dictionary with a key of an attribute, followed by the value which is set as the GPX file is parsed.
-    ///
-    init(dictionary: [String : String]) {
-        super.init()
-        self.minLatitude = Convert.toDouble(from: dictionary["minlat"])
-        self.maxLatitude = Convert.toDouble(from: dictionary["maxlat"])
-        self.minLongitude = Convert.toDouble(from: dictionary["minlon"])
-        self.maxLongitude = Convert.toDouble(from: dictionary["maxlon"])
-    }
-    
+    ///     - raw: Raw element expected from parser
     init(raw: GPXRawElement) {
         self.minLatitude = Convert.toDouble(from: raw.attributes["minlat"])
         self.maxLatitude = Convert.toDouble(from: raw.attributes["maxlat"])
