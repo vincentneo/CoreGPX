@@ -74,6 +74,10 @@ public final class GPXEmail: GPXElement, Codable {
     init(raw: GPXRawElement) {
         self.emailID = raw.attributes["id"]
         self.domain = raw.attributes["domain"]
+        
+        guard let id = raw.attributes["id"] else { return }
+        guard let domain = raw.attributes["domain"] else { return }
+        self.fullAddress = id + "@" + domain
     }
     
     // MARK:- Tag
