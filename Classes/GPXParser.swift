@@ -270,7 +270,7 @@ extension GPXParser: XMLParserDelegate {
         if elementName == "wpt" || elementName == "trkpt" || elementName == "rtept" {
             guard let lat = Convert.toDouble(from: attributeDict["lat"]) else { errorsOccurred.append(GPXError.parser.issueAt(line: parser.lineNumber)); return }
             guard let lon = Convert.toDouble(from: attributeDict["lon"]) else { errorsOccurred.append(GPXError.parser.issueAt(line: parser.lineNumber)); return }
-            guard let error = coordinatesChecker.checkError(latitude: lat, longitude: lon) else {
+            guard let error = GPXError.checkError(latitude: lat, longitude: lon) else {
                 return }
             errorsOccurred.append(GPXError.parser.issueAt(line: parser.lineNumber, error: error))
             

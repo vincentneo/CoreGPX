@@ -210,8 +210,12 @@ public class GPXWaypoint: GPXElement, Codable {
         self.longitude = longitude
     }
     
-    public convenience init(_ latitude: Double,_ longitude: Double) throws {
-        guard let error = coordinatesChecker.checkError(latitude: latitude, longitude: longitude) else {
+    /// Initialize a point type, and verifies that point is within ranges of what latitude and longitude should be.
+    ///
+    /// - SeeAlso:
+    /// init(latitude:longitude:)
+    public convenience init(verifiedLatitude latitude: Double, longitude: Double) throws {
+        guard let error = GPXError.checkError(latitude: latitude, longitude: longitude) else {
             self.init(latitude: latitude, longitude: longitude)
             return }
         

@@ -48,11 +48,3 @@ root.extensions = rootExtensions
 
 print("Completed GPXRoot: \(root.gpx())")
 
-let rt: GPXRoot?
-
-do {
-    rt = try GPXParser(withPath: "https://www.apple.com")?.failibleParsedData(forceContinue: false)
-}
-catch {
-    print(error)
-}
