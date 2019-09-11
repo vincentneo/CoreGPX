@@ -210,6 +210,19 @@ public class GPXWaypoint: GPXElement, Codable {
         self.longitude = longitude
     }
     
+    /// Initialize a point type, and verifies that point is within ranges of what latitude and longitude should be.
+    ///
+    /// - SeeAlso:
+    /// init(latitude:longitude:)
+    public convenience init(verifiedLatitude latitude: Double, longitude: Double) throws {
+        guard let error = GPXError.checkError(latitude: latitude, longitude: longitude) else {
+            self.init(latitude: latitude, longitude: longitude)
+            return }
+        
+        throw error
+        
+    }
+    
     /// For internal use only
     ///
     /// Initializes a waypoint through a dictionary, with each key being an attribute name.
@@ -352,5 +365,3 @@ public class GPXWaypoint: GPXElement, Codable {
         }
     }
 }
-
-

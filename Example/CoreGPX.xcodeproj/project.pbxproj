@@ -14,6 +14,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		8DB72704FC242BCF27592BDE /* Pods_CoreGPX_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7835104F033F117BB9802240 /* Pods_CoreGPX_Tests.framework */; };
+		BF0F3FEF2320C750004E54D3 /* wptError.gpx in Resources */ = {isa = PBXBuildFile; fileRef = BF0F3FED2320C504004E54D3 /* wptError.gpx */; };
 		BF67E92A2217F2EE008B6202 /* GPXTest-TrackPointOnly.gpx in Resources */ = {isa = PBXBuildFile; fileRef = BF67E9292217F2EE008B6202 /* GPXTest-TrackPointOnly.gpx */; };
 		BF7F905D21F7501800359484 /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7F905C21F7501800359484 /* CreationViewController.swift */; };
 		BFD4523D21E9F17A002ECA3A /* ParseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4523C21E9F17A002ECA3A /* ParseViewController.swift */; };
@@ -48,6 +49,7 @@
 		7835104F033F117BB9802240 /* Pods_CoreGPX_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreGPX_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		820FB2B530C75127A6FBEC73 /* Pods-CoreGPX_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreGPX_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreGPX_Tests/Pods-CoreGPX_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B1FA67C144CC465C6B228AB8 /* GPXKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GPXKit.podspec; path = ../GPXKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BF0F3FED2320C504004E54D3 /* wptError.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = wptError.gpx; sourceTree = "<group>"; };
 		BF67E9292217F2EE008B6202 /* GPXTest-TrackPointOnly.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "GPXTest-TrackPointOnly.gpx"; sourceTree = "<group>"; };
 		BF693E5022C8A69A00CBCE5A /* CoreGPX.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; name = CoreGPX.podspec; path = ../CoreGPX.podspec; sourceTree = "<group>"; };
 		BF693E5422C8E71B00CBCE5A /* CoreGPX Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "CoreGPX Playground.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -126,6 +128,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				BF0F3FED2320C504004E54D3 /* wptError.gpx */,
 				BF67E9292217F2EE008B6202 /* GPXTest-TrackPointOnly.gpx */,
 				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
@@ -270,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF0F3FEF2320C750004E54D3 /* wptError.gpx in Resources */,
 				BF67E92A2217F2EE008B6202 /* GPXTest-TrackPointOnly.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
