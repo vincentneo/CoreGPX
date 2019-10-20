@@ -93,7 +93,7 @@ public final class GPXParser: NSObject {
     ///
     public convenience init?(withRawString string: String?) {
         if let string = string {
-            if let data = string.data(using: .utf8) {
+            if let data = string.data(using: .utf8) { // refactor
                 self.init(withData: data)
             }
             else { return nil }
@@ -214,6 +214,81 @@ public final class GPXParser: NSObject {
     }
     
     
+}
+
+// MARK:- Issue #56
+extension GPXParser {
+    public enum GPXParserLossyTypes {
+        case stripDuplicatesOnly
+        case stripNearbyData
+        case stripBoth
+        case randomRemoval
+    }
+
+    public enum GPXParserLossyOptions {
+        case trackpoint
+        case waypoint
+        case routepoint
+    }
+    /// rawElements = waypoint, track, route
+    private func lossyRandom(_ types: [GPXParserLossyOptions],_ rawElements: [[GPXRawElement]],_ root: GPXRoot) -> GPXRoot? {
+        var rawElements = rawElements
+        let kPercent = 0.2
+        let wptCount = rawElements[0].count
+        
+        if wptCount != 0 { // waypoints
+            let amtToRemove = Int(kPercent * Double(wptCount))
+            for i in 0...amtToRemove {
+                let randomInt = Int.random(in: 1...wptCount - (i+1))
+                rawElements[0].remove(at: randomInt)
+            }
+        }
+        for track in rawElements[1] {
+            
+        }
+        return nil
+    }
+    
+    public func lossyParsing(type: GPXParserLossyTypes, affecting types: [GPXParserLossyOptions]) -> GPXRoot? {
+        self.parser.parse()
+        
+        guard let firstTag = stack.first else { return nil }
+        guard let rawGPX = firstTag.children.first else { return nil }
+        
+        var wptRaw = [GPXRawElement]()
+        var trkRaw = [GPXRawElement]()
+        var rteRaw = [GPXRawElement]()
+        
+        let root = GPXRoot(raw: rawGPX) // to be returned; includes attributes.
+        
+        for child in rawGPX.children {
+            let name = child.name
+            
+            switch name {
+            case "metadata":
+                let metadata = GPXMetadata(raw: child)
+                root.metadata = metadata
+            case "wpt":
+                wptRaw.append(child)
+            case "rte":
+                rteRaw.append(child)
+            case "trk":
+                trkRaw.append(child)
+            case "extensions":
+                let extensions = GPXExtensions(raw: child)
+                root.extensions = extensions
+            default: continue
+            }
+        }
+            
+        switch type {
+        case .randomRemoval: return lossyRandom(types, [wptRaw, trkRaw, rteRaw], root)
+            
+        default:
+            return nil // error occurred
+            //break
+        }
+    }
 }
 
 
