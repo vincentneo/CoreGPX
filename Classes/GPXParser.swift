@@ -231,6 +231,7 @@ extension GPXParser {
         case routepoint
     }
     /// rawElements = waypoint, track, route
+    /*
     private func lossyRandom(_ types: [GPXParserLossyOptions],_ rawElements: [[GPXRawElement]],_ root: GPXRoot) -> GPXRoot? {
         var rawElements = rawElements
         let kPercent = 0.2
@@ -248,16 +249,63 @@ extension GPXParser {
         }
         return nil
     }
+    */
     
+    private func lossyRandom(_ gpx: GPXRoot, types: [GPXParserLossyOptions]) -> GPXRoot {
+        
+        let gpx = gpx
+        let wptCount = gpx.waypoints.count
+        
+        // Percentage of points to remove
+        let kPercent = 0.2 // 20%
+        
+        if types.contains(.waypoint) {
+            if wptCount != 0 {
+                let removalAmount = Int(kPercent * Double(wptCount))
+                for i in 0...removalAmount {
+                    let randomInt = Int.random(in: 0...wptCount - (i+1))
+                    gpx.waypoints.remove(at: randomInt)
+                }
+            }
+        }
+        
+        if types.contains(.trackpoint) {
+            for track in gpx.tracks {
+                       for segment in track.tracksegments {
+                           let trkptCount = segment.trackpoints.count
+                           if trkptCount != 0 {
+                               let removalAmount = Int(kPercent * Double(trkptCount))
+                               for i in 0...removalAmount {
+                                   let randomInt = Int.random(in: 0...trkptCount - (i+1))
+                                   segment.trackpoints.remove(at: randomInt)
+                               }
+                           }
+                       }
+                   }
+        }
+       
+        
+        if types.contains(.routepoint) {
+            for route in gpx.routes {
+                let rteCount = route.routepoints.count
+                if rteCount != 0 {
+                    let removalAmount = Int(kPercent * Double(rteCount))
+                    for i in 0...removalAmount {
+                        let randomInt = Int.random(in: 0...rteCount - (i+1))
+                        route.routepoints.remove(at: randomInt)
+                    }
+                }
+            }
+        }
+        
+        return gpx
+        
+    }
     public func lossyParsing(type: GPXParserLossyTypes, affecting types: [GPXParserLossyOptions]) -> GPXRoot? {
         self.parser.parse()
         
         guard let firstTag = stack.first else { return nil }
         guard let rawGPX = firstTag.children.first else { return nil }
-        
-        var wptRaw = [GPXRawElement]()
-        var trkRaw = [GPXRawElement]()
-        var rteRaw = [GPXRawElement]()
         
         let root = GPXRoot(raw: rawGPX) // to be returned; includes attributes.
         
@@ -269,20 +317,24 @@ extension GPXParser {
                 let metadata = GPXMetadata(raw: child)
                 root.metadata = metadata
             case "wpt":
-                wptRaw.append(child)
+                let waypoint = GPXWaypoint(raw: child)
+                root.add(waypoint: waypoint)
             case "rte":
-                rteRaw.append(child)
+                let route = GPXRoute(raw: child)
+                root.add(route: route)
             case "trk":
-                trkRaw.append(child)
+                let track = GPXTrack(raw: child)
+                root.add(track: track)
             case "extensions":
                 let extensions = GPXExtensions(raw: child)
                 root.extensions = extensions
             default: continue
             }
+            
         }
             
         switch type {
-        case .randomRemoval: return lossyRandom(types, [wptRaw, trkRaw, rteRaw], root)
+        case .randomRemoval: return lossyRandom(root, types: types)
             
         default:
             return nil // error occurred
