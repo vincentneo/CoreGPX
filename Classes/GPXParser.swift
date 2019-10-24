@@ -230,26 +230,111 @@ extension GPXParser {
         case waypoint
         case routepoint
     }
-    /// rawElements = waypoint, track, route
-    /*
-    private func lossyRandom(_ types: [GPXParserLossyOptions],_ rawElements: [[GPXRawElement]],_ root: GPXRoot) -> GPXRoot? {
-        var rawElements = rawElements
-        let kPercent = 0.2
-        let wptCount = rawElements[0].count
+
+    func stripDuplicates(_ gpx: GPXRoot, types: [GPXParserLossyOptions]) -> GPXRoot {
+        let gpx = gpx
         
-        if wptCount != 0 { // waypoints
-            let amtToRemove = Int(kPercent * Double(wptCount))
-            for i in 0...amtToRemove {
-                let randomInt = Int.random(in: 1...wptCount - (i+1))
-                rawElements[0].remove(at: randomInt)
+        var lastPointCoordinates: (Double?, Double?)
+        var currentPointIndex = 0
+        
+        if types.contains(.waypoint) {
+            for wpt in gpx.waypoints {
+                if lastPointCoordinates == (wpt.latitude, wpt.longitude) {
+                    gpx.waypoints.remove(at: currentPointIndex)
+                }
+                lastPointCoordinates = (wpt.latitude, wpt.longitude)
+                currentPointIndex += 1
             }
+            lastPointCoordinates = (nil,nil)
+            currentPointIndex = 0
         }
-        for track in rawElements[1] {
-            
-        }
-        return nil
+        
+        if types.contains(.trackpoint) {
+             for track in gpx.tracks {
+                        for segment in track.tracksegments {
+                            for trkpt in segment.trackpoints {
+                                if lastPointCoordinates == (trkpt.latitude, trkpt.longitude) {
+                                    segment.trackpoints.remove(at: currentPointIndex)
+                                }
+                                lastPointCoordinates = (trkpt.latitude, trkpt.longitude)
+                                currentPointIndex += 1
+                            }
+                            lastPointCoordinates = (nil,nil)
+                            currentPointIndex = 0
+                        }
+                    }
+         }
+        
+         
+         if types.contains(.routepoint) {
+             for route in gpx.routes {
+                for rtept in route.routepoints {
+                     if lastPointCoordinates == (rtept.latitude, rtept.longitude) {
+                         route.routepoints.remove(at: currentPointIndex)
+                     }
+                     lastPointCoordinates = (rtept.latitude, rtept.longitude)
+                     currentPointIndex += 1
+                 }
+                 lastPointCoordinates = (nil,nil)
+                 currentPointIndex = 0
+             }
+         }
+        
+        return gpx
     }
-    */
+    
+    // distanceRadius in metres
+    func stripNearbyData(_ gpx: GPXRoot, types: [GPXParserLossyOptions], distanceRadius: Double) -> GPXRoot {
+        let gpx = gpx
+        
+        var lastPointCoordinates: (Double?, Double?)
+        var currentPointIndex = 0
+        
+        if types.contains(.waypoint) {
+            for wpt in gpx.waypoints {
+                if Convert.getDistance(from: <#T##pt?#>, and: <#T##pt?#>) {
+                    gpx.waypoints.remove(at: currentPointIndex)
+                }
+                lastPointCoordinates = (wpt.latitude, wpt.longitude)
+                currentPointIndex += 1
+            }
+            lastPointCoordinates = (nil,nil)
+            currentPointIndex = 0
+        }
+        
+        if types.contains(.trackpoint) {
+             for track in gpx.tracks {
+                        for segment in track.tracksegments {
+                            for trkpt in segment.trackpoints {
+                                if lastPointCoordinates == (trkpt.latitude, trkpt.longitude) {
+                                    segment.trackpoints.remove(at: currentPointIndex)
+                                }
+                                lastPointCoordinates = (trkpt.latitude, trkpt.longitude)
+                                currentPointIndex += 1
+                            }
+                            lastPointCoordinates = (nil,nil)
+                            currentPointIndex = 0
+                        }
+                    }
+         }
+        
+         
+         if types.contains(.routepoint) {
+             for route in gpx.routes {
+                for rtept in route.routepoints {
+                     if lastPointCoordinates == (rtept.latitude, rtept.longitude) {
+                         route.routepoints.remove(at: currentPointIndex)
+                     }
+                     lastPointCoordinates = (rtept.latitude, rtept.longitude)
+                     currentPointIndex += 1
+                 }
+                 lastPointCoordinates = (nil,nil)
+                 currentPointIndex = 0
+             }
+         }
+        
+        return gpx
+    }
     
     private func lossyRandom(_ gpx: GPXRoot, types: [GPXParserLossyOptions]) -> GPXRoot {
         
@@ -407,3 +492,4 @@ extension GPXParser: XMLParserDelegate {
         }
     }
 }
+
