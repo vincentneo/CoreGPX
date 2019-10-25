@@ -216,219 +216,6 @@ public final class GPXParser: NSObject {
     
 }
 
-// MARK:- Issue #56
-extension GPXParser {
-    public enum GPXParserLossyTypes {
-        case stripDuplicatesOnly
-        case stripNearbyData
-        case stripBoth
-        case randomRemoval
-    }
-
-    public enum GPXParserLossyOptions {
-        case trackpoint
-        case waypoint
-        case routepoint
-    }
-
-    func stripDuplicates(_ gpx: GPXRoot, types: [GPXParserLossyOptions]) -> GPXRoot {
-        let gpx = gpx
-        
-        var lastPointCoordinates: (Double?, Double?)
-        var currentPointIndex = 0
-        
-        if types.contains(.waypoint) {
-            for wpt in gpx.waypoints {
-                if lastPointCoordinates == (wpt.latitude, wpt.longitude) {
-                    gpx.waypoints.remove(at: currentPointIndex)
-                }
-                lastPointCoordinates = (wpt.latitude, wpt.longitude)
-                currentPointIndex += 1
-            }
-            lastPointCoordinates = (nil,nil)
-            currentPointIndex = 0
-        }
-        
-        if types.contains(.trackpoint) {
-             for track in gpx.tracks {
-                        for segment in track.tracksegments {
-                            for trkpt in segment.trackpoints {
-                                if lastPointCoordinates == (trkpt.latitude, trkpt.longitude) {
-                                    segment.trackpoints.remove(at: currentPointIndex)
-                                }
-                                lastPointCoordinates = (trkpt.latitude, trkpt.longitude)
-                                currentPointIndex += 1
-                            }
-                            lastPointCoordinates = (nil,nil)
-                            currentPointIndex = 0
-                        }
-                    }
-         }
-        
-         
-         if types.contains(.routepoint) {
-             for route in gpx.routes {
-                for rtept in route.routepoints {
-                     if lastPointCoordinates == (rtept.latitude, rtept.longitude) {
-                         route.routepoints.remove(at: currentPointIndex)
-                     }
-                     lastPointCoordinates = (rtept.latitude, rtept.longitude)
-                     currentPointIndex += 1
-                 }
-                 lastPointCoordinates = (nil,nil)
-                 currentPointIndex = 0
-             }
-         }
-        
-        return gpx
-    }
-    
-    // distanceRadius in metres
-    func stripNearbyData(_ gpx: GPXRoot, types: [GPXParserLossyOptions], distanceRadius: Double) -> GPXRoot {
-        let gpx = gpx
-        
-        var lastPointCoordinates: (Double?, Double?)
-        var currentPointIndex = 0
-        
-        if types.contains(.waypoint) {
-            for wpt in gpx.waypoints {
-                if Convert.getDistance(from: <#T##pt?#>, and: <#T##pt?#>) {
-                    gpx.waypoints.remove(at: currentPointIndex)
-                }
-                lastPointCoordinates = (wpt.latitude, wpt.longitude)
-                currentPointIndex += 1
-            }
-            lastPointCoordinates = (nil,nil)
-            currentPointIndex = 0
-        }
-        
-        if types.contains(.trackpoint) {
-             for track in gpx.tracks {
-                        for segment in track.tracksegments {
-                            for trkpt in segment.trackpoints {
-                                if lastPointCoordinates == (trkpt.latitude, trkpt.longitude) {
-                                    segment.trackpoints.remove(at: currentPointIndex)
-                                }
-                                lastPointCoordinates = (trkpt.latitude, trkpt.longitude)
-                                currentPointIndex += 1
-                            }
-                            lastPointCoordinates = (nil,nil)
-                            currentPointIndex = 0
-                        }
-                    }
-         }
-        
-         
-         if types.contains(.routepoint) {
-             for route in gpx.routes {
-                for rtept in route.routepoints {
-                     if lastPointCoordinates == (rtept.latitude, rtept.longitude) {
-                         route.routepoints.remove(at: currentPointIndex)
-                     }
-                     lastPointCoordinates = (rtept.latitude, rtept.longitude)
-                     currentPointIndex += 1
-                 }
-                 lastPointCoordinates = (nil,nil)
-                 currentPointIndex = 0
-             }
-         }
-        
-        return gpx
-    }
-    
-    private func lossyRandom(_ gpx: GPXRoot, types: [GPXParserLossyOptions]) -> GPXRoot {
-        
-        let gpx = gpx
-        let wptCount = gpx.waypoints.count
-        
-        // Percentage of points to remove
-        let kPercent = 0.2 // 20%
-        
-        if types.contains(.waypoint) {
-            if wptCount != 0 {
-                let removalAmount = Int(kPercent * Double(wptCount))
-                for i in 0...removalAmount {
-                    let randomInt = Int.random(in: 0...wptCount - (i+1))
-                    gpx.waypoints.remove(at: randomInt)
-                }
-            }
-        }
-        
-        if types.contains(.trackpoint) {
-            for track in gpx.tracks {
-                       for segment in track.tracksegments {
-                           let trkptCount = segment.trackpoints.count
-                           if trkptCount != 0 {
-                               let removalAmount = Int(kPercent * Double(trkptCount))
-                               for i in 0...removalAmount {
-                                   let randomInt = Int.random(in: 0...trkptCount - (i+1))
-                                   segment.trackpoints.remove(at: randomInt)
-                               }
-                           }
-                       }
-                   }
-        }
-       
-        
-        if types.contains(.routepoint) {
-            for route in gpx.routes {
-                let rteCount = route.routepoints.count
-                if rteCount != 0 {
-                    let removalAmount = Int(kPercent * Double(rteCount))
-                    for i in 0...removalAmount {
-                        let randomInt = Int.random(in: 0...rteCount - (i+1))
-                        route.routepoints.remove(at: randomInt)
-                    }
-                }
-            }
-        }
-        
-        return gpx
-        
-    }
-    public func lossyParsing(type: GPXParserLossyTypes, affecting types: [GPXParserLossyOptions]) -> GPXRoot? {
-        self.parser.parse()
-        
-        guard let firstTag = stack.first else { return nil }
-        guard let rawGPX = firstTag.children.first else { return nil }
-        
-        let root = GPXRoot(raw: rawGPX) // to be returned; includes attributes.
-        
-        for child in rawGPX.children {
-            let name = child.name
-            
-            switch name {
-            case "metadata":
-                let metadata = GPXMetadata(raw: child)
-                root.metadata = metadata
-            case "wpt":
-                let waypoint = GPXWaypoint(raw: child)
-                root.add(waypoint: waypoint)
-            case "rte":
-                let route = GPXRoute(raw: child)
-                root.add(route: route)
-            case "trk":
-                let track = GPXTrack(raw: child)
-                root.add(track: track)
-            case "extensions":
-                let extensions = GPXExtensions(raw: child)
-                root.extensions = extensions
-            default: continue
-            }
-            
-        }
-            
-        switch type {
-        case .randomRemoval: return lossyRandom(root, types: types)
-            
-        default:
-            return nil // error occurred
-            //break
-        }
-    }
-}
-
-
 ///
 /// XML Parser Delegate Implementation
 ///
@@ -493,3 +280,58 @@ extension GPXParser: XMLParserDelegate {
     }
 }
 
+extension GPXParser {
+    public func lossyParsing(type: GPXParserLossyTypes, affecting types: [GPXParserLossyOptions]) -> GPXRoot? {
+        self.parser.parse()
+        
+        guard let firstTag = stack.first else { return nil }
+        guard let rawGPX = firstTag.children.first else { return nil }
+        
+        let root = GPXRoot(raw: rawGPX) // to be returned; includes attributes.
+        
+        for child in rawGPX.children {
+            let name = child.name
+            
+            switch name {
+            case "metadata":
+                let metadata = GPXMetadata(raw: child)
+                root.metadata = metadata
+            case "wpt":
+                let waypoint = GPXWaypoint(raw: child)
+                root.add(waypoint: waypoint)
+            case "rte":
+                let route = GPXRoute(raw: child)
+                root.add(route: route)
+            case "trk":
+                let track = GPXTrack(raw: child)
+                root.add(track: track)
+            case "extensions":
+                let extensions = GPXExtensions(raw: child)
+                root.extensions = extensions
+            default: continue
+            }
+            
+        }
+            
+        switch type {
+        case .randomRemoval: return lossyRandom(root, types: types)
+            
+        default:
+            return nil // error occurred
+            //break
+        }
+    }
+    
+    func compress(gpx: GPXRoot, by type: GPXParserLossyTypes, affecting types: [GPXParserLossyOptions]) -> GPXRoot {
+        switch type {
+            
+        case .randomRemoval: return lossyRandom(gpx, types: types)
+        case .stripNearbyData: return stripNearbyData(gpx, types: types, distanceRadius: 100)
+        case .stripDuplicatesOnly: return stripDuplicates(gpx, types: types)
+        case .stripBoth: let sND = stripNearbyData(gpx, types: types, distanceRadius: 100)
+            return stripDuplicates(sND, types: types)
+            
+        }
+    }
+
+}
