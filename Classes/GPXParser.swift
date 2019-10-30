@@ -325,11 +325,9 @@ extension GPXParser {
     func compress(gpx: GPXRoot, by type: GPXParserLossyTypes, affecting types: [GPXParserLossyOptions]) -> GPXRoot {
         switch type {
             
-        case .randomRemoval: return lossyRandom(gpx, types: types)
-        case .stripNearbyData: return stripNearbyData(gpx, types: types, distanceRadius: 100)
-        case .stripDuplicatesOnly: return stripDuplicates(gpx, types: types)
-        case .stripBoth: let sND = stripNearbyData(gpx, types: types, distanceRadius: 100)
-            return stripDuplicates(sND, types: types)
+        case .randomRemoval: return lossyRandom(gpx, types: types, percent: type.value())
+        case .stripNearbyData: return stripNearbyData(gpx, types: types, distanceRadius: type.value())
+        case .stripDuplicates: return stripDuplicates(gpx, types: types)
             
         }
     }

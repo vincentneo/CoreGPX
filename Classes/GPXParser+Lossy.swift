@@ -10,10 +10,17 @@ import Foundation
 // MARK:- Issue #56
 extension GPXParser {
     public enum GPXParserLossyTypes {
-        case stripDuplicatesOnly
-        case stripNearbyData
-        case stripBoth
-        case randomRemoval
+        case stripDuplicates
+        case stripNearbyData(distanceRadius: Double)
+        case randomRemoval(percentage: Double)
+        
+        func value() -> Double {
+            switch self {
+            case .stripNearbyData(distanceRadius: let rad): return rad
+            case .randomRemoval(percentage: let percent): return percent
+            default: fatalError("GPXParserLossyTypes: No value to get")
+            }
+        }
     }
 
     public enum GPXParserLossyOptions {
@@ -75,7 +82,7 @@ extension GPXParser {
     }
     
     // distanceRadius in metres
-    func stripNearbyData(_ gpx: GPXRoot, types: [GPXParserLossyOptions], distanceRadius: Double) -> GPXRoot {
+    func stripNearbyData(_ gpx: GPXRoot, types: [GPXParserLossyOptions], distanceRadius: Double = 100) -> GPXRoot {
         let gpx = gpx
         
         var lastPointCoordinates: GPXWaypoint?
@@ -142,17 +149,14 @@ extension GPXParser {
         return gpx
     }
     
-    func lossyRandom(_ gpx: GPXRoot, types: [GPXParserLossyOptions]) -> GPXRoot {
+    func lossyRandom(_ gpx: GPXRoot, types: [GPXParserLossyOptions], percent: Double = 0.2) -> GPXRoot {
         
         let gpx = gpx
         let wptCount = gpx.waypoints.count
         
-        // Percentage of points to remove
-        let kPercent = 0.2 // 20%
-        
         if types.contains(.waypoint) {
             if wptCount != 0 {
-                let removalAmount = Int(kPercent * Double(wptCount))
+                let removalAmount = Int(percent * Double(wptCount))
                 for i in 0...removalAmount {
                     let randomInt = Int.random(in: 0...wptCount - (i+1))
                     gpx.waypoints.remove(at: randomInt)
@@ -165,7 +169,7 @@ extension GPXParser {
                        for segment in track.tracksegments {
                            let trkptCount = segment.trackpoints.count
                            if trkptCount != 0 {
-                               let removalAmount = Int(kPercent * Double(trkptCount))
+                               let removalAmount = Int(percent * Double(trkptCount))
                                for i in 0...removalAmount {
                                    let randomInt = Int.random(in: 0...trkptCount - (i+1))
                                    segment.trackpoints.remove(at: randomInt)
@@ -180,7 +184,7 @@ extension GPXParser {
             for route in gpx.routes {
                 let rteCount = route.routepoints.count
                 if rteCount != 0 {
-                    let removalAmount = Int(kPercent * Double(rteCount))
+                    let removalAmount = Int(percent * Double(rteCount))
                     for i in 0...removalAmount {
                         let randomInt = Int.random(in: 0...rteCount - (i+1))
                         route.routepoints.remove(at: randomInt)
