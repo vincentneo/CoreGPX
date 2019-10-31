@@ -29,6 +29,7 @@ extension GPXParser {
         case routepoint
     }
 
+    // NOTE: FIX POINT REMOVALS, DONT USE CURRENTPOINTINDEX
     func stripDuplicates(_ gpx: GPXRoot, types: [GPXParserLossyOptions]) -> GPXRoot {
         let gpx = gpx
         
@@ -84,7 +85,7 @@ extension GPXParser {
     // distanceRadius in metres
     func stripNearbyData(_ gpx: GPXRoot, types: [GPXParserLossyOptions], distanceRadius: Double = 100) -> GPXRoot {
         let gpx = gpx
-        
+        print("DR: \(distanceRadius)")
         var lastPointCoordinates: GPXWaypoint?
 
         if types.contains(.waypoint) {
@@ -108,7 +109,11 @@ extension GPXParser {
                         for segment in track.tracksegments {
                             for trkpt in segment.trackpoints {
                                 if let distance = Convert.getDistance(from: lastPointCoordinates, and: trkpt) {
+                                    print("DIS: \(distance)")
                                     if distance < distanceRadius {
+                                        if let i = segment.trackpoints.firstIndex(of: trkpt) {
+                                            segment.trackpoints.remove(at: i)
+                                        }
                                         lastPointCoordinates = nil
                                         continue
                                     }
