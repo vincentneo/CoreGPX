@@ -314,11 +314,9 @@ extension GPXParser {
         }
             
         switch type {
-        case .randomRemoval: return lossyRandom(root, types: types)
-            
-        default:
-            return nil // error occurred
-            //break
+        case .stripDuplicates: return stripDuplicates(root, types: types)
+        case .stripNearbyData: return stripNearbyData(root, types: types, distanceRadius: type.value())
+        case .randomRemoval: return lossyRandom(root, types: types, percent: type.value())
         }
     }
     

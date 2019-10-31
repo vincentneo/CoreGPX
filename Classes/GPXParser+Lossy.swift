@@ -86,23 +86,21 @@ extension GPXParser {
         let gpx = gpx
         
         var lastPointCoordinates: GPXWaypoint?
-        var currentPointIndex = 0
-        
+
         if types.contains(.waypoint) {
             for wpt in gpx.waypoints {
                 if let distance = Convert.getDistance(from: lastPointCoordinates, and: wpt) {
                     if distance < distanceRadius {
-                        gpx.waypoints.remove(at: currentPointIndex)
+                        if let i = gpx.waypoints.firstIndex(of: wpt) {
+                            gpx.waypoints.remove(at: i)
+                        }
                         lastPointCoordinates = nil
-                        currentPointIndex += 1
                         continue
                     }
                 }
                 lastPointCoordinates = wpt
-                currentPointIndex += 1
             }
             lastPointCoordinates = nil
-            currentPointIndex = 0
         }
         
         if types.contains(.trackpoint) {
@@ -111,17 +109,13 @@ extension GPXParser {
                             for trkpt in segment.trackpoints {
                                 if let distance = Convert.getDistance(from: lastPointCoordinates, and: trkpt) {
                                     if distance < distanceRadius {
-                                        segment.trackpoints.remove(at: currentPointIndex)
                                         lastPointCoordinates = nil
-                                        currentPointIndex += 1
                                         continue
                                     }
                                 }
                                 lastPointCoordinates = trkpt
-                                currentPointIndex += 1
                             }
                             lastPointCoordinates = nil
-                            currentPointIndex = 0
                         }
                     }
          }
@@ -132,17 +126,16 @@ extension GPXParser {
                 for rtept in route.routepoints {
                     if let distance = Convert.getDistance(from: lastPointCoordinates, and: rtept) {
                         if distance < distanceRadius {
-                            route.routepoints.remove(at: currentPointIndex)
+                            if let i = route.routepoints.firstIndex(of: rtept) {
+                                route.routepoints.remove(at: i)
+                            }
                             lastPointCoordinates = nil
-                            currentPointIndex += 1
                             continue
                         }
                     }
                     lastPointCoordinates = rtept
-                    currentPointIndex += 1
                 }
                 lastPointCoordinates = nil
-                currentPointIndex = 0
              }
          }
         
