@@ -66,6 +66,9 @@ open class GPXExtensionsElement: GPXElement, Codable {
         else if let text = text {
             self.addProperty(forValue: text, gpx: gpx, tagName: tagName(), indentationLevel: indentationLevel)
         }
+        else {
+            super.addOpenTag(toGPX: gpx, indentationLevel: indentationLevel)
+        }
     }
     
     override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
@@ -75,6 +78,12 @@ open class GPXExtensionsElement: GPXElement, Codable {
             child.gpx(gpx, indentationLevel: indentationLevel)
         }
         
+    }
+    
+    override func addCloseTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+        if text == nil {
+            gpx.appendCloseTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName())
+        }
     }
  
 }
