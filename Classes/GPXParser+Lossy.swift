@@ -28,38 +28,44 @@ extension GPXParser {
         case waypoint
         case routepoint
     }
-
-    // NOTE: FIX POINT REMOVALS, DONT USE CURRENTPOINTINDEX
+    
+    //
     func stripDuplicates(_ gpx: GPXRoot, types: [GPXParserLossyOptions]) -> GPXRoot {
         let gpx = gpx
-        
-        var lastPointCoordinates: (Double?, Double?)
-        var currentPointIndex = 0
-        
+        var lastPointCoordinates: GPXWaypoint?
+
         if types.contains(.waypoint) {
             for wpt in gpx.waypoints {
-                if lastPointCoordinates == (wpt.latitude, wpt.longitude) {
-                    gpx.waypoints.remove(at: currentPointIndex)
+                if let distance = Convert.getDistance(from: lastPointCoordinates, and: wpt) {
+                    if distance == 0 {
+                        if let i = gpx.waypoints.firstIndex(of: wpt) {
+                            gpx.waypoints.remove(at: i)
+                        }
+                        lastPointCoordinates = nil
+                        continue
+                    }
                 }
-                lastPointCoordinates = (wpt.latitude, wpt.longitude)
-                currentPointIndex += 1
+                lastPointCoordinates = wpt
             }
-            lastPointCoordinates = (nil,nil)
-            currentPointIndex = 0
+            lastPointCoordinates = nil
         }
         
         if types.contains(.trackpoint) {
              for track in gpx.tracks {
                         for segment in track.tracksegments {
                             for trkpt in segment.trackpoints {
-                                if lastPointCoordinates == (trkpt.latitude, trkpt.longitude) {
-                                    segment.trackpoints.remove(at: currentPointIndex)
+                                if let distance = Convert.getDistance(from: lastPointCoordinates, and: trkpt) {
+                                    if distance == 0 {
+                                        if let i = segment.trackpoints.firstIndex(of: trkpt) {
+                                            segment.trackpoints.remove(at: i)
+                                        }
+                                        lastPointCoordinates = nil
+                                        continue
+                                    }
                                 }
-                                lastPointCoordinates = (trkpt.latitude, trkpt.longitude)
-                                currentPointIndex += 1
+                                lastPointCoordinates = trkpt
                             }
-                            lastPointCoordinates = (nil,nil)
-                            currentPointIndex = 0
+                            lastPointCoordinates = nil
                         }
                     }
          }
@@ -68,14 +74,18 @@ extension GPXParser {
          if types.contains(.routepoint) {
              for route in gpx.routes {
                 for rtept in route.routepoints {
-                     if lastPointCoordinates == (rtept.latitude, rtept.longitude) {
-                         route.routepoints.remove(at: currentPointIndex)
-                     }
-                     lastPointCoordinates = (rtept.latitude, rtept.longitude)
-                     currentPointIndex += 1
-                 }
-                 lastPointCoordinates = (nil,nil)
-                 currentPointIndex = 0
+                    if let distance = Convert.getDistance(from: lastPointCoordinates, and: rtept) {
+                        if distance == 0 {
+                            if let i = route.routepoints.firstIndex(of: rtept) {
+                                route.routepoints.remove(at: i)
+                            }
+                            lastPointCoordinates = nil
+                            continue
+                        }
+                    }
+                    lastPointCoordinates = rtept
+                }
+                lastPointCoordinates = nil
              }
          }
         
