@@ -41,10 +41,10 @@ extension GPXParser {
                     if let i = gpx.waypoints.firstIndex(of: wpt) {
                         gpx.waypoints.remove(at: i)
                     }
-                    lastPointCoordinates = nil
+                    lastPointCoordinates = wpt
                     continue
                 }
-                lastPointCoordinates = wpt
+                //lastPointCoordinates = wpt
             }
             lastPointCoordinates = nil
         }
@@ -57,10 +57,10 @@ extension GPXParser {
                                     if let i = segment.trackpoints.firstIndex(of: trkpt) {
                                         segment.trackpoints.remove(at: i)
                                     }
-                                    lastPointCoordinates = nil
+                                    lastPointCoordinates = trkpt
                                     continue
                                 }
-                                lastPointCoordinates = trkpt
+                                //lastPointCoordinates = trkpt
                             }
                             lastPointCoordinates = nil
                         }
@@ -75,10 +75,10 @@ extension GPXParser {
                         if let i = route.routepoints.firstIndex(of: rtept) {
                             route.routepoints.remove(at: i)
                         }
-                        lastPointCoordinates = nil
+                        lastPointCoordinates = rtept
                         continue
                     }
-                    lastPointCoordinates = rtept
+                    //lastPointCoordinates = rtept
                 }
                 lastPointCoordinates = nil
              }
@@ -100,11 +100,11 @@ extension GPXParser {
                         if let i = gpx.waypoints.firstIndex(of: wpt) {
                             gpx.waypoints.remove(at: i)
                         }
-                        lastPointCoordinates = nil
+                        lastPointCoordinates = wpt
                         continue
                     }
                 }
-                lastPointCoordinates = wpt
+                //lastPointCoordinates = wpt
             }
             lastPointCoordinates = nil
         }
@@ -119,11 +119,11 @@ extension GPXParser {
                                         if let i = segment.trackpoints.firstIndex(of: trkpt) {
                                             segment.trackpoints.remove(at: i)
                                         }
-                                        lastPointCoordinates = nil
+                                        lastPointCoordinates = trkpt
                                         continue
                                     }
                                 }
-                                lastPointCoordinates = trkpt
+                                //lastPointCoordinates = trkpt
                             }
                             lastPointCoordinates = nil
                         }
@@ -139,11 +139,11 @@ extension GPXParser {
                             if let i = route.routepoints.firstIndex(of: rtept) {
                                 route.routepoints.remove(at: i)
                             }
-                            lastPointCoordinates = nil
+                            lastPointCoordinates = rtept
                             continue
                         }
                     }
-                    lastPointCoordinates = rtept
+                    //lastPointCoordinates = rtept
                 }
                 lastPointCoordinates = nil
              }
