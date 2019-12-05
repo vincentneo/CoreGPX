@@ -38,10 +38,11 @@ extension GPXParser {
         if types.contains(.waypoint) {
             for wpt in gpx.waypoints {
                 if wpt.compareCoordinates(with: lastPointCoordinates) {
+                    lastPointCoordinates = wpt
                     if let i = gpx.waypoints.firstIndex(of: wpt) {
                         gpx.waypoints.remove(at: i)
                     }
-                    lastPointCoordinates = wpt
+                    
                     continue
                 }
                 //lastPointCoordinates = wpt
@@ -54,10 +55,11 @@ extension GPXParser {
                         for segment in track.tracksegments {
                             for trkpt in segment.trackpoints {
                                 if trkpt.compareCoordinates(with: lastPointCoordinates) {
+                                    lastPointCoordinates = trkpt
                                     if let i = segment.trackpoints.firstIndex(of: trkpt) {
                                         segment.trackpoints.remove(at: i)
                                     }
-                                    lastPointCoordinates = trkpt
+                                    
                                     continue
                                 }
                                 //lastPointCoordinates = trkpt
@@ -72,10 +74,11 @@ extension GPXParser {
              for route in gpx.routes {
                 for rtept in route.routepoints {
                     if rtept.compareCoordinates(with: lastPointCoordinates) {
+                        lastPointCoordinates = rtept
                         if let i = route.routepoints.firstIndex(of: rtept) {
                             route.routepoints.remove(at: i)
                         }
-                        lastPointCoordinates = rtept
+                        
                         continue
                     }
                     //lastPointCoordinates = rtept
@@ -97,10 +100,10 @@ extension GPXParser {
             for wpt in gpx.waypoints {
                 if let distance = Convert.getDistance(from: lastPointCoordinates, and: wpt) {
                     if distance < distanceRadius {
+                        lastPointCoordinates = wpt
                         if let i = gpx.waypoints.firstIndex(of: wpt) {
                             gpx.waypoints.remove(at: i)
                         }
-                        lastPointCoordinates = wpt
                         continue
                     }
                 }
@@ -116,10 +119,11 @@ extension GPXParser {
                                 if let distance = Convert.getDistance(from: lastPointCoordinates, and: trkpt) {
                                     print("DIS: \(distance)")
                                     if distance < distanceRadius {
+                                        lastPointCoordinates = trkpt
                                         if let i = segment.trackpoints.firstIndex(of: trkpt) {
                                             segment.trackpoints.remove(at: i)
                                         }
-                                        lastPointCoordinates = trkpt
+                                        
                                         continue
                                     }
                                 }
@@ -136,10 +140,11 @@ extension GPXParser {
                 for rtept in route.routepoints {
                     if let distance = Convert.getDistance(from: lastPointCoordinates, and: rtept) {
                         if distance < distanceRadius {
+                            lastPointCoordinates = rtept
                             if let i = route.routepoints.firstIndex(of: rtept) {
                                 route.routepoints.remove(at: i)
                             }
-                            lastPointCoordinates = rtept
+                            
                             continue
                         }
                     }
