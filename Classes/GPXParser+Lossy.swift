@@ -36,14 +36,12 @@ extension GPXParser {
 
         if types.contains(.waypoint) {
             for wpt in gpx.waypoints {
-                if let distance = Convert.getDistance(from: lastPointCoordinates, and: wpt) {
-                    if distance == 0 {
-                        if let i = gpx.waypoints.firstIndex(of: wpt) {
-                            gpx.waypoints.remove(at: i)
-                        }
-                        lastPointCoordinates = nil
-                        continue
+                if wpt.compareCoordinates(with: lastPointCoordinates) {
+                    if let i = gpx.waypoints.firstIndex(of: wpt) {
+                        gpx.waypoints.remove(at: i)
                     }
+                    lastPointCoordinates = nil
+                    continue
                 }
                 lastPointCoordinates = wpt
             }
@@ -54,14 +52,12 @@ extension GPXParser {
              for track in gpx.tracks {
                         for segment in track.tracksegments {
                             for trkpt in segment.trackpoints {
-                                if let distance = Convert.getDistance(from: lastPointCoordinates, and: trkpt) {
-                                    if distance == 0 {
-                                        if let i = segment.trackpoints.firstIndex(of: trkpt) {
-                                            segment.trackpoints.remove(at: i)
-                                        }
-                                        lastPointCoordinates = nil
-                                        continue
+                                if trkpt.compareCoordinates(with: lastPointCoordinates) {
+                                    if let i = segment.trackpoints.firstIndex(of: trkpt) {
+                                        segment.trackpoints.remove(at: i)
                                     }
+                                    lastPointCoordinates = nil
+                                    continue
                                 }
                                 lastPointCoordinates = trkpt
                             }
@@ -74,14 +70,12 @@ extension GPXParser {
          if types.contains(.routepoint) {
              for route in gpx.routes {
                 for rtept in route.routepoints {
-                    if let distance = Convert.getDistance(from: lastPointCoordinates, and: rtept) {
-                        if distance == 0 {
-                            if let i = route.routepoints.firstIndex(of: rtept) {
-                                route.routepoints.remove(at: i)
-                            }
-                            lastPointCoordinates = nil
-                            continue
+                    if rtept.compareCoordinates(with: lastPointCoordinates) {
+                        if let i = route.routepoints.firstIndex(of: rtept) {
+                            route.routepoints.remove(at: i)
                         }
+                        lastPointCoordinates = nil
+                        continue
                     }
                     lastPointCoordinates = rtept
                 }
@@ -244,4 +238,11 @@ extension Convert {
         return haversineDistance(la1: lat1, lo1: lon1, la2: lat2, lo2: lon2)
     }
     
+}
+
+extension GPXWaypoint {
+    fileprivate func compareCoordinates<pt: GPXWaypoint>(with pointType: pt?) -> Bool {
+        guard let pointType = pointType else { return false }
+        return (self.latitude == pointType.latitude && self.longitude == pointType.longitude) ? true : false
+    }
 }
