@@ -9,7 +9,8 @@ import Foundation
 
 // MARK:- Issue #56
 extension GPXParser {
-    public enum GPXParserLossyTypes {
+    public enum lossyTypes {
+        
         case stripDuplicates
         case stripNearbyData(distanceRadius: Double)
         case randomRemoval(percentage: Double)
@@ -23,14 +24,14 @@ extension GPXParser {
         }
     }
 
-    public enum GPXParserLossyOptions {
+    public enum lossyOptions {
         case trackpoint
         case waypoint
         case routepoint
     }
     
     //
-    func stripDuplicates(_ gpx: GPXRoot, types: [GPXParserLossyOptions]) -> GPXRoot {
+    func stripDuplicates(_ gpx: GPXRoot, types: [lossyOptions]) -> GPXRoot {
         let gpx = gpx
         var lastPointCoordinates: GPXWaypoint?
 
@@ -87,7 +88,7 @@ extension GPXParser {
     }
     
     // distanceRadius in metres
-    func stripNearbyData(_ gpx: GPXRoot, types: [GPXParserLossyOptions], distanceRadius: Double = 100) -> GPXRoot {
+    func stripNearbyData(_ gpx: GPXRoot, types: [lossyOptions], distanceRadius: Double = 100) -> GPXRoot {
         let gpx = gpx
         print("DR: \(distanceRadius)")
         var lastPointCoordinates: GPXWaypoint?
@@ -151,7 +152,7 @@ extension GPXParser {
         return gpx
     }
     
-    func lossyRandom(_ gpx: GPXRoot, types: [GPXParserLossyOptions], percent: Double = 0.2) -> GPXRoot {
+    func lossyRandom(_ gpx: GPXRoot, types: [lossyOptions], percent: Double = 0.2) -> GPXRoot {
         
         let gpx = gpx
         let wptCount = gpx.waypoints.count
@@ -246,3 +247,25 @@ extension GPXWaypoint {
         return (self.latitude == pointType.latitude && self.longitude == pointType.longitude) ? true : false
     }
 }
+
+
+extension GPXParser.lossyTypes: RawRepresentable {
+    public typealias RawValue = Int
+    
+    public init?(rawValue: Int) {
+        return nil // unimplemented
+    }
+    
+
+
+    
+    public var rawValue: Int {
+        switch self {
+        case .stripDuplicates: return 0
+        case .stripNearbyData: return 1
+        case .randomRemoval: return 2
+        }
+    }
+    
+}
+

@@ -281,7 +281,7 @@ extension GPXParser: XMLParserDelegate {
 }
 
 extension GPXParser {
-    public func lossyParsing(type: GPXParserLossyTypes, affecting types: [GPXParserLossyOptions]) -> GPXRoot? {
+    public func lossyParsing(type: lossyTypes, affecting types: [lossyOptions]) -> GPXRoot? {
         self.parser.parse()
         
         guard let firstTag = stack.first else { return nil }
@@ -320,7 +320,7 @@ extension GPXParser {
         }
     }
     
-    func compress(gpx: GPXRoot, by type: GPXParserLossyTypes, affecting types: [GPXParserLossyOptions]) -> GPXRoot {
+    func compress(gpx: GPXRoot, by type: lossyTypes, affecting types: [lossyOptions]) -> GPXRoot {
         switch type {
             
         case .randomRemoval: return lossyRandom(gpx, types: types, percent: type.value())
