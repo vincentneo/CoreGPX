@@ -137,13 +137,14 @@ extension GPXParser {
             for wpt in gpx.waypoints {
                 if let distance = Convert.getDistance(from: lastPointCoordinates, and: wpt) {
                     if distance < distanceRadius {
-                        lastPointCoordinates = wpt
                         if let i = gpx.waypoints.firstIndex(of: wpt) {
                             gpx.waypoints.remove(at: i)
                         }
+                        lastPointCoordinates = nil
                         continue
                     }
                 }
+                lastPointCoordinates = wpt
             }
             lastPointCoordinates = nil
         }
@@ -155,14 +156,14 @@ extension GPXParser {
                                 if let distance = Convert.getDistance(from: lastPointCoordinates, and: trkpt) {
                                     print("DIS: \(distance)")
                                     if distance < distanceRadius {
-                                        lastPointCoordinates = trkpt
                                         if let i = segment.trackpoints.firstIndex(of: trkpt) {
                                             segment.trackpoints.remove(at: i)
                                         }
-                                        
+                                        lastPointCoordinates = nil
                                         continue
                                     }
                                 }
+                                lastPointCoordinates = trkpt
                             }
                             lastPointCoordinates = nil
                         }
@@ -175,14 +176,14 @@ extension GPXParser {
                 for rtept in route.routepoints {
                     if let distance = Convert.getDistance(from: lastPointCoordinates, and: rtept) {
                         if distance < distanceRadius {
-                            lastPointCoordinates = rtept
                             if let i = route.routepoints.firstIndex(of: rtept) {
                                 route.routepoints.remove(at: i)
                             }
-                            
+                            lastPointCoordinates = nil
                             continue
                         }
                     }
+                    lastPointCoordinates = rtept
                 }
                 lastPointCoordinates = nil
              }
