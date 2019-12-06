@@ -33,23 +33,26 @@ extension GPXParser {
     //
     func stripDuplicates(_ gpx: GPXRoot, types: [lossyOptions]) -> GPXRoot {
         let gpx = gpx
-        var lastPointCoordinates = [GPXWaypoint]() // NOTE TO SELF: last point coordinates should keep a copy of deleted wpt even aft deletion. Pls solve
+        
+        var lastWaypoints = [GPXWaypoint]()
+        var lastTrackpoints = [GPXTrackPoint]()
+        var lastRoutepoints = [GPXRoutePoint]()
 
         if types.contains(.waypoint) {
             for wpt in gpx.waypoints {
-                if wpt.compareCoordinates(with: lastPointCoordinates.last) {
-                    lastPointCoordinates.append(wpt)
+                if wpt.compareCoordinates(with: lastWaypoints.last) {
+                    lastWaypoints.append(wpt)
                     continue
                 }
                 else {
-                    if lastPointCoordinates.isEmpty {
-                        lastPointCoordinates.append(wpt)
+                    if lastWaypoints.isEmpty {
+                        lastWaypoints.append(wpt)
                         continue
                     }
-                    for dupWpt in lastPointCoordinates {
-                        if dupWpt == lastPointCoordinates.last {
-                            lastPointCoordinates = [GPXWaypoint]()
-                            lastPointCoordinates.append(wpt)
+                    for (index,dupWpt) in lastWaypoints.enumerated() {
+                        if index == lastWaypoints.endIndex - 1 {
+                            lastWaypoints = [GPXWaypoint]()
+                            lastWaypoints.append(wpt)
                         }
                         else if let i = gpx.waypoints.firstIndex(of: dupWpt) {
                             gpx.waypoints.remove(at: i)
@@ -59,35 +62,35 @@ extension GPXParser {
                 }
             }
 
-            lastPointCoordinates = [GPXWaypoint]()
+            lastWaypoints = [GPXWaypoint]()
         }
         
         if types.contains(.trackpoint) {
              for track in gpx.tracks {
                         for segment in track.tracksegments {
                             for trkpt in segment.trackpoints {
-                                if trkpt.compareCoordinates(with: lastPointCoordinates.last) {
-                                    lastPointCoordinates.append(trkpt)
+                                if trkpt.compareCoordinates(with: lastTrackpoints.last) {
+                                    lastTrackpoints.append(trkpt)
                                     continue
                                 }
                                 else {
-                                    if lastPointCoordinates.isEmpty {
-                                        lastPointCoordinates.append(trkpt)
+                                    if lastTrackpoints.isEmpty {
+                                        lastTrackpoints.append(trkpt)
                                         continue
                                     }
-                                    for dupTrkpt in lastPointCoordinates {
-                                        if dupTrkpt == lastPointCoordinates.last {
-                                            lastPointCoordinates = [GPXWaypoint]()
-                                            lastPointCoordinates.append(trkpt)
+                                    for (index,dupTrkpt) in lastTrackpoints.enumerated() {
+                                        if index == lastTrackpoints.endIndex - 1 {
+                                            lastTrackpoints = [GPXTrackPoint]()
+                                            lastTrackpoints.append(trkpt)
                                         }
-                                        else if let i = gpx.waypoints.firstIndex(of: dupTrkpt) {
+                                        else if let i = segment.trackpoints.firstIndex(of: dupTrkpt) {
                                             segment.trackpoints.remove(at: i)
                                         }
                                     }
 
                                 }
                             }
-                            lastPointCoordinates = [GPXWaypoint]()
+                            lastTrackpoints = [GPXTrackPoint]()
                         }
                     }
          }
@@ -96,28 +99,28 @@ extension GPXParser {
          if types.contains(.routepoint) {
              for route in gpx.routes {
                 for rtept in route.routepoints {
-                   if rtept.compareCoordinates(with: lastPointCoordinates.last) {
-                        lastPointCoordinates.append(rtept)
+                   if rtept.compareCoordinates(with: lastRoutepoints.last) {
+                        lastRoutepoints.append(rtept)
                         continue
                     }
                     else {
-                        if lastPointCoordinates.isEmpty {
-                            lastPointCoordinates.append(rtept)
+                        if lastRoutepoints.isEmpty {
+                            lastRoutepoints.append(rtept)
                             continue
                         }
-                        for dupRtept in lastPointCoordinates {
-                            if dupRtept == lastPointCoordinates.last {
-                                lastPointCoordinates = [GPXWaypoint]()
-                                lastPointCoordinates.append(rtept)
+                        for (index,dupRtept) in lastRoutepoints.enumerated() {
+                            if index == lastRoutepoints.endIndex - 1 {
+                                lastRoutepoints = [GPXRoutePoint]()
+                                lastRoutepoints.append(rtept)
                             }
-                            else if let i = gpx.waypoints.firstIndex(of: dupRtept) {
+                            else if let i = route.routepoints.firstIndex(of: dupRtept) {
                                 route.routepoints.remove(at: i)
                             }
                         }
 
                     }
                 }
-                lastPointCoordinates = [GPXWaypoint]()
+                lastRoutepoints = [GPXRoutePoint]()
              }
          }
         
@@ -141,7 +144,6 @@ extension GPXParser {
                         continue
                     }
                 }
-                //lastPointCoordinates = wpt
             }
             lastPointCoordinates = nil
         }
@@ -161,7 +163,6 @@ extension GPXParser {
                                         continue
                                     }
                                 }
-                                //lastPointCoordinates = trkpt
                             }
                             lastPointCoordinates = nil
                         }
@@ -182,7 +183,6 @@ extension GPXParser {
                             continue
                         }
                     }
-                    //lastPointCoordinates = rtept
                 }
                 lastPointCoordinates = nil
              }
