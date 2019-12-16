@@ -241,6 +241,7 @@ public class GPXWaypoint: GPXElement, Codable {
             case "cmt":         self.comment = child.text
             case "desc":        self.desc = child.text
             case "src":         self.source = child.text
+            case "link":        self.link = GPXLink(raw: child)
             case "sym":         self.symbol = child.text
             case "type":        self.type = child.text
             case "fix":         self.fix = GPXFix(rawValue: child.text ?? "none")
