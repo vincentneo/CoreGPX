@@ -8,7 +8,18 @@
 import Foundation
 
 // MARK:- Issue #56
-extension GPXParser {
+public class GPXCompression {
+    
+    public static func compress(gpx: GPXRoot, by type: lossyTypes, affecting types: [lossyOptions]) -> GPXRoot {
+        switch type {
+            
+        case .randomRemoval: return lossyRandom(gpx, types: types, percent: type.value())
+        case .stripNearbyData: return stripNearbyData(gpx, types: types, distanceRadius: type.value())
+        case .stripDuplicates: return stripDuplicates(gpx, types: types)
+            
+        }
+    }
+    
     public enum lossyTypes {
         
         case stripDuplicates
@@ -31,7 +42,7 @@ extension GPXParser {
     }
     
     //
-    func stripDuplicates(_ gpx: GPXRoot, types: [lossyOptions]) -> GPXRoot {
+    static func stripDuplicates(_ gpx: GPXRoot, types: [lossyOptions]) -> GPXRoot {
         let gpx = gpx
         
         var lastWaypoints = [GPXWaypoint]()
@@ -128,14 +139,14 @@ extension GPXParser {
     }
     
     // distanceRadius in metres
-    func stripNearbyData(_ gpx: GPXRoot, types: [lossyOptions], distanceRadius: Double = 100) -> GPXRoot {
+    static func stripNearbyData(_ gpx: GPXRoot, types: [lossyOptions], distanceRadius: Double = 100) -> GPXRoot {
         let gpx = gpx
         print("DR: \(distanceRadius)")
         var lastPointCoordinates: GPXWaypoint?
 
         if types.contains(.waypoint) {
             for wpt in gpx.waypoints {
-                if let distance = Convert.getDistance(from: lastPointCoordinates, and: wpt) {
+                if let distance = GPXCompressionCalculate.getDistance(from: lastPointCoordinates, and: wpt) {
                     if distance < distanceRadius {
                         if let i = gpx.waypoints.firstIndex(of: wpt) {
                             gpx.waypoints.remove(at: i)
@@ -153,7 +164,7 @@ extension GPXParser {
              for track in gpx.tracks {
                         for segment in track.tracksegments {
                             for trkpt in segment.trackpoints {
-                                if let distance = Convert.getDistance(from: lastPointCoordinates, and: trkpt) {
+                                if let distance = GPXCompressionCalculate.getDistance(from: lastPointCoordinates, and: trkpt) {
                                     print("DIS: \(distance)")
                                     if distance < distanceRadius {
                                         if let i = segment.trackpoints.firstIndex(of: trkpt) {
@@ -174,7 +185,7 @@ extension GPXParser {
          if types.contains(.routepoint) {
              for route in gpx.routes {
                 for rtept in route.routepoints {
-                    if let distance = Convert.getDistance(from: lastPointCoordinates, and: rtept) {
+                    if let distance = GPXCompressionCalculate.getDistance(from: lastPointCoordinates, and: rtept) {
                         if distance < distanceRadius {
                             if let i = route.routepoints.firstIndex(of: rtept) {
                                 route.routepoints.remove(at: i)
@@ -192,7 +203,7 @@ extension GPXParser {
         return gpx
     }
     
-    func lossyRandom(_ gpx: GPXRoot, types: [lossyOptions], percent: Double = 0.2) -> GPXRoot {
+    static func lossyRandom(_ gpx: GPXRoot, types: [lossyOptions], percent: Double = 0.2) -> GPXRoot {
         
         let gpx = gpx
         let wptCount = gpx.waypoints.count
@@ -242,8 +253,49 @@ extension GPXParser {
     
 }
 
+extension GPXCompression.lossyTypes: RawRepresentable {
+    public typealias RawValue = Int
+    
+    
+    /// Initializes raw
+    public init?(rawValue: Int, value: Double?) {
+        switch rawValue {
+        case 0:
+            self = .stripDuplicates // init will still run even if value has something.
+        case 1:
+            guard let value = value else { fatalError("\(rawValue): Invalid value.") }
+            self = .stripNearbyData(distanceRadius: value)
+        case 2:
+            guard let value = value else { fatalError("\(rawValue): Invalid value.") }
+            self = .randomRemoval(percentage: value)
+        default:
+            fatalError("Invalid rawValue.")
+        }
+    }
+    
+    /// Default Initializer. Not recommended for use.
+    public init?(rawValue: Int) {
+        if rawValue == 0 {
+            self = .stripDuplicates
+        }
+        else {
+            fatalError("This initalizer is NOT supported for this associated type. Please use init(rawValue:value:) instead.")
+        }
+    }
+    
+    public var rawValue: Int {
+        switch self {
+        case .stripDuplicates: return 0
+        case .stripNearbyData: return 1
+        case .randomRemoval: return 2
+        }
+    }
+    
+}
+
+
 /// Extension for distance between points calculation, without `CoreLocation` APIs.
-extension Convert {
+class GPXCompressionCalculate {
     
     /// Calculates distance between two coordinate points, returns in metres (m).
     ///
@@ -286,26 +338,5 @@ extension GPXWaypoint {
         guard let pointType = pointType else { return false }
         return (self.latitude == pointType.latitude && self.longitude == pointType.longitude) ? true : false
     }
-}
-
-
-extension GPXParser.lossyTypes: RawRepresentable {
-    public typealias RawValue = Int
-    
-    public init?(rawValue: Int) {
-        return nil // unimplemented
-    }
-    
-
-
-    
-    public var rawValue: Int {
-        switch self {
-        case .stripDuplicates: return 0
-        case .stripNearbyData: return 1
-        case .randomRemoval: return 2
-        }
-    }
-    
 }
 
