@@ -68,16 +68,16 @@ public final class GPXMetadata: GPXElement, Codable {
     init(raw: GPXRawElement) {
         super.init()
         for child in raw.children {
-            let text = child.text
+            //let text = child.text
             
             switch child.name {
-            case "name":        self.name = text
-            case "desc":        self.desc = text
+            case "name":        self.name = child.text
+            case "desc":        self.desc = child.text
             case "author":      self.author = GPXAuthor(raw: child)
             case "copyright":   self.copyright = GPXCopyright(raw: child)
             case "link":        self.link = GPXLink(raw: child)
-            case "time":        self.time = GPXDateParser.parse(date: text)
-            case "keywords":    self.keyword = text
+            case "time":        self.time = GPXDateParser.parse(date: child.text)
+            case "keyword":     self.keyword = child.text
             case "bounds":      self.bounds = GPXBounds(raw: child)
             case "extensions":  self.extensions = GPXExtensions(raw: child)
             default: continue
