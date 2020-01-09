@@ -137,7 +137,7 @@
 		06E95C5A2842B177852DDE7EF191CCAB /* CoreGPX-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CoreGPX-umbrella.h"; sourceTree = "<group>"; };
 		1235C6DC221C44B1006EE067 /* CoreGPX.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CoreGPX.xcodeproj; path = ../CoreGPX.xcodeproj; sourceTree = "<group>"; };
 		124A780822A8A52300D51D50 /* NSMutableString+XML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NSMutableString+XML.swift"; path = "Classes/NSMutableString+XML.swift"; sourceTree = "<group>"; };
-		125A8B1D2362BF5900E00ECD /* GPXCompression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXCompression.swift; sourceTree = "<group>"; };
+		125A8B1D2362BF5900E00ECD /* GPXCompression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GPXCompression.swift; path = Classes/GPXCompression.swift; sourceTree = "<group>"; };
 		171B80D4BA423019BBC5DA54E387180A /* GPXTrackSegment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXTrackSegment.swift; path = Classes/GPXTrackSegment.swift; sourceTree = "<group>"; };
 		1D2E30143C1734DE1D811B70D043A405 /* CoreGPX-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CoreGPX-prefix.pch"; sourceTree = "<group>"; };
 		27D4563E6DE8F7E40ACEB108805D72A7 /* Pods-CoreGPX_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CoreGPX_Tests-frameworks.sh"; sourceTree = "<group>"; };
