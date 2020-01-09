@@ -93,7 +93,7 @@ public final class GPXParser: NSObject {
     ///
     public convenience init?(withRawString string: String?) {
         if let string = string {
-            if let data = string.data(using: .utf8) {
+            if let data = string.data(using: .utf8) { // refactor
                 self.init(withData: data)
             }
             else { return nil }
@@ -216,7 +216,6 @@ public final class GPXParser: NSObject {
     
 }
 
-
 ///
 /// XML Parser Delegate Implementation
 ///
@@ -279,4 +278,46 @@ extension GPXParser: XMLParserDelegate {
             if !shouldContinueAfterFirstError { parser.abortParsing() }
         }
     }
+}
+
+extension GPXParser {
+    public func lossyParsing(type: GPXCompression.lossyTypes, affecting types: [GPXCompression.lossyOptions]) -> GPXRoot? {
+        self.parser.parse()
+        
+        guard let firstTag = stack.first else { return nil }
+        guard let rawGPX = firstTag.children.first else { return nil }
+        
+        let root = GPXRoot(raw: rawGPX) // to be returned; includes attributes.
+        
+        for child in rawGPX.children {
+            let name = child.name
+            
+            switch name {
+            case "metadata":
+                let metadata = GPXMetadata(raw: child)
+                root.metadata = metadata
+            case "wpt":
+                let waypoint = GPXWaypoint(raw: child)
+                root.add(waypoint: waypoint)
+            case "rte":
+                let route = GPXRoute(raw: child)
+                root.add(route: route)
+            case "trk":
+                let track = GPXTrack(raw: child)
+                root.add(track: track)
+            case "extensions":
+                let extensions = GPXExtensions(raw: child)
+                root.extensions = extensions
+            default: continue
+            }
+            
+        }
+            
+        switch type {
+        case .stripDuplicates: return GPXCompression.stripDuplicates(root, types: types)
+        case .stripNearbyData: return GPXCompression.stripNearbyData(root, types: types, distanceRadius: type.value())
+        case .randomRemoval: return GPXCompression.lossyRandom(root, types: types, percent: type.value())
+        }
+    }
+
 }
