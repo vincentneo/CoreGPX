@@ -8,7 +8,7 @@
 </p>
 
 [![CI Status](https://travis-ci.com/vincentneo/CoreGPX.svg?branch=master)](https://travis-ci.com/vincentneo/CoreGPX)
-[![Swift Version](https://img.shields.io/badge/Swift-5.0-orange.svg)](https://swift.org/blog/swift-5-released/)
+[![Swift Version](https://img.shields.io/badge/Swift-5.1-orange.svg)](https://swift.org/blog/swift-5-1-released/)
 [![GPX Version](https://img.shields.io/badge/gpx-1.1-yellow.svg)](https://www.topografix.com/gpx/1/1/)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 [![Platform](https://img.shields.io/cocoapods/p/CoreGPX.svg?style=flat)](https://cocoapods.org/pods/CoreGPX)
@@ -29,6 +29,7 @@ As it makes use of `XMLParser` for parsing GPX files, CoreGPX is fully dependent
 - [x] Support for iOS, macOS & watchOS
 - [x] **(new)** Supports `Codable` in essential classes
 - [x] **(new)** Enhanced full support for `GPXExtensions` for both parsing and creating. 
+- [x] **(new)** Lossy GPX compression. Check out [GPXCompressor](https://github.com/vincentneo/GPXCompressor) for an implementation of this new feature.
 
 ## Documentation
 
@@ -186,6 +187,10 @@ To run the example project, simply clone the repo, and try it out straight away!
 ## Contributing
 Contributions to this project will be more than welcomed. Feel free to add a pull request or open an issue.
 If you require a feature that has yet to be available, do open an issue, describing why and what the feature could bring and how it would help you!
+
+## Like the project? Check out these too!
+- [iOS-Open-GPX-Tracker](https://github.com/merlos/iOS-Open-GPX-Tracker), an awesome open-sourced GPS tracker for iOS and watchOS.
+- [LocaleComplete](https://github.com/vincentneo/LocaleComplete), a small library to make `Locale` identifier hunting more easy and straightforward.
 
 ## License
 CoreGPX is available under the MIT license. See the LICENSE file for more info. 
