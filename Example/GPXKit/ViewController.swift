@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         let urlString : String = "https://raw.githubusercontent.com/gps-touring/sample-gpx/master/BrittanyJura/Courgenay_Ballon-DAlsace.gpx"
         let url: URL = URL(string: urlString)!
         
+        
         // GPXRoot object that contains all the data parsed from GPXParser.
         guard let gpx = GPXParser(withURL: url)?.parsedData() else { return }
         
