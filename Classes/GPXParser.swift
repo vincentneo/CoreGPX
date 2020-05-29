@@ -281,6 +281,9 @@ extension GPXParser: XMLParserDelegate {
 }
 
 extension GPXParser {
+    /// Parse GPX file, while lossy compressing it straight away, post-parsing.
+    ///
+    /// Great for basic direct compression needs.
     public func lossyParsing(type: GPXCompression.lossyTypes, affecting types: [GPXCompression.lossyOptions]) -> GPXRoot? {
         self.parser.parse()
         
