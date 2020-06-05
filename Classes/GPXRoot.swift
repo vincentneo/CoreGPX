@@ -7,6 +7,36 @@
 
 import Foundation
 
+enum GPXVersion {
+    case pre4, pre5, pre6, v1, v1_1
+}
+
+public protocol GPXRootElement: GPXElement {
+    var version: String { get set }
+    var creator: String? { get set }
+}
+
+public final class GPXLegacyRoot: GPXElement, GPXRootElement {
+    public var version: String = "1.0"
+    public var creator: String?
+    
+    public var name: String?
+    public var desc: String?
+    public var author: String?
+    public var email: GPXEmail?
+    public var url: String?
+    public var urlName: String?
+    public var time: Date?
+    public var keywords: String?
+    
+    public var waypoints: [GPXWaypoint]?
+    public var route: GPXRoute?
+    public var track: GPXTrack?
+    
+    
+    
+}
+
 /**
     Creation of a GPX file or GPX formatted string starts here
  
