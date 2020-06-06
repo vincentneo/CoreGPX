@@ -23,12 +23,12 @@ public final class GPXLegacyRoot: GPXElement, GPXRootElement {
     public var name: String?
     public var desc: String?
     public var author: String?
-    public var email: GPXEmail?
+    public var email: String? // verifies if got @ in it.
     public var url: String?
     public var urlName: String?
     public var time: Date?
     public var keywords: String?
-    
+    public var bounds: GPXBounds?
     public var waypoints: [GPXWaypoint]?
     public var route: GPXRoute?
     public var track: GPXTrack?
