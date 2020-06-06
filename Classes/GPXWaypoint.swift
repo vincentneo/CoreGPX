@@ -7,40 +7,6 @@
 
 import Foundation
 
-public final class GPXLegacyWaypoint: GPXElement, GPXWaypointProtocol {
-    public var elevation: Double?
-    public var time: Date?
-    public var magneticVariation: Double?
-    public var geoidHeight: Double?
-    public var name: String?
-    public var comment: String?
-    public var desc: String?
-    public var source: String?
-    public var symbol: String?
-    public var type: String?
-    public var fix: GPXFix?
-    public var satellites: Int?
-    public var horizontalDilution: Double?
-    public var verticalDilution: Double?
-    public var positionDilution: Double?
-    public var ageofDGPSData: Double?
-    public var DGPSid: Int?
-    
-    public var latitude: Double?
-    public var longitude: Double?
-    
-    //public var course: Double? for trkpt only.
-    //public var speed: Double?
-    public var url: String?
-    public var urlName: String?
-    
-    override func tagName() -> String {
-        return "wpt"
-    }
-    
-    
-}
-
 public protocol GPXWaypointProtocol: GPXElement {
     // MARK:- Attributes of a waypoint
     
