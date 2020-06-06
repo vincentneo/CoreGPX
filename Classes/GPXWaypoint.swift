@@ -7,6 +7,162 @@
 
 import Foundation
 
+public final class GPXLegacyWaypoint: GPXElement, GPXWaypointProtocol {
+    public var elevation: Double?
+    public var time: Date?
+    public var magneticVariation: Double?
+    public var geoidHeight: Double?
+    public var name: String?
+    public var comment: String?
+    public var desc: String?
+    public var source: String?
+    public var symbol: String?
+    public var type: String?
+    public var fix: GPXFix?
+    public var satellites: Int?
+    public var horizontalDilution: Double?
+    public var verticalDilution: Double?
+    public var positionDilution: Double?
+    public var ageofDGPSData: Double?
+    public var DGPSid: Int?
+    
+    public var latitude: Double?
+    public var longitude: Double?
+    
+    //public var course: Double? for trkpt only.
+    //public var speed: Double?
+    public var url: String?
+    public var urlName: String?
+    
+    override func tagName() -> String {
+        return "wpt"
+    }
+    
+    
+}
+
+public protocol GPXWaypointProtocol: GPXElement {
+    // MARK:- Attributes of a waypoint
+    
+    /// Elevation of current point
+    ///
+    /// Should be in unit **meters** (m)
+    var elevation: Double? { get set }
+    
+    /// Date and time of current point
+    ///
+    /// Should be in **Coordinated Universal Time (UTC)**, without offsets, not local time.
+    var time: Date? { get set }
+    
+    /// Magnetic Variation of current point
+    ///
+    /// Should be in unit **degrees** (º)
+    var magneticVariation: Double? { get set }
+    
+    /// Geoid Height of current point
+    ///
+    /// Should be in unit **meters** (m). Height of geoid, or mean sea level, above WGS84 earth ellipsoid
+    var geoidHeight: Double? { get set }
+    
+    /// Name of current point
+    ///
+    /// - Warning:
+    ///     - This attribute may not be useful, in schema context.
+    ///     - This is carried over from GPX schema, to be compliant with the schema.
+    var name: String? { get set }
+    
+    /// Comment of current point
+    ///
+    /// - Warning:
+    ///     - This attribute may not be useful, in schema context.
+    ///     - This is carried over from GPX schema, to be compliant with the schema.
+    var comment: String? { get set }
+    
+    /// Description of current point
+    ///
+    /// - Warning:
+    ///     - This attribute may not be useful, in schema context.
+    ///     - This is carried over from GPX schema, to be compliant with the schema.
+    var desc: String? { get set }
+    
+    /// Source of data of current point
+    ///
+    /// For assurance that current point is reliable
+    var source: String? { get set }
+    
+    /// Text of GPS symbol name
+    ///
+    /// - Warning:
+    ///     - This attribute does not appear to be useful due to `CoreLocation` API.
+    ///     - This is carried over from GPX schema, to be compliant with the schema.
+    var symbol: String? { get set }
+    
+    /// Type of current point
+    var type: String? { get set }
+    
+    /// Type of GPS fix of current point, represented as a number
+    ///
+    /// - **Supported Types:** (written in order)
+    ///     - **None**: No fix
+    ///     - **2D**: Position only
+    ///     - **3D**: Position and Elevation
+    ///     - **DGPS**: Differential GPS
+    ///     - **PPS**: Military Signal
+    ///
+    /// Unknown fix should leave fix attribute as `nil`
+    /// - Warning:
+    ///     - This attribute may have limited usefulness due to `CoreLocation` API.
+    ///     - This is carried over from GPX schema, to be compliant with the schema.
+    var fix: GPXFix? { get set }
+    
+    /// Number of satellites used to calculate GPS fix of current point
+    var satellites: Int? { get set }
+    
+    /// Horizontal dilution of precision of current point
+    var horizontalDilution: Double? { get set }
+    
+    /// Vertical dilution of precision of current point
+    var verticalDilution: Double? { get set }
+    
+    /// Position dilution of precision of current point
+    var positionDilution: Double? { get set }
+    
+    /// Age of DGPS Data
+    ///
+    /// Number of seconds since last DGPS update
+    ///
+    /// - Warning:
+    ///     - This attribute may not be useful.
+    ///     - This is carried over from GPX schema, to be compliant with the schema.
+    var ageofDGPSData: Double? { get set }
+    
+    /// DGPS' ID
+    ///
+    /// ID of DGPS station used in differential correction.
+    ///
+    /// - Warning:
+    ///     - This attribute may not be useful.
+    ///     - This is carried over from GPX schema, to be compliant with the schema.
+    var DGPSid: Int? { get set }
+    
+    
+    /// Latitude of current point
+    ///
+    /// - Latitude value should be within range of **-90 to 90**
+    /// - Should be in unit **degrees** (º)
+    /// - Should conform to WGS 84 datum.
+    ///
+    var latitude: Double? { get set }
+    
+    /// Longitude of current point
+    ///
+    /// - Longitude value should be within range of **-180 to 180**
+    /// - Should be in unit **degrees** (º)
+    /// - Should conform to WGS 84 datum.
+    ///
+    var longitude: Double? { get set }
+}
+
 /**
  A value type that represents waypoint based off GPX v1.1 schema's `wptType`.
  
@@ -17,7 +173,7 @@ import Foundation
  
  The waypoint should at least contain the attributes of both `latitude` and `longitude` in order to be considered a valid waypoint. Most attributes are optional, and are not required to be implemented.
 */
-public class GPXWaypoint: GPXElement, Codable {
+public class GPXWaypoint: GPXElement, GPXWaypointProtocol, Codable {
     
     // MARK: Codable Implementation
     
