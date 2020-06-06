@@ -7,24 +7,38 @@
 
 import Foundation
 
-enum GPXVersion {
-    case pre4, pre5, pre6, v1, v1_1
+public enum GPXVersion: String {
+    case pre4 = "0.4"
+    case pre5 = "0.5"
+    case pre6 = "0.6"
+    case v1   = "1.0"
+    //case v1_1 = "1.1"
+    
+    func getSchemaSite() -> String {
+        switch self {
+            case .pre4: return "http://www.topografix.com/GPX/0/4"
+            case .pre5: return "http://www.topografix.com/GPX/0/5"
+            case .pre6: return "http://www.topografix.com/GPX/0/6"
+            case   .v1: return "http://www.topografix.com/GPX/1/0"
+            
+        }
+    }
 }
 
 public protocol GPXRootElement: GPXElement {
-    var version: String { get set }
-    var creator: String? { get set }
+    var version: GPXVersion { get set }
+    var creator: String { get set }
 }
 
 public final class GPXLegacyRoot: GPXElement, GPXRootElement {
-    public var version: String = "1.0"
-    public var creator: String?
+    public var version: GPXVersion
+    public var creator: String
     
     public var name: String?
     public var desc: String?
     public var author: String?
     public var email: String? // verifies if got @ in it.
-    public var url: String?
+    public var url: URL?
     public var urlName: String?
     public var time: Date?
     public var keywords: String?
@@ -33,7 +47,90 @@ public final class GPXLegacyRoot: GPXElement, GPXRootElement {
     public var route: GPXRoute?
     public var track: GPXTrack?
     
+    // MARK: GPX v1.0 Namespaces
     
+    /// Link to the GPX v1.0 schema
+    private var schema: String {
+        get { return version.getSchemaSite() }
+    }
+    /// Link to the schema locations. If extended, the extended schema should be added.
+    private var schemaLocation: String {
+        get {
+            return "\(version.getSchemaSite()) \(version.getSchemaSite())/gpx.xsd"
+        }
+    }
+    /// Link to XML schema instance
+    private let xsi = "http://www.w3.org/2001/XMLSchema-instance"
+    
+    public required init() {
+        self.creator = "Powered by Open Source CoreGPX Project"
+        self.version = .v1
+        super.init()
+    }
+    
+    public init(creator: String, version: GPXVersion = .v1) {
+        self.version = version
+        self.creator = creator
+        super.init()
+    }
+    
+    public func upgrade() -> GPXRoot {
+        let modern = GPXRoot(creator: creator)
+        let meta = GPXMetadata()
+        meta.name = name
+        meta.desc = desc
+        
+        if author != nil || email != nil {
+            let mAuthor = GPXAuthor(name: author)
+            if let email = email, email.contains("@") { mAuthor.email = GPXEmail(withFullEmailAddress: email) }
+            meta.author = mAuthor
+        }
+        
+        if url != nil {
+            let mLink = GPXLink(withURL: url)
+            mLink.text = urlName
+            meta.link = mLink
+        }
+
+        meta.time = time
+        meta.keywords = keywords
+        meta.bounds = bounds
+        
+        modern.metadata = meta
+        
+        /* REMINDER:
+           ADD WPT, TRK, RTE types!! */
+        fatalError("Remove when complete: wpt, trk, rte not implemented")
+        
+        //return modern
+        
+    }
+    
+    override func tagName() -> String {
+        return "gpx"
+    }
+    
+    override func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+        let attribute = NSMutableString()
+        
+        attribute.appendFormat(" xmlns:xsi=\"%@\"", self.xsi)
+        attribute.appendFormat(" xmlns=\"%@\"", self.schema)
+        attribute.appendFormat(" xsi:schemaLocation=\"%@\"", self.schemaLocation)
+        
+        attribute.appendFormat(" version=\"%@\"", version.rawValue)
+        attribute.appendFormat(" creator=\"%@\"", creator)
+        
+        gpx.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n")
+        
+        gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)
+    }
+    
+    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
+        
+        self.addProperty(forValue: name, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
+        
+    }
     
 }
 
@@ -44,7 +141,7 @@ public final class GPXLegacyRoot: GPXElement, GPXRootElement {
 */
 public final class GPXRoot: GPXElement, Codable {
     
-    /// GPX version that will be generated. Currently, only the latest (version 1.1) is supported.
+    /// GPX version that will be generated.
     public var version: String = "1.1"
     
     /// Name of the creator of the GPX content.
