@@ -57,7 +57,7 @@ public class GPXLegacyWaypoint: GPXElement, GPXWaypointProtocol {
         super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
         self.addProperty(forDoubleValue: elevation, gpx: gpx, tagName: "ele", indentationLevel: indentationLevel)
         self.addProperty(forValue: Convert.toString(from: time), gpx: gpx, tagName: "time", indentationLevel: indentationLevel)
-        /* add course, speed for trkpt here */
+        addSpeedCourseTags(toGPX: gpx, indLvl: indentationLevel)
         self.addProperty(forDoubleValue: magneticVariation, gpx: gpx, tagName: "magvar", indentationLevel: indentationLevel)
         self.addProperty(forDoubleValue: geoidHeight, gpx: gpx, tagName: "geoidheight", indentationLevel: indentationLevel)
         self.addProperty(forValue: name, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
@@ -83,6 +83,8 @@ public class GPXLegacyWaypoint: GPXElement, GPXWaypointProtocol {
         self.addProperty(forDoubleValue: ageofDGPSData, gpx: gpx, tagName: "ageofdgpsdata", indentationLevel: indentationLevel)
         self.addProperty(forIntegerValue: DGPSid, gpx: gpx, tagName: "dgpsid", indentationLevel: indentationLevel)
     }
+    /// for overrides from `trkpt` only.
+    internal func addSpeedCourseTags(toGPX gpx: NSMutableString, indLvl indentationLevel: Int) {}
 }
 
 public final class GPXLegacyRoutePoint: GPXLegacyWaypoint {
@@ -100,6 +102,12 @@ public final class GPXLegacyTrackPoint: GPXLegacyWaypoint {
         return "trkpt"
     }
     
+    override func addSpeedCourseTags(toGPX gpx: NSMutableString, indLvl indentationLevel: Int) {
+        self.addProperty(forDoubleValue: course, gpx: gpx, tagName: "course", indentationLevel: indentationLevel)
+        self.addProperty(forDoubleValue: speed, gpx: gpx, tagName: "speed", indentationLevel: indentationLevel)
+    }
+    
+    /*
     override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
         self.addProperty(forDoubleValue: elevation, gpx: gpx, tagName: "ele", indentationLevel: indentationLevel)
@@ -131,5 +139,5 @@ public final class GPXLegacyTrackPoint: GPXLegacyWaypoint {
         self.addProperty(forDoubleValue: ageofDGPSData, gpx: gpx, tagName: "ageofdgpsdata", indentationLevel: indentationLevel)
         self.addProperty(forIntegerValue: DGPSid, gpx: gpx, tagName: "dgpsid", indentationLevel: indentationLevel)
     }
-    
+    */
 }
