@@ -43,9 +43,9 @@ public final class GPXLegacyRoot: GPXElement, GPXRootElement {
     public var time: Date?
     public var keywords: String?
     public var bounds: GPXBounds?
-    public var waypoints: [GPXWaypoint]?
-    public var route: GPXRoute?
-    public var track: GPXTrack?
+    public var waypoints = [GPXWaypoint]()
+    public var routes = [GPXRoute]()
+    public var tracks = [GPXTrack]()
     
     // MARK: GPX v1.0 Namespaces
     
@@ -129,7 +129,27 @@ public final class GPXLegacyRoot: GPXElement, GPXRootElement {
         super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
         
         self.addProperty(forValue: name, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
-        
+        self.addProperty(forValue: desc, gpx: gpx, tagName: "desc", indentationLevel: indentationLevel)
+        self.addProperty(forValue: author, gpx: gpx, tagName: "author", indentationLevel: indentationLevel)
+        self.addProperty(forValue: email, gpx: gpx, tagName: "email", indentationLevel: indentationLevel)
+        if let url = url {
+            self.addProperty(forValue: url.absoluteString, gpx: gpx, tagName: "url", indentationLevel: indentationLevel)
+        }
+        self.addProperty(forValue: urlName, gpx: gpx, tagName: "urlname", indentationLevel:  indentationLevel)
+        self.addProperty(forValue: Convert.toString(from: time), gpx: gpx, tagName: "time", indentationLevel: indentationLevel)
+        self.addProperty(forValue: keywords, gpx: gpx, tagName: "keywords", indentationLevel: indentationLevel)
+        if let bounds = bounds {
+            bounds.gpx(gpx, indentationLevel: indentationLevel)
+        }
+        for waypoint in waypoints {
+            waypoint.gpx(gpx, indentationLevel: indentationLevel)
+        }
+        for track in tracks {
+            track.gpx(gpx, indentationLevel: indentationLevel)
+        }
+        for route in routes {
+            route.gpx(gpx, indentationLevel: indentationLevel)
+        }
     }
     
 }
