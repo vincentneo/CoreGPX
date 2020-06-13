@@ -43,8 +43,8 @@ public final class GPXLegacyRoot: GPXElement, GPXRootElement {
     public var time: Date?
     public var keywords: String?
     public var bounds: GPXBounds?
-    public var waypoints = [GPXWaypoint]()
-    public var routes = [GPXRoute]()
+    public var waypoints = [GPXLegacyWaypoint]()
+    public var routes = [GPXLegacyRoute]()
     public var tracks = [GPXTrack]()
     
     // MARK: GPX v1.0 Namespaces
@@ -162,6 +162,7 @@ public final class GPXLegacyRoot: GPXElement, GPXRootElement {
             track.gpx(gpx, indentationLevel: indentationLevel)
         }
         for route in routes {
+            if version != .v1 { route.isVersion1 = false }
             route.gpx(gpx, indentationLevel: indentationLevel)
         }
         
