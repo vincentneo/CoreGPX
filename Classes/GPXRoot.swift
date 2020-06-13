@@ -73,6 +73,17 @@ public final class GPXLegacyRoot: GPXElement, GPXRootElement {
         self.creator = creator
         super.init()
     }
+   
+    public func addEmail(_ email: String) throws {
+        let schemaPattern = #"[\p{L}_]+(\.[\p{L}_]+)*@[\p{L}_]+(\.[\p{L}_]+)+"#
+        
+        if email.range(of: schemaPattern, options: .regularExpression) != nil {
+            self.email = email
+        }
+        else {
+            throw GPXError.others.invalidEmail
+        }
+    }
     
     public func upgrade() -> GPXRoot {
         let modern = GPXRoot(creator: creator)
@@ -132,12 +143,15 @@ public final class GPXLegacyRoot: GPXElement, GPXRootElement {
         self.addProperty(forValue: desc, gpx: gpx, tagName: "desc", indentationLevel: indentationLevel)
         self.addProperty(forValue: author, gpx: gpx, tagName: "author", indentationLevel: indentationLevel)
         self.addProperty(forValue: email, gpx: gpx, tagName: "email", indentationLevel: indentationLevel)
+        
         if let url = url {
             self.addProperty(forValue: url.absoluteString, gpx: gpx, tagName: "url", indentationLevel: indentationLevel)
         }
+        
         self.addProperty(forValue: urlName, gpx: gpx, tagName: "urlname", indentationLevel:  indentationLevel)
         self.addProperty(forValue: Convert.toString(from: time), gpx: gpx, tagName: "time", indentationLevel: indentationLevel)
         self.addProperty(forValue: keywords, gpx: gpx, tagName: "keywords", indentationLevel: indentationLevel)
+        
         if let bounds = bounds {
             bounds.gpx(gpx, indentationLevel: indentationLevel)
         }
@@ -150,6 +164,7 @@ public final class GPXLegacyRoot: GPXElement, GPXRootElement {
         for route in routes {
             route.gpx(gpx, indentationLevel: indentationLevel)
         }
+        
     }
     
 }
