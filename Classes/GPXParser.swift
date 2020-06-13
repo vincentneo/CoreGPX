@@ -159,6 +159,10 @@ public final class GPXParser: NSObject {
         return root
     }
     
+    /// Unavailable after CoreGPX 0.8, spelling error. Will be removed soon.
+    @available(*, unavailable, message: "Please use fallibleParsedData(forceContinue:) instead")
+    public func failibleParsedData(forceContinue: Bool) throws -> GPXRoot? { return nil }
+    
     ///
     /// Starts parsing, returns parsed `GPXRoot` when done.
     ///
@@ -167,15 +171,21 @@ public final class GPXParser: NSObject {
     ///
     /// - Throws: `GPXError` errors if an incident has occurred while midway or after parsing the GPX file.
     ///
-    public func failibleParsedData(forceContinue: Bool) throws -> GPXRoot? {
+    public func fallibleParsedData(forceContinue: Bool) throws -> GPXRoot? {
         self.isErrorCheckEnabled = true
         self.shouldContinueAfterFirstError = forceContinue
         self.parser.parse() // parse when requested
         
-        guard let firstTag = stack.first else { throw GPXError.parser.fileIsNotXMLBased }
-        guard let rawGPX = firstTag.children.first else { throw GPXError.parser.fileIsEmpty }
+        guard let firstTag = stack.first else {
+            throw GPXError.parser.fileIsNotXMLBased
+        }
+        guard let rawGPX = firstTag.children.first else {
+            throw GPXError.parser.fileIsEmpty
+        }
         
-        guard parserError == nil else { throw GPXError.parser.issueAt(line: errorAtLine, error: parserError!) }
+        guard parserError == nil else {
+            throw GPXError.parser.issueAt(line: errorAtLine, error: parserError!)
+        }
         
         let root = GPXRoot(raw: rawGPX) // to be returned; includes attributes.
         guard root.version == "1.1" else { throw GPXError.parser.unsupportedVersion }

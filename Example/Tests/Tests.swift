@@ -171,7 +171,7 @@ class CoreGPX_Tests: XCTestCase {
             return
         }
         do {
-            _ = try GPXParser(withURL: kUrl)?.failibleParsedData(forceContinue: true)
+            _ = try GPXParser(withURL: kUrl)?.fallibleParsedData(forceContinue: true)
         }
         catch GPXError.parser.multipleErrorsOccurred(let errors) {
             if case GPXError.parser.issueAt(line: 3, error: GPXError.coordinates.invalidLatitude(dueTo: .overLimit)) = errors[0],
