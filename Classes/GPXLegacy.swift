@@ -116,7 +116,10 @@ public final class GPXLegacyRoot: GPXElement, GPXRootElement {
         
         /* REMINDER:
            ADD WPT, TRK, RTE types!! */
-        fatalError("Remove when complete: wpt, trk, rte not implemented")
+        for wpt in waypoints {
+            modern.add(waypoint: wpt.upgrade())
+        }
+        fatalError("Remove when complete: trk, rte not implemented")
         
         //return modern
         
@@ -214,6 +217,32 @@ public class GPXLegacyWaypoint: GPXElement, GPXWaypointProtocol {
         return "wpt"
     }
     
+    public func upgrade() -> GPXWaypoint {
+        let wpt = GPXWaypoint()
+        wpt.elevation = elevation
+        wpt.time = time
+        wpt.magneticVariation = magneticVariation
+        wpt.geoidHeight = geoidHeight
+        wpt.name = name
+        wpt.comment = comment
+        wpt.desc = desc
+        wpt.source = source
+        wpt.symbol = symbol
+        wpt.type = type
+        wpt.fix = fix
+        wpt.satellites = satellites
+        wpt.horizontalDilution = horizontalDilution
+        wpt.verticalDilution = verticalDilution
+        wpt.positionDilution = positionDilution
+        wpt.ageofDGPSData = ageofDGPSData
+        wpt.DGPSid = DGPSid
+        wpt.latitude = latitude
+        wpt.longitude = longitude
+        wpt.link = GPXLink(url: url, name: urlName)
+        
+        return wpt
+    }
+    
     override func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         let attribute = NSMutableString()
         
@@ -284,13 +313,17 @@ public class GPXLegacyRoute: GPXElement, GPXRouteType {
     
     public var urlName: String?
     
+    public var number: Int?
+    
     /// Stated in GPX 1.0 schema that it is only *proposed*
     //public var type: String?
     
-    public var number: Int?
+    // MARK: TODO, ##other
+    // according to schema, ##other, meant that additional tags can be added, kinda like extensions.
     
     public var routepoints = [GPXLegacyRoutePoint]()
     
+
     override func tagName() -> String {
         return "rtept"
     }
@@ -299,11 +332,21 @@ public class GPXLegacyRoute: GPXElement, GPXRouteType {
         super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
         addProperty(forValue: name, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
         if isVersion1 {
-            addProperty(forValue: comment, gpx: gpx, tagName: "comment", indentationLevel: indentationLevel)
+            addProperty(forValue: comment, gpx: gpx, tagName: "cmt", indentationLevel: indentationLevel)
         }
         addProperty(forValue: desc, gpx: gpx, tagName: "desc", indentationLevel: indentationLevel)
         addProperty(forValue: source, gpx: gpx, tagName: "src", indentationLevel: indentationLevel)
-        addProperty(forValue: name, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
+        
+        if let url = url {
+            addProperty(forValue: url.absoluteString, gpx: gpx, tagName: "url", indentationLevel: indentationLevel)
+        }
+        if let name = urlName {
+            addProperty(forValue: name, gpx: gpx, tagName: "urlname", indentationLevel: indentationLevel)
+        }
+        
+        for rtept in routepoints {
+            rtept.gpx(gpx, indentationLevel: indentationLevel)
+        }
         
     }
     
@@ -335,3 +378,76 @@ public final class GPXLegacyTrackPoint: GPXLegacyWaypoint {
     
 }
 
+public class GPXLegacyTrack: GPXElement {
+    
+    override func tagName() -> String {
+        return "trk"
+    }
+    
+    
+    public var name: String?
+    
+    /// Additional comment of the route.
+    ///
+    /// - Important:
+    /// Not available in GPX 0.6 and below.
+    public var comment: String?
+    
+    var isVersion1 = true
+    
+    public var desc: String?
+    
+    public var source: String?
+    
+    public var url: URL?
+    
+    public var urlName: String?
+    
+    public var number: Int?
+    
+    /// Stated in GPX 1.0 schema that it is only *proposed*
+    //public var type: String?
+    
+    // MARK: TODO, ##other
+    // according to schema, ##other, meant that additional tags can be added, kinda like extensions.
+   
+    public var segments = [GPXLegacyTrackSegment]()
+    
+    
+    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
+        addProperty(forValue: name, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
+        if isVersion1 {
+            addProperty(forValue: comment, gpx: gpx, tagName: "cmt", indentationLevel: indentationLevel)
+        }
+        addProperty(forValue: desc, gpx: gpx, tagName: "desc", indentationLevel: indentationLevel)
+        addProperty(forValue: source, gpx: gpx, tagName: "src", indentationLevel: indentationLevel)
+        
+        if let url = url {
+            addProperty(forValue: url.absoluteString, gpx: gpx, tagName: "url", indentationLevel: indentationLevel)
+        }
+        if let name = urlName {
+            addProperty(forValue: name, gpx: gpx, tagName: "urlname", indentationLevel: indentationLevel)
+        }
+        
+        for segment in segments {
+            segment.gpx(gpx, indentationLevel: indentationLevel)
+        }
+        
+    }
+}
+
+public class GPXLegacyTrackSegment: GPXElement {
+    override func tagName() -> String {
+        return "trkseg"
+    }
+    
+    public var points = [GPXLegacyTrackPoint]()
+    
+    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
+        for pt in points {
+            pt.gpx(gpx, indentationLevel: indentationLevel)
+        }
+    }
+}
