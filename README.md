@@ -190,6 +190,7 @@ If you require a feature that has yet to be available, do open an issue, describ
 
 ## Like the project? Check out these too!
 - [iOS-Open-GPX-Tracker](https://github.com/merlos/iOS-Open-GPX-Tracker), an awesome open-sourced GPS tracker for iOS and watchOS.
+- [Avenue GPX Viewer](https://github.com/vincentneo/Avenue-GPX-Viewer), a GPX file viewer, written for macOS 10.12 and above.
 - [LocaleComplete](https://github.com/vincentneo/LocaleComplete), a small library to make `Locale` identifier hunting more easy and straightforward.
 
 ## License
