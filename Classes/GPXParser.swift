@@ -118,8 +118,9 @@ public final class GPXParser: NSObject {
         
     }
     
-    // MARK: GPX
+    // MARK:- Parser Variants
     
+    // MARK: Main Parse Method
     ///
     /// Starts parsing, returns parsed `GPXRoot` when done.
     ///
@@ -159,6 +160,7 @@ public final class GPXParser: NSObject {
         return root
     }
     
+    // MARK: Failible Parse Type
     ///
     /// Starts parsing, returns parsed `GPXRoot` when done.
     ///
@@ -204,6 +206,29 @@ public final class GPXParser: NSObject {
                 let extensions = GPXExtensions(raw: child)
                 root.extensions = extensions
             default: throw GPXError.parser.fileDoesNotConformSchema
+            }
+        }
+        
+        // reset stack
+        stackReset()
+        
+        return root
+    }
+    
+    // MARK:- For >= V1.0 Parser
+    public func legacyParsingData() -> GPXLegacyRoot? {
+        self.parser.parse() // parse when requested
+        guard let firstTag = stack.first else { return nil }
+        guard let rawGPX = firstTag.children.first else { return nil }
+        
+        let root = GPXLegacyRoot() //should be raw: instead // to be returned; includes attributes.
+        
+        for child in rawGPX.children {
+            let name = child.name
+            
+            switch name {
+                // to be added...
+            default: continue
             }
         }
         

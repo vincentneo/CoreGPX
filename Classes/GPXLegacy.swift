@@ -73,12 +73,39 @@ public final class GPXLegacyRoot: GPXElement, GPXRootElement {
         super.init()
     }
     
+    init(raw: GPXRawElement) {
+        super.init()
+        for (key, value) in raw.attributes {
+            switch key {
+            case "creator":             self.creator = value
+            case "version":             self.version = GPXVersion(rawValue: value) ?? .v1
+            case "name":                self.name = value
+            case "desc":                self.desc = value
+            case "author":              self.author = value
+            case "email":               self.email = value
+            //case "xsi:schemaLocation":  self.schemaLocation = value
+            //case "xmlns:xsi":           continue
+            //case "xmlns":               continue
+            default: continue
+            }
+        }
+    }
+    
     public init(creator: String, version: GPXVersion = .v1) {
         self.version = version
         self.creator = creator
         super.init()
     }
-   
+    
+    public func addEmail(_ email: String) {
+        let schemaPattern = #"[\p{L}_]+(\.[\p{L}_]+)*@[\p{L}_]+(\.[\p{L}_]+)+"#
+        
+        if email.range(of: schemaPattern, options: .regularExpression) != nil {
+            self.email = email
+        }
+    }
+    
+    /*
     public func addEmail(_ email: String) throws {
         let schemaPattern = #"[\p{L}_]+(\.[\p{L}_]+)*@[\p{L}_]+(\.[\p{L}_]+)+"#
         
@@ -89,6 +116,7 @@ public final class GPXLegacyRoot: GPXElement, GPXRootElement {
             throw GPXError.others.invalidEmail
         }
     }
+    */
     
     public func upgrade() -> GPXRoot {
         let modern = GPXRoot(creator: creator)
