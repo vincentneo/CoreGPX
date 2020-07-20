@@ -221,7 +221,7 @@ public final class GPXParser: NSObject {
         guard let firstTag = stack.first else { return nil }
         guard let rawGPX = firstTag.children.first else { return nil }
         
-        let root = GPXLegacyRoot() //should be raw: instead // to be returned; includes attributes.
+        let root = GPXLegacyRoot(raw: rawGPX)// includes attributes.
         
         for child in rawGPX.children {
             let name = child.name

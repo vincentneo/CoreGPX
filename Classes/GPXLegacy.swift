@@ -74,7 +74,9 @@ public final class GPXLegacyRoot: GPXElement, GPXRootElement {
     }
     
     init(raw: GPXRawElement) {
-        super.init()
+        self.creator = ""
+        self.version = .v1
+        
         for (key, value) in raw.attributes {
             switch key {
             case "creator":             self.creator = value
@@ -234,6 +236,40 @@ public class GPXLegacyWaypoint: GPXElement, GPXWaypointProtocol {
     
     public var latitude: Double?
     public var longitude: Double?
+    
+    init(raw: GPXRawElement) {
+        self.latitude = Convert.toDouble(from: raw.attributes["lat"])
+        self.longitude = Convert.toDouble(from: raw.attributes["lon"])
+        
+        for child in raw.children {
+            switch child.name {
+            case "time":        self.time = GPXDateParser.parse(date: child.text)
+            case "ele":         self.elevation = Convert.toDouble(from: child.text)
+            case "magvar":      self.magneticVariation = Convert.toDouble(from: child.text)
+            case "geoidheight": self.geoidHeight = Convert.toDouble(from: child.text)
+            case "name":        self.name = child.text
+            case "cmt":         self.comment = child.text
+            case "desc":        self.desc = child.text
+            case "src":         self.source = child.text
+            case "url":         if let text = child.text { self.url = URL(string: text) }
+            case "urlname":     self.urlName = child.text
+            case "sym":         self.symbol = child.text
+            case "type":        self.type = child.text
+            case "fix":         self.fix = GPXFix(rawValue: child.text ?? "none")
+            case "sat":         self.satellites = Convert.toInt(from: child.text)
+            case "hdop":        self.horizontalDilution = Convert.toDouble(from: child.text)
+            case "vdop":        self.verticalDilution = Convert.toDouble(from: child.text)
+            case "pdop":        self.positionDilution = Convert.toDouble(from: child.text)
+            case "dgpsid":      self.DGPSid = Convert.toInt(from: child.text)
+            case "ageofdgpsid": self.ageofDGPSData = Convert.toDouble(from: child.text)
+            //case "extensions":  self.extensions = GPXExtensions(raw: child)
+            default: continue
+            }
+        }
+    }
+    
+    public required init() {
+    }
     
     /// URL of this particular waypoint, if any.
     public var url: URL?
