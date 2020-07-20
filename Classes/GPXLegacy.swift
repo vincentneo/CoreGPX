@@ -81,13 +81,20 @@ public final class GPXLegacyRoot: GPXElement, GPXRootElement {
             switch key {
             case "creator":             self.creator = value
             case "version":             self.version = GPXVersion(rawValue: value) ?? .v1
-            case "name":                self.name = value
-            case "desc":                self.desc = value
-            case "author":              self.author = value
-            case "email":               self.email = value
             //case "xsi:schemaLocation":  self.schemaLocation = value
             //case "xmlns:xsi":           continue
             //case "xmlns":               continue
+            default: continue
+            }
+        }
+        
+       for child in raw.children {
+            switch child.name {
+            case "name":    self.name = child.text
+            case "desc":    self.desc = child.text
+            case "author":  self.author = child.text
+            case "email":   self.email = child.text
+                // more needed
             default: continue
             }
         }

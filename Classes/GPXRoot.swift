@@ -44,7 +44,7 @@ public final class GPXRoot: GPXElement, Codable {
     // MARK: GPX v1.1 Namespaces
     
     /// Link to the GPX v1.1 schema
-    private let schema = "http://www.topografix.com/GPX/1/1"
+    private var schema = "http://www.topografix.com/GPX/1/1"
     /// Link to the schema locations. If extended, the extended schema should be added.
     private var schemaLocation = "http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd"
     /// Link to XML schema instance

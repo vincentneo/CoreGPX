@@ -129,6 +129,10 @@ public final class GPXParser: NSObject {
         guard let firstTag = stack.first else { return nil }
         guard let rawGPX = firstTag.children.first else { return nil }
         
+        if rawGPX.attributes["version"] != "1.1" {
+            return parseLegacyAsModern(rawGPX)
+        }
+        
         let root = GPXRoot(raw: rawGPX) // to be returned; includes attributes.
         
         for child in rawGPX.children {
@@ -156,6 +160,43 @@ public final class GPXParser: NSObject {
         
         // reset stack
         stackReset()
+        
+        return root
+    }
+    
+    private func parseLegacyAsModern(_ raw: GPXRawElement) -> GPXRoot? {
+        let root = GPXRoot(raw: raw)
+        let meta = GPXMetadata()
+        
+        for child in raw.children {
+            let name = child.name
+            
+            switch name {
+            //case "metadata":
+            //    let metadata = GPXMetadata(raw: child)
+            //    root.metadata = metadata
+            case "wpt":
+                let waypoint = GPXWaypoint(raw: child)
+                root.add(waypoint: waypoint)
+            case "rte":
+                let route = GPXRoute(raw: child)
+                root.add(route: route)
+            case "trk":
+                let track = GPXTrack(raw: child)
+                root.add(track: track)
+            case "extensions":
+                let extensions = GPXExtensions(raw: child)
+                root.extensions = extensions
+            case "name":    meta.name = child.text
+            case "desc":    meta.desc = child.text
+            //case "author":  meta.author = child.text
+            //case "email":   meta.email = child.text
+            // more needed
+            default: continue
+            }
+        }
+        root.metadata = meta
+            
         
         return root
     }
