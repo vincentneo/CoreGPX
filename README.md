@@ -80,7 +80,7 @@ guard let gpx = GPXParser(withURL: inputURL)?.parsedData() else { return // do t
 // waypoints, tracks, tracksegements, trackpoints are all stored as Array depends on the amount stored in the GPX file.
 for waypoint in gpx.waypoints {  // for loop example, every waypoint is written
     print(waypoint.latitude)     // prints every waypoint's latitude, etc: 1.3521, as a Double object
-    print(waypoint.longitude)    // prints every waypoint's latitude, etc: 103.8198, as a Double object
+    print(waypoint.longitude)    // prints every waypoint's longitude, etc: 103.8198, as a Double object
     print(waypoint.time)         // prints every waypoint's date, as a Date object
     print(waypoint.name)         // prints every waypoint's name, as a String
 }
