@@ -48,7 +48,7 @@ public final class GPXRoot: GPXElement, Codable {
     /// Link to the schema locations. If extended, the extended schema should be added.
     private var schemaLocation = "http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd"
     /// Link to XML schema instance
-    private let xsi = "http://www.w3.org/2001/XMLSchema-instance"
+    private var xsi = "http://www.w3.org/2001/XMLSchema-instance"
     /// For if GPX file is extended, and contains extra attributes on gpx main tag.
     private var extensionAttributes: [String : String]?
     

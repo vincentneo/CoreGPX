@@ -305,7 +305,7 @@ public class GPXWaypoint: GPXElement, GPXWaypointProtocol, Codable {
         self.addProperty(forValue: name, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
         self.addProperty(forValue: comment, gpx: gpx, tagName: "cmt", indentationLevel: indentationLevel)
         self.addProperty(forValue: desc, gpx: gpx, tagName: "desc", indentationLevel: indentationLevel)
-        self.addProperty(forValue: source, gpx: gpx, tagName: "source", indentationLevel: indentationLevel)
+        self.addProperty(forValue: source, gpx: gpx, tagName: "src", indentationLevel: indentationLevel)
         
         if self.link != nil {
             self.link?.gpx(gpx, indentationLevel: indentationLevel)

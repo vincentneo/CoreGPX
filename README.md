@@ -5,16 +5,33 @@
 	<b>
 	Parse and generate GPX files easily on iOS, watchOS & macOS.
 	</b>
+  <br/>
+  <a href="https://travis-ci.com/vincentneo/CoreGPX">
+    <img src="https://travis-ci.com/vincentneo/CoreGPX.svg?branch=master"/>
+  </a>
+  <a href="https://swift.org">
+    <img src="https://img.shields.io/badge/Swift-5.2-orange.svg"/>
+  </a>
+	<a href="https://www.topografix.com/gpx/1/1/">
+    <img src="https://img.shields.io/badge/gpx-1.1-yellow.svg"/>
+  </a>
+  <a href="http://doge.mit-license.org">
+    <img src="http://img.shields.io/:license-mit-red.svg"/>
+  </a>
+  <a href="https://cocoapods.org/pods/CoreGPX">
+    <img src="https://img.shields.io/cocoapods/p/CoreGPX.svg?style=flat"/>
+  </a>
+	<br/>
+	<a href="https://github.com/apple/swift-package-manager">
+    <img src="https://img.shields.io/badge/Swift%20Package%20Manager-Supported-darkgreen.svg"/>
+  </a>
+	<a href="https://github.com/Carthage/Carthage">
+    <img src="https://img.shields.io/badge/Carthage-Supported-darkgreen.svg?style=flat"/>
+  </a>
+	<a href="https://cocoapods.org/pods/CoreGPX">
+    <img src="https://img.shields.io/cocoapods/v/CoreGPX.svg?style=flat"/>
+  </a>
 </p>
-
-[![CI Status](https://travis-ci.com/vincentneo/CoreGPX.svg?branch=master)](https://travis-ci.com/vincentneo/CoreGPX)
-[![Swift Version](https://img.shields.io/badge/Swift-5.1-orange.svg)](https://swift.org/blog/swift-5-1-released/)
-[![GPX Version](https://img.shields.io/badge/gpx-1.1-yellow.svg)](https://www.topografix.com/gpx/1/1/)
-[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
-[![Platform](https://img.shields.io/cocoapods/p/CoreGPX.svg?style=flat)](https://cocoapods.org/pods/CoreGPX)
-[![Version](https://img.shields.io/cocoapods/v/CoreGPX.svg?style=flat)](https://cocoapods.org/pods/CoreGPX)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-✔-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-✔-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 
 ## What is CoreGPX?
 CoreGPX is a port of iOS-GPX-Framework to Swift language.
@@ -80,7 +97,7 @@ guard let gpx = GPXParser(withURL: inputURL)?.parsedData() else { return // do t
 // waypoints, tracks, tracksegements, trackpoints are all stored as Array depends on the amount stored in the GPX file.
 for waypoint in gpx.waypoints {  // for loop example, every waypoint is written
     print(waypoint.latitude)     // prints every waypoint's latitude, etc: 1.3521, as a Double object
-    print(waypoint.longitude)    // prints every waypoint's latitude, etc: 103.8198, as a Double object
+    print(waypoint.longitude)    // prints every waypoint's longitude, etc: 103.8198, as a Double object
     print(waypoint.time)         // prints every waypoint's date, as a Date object
     print(waypoint.name)         // prints every waypoint's name, as a String
 }
@@ -190,6 +207,7 @@ If you require a feature that has yet to be available, do open an issue, describ
 
 ## Like the project? Check out these too!
 - [iOS-Open-GPX-Tracker](https://github.com/merlos/iOS-Open-GPX-Tracker), an awesome open-sourced GPS tracker for iOS and watchOS.
+- [Avenue GPX Viewer](https://github.com/vincentneo/Avenue-GPX-Viewer), a GPX file viewer, written for macOS 10.12 and above.
 - [LocaleComplete](https://github.com/vincentneo/LocaleComplete), a small library to make `Locale` identifier hunting more easy and straightforward.
 
 ## License
