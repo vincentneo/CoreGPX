@@ -50,7 +50,7 @@ public final class GPXLegacyRoot: GPXElement, GPXRootElement {
     public var bounds: GPXBounds?
     public var waypoints = [GPXLegacyWaypoint]()
     public var routes = [GPXLegacyRoute]()
-    public var tracks = [GPXTrack]()
+    public var tracks = [GPXLegacyTrack]()
     
     // MARK: GPX v1.0 Namespaces
     
@@ -90,10 +90,18 @@ public final class GPXLegacyRoot: GPXElement, GPXRootElement {
         
        for child in raw.children {
             switch child.name {
-            case "name":    self.name = child.text
-            case "desc":    self.desc = child.text
-            case "author":  self.author = child.text
-            case "email":   self.email = child.text
+            case "name":     self.name = child.text
+            case "desc":     self.desc = child.text
+            case "author":   self.author = child.text
+            case "email":    self.email = child.text
+            case "url":      if let text = child.text { self.url = URL(string: text) }
+            case "urlname":  self.urlName = child.text
+            case "time":     self.time = GPXDateParser.parse(date: child.text)
+            case "keywords": self.keywords = child.text
+            case "bounds":   self.bounds = GPXBounds(raw: child)
+            case "wpt":      self.waypoints.append(GPXLegacyWaypoint(raw: child))
+            case "rte":      self.routes.append(GPXLegacyRoute(raw: child))
+            case "trk":      self.tracks.append(GPXLegacyTrack(raw: child))
                 // more needed
             default: continue
             }
@@ -156,10 +164,16 @@ public final class GPXLegacyRoot: GPXElement, GPXRootElement {
         for wpt in waypoints {
             modern.add(waypoint: wpt.upgrade())
         }
-        fatalError("Remove when complete: trk, rte not implemented")
         
-        //return modern
+        for rte in routes {
+            modern.add(route: rte.upgrade())
+        }
         
+        for trk in tracks {
+            modern.add(track: trk.upgrade())
+        }
+        
+        return modern
     }
     
     override func tagName() -> String {
@@ -392,11 +406,44 @@ public class GPXLegacyRoute: GPXElement, GPXRouteType {
     // MARK: TODO, ##other
     // according to schema, ##other, meant that additional tags can be added, kinda like extensions.
     
-    public var routepoints = [GPXLegacyRoutePoint]()
+    public var points = [GPXLegacyRoutePoint]()
     
-
+    init(raw: GPXRawElement) {
+        for child in raw.children {
+            switch child.name {
+            case "name":        self.name = child.text
+            case "cmt":         self.comment = child.text
+            case "desc":        self.desc = child.text
+            case "src":         self.source = child.text
+            case "url":         if let text = child.text { self.url = URL(string: text) }
+            case "urlname":     self.urlName = child.text
+            case "number":      if let text = child.text { self.number = Int(text) }
+            case "rtept":       self.points.append(GPXLegacyRoutePoint(raw: child))
+            default: continue
+            }
+        }
+    }
+    
+    public required init() {}
+    
     override func tagName() -> String {
         return "rtept"
+    }
+    
+    public func upgrade() -> GPXRoute {
+        let rte = GPXRoute()
+        rte.name = name
+        rte.comment = comment
+        rte.desc = desc
+        rte.source = source
+        rte.link = GPXLink(url: url, name: urlName)
+        rte.number = number
+        self.points.forEach { point in
+            let point = point as GPXLegacyWaypoint
+            rte.add(routepoint: point.upgrade() as? GPXRoutePoint)
+        }
+        
+        return rte
     }
     
     override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
@@ -415,8 +462,8 @@ public class GPXLegacyRoute: GPXElement, GPXRouteType {
             addProperty(forValue: name, gpx: gpx, tagName: "urlname", indentationLevel: indentationLevel)
         }
         
-        for rtept in routepoints {
-            rtept.gpx(gpx, indentationLevel: indentationLevel)
+        for point in points {
+            point.gpx(gpx, indentationLevel: indentationLevel)
         }
         
     }
@@ -484,6 +531,39 @@ public class GPXLegacyTrack: GPXElement {
    
     public var segments = [GPXLegacyTrackSegment]()
     
+    init(raw: GPXRawElement) {
+        for child in raw.children {
+            switch child.name {
+            case "name":        self.name = child.text
+            case "cmt":         self.comment = child.text
+            case "desc":        self.desc = child.text
+            case "src":         self.source = child.text
+            case "url":         if let text = child.text { self.url = URL(string: text) }
+            case "urlname":     self.urlName = child.text
+            case "number":      if let text = child.text { self.number = Int(text) }
+            case "trkseg":      self.segments.append(GPXLegacyTrackSegment(raw: child))
+            default: continue
+            }
+        }
+    }
+    
+    public required init() {}
+    
+    public func upgrade() -> GPXTrack {
+        let trk = GPXTrack()
+        trk.name = name
+        trk.comment = comment
+        trk.desc = desc
+        trk.source = source
+        trk.link = GPXLink(url: url, name: urlName)
+        trk.number = number
+        self.segments.forEach { segment in
+            trk.add(trackSegment: segment.upgrade())
+        }
+        
+        return trk
+    }
+    
     
     override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
@@ -514,6 +594,26 @@ public class GPXLegacyTrackSegment: GPXElement {
     }
     
     public var points = [GPXLegacyTrackPoint]()
+    
+    init(raw: GPXRawElement) {
+        for child in raw.children {
+            switch child.name {
+            case "trkpt":      self.points.append(GPXLegacyTrackPoint(raw: child))
+            default: continue
+            }
+        }
+    }
+    
+    public func upgrade() -> GPXTrackSegment {
+        let segment = GPXTrackSegment()
+        self.points.forEach { point in
+            let point = point as GPXLegacyWaypoint
+            segment.add(trackpoint: point.upgrade() as? GPXTrackPoint)
+        }
+        return segment
+    }
+    
+    public required init() {}
     
     override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
