@@ -165,40 +165,9 @@ public final class GPXParser: NSObject {
     }
     
     private func parseLegacyAsModern(_ raw: GPXRawElement) -> GPXRoot? {
-        let root = GPXRoot(raw: raw)
-        let meta = GPXMetadata()
-        
-        for child in raw.children {
-            let name = child.name
-            
-            switch name {
-            //case "metadata":
-            //    let metadata = GPXMetadata(raw: child)
-            //    root.metadata = metadata
-            case "wpt":
-                let waypoint = GPXWaypoint(raw: child)
-                root.add(waypoint: waypoint)
-            case "rte":
-                let route = GPXRoute(raw: child)
-                root.add(route: route)
-            case "trk":
-                let track = GPXTrack(raw: child)
-                root.add(track: track)
-            case "extensions":
-                let extensions = GPXExtensions(raw: child)
-                root.extensions = extensions
-            case "name":    meta.name = child.text
-            case "desc":    meta.desc = child.text
-            //case "author":  meta.author = child.text
-            //case "email":   meta.email = child.text
-            // more needed
-            default: continue
-            }
-        }
-        root.metadata = meta
-            
-        
-        return root
+        let legacy = GPXLegacyRoot(raw: raw)
+        let modern = legacy.upgrade()
+        return modern
     }
     
     // MARK: Failible Parse Type
@@ -268,21 +237,14 @@ public final class GPXParser: NSObject {
     }
     
     // MARK:- For >= V1.0 Parser
+    ///
+    /// Starts parsing, returns parsed `GPXRoot` when done.
+    ///
     public func legacyParsingData() -> GPXLegacyRoot? {
         self.parser.parse() // parse when requested
-        guard let firstTag = stack.first else { return nil }
-        guard let rawGPX = firstTag.children.first else { return nil }
+        guard let firstTag = stack.first, let rawGPX = firstTag.children.first else { return nil }
         
         let root = GPXLegacyRoot(raw: rawGPX)// includes attributes.
-        
-        for child in rawGPX.children {
-            let name = child.name
-            
-            switch name {
-                // to be added...
-            default: continue
-            }
-        }
         
         // reset stack
         stackReset()
