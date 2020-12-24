@@ -439,8 +439,7 @@ public class GPXLegacyRoute: GPXElement, GPXRouteType {
         rte.link = GPXLink(url: url, name: urlName)
         rte.number = number
         self.points.forEach { point in
-            let point = point as GPXLegacyWaypoint
-            rte.add(routepoint: point.upgrade() as? GPXRoutePoint)
+            rte.add(routepoint: point.upgrade() as GPXWaypointProtocol as? GPXRoutePoint)
         }
         
         return rte
@@ -607,8 +606,7 @@ public class GPXLegacyTrackSegment: GPXElement {
     public func upgrade() -> GPXTrackSegment {
         let segment = GPXTrackSegment()
         self.points.forEach { point in
-            let point = point as GPXLegacyWaypoint
-            segment.add(trackpoint: point.upgrade() as? GPXTrackPoint)
+            segment.add(trackpoint: point as GPXWaypointProtocol as? GPXTrackPoint)
         }
         return segment
     }
