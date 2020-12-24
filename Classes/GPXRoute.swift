@@ -12,7 +12,7 @@ import Foundation
  
  The route can represent the planned route of a specific trip.
  */
-public final class GPXRoute: GPXElement, Codable {
+public final class GPXRoute: GPXElement, Codable, GPXRouteType {
     
     /// For Codable use
     private enum CodingKeys: String, CodingKey {
