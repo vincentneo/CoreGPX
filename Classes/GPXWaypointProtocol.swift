@@ -127,4 +127,31 @@ public protocol GPXWaypointProtocol: GPXElement {
     /// - Should conform to WGS 84 datum.
     ///
     var longitude: Double? { get set }
+    
+}
+
+extension GPXWaypointProtocol {
+    func convert<T: GPXWaypointProtocol>() -> T {
+        let wpt = T()
+        wpt.elevation = elevation
+        wpt.time = time
+        wpt.magneticVariation = magneticVariation
+        wpt.geoidHeight = geoidHeight
+        wpt.name = name
+        wpt.comment = comment
+        wpt.desc = desc
+        wpt.source = source
+        wpt.symbol = symbol
+        wpt.type = type
+        wpt.fix = fix
+        wpt.satellites = satellites
+        wpt.horizontalDilution = horizontalDilution
+        wpt.verticalDilution = verticalDilution
+        wpt.positionDilution = positionDilution
+        wpt.ageofDGPSData = ageofDGPSData
+        wpt.DGPSid = DGPSid
+        wpt.latitude = latitude
+        wpt.longitude = longitude
+        return wpt
+    }
 }

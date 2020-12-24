@@ -302,30 +302,12 @@ public class GPXLegacyWaypoint: GPXElement, GPXWaypointProtocol {
         return "wpt"
     }
     
-    public func upgrade() -> GPXWaypoint {
-        let wpt = GPXWaypoint()
-        wpt.elevation = elevation
-        wpt.time = time
-        wpt.magneticVariation = magneticVariation
-        wpt.geoidHeight = geoidHeight
-        wpt.name = name
-        wpt.comment = comment
-        wpt.desc = desc
-        wpt.source = source
-        wpt.symbol = symbol
-        wpt.type = type
-        wpt.fix = fix
-        wpt.satellites = satellites
-        wpt.horizontalDilution = horizontalDilution
-        wpt.verticalDilution = verticalDilution
-        wpt.positionDilution = positionDilution
-        wpt.ageofDGPSData = ageofDGPSData
-        wpt.DGPSid = DGPSid
-        wpt.latitude = latitude
-        wpt.longitude = longitude
-        wpt.link = GPXLink(url: url, name: urlName)
-        
-        return wpt
+    func upgrade() -> GPXWaypoint {
+        let upgraded: GPXWaypoint = self.convert()
+        if let url = url, let urlName = urlName {
+            upgraded.link = GPXLink(url: url, name: urlName)
+        }
+        return upgraded
     }
     
     override func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
@@ -439,7 +421,7 @@ public class GPXLegacyRoute: GPXElement, GPXRouteType {
         rte.link = GPXLink(url: url, name: urlName)
         rte.number = number
         self.points.forEach { point in
-            rte.add(routepoint: point.upgrade() as GPXWaypointProtocol as? GPXRoutePoint)
+            rte.add(routepoint: point.upgrade())
         }
         
         return rte
@@ -471,6 +453,15 @@ public class GPXLegacyRoute: GPXElement, GPXRouteType {
 
 
 public final class GPXLegacyRoutePoint: GPXLegacyWaypoint {
+    
+    override func upgrade() -> GPXRoutePoint {
+        let upgraded: GPXRoutePoint = self.convert()
+        if let url = url, let urlName = urlName {
+            upgraded.link = GPXLink(url: url, name: urlName)
+        }
+        return upgraded
+    }
+    
     override func tagName() -> String {
         return "rtept"
     }
@@ -483,6 +474,23 @@ public final class GPXLegacyTrackPoint: GPXLegacyWaypoint {
     
     public var course: Double?
     public var speed: Double?
+    
+    override func upgrade() -> GPXTrackPoint {
+        let upgraded: GPXTrackPoint = self.convert()
+        if let url = url, let urlName = urlName {
+            upgraded.link = GPXLink(url: url, name: urlName)
+        }
+        upgraded.extensions = GPXExtensions()
+        var dict = [String : String]()
+        if let course = course {
+            dict["course"] = "\(course)"
+        }
+        if let speed = speed {
+            dict["speed"] = "\(speed)"
+        }
+        upgraded.extensions!.append(at: "legacy", contents: dict)
+        return upgraded
+    }
     
     override func tagName() -> String {
         return "trkpt"
@@ -606,7 +614,7 @@ public class GPXLegacyTrackSegment: GPXElement {
     public func upgrade() -> GPXTrackSegment {
         let segment = GPXTrackSegment()
         self.points.forEach { point in
-            segment.add(trackpoint: point as GPXWaypointProtocol as? GPXTrackPoint)
+            segment.add(trackpoint: point.upgrade())
         }
         return segment
     }
