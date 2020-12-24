@@ -36,7 +36,7 @@
 ## What is CoreGPX?
 CoreGPX is a port of iOS-GPX-Framework to Swift language.
 
-CoreGPX currently supports all GPX tags listed in GPX v1.1 schema. It can generate and parse GPX v1.1 compliant files on iOS, macOS and watchOS. 
+CoreGPX currently supports all GPX tags listed in GPX v1.1 schema, along with the recent addition of GPX v1.0 support. It can generate and parse GPX compliant files on iOS, macOS and watchOS. 
 
 As it makes use of `XMLParser` for parsing GPX files, CoreGPX is fully dependent on the `Foundation` API only.
 
@@ -44,9 +44,10 @@ As it makes use of `XMLParser` for parsing GPX files, CoreGPX is fully dependent
 - [x] Successfully outputs string that can be packaged into a GPX file
 - [x] Parses GPX files using native XMLParser
 - [x] Support for iOS, macOS & watchOS
-- [x] **(new)** Supports `Codable` in essential classes
-- [x] **(new)** Enhanced full support for `GPXExtensions` for both parsing and creating. 
-- [x] **(new)** Lossy GPX compression. Check out [GPXCompressor](https://github.com/vincentneo/GPXCompressor) for an implementation of this new feature.
+- [x] Supports `Codable` in essential classes
+- [x] Enhanced full support for `GPXExtensions` for both parsing and creating. 
+- [x] Lossy GPX compression. Check out [GPXCompressor](https://github.com/vincentneo/GPXCompressor) for an implementation of this new feature.
+- [x] **(new)** Legacy GPX support. (GPX 1.0 and below)
 
 ## Documentation
 
