@@ -150,7 +150,7 @@ public final class GPXLegacyRoot: GPXElement, GPXRootElement {
         if url != nil {
             let mLink = GPXLink(withURL: url)
             mLink.text = urlName
-            meta.link = mLink
+            meta.links.append(mLink)
         }
 
         meta.time = time
@@ -304,8 +304,9 @@ public class GPXLegacyWaypoint: GPXElement, GPXWaypointProtocol {
     
     func upgrade() -> GPXWaypoint {
         let upgraded: GPXWaypoint = self.convert()
-        if let url = url, let urlName = urlName {
-            upgraded.link = GPXLink(url: url, name: urlName)
+        if let url = url, let urlName = urlName,
+           let link = GPXLink(url: url, name: urlName) {
+            upgraded.links.append(link)
         }
         return upgraded
     }
@@ -418,7 +419,9 @@ public class GPXLegacyRoute: GPXElement, GPXRouteType {
         rte.comment = comment
         rte.desc = desc
         rte.source = source
-        rte.link = GPXLink(url: url, name: urlName)
+        if let link = GPXLink(url: url, name: urlName) {
+            rte.links.append(link)
+        }
         rte.number = number
         self.points.forEach { point in
             rte.add(routepoint: point.upgrade())
@@ -456,8 +459,9 @@ public final class GPXLegacyRoutePoint: GPXLegacyWaypoint {
     
     override func upgrade() -> GPXRoutePoint {
         let upgraded: GPXRoutePoint = self.convert()
-        if let url = url, let urlName = urlName {
-            upgraded.link = GPXLink(url: url, name: urlName)
+        if let url = url, let urlName = urlName,
+           let link = GPXLink(url: url, name: urlName) {
+            upgraded.links.append(link)
         }
         return upgraded
     }
@@ -477,8 +481,9 @@ public final class GPXLegacyTrackPoint: GPXLegacyWaypoint {
     
     override func upgrade() -> GPXTrackPoint {
         let upgraded: GPXTrackPoint = self.convert()
-        if let url = url, let urlName = urlName {
-            upgraded.link = GPXLink(url: url, name: urlName)
+        if let url = url, let urlName = urlName,
+           let link = GPXLink(url: url, name: urlName) {
+            upgraded.links.append(link)
         }
         upgraded.extensions = GPXExtensions()
         var dict = [String : String]()
@@ -562,7 +567,9 @@ public class GPXLegacyTrack: GPXElement {
         trk.comment = comment
         trk.desc = desc
         trk.source = source
-        trk.link = GPXLink(url: url, name: urlName)
+        if let link = GPXLink(url: url, name: urlName) {
+            trk.links.append(link)
+        }
         trk.number = number
         self.segments.forEach { segment in
             trk.add(trackSegment: segment.upgrade())
