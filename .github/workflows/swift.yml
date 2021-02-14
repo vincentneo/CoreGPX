@@ -27,8 +27,8 @@ jobs:
     strategy:
       matrix:
         config:
-          - { name: "Build CoreGPX macOS", scheme: "CoreGPX-macOS" }
-          - { name: "Build CoreGPX macOS catalyst", scheme: "CoreGPX" }
+          - { name: "macOS", scheme: "CoreGPX-macOS" }
+          - { name: "Mac Catalyst", scheme: "CoreGPX" }
     steps:
     - uses: actions/checkout@v2
     - name: ${{ matrix.config['name'] }}
