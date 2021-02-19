@@ -20,7 +20,7 @@ public final class GPXRoute: GPXElement, Codable, GPXRouteType {
         case comment = "cmt"
         case desc
         case source = "src"
-        case link
+        case links = "link"
         case type
         case extensions
     }
@@ -37,8 +37,18 @@ public final class GPXRoute: GPXElement, Codable, GPXRouteType {
     /// Source of the route.
     public var source: String?
     
-    /// Additional link to an external resource.
-    public var link: GPXLink?
+    /// A value type for link properties (see `GPXLink`)
+    ///
+    /// Intended for additional information about current route through a web link.
+    @available(*, deprecated, message: "CoreGPX now support multiple links.", renamed: "links.first")
+    public var link: GPXLink? {
+        return links.first
+    }
+    
+    /// A value type for link properties (see `GPXLink`)
+    ///
+    /// Intended for additional information about current route through web links.
+    public var links = [GPXLink]()
     
     /// Type of route.
     public var type: String?
@@ -68,7 +78,7 @@ public final class GPXRoute: GPXElement, Codable, GPXRouteType {
     init(raw: GPXRawElement) {
         for child in raw.children {
             switch child.name {
-            case "link":        self.link = GPXLink()
+            case "link":        self.links.append(GPXLink(raw: child))
             case "rtept":       self.routepoints.append(GPXRoutePoint(raw: child))
             case "name":        self.name = child.text
             case "cmt":         self.comment = child.text
@@ -89,7 +99,7 @@ public final class GPXRoute: GPXElement, Codable, GPXRouteType {
     /// Not recommended for use. Init `GPXRoutePoint` manually, then adding it to route, instead.
     func newLink(withHref href: String) -> GPXLink {
         let link: GPXLink = GPXLink(withHref: href)
-        self.link = link
+        self.links.append(link)
         return link
     }
     
@@ -143,7 +153,7 @@ public final class GPXRoute: GPXElement, Codable, GPXRouteType {
         self.addProperty(forValue: desc, gpx: gpx, tagName: "desc", indentationLevel: indentationLevel)
         self.addProperty(forValue: source, gpx: gpx, tagName: "src", indentationLevel: indentationLevel)
         
-        if let link = link {
+        for link in links {
            link.gpx(gpx, indentationLevel: indentationLevel)
         }
         

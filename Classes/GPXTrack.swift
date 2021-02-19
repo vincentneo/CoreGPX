@@ -18,7 +18,7 @@ public final class GPXTrack: GPXElement, Codable {
     
     /// for Codable
     private enum CodingKeys: String, CodingKey {
-        case link
+        case links = "link"
         case tracksegments = "trkseg"
         case name
         case comment = "cmt"
@@ -29,8 +29,18 @@ public final class GPXTrack: GPXElement, Codable {
         case extensions
     }
     
-    /// Holds a web link to external resources regarding the current track.
-    public var link: GPXLink?
+    /// A value type for link properties (see `GPXLink`)
+    ///
+    /// Intended for additional information about current route through a web link.
+    @available(*, deprecated, message: "CoreGPX now support multiple links.", renamed: "links.first")
+    public var link: GPXLink? {
+        return links.first
+    }
+    
+    /// A value type for link properties (see `GPXLink`)
+    ///
+    /// Holds web links to external resources regarding the current track.
+    public var links = [GPXLink]()
     
     /// Array of track segements. Must be included in every track.
     public var tracksegments = [GPXTrackSegment]()
@@ -68,7 +78,7 @@ public final class GPXTrack: GPXElement, Codable {
     init(raw: GPXRawElement) {
         for child in raw.children {
             switch child.name {
-            case "link":        self.link = GPXLink(raw: child)
+            case "link":        self.links.append(GPXLink(raw: child))
             case "trkseg":      self.tracksegments.append(GPXTrackSegment(raw: child))
             case "name":        self.name = child.text
             case "cmt":         self.comment = child.text
@@ -152,7 +162,7 @@ public final class GPXTrack: GPXElement, Codable {
         self.addProperty(forValue: desc, gpx: gpx, tagName: "desc", indentationLevel: indentationLevel)
         self.addProperty(forValue: source, gpx: gpx, tagName: "src", indentationLevel: indentationLevel)
         
-        if let link = link {
+        for link in links {
             link.gpx(gpx, indentationLevel: indentationLevel)
         }
         

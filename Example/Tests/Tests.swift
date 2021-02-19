@@ -8,6 +8,8 @@ class CoreGPX_Tests: XCTestCase {
     var url: URL?
     var stream: InputStream?
     
+    var dualLinkPath: URL?
+    
     // error tests
     var wptError: URL?
     
@@ -17,6 +19,8 @@ class CoreGPX_Tests: XCTestCase {
         let url = bundle.url(forResource: "GPXTest-TrackPointOnly", withExtension: "gpx")!
         let wptError = bundle.url(forResource: "wptError", withExtension: "gpx")!
         let path = bundle.path(forResource: "GPXTest-TrackPointOnly", ofType: "gpx")!
+        
+        let dualLinkPath = bundle.url(forResource: "GPXTest-DualLinks", withExtension: "gpx")!
         do {
             let data = try Data(contentsOf: url)
             self.data = data
@@ -27,6 +31,7 @@ class CoreGPX_Tests: XCTestCase {
         self.url = url
         self.stream = inputStream
         self.wptError = wptError
+        self.dualLinkPath = dualLinkPath
         
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -85,6 +90,40 @@ class CoreGPX_Tests: XCTestCase {
         XCTAssertEqual(count, 4142, "testParseWithURL: GPX Parsing using `URL` passed")
         XCTAssertEqual(firstLatitude, 35.675032, "testParseWithURL: GPX Parsing using `URL` passed")
         XCTAssertEqual(firstLongitude, 139.722148, "testParseWithURL: GPX Parsing using `URL` passed")
+        
+    }
+    
+    func testParseDualLinksWithURL() {
+        guard let url = dualLinkPath else {
+            XCTAssert(false, "testParseWithURL: URL invalid")
+            return
+        }
+        guard let parsedData = GPXParser(withURL: url)?.parsedData() else {
+            XCTAssert(false, "testParseWithURL: init with URL failed")
+            return
+        }
+        var count = Int()
+        var firstLatitude = Double()
+        var firstLongitude = Double()
+        var links = [GPXLink]()
+        
+        for track in parsedData.tracks {
+            for tracksegment in track.tracksegments {
+                count += tracksegment.trackpoints.count
+                if let first = tracksegment.trackpoints.first {
+                    firstLatitude = first.latitude!
+                    firstLongitude = first.longitude!
+                    links = first.links
+                }
+            }
+        }
+        
+        XCTAssertEqual(count, 2, "testParseDualLinksWithURL: GPX Parsing using `URL` passed, count is \(count)")
+        XCTAssertEqual(firstLatitude, 35.675032, "testParseDualLinksWithURL: GPX Parsing using `URL` passed, 1st lat is \(firstLatitude)")
+        XCTAssertEqual(firstLongitude, 139.722148, "testParseDualLinksWithURL: GPX Parsing using `URL` passed, 1st lng is \(firstLongitude)")
+        XCTAssertEqual(links.count, 2, "testParseDualLinksWithURL: GPX Parse Links count is \(links.count), expected 2")
+        XCTAssertEqual(links.last?.href, "https://sunlight.vincent-neo.com", "testParseDualLinksWithURL: GPX Parse Links 2nd href is \(links.last!.href!), expected https://sunlight.vincent-neo.com")
+        XCTAssertEqual(links.first?.text, "Vincent Site", "testParseDualLinksWithURL: GPX Parse Links 1st text is \(links.first!.text!), expected Vincent Site")
         
     }
     
@@ -249,7 +288,7 @@ class CoreGPX_Tests: XCTestCase {
             
             print("data: \(stringData)")
             
-            XCTAssertEqual(stringData, "{\"lat\":35.675032000000002,\"lon\":139.722148,\"ele\":31.098351999999998,\"time\":565148938}", "testEncoding: Data encoding passed")
+            XCTAssertEqual(stringData, "{\"link\":[],\"lat\":35.675032000000002,\"lon\":139.722148,\"ele\":31.098351999999998,\"time\":565148938}", "testEncoding: Data encoding passed")
         }
         catch {
             XCTAssert(false, "testEncoding: Failed to serialize trackpoint as Data")

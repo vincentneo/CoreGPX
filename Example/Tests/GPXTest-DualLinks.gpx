@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<gpx version="1.1" creator="Xcode">
+    <trk>
+        <trkseg>
+            <trkpt lat="35.675032" lon="139.722148">
+                <ele>31.098352</ele>
+                <time>2018-11-29T01:48:58Z</time>
+                <link href="https://www.vincent-neo.com">
+                    <text>Vincent Site</text>
+                </link>
+                <link href="https://sunlight.vincent-neo.com">
+                    <text>Get Sunlight</text>
+                </link>
+            </trkpt>
+            <trkpt lat="35.675018" lon="139.722148">
+                <ele>30</ele>
+                <time>2018-11-29T01:50:58Z</time>
+            </trkpt>
+        </trkseg>
+    </trk>
+</gpx>

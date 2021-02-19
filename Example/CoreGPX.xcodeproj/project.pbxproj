@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12A64AED25DFBBD4006A5B01 /* GPXTest-DualLinks.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 12A64AE325DFBAB9006A5B01 /* GPXTest-DualLinks.gpx */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		075668C73FF16AA0431AF1CD /* Pods-CoreGPX_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreGPX_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreGPX_Tests/Pods-CoreGPX_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		1199081F763AEFCB013E8280 /* Pods_CoreGPX_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreGPX_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		12A64AE325DFBAB9006A5B01 /* GPXTest-DualLinks.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "GPXTest-DualLinks.gpx"; sourceTree = "<group>"; };
 		25FD7EB183A4A9CE3963AB4F /* Pods-CoreGPX_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreGPX_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreGPX_Example/Pods-CoreGPX_Example.release.xcconfig"; sourceTree = "<group>"; };
 		505B15A1181144CFF96772E1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* CoreGPX_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreGPX_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +132,7 @@
 			children = (
 				BF0F3FED2320C504004E54D3 /* wptError.gpx */,
 				BF67E9292217F2EE008B6202 /* GPXTest-TrackPointOnly.gpx */,
+				12A64AE325DFBAB9006A5B01 /* GPXTest-DualLinks.gpx */,
 				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
@@ -273,6 +276,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12A64AED25DFBBD4006A5B01 /* GPXTest-DualLinks.gpx in Resources */,
 				BF0F3FEF2320C750004E54D3 /* wptError.gpx in Resources */,
 				BF67E92A2217F2EE008B6202 /* GPXTest-TrackPointOnly.gpx in Resources */,
 			);
