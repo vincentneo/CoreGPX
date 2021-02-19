@@ -6,8 +6,8 @@
 	Parse and generate GPX files easily on iOS, watchOS & macOS.
 	</b>
   <br/>
-  <a href="https://travis-ci.com/vincentneo/CoreGPX">
-    <img src="https://travis-ci.com/vincentneo/CoreGPX.svg?branch=master"/>
+  <a href="https://github.com/vincentneo/CoreGPX/actions">
+    <img src="https://github.com/vincentneo/CoreGPX/actions/workflows/swift.yml/badge.svg?branch=master"/>
   </a>
   <a href="https://swift.org">
     <img src="https://img.shields.io/badge/Swift-5.2-orange.svg"/>
@@ -205,6 +205,13 @@ To run the example project, simply clone the repo, and try it out straight away!
 ## Contributing
 Contributions to this project will be more than welcomed. Feel free to add a pull request or open an issue.
 If you require a feature that has yet to be available, do open an issue, describing why and what the feature could bring and how it would help you!
+
+## Previous Builds Logs
+History of older build logs can be found at Travis CI:
+[![Travis CI](https://travis-ci.com/vincentneo/CoreGPX.svg?branch=master)](https://travis-ci.com/vincentneo/CoreGPX)
+
+CoreGPX recently switched to GitHub Actions due to the loss of free tier Travis CI for open sourced Mac-based projects.
+
 
 ## Like the project? Check out these too!
 - [iOS-Open-GPX-Tracker](https://github.com/merlos/iOS-Open-GPX-Tracker), an awesome open-sourced GPS tracker for iOS and watchOS.
