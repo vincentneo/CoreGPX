@@ -53,3 +53,14 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build Example App
       run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -workspace "Example/CoreGPX.xcworkspace" -scheme "CoreGPX-Example" -destination "OS=14.3,name=iPhone 12 Pro" clean build | xcpretty
+      
+  test:
+    name: Test Cases
+    runs-on: macos-latest
+    env: 
+      DEVELOPER_DIR: /Applications/Xcode_12.3.app/Contents/Developer
+    steps:
+    - uses: actions/checkout@v2
+    - name: Test All
+      run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -workspace "Example/CoreGPX.xcworkspace" -scheme "CoreGPX Tests" -destination "OS=14.3,name=iPhone 12 Pro" -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES clean test | xcpretty
+      
