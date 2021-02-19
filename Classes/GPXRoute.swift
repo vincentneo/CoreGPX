@@ -59,7 +59,15 @@ public final class GPXRoute: GPXElement, Codable, GPXRouteType {
     /// Route points in the route.
     ///
     /// All route points joined represents a route.
-    public var routepoints = [GPXRoutePoint]()
+    @available(*, deprecated, renamed: "points")
+    public var routepoints: [GPXRoutePoint] {
+        return points
+    }
+    
+    /// Route points in the route.
+    ///
+    /// All route points joined represents a route.
+    public var points = [GPXRoutePoint]()
     
     /// Number of route (possibly a tag for the route)
     public var number: Int?
@@ -79,7 +87,7 @@ public final class GPXRoute: GPXElement, Codable, GPXRouteType {
         for child in raw.children {
             switch child.name {
             case "link":        self.links.append(GPXLink(raw: child))
-            case "rtept":       self.routepoints.append(GPXRoutePoint(raw: child))
+            case "rtept":       self.points.append(GPXRoutePoint(raw: child))
             case "name":        self.name = child.text
             case "cmt":         self.comment = child.text
             case "desc":        self.desc = child.text
@@ -117,21 +125,21 @@ public final class GPXRoute: GPXElement, Codable, GPXRouteType {
     /// Adds a singular route point to the route.
     func add(routepoint: GPXRoutePoint?) {
         if let validPoint = routepoint {
-            routepoints.append(validPoint)
+            points.append(validPoint)
         }
     }
     
     /// Adds an array of route points to the route.
     func add(routepoints: [GPXRoutePoint]) {
-        self.routepoints.append(contentsOf: routepoints)
+        self.points.append(contentsOf: routepoints)
     }
     
     /// Removes a route point from the route.
     func remove(routepoint: GPXRoutePoint) {
-        let contains = routepoints.contains(routepoint)
+        let contains = points.contains(routepoint)
         if contains == true {
-            if let index = routepoints.firstIndex(of: routepoint) {
-                routepoints.remove(at: index)
+            if let index = points.firstIndex(of: routepoint) {
+                points.remove(at: index)
             }
         }
         
@@ -164,7 +172,7 @@ public final class GPXRoute: GPXElement, Codable, GPXRouteType {
             self.extensions?.gpx(gpx, indentationLevel: indentationLevel)
         }
         
-        for routepoint in routepoints {
+        for routepoint in points {
             routepoint.gpx(gpx, indentationLevel: indentationLevel)
         }
     }

@@ -236,7 +236,7 @@ public final class GPXParser: NSObject {
         return root
     }
     
-    // MARK:- For >= V1.0 Parser
+    // MARK:- For version <= 1.0 Parser
     ///
     /// Starts parsing, returns parsed `GPXRoot` when done.
     ///

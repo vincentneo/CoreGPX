@@ -54,10 +54,10 @@ class CoreGPX_Tests: XCTestCase {
         var firstLongitude = Double()
         
         for track in parsedData!.tracks {
-            for tracksegment in track.tracksegments {
-                count += tracksegment.trackpoints.count
-                firstLatitude = (tracksegment.trackpoints.first?.latitude)!
-                firstLongitude = (tracksegment.trackpoints.first?.longitude)!
+            for tracksegment in track.segments {
+                count += tracksegment.points.count
+                firstLatitude = (tracksegment.points.first?.latitude)!
+                firstLongitude = (tracksegment.points.first?.longitude)!
             }
         }
         
@@ -80,10 +80,10 @@ class CoreGPX_Tests: XCTestCase {
         var firstLongitude = Double()
         
         for track in parsedData.tracks {
-            for tracksegment in track.tracksegments {
-                count += tracksegment.trackpoints.count
-                firstLatitude = (tracksegment.trackpoints.first?.latitude)!
-                firstLongitude = (tracksegment.trackpoints.first?.longitude)!
+            for tracksegment in track.segments {
+                count += tracksegment.points.count
+                firstLatitude = (tracksegment.points.first?.latitude)!
+                firstLongitude = (tracksegment.points.first?.longitude)!
             }
         }
         
@@ -108,9 +108,9 @@ class CoreGPX_Tests: XCTestCase {
         var links = [GPXLink]()
         
         for track in parsedData.tracks {
-            for tracksegment in track.tracksegments {
-                count += tracksegment.trackpoints.count
-                if let first = tracksegment.trackpoints.first {
+            for tracksegment in track.segments {
+                count += tracksegment.points.count
+                if let first = tracksegment.points.first {
                     firstLatitude = first.latitude!
                     firstLongitude = first.longitude!
                     links = first.links
@@ -141,10 +141,10 @@ class CoreGPX_Tests: XCTestCase {
         var firstLongitude = Double()
         
         for track in parsedData.tracks {
-            for tracksegment in track.tracksegments {
-                count += tracksegment.trackpoints.count
-                firstLatitude = (tracksegment.trackpoints.first?.latitude)!
-                firstLongitude = (tracksegment.trackpoints.first?.longitude)!
+            for tracksegment in track.segments {
+                count += tracksegment.points.count
+                firstLatitude = (tracksegment.points.first?.latitude)!
+                firstLongitude = (tracksegment.points.first?.longitude)!
             }
         }
         
@@ -165,10 +165,10 @@ class CoreGPX_Tests: XCTestCase {
         var firstLongitude = Double()
         
         for track in parsedData!.tracks {
-            for tracksegment in track.tracksegments {
-                count += tracksegment.trackpoints.count
-                firstLatitude = (tracksegment.trackpoints.first?.latitude)!
-                firstLongitude = (tracksegment.trackpoints.first?.longitude)!
+            for tracksegment in track.segments {
+                count += tracksegment.points.count
+                firstLatitude = (tracksegment.points.first?.latitude)!
+                firstLongitude = (tracksegment.points.first?.longitude)!
             }
         }
         
@@ -189,10 +189,10 @@ class CoreGPX_Tests: XCTestCase {
         var firstLongitude = Double()
         
         for track in parsedData.tracks {
-            for tracksegment in track.tracksegments {
-                count += tracksegment.trackpoints.count
-                firstLatitude = (tracksegment.trackpoints.first?.latitude)!
-                firstLongitude = (tracksegment.trackpoints.first?.longitude)!
+            for tracksegment in track.segments {
+                count += tracksegment.points.count
+                firstLatitude = (tracksegment.points.first?.latitude)!
+                firstLongitude = (tracksegment.points.first?.longitude)!
             }
         }
         
@@ -276,7 +276,7 @@ class CoreGPX_Tests: XCTestCase {
             return
         }
         let parsedData = GPXParser(withData: data).parsedData()
-        let trackpoints = parsedData!.tracks[0].tracksegments[0].trackpoints
+        let trackpoints = parsedData!.tracks[0].segments[0].points
         
         do {
             let data = try JSONEncoder().encode(trackpoints.first)
@@ -302,7 +302,7 @@ class CoreGPX_Tests: XCTestCase {
             return
         }
         let parsedData = GPXParser(withData: data).parsedData()
-        let trackpoints = parsedData!.tracks[0].tracksegments[0].trackpoints
+        let trackpoints = parsedData!.tracks[0].segments[0].points
         
         /// `data` declared above != `serializedData`
         ///

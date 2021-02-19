@@ -45,8 +45,8 @@ class ParseViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func trackpointsCount() -> Int {
         var totalCount: Int = 0
         for track in self.tracks {
-            for trackSegment in track.tracksegments {
-                totalCount += trackSegment.trackpoints.count
+            for trackSegment in track.segments {
+                totalCount += trackSegment.points.count
             }
         }
         return totalCount
@@ -103,8 +103,8 @@ class ParseViewController: UIViewController, UITableViewDelegate, UITableViewDat
             var subtitles = [String]()
             
             for track in self.tracks {
-                for tracksegment in track.tracksegments {
-                    for trackpoint in tracksegment.trackpoints {
+                for tracksegment in track.segments {
+                    for trackpoint in tracksegment.points {
                         coordinates.append("Lat=\(trackpoint.latitude!), Lon=\(trackpoint.longitude!)")
                         subtitles.append("Date:\(trackpoint.time ?? Date()), Ele:\(trackpoint.elevation ?? 0), Ext:\(trackpoint.extensions?.get(from: nil) ?? [String:String]())")
                         
