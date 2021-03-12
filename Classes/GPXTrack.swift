@@ -19,7 +19,7 @@ public final class GPXTrack: GPXElement, Codable {
     /// for Codable
     private enum CodingKeys: String, CodingKey {
         case links = "link"
-        case tracksegments = "trkseg"
+        case segments = "trkseg"
         case name
         case comment = "cmt"
         case desc
@@ -42,8 +42,14 @@ public final class GPXTrack: GPXElement, Codable {
     /// Holds web links to external resources regarding the current track.
     public var links = [GPXLink]()
     
-    /// Array of track segements. Must be included in every track.
-    public var tracksegments = [GPXTrackSegment]()
+    /// Array of track segments. Must be included in every track.
+    @available(*, deprecated, renamed: "segments")
+    public var tracksegments: [GPXTrackSegment] {
+        return segments
+    }
+    
+    /// Array of track segments. Must be included in every track.
+    public var segments = [GPXTrackSegment]()
     
     /// Name of track.
     public var name: String?
@@ -79,7 +85,7 @@ public final class GPXTrack: GPXElement, Codable {
         for child in raw.children {
             switch child.name {
             case "link":        self.links.append(GPXLink(raw: child))
-            case "trkseg":      self.tracksegments.append(GPXTrackSegment(raw: child))
+            case "trkseg":      self.segments.append(GPXTrackSegment(raw: child))
             case "name":        self.name = child.text
             case "cmt":         self.comment = child.text
             case "desc":        self.desc = child.text
@@ -113,22 +119,22 @@ public final class GPXTrack: GPXElement, Codable {
     /// Adds a single track segment to the track.
     public func add(trackSegment: GPXTrackSegment?) {
         if let validTrackSegment = trackSegment {
-            tracksegments.append(validTrackSegment)
+            segments.append(validTrackSegment)
         }
     }
     
     /// Adds an array of track segments to the track.
     public func add(trackSegments: [GPXTrackSegment]) {
-        self.tracksegments.append(contentsOf: trackSegments)
+        self.segments.append(contentsOf: trackSegments)
     }
     
     /// Removes a tracksegment from the track.
     public func remove(trackSegment: GPXTrackSegment) {
-        let contains = tracksegments.contains(trackSegment)
+        let contains = segments.contains(trackSegment)
         
         if contains == true {
-            if let index = tracksegments.firstIndex(of: trackSegment) {
-                tracksegments.remove(at: index)
+            if let index = segments.firstIndex(of: trackSegment) {
+                segments.remove(at: index)
             }
         }
     }
@@ -137,7 +143,7 @@ public final class GPXTrack: GPXElement, Codable {
     public func newTrackPointWith(latitude: Double, longitude: Double) -> GPXTrackPoint {
         var tracksegment: GPXTrackSegment
         
-        if let lastTracksegment = tracksegments.last {
+        if let lastTracksegment = segments.last {
             tracksegment = lastTracksegment
         } else {
             tracksegment = self.newTrackSegment()
@@ -173,7 +179,7 @@ public final class GPXTrack: GPXElement, Codable {
             self.extensions?.gpx(gpx, indentationLevel: indentationLevel)
         }
         
-        for tracksegment in tracksegments {
+        for tracksegment in segments {
             tracksegment.gpx(gpx, indentationLevel: indentationLevel)
         }
         

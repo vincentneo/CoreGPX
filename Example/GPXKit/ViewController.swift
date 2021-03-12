@@ -38,8 +38,8 @@ class ViewController: UIViewController {
         
         // This example prints all the trackpoint's latitude, longitude and date from the GPX file.
         for track in self.tracks {
-            for tracksegment in track.tracksegments {
-                for trackpoint in tracksegment.trackpoints {
+            for tracksegment in track.segments {
+                for trackpoint in tracksegment.points {
                     print("trackpoint-latitude: \(trackpoint.latitude ?? 0)")
                     print("trackpoint-longitude: \(trackpoint.longitude ?? 0)")
                     print("trackpoint-date: \(trackpoint.time ?? Date())")
