@@ -1,6 +1,369 @@
 {
   "warnings": [
-
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXAuthor.swift",
+      "line": 15,
+      "symbol": "GPXAuthor.init(name:email:link:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 13,
+      "symbol": "GPXVersion",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 14,
+      "symbol": "GPXVersion.pre4",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 15,
+      "symbol": "GPXVersion.pre5",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 16,
+      "symbol": "GPXVersion.pre6",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 17,
+      "symbol": "GPXVersion.v1",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 33,
+      "symbol": "GPXRootElement",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 34,
+      "symbol": "GPXRootElement.version",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 35,
+      "symbol": "GPXRootElement.creator",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 38,
+      "symbol": "GPXLegacyRoot",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 39,
+      "symbol": "GPXLegacyRoot.version",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 40,
+      "symbol": "GPXLegacyRoot.creator",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 42,
+      "symbol": "GPXLegacyRoot.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 43,
+      "symbol": "GPXLegacyRoot.desc",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 44,
+      "symbol": "GPXLegacyRoot.author",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 45,
+      "symbol": "GPXLegacyRoot.email",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 46,
+      "symbol": "GPXLegacyRoot.url",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 47,
+      "symbol": "GPXLegacyRoot.urlName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 48,
+      "symbol": "GPXLegacyRoot.time",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 49,
+      "symbol": "GPXLegacyRoot.keywords",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 50,
+      "symbol": "GPXLegacyRoot.bounds",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 51,
+      "symbol": "GPXLegacyRoot.waypoints",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 52,
+      "symbol": "GPXLegacyRoot.routes",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 53,
+      "symbol": "GPXLegacyRoot.tracks",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 111,
+      "symbol": "GPXLegacyRoot.init(creator:version:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 117,
+      "symbol": "GPXLegacyRoot.addEmail(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 138,
+      "symbol": "GPXLegacyRoot.upgrade()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 239,
+      "symbol": "GPXLegacyWaypoint",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 364,
+      "symbol": "GPXLegacyRoute",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 380,
+      "symbol": "GPXLegacyRoute.url",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 382,
+      "symbol": "GPXLegacyRoute.urlName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 392,
+      "symbol": "GPXLegacyRoute.points",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 416,
+      "symbol": "GPXLegacyRoute.upgrade()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 458,
+      "symbol": "GPXLegacyRoutePoint",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 477,
+      "symbol": "GPXLegacyTrackPoint",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 479,
+      "symbol": "GPXLegacyTrackPoint.course",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 480,
+      "symbol": "GPXLegacyTrackPoint.speed",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 511,
+      "symbol": "GPXLegacyTrack",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 518,
+      "symbol": "GPXLegacyTrack.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 528,
+      "symbol": "GPXLegacyTrack.desc",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 530,
+      "symbol": "GPXLegacyTrack.source",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 532,
+      "symbol": "GPXLegacyTrack.url",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 534,
+      "symbol": "GPXLegacyTrack.urlName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 536,
+      "symbol": "GPXLegacyTrack.number",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 544,
+      "symbol": "GPXLegacyTrack.segments",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 564,
+      "symbol": "GPXLegacyTrack.upgrade()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 605,
+      "symbol": "GPXLegacyTrackSegment",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 610,
+      "symbol": "GPXLegacyTrackSegment.points",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLegacy.swift",
+      "line": 621,
+      "symbol": "GPXLegacyTrackSegment.upgrade()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXLink.swift",
+      "line": 89,
+      "symbol": "GPXLink.init(url:name:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXRouteProtocol.swift",
+      "line": 10,
+      "symbol": "GPXRouteType",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vincentneo/Documents/GitHub/CoreGPX/Classes/GPXWaypointProtocol.swift",
+      "line": 10,
+      "symbol": "GPXWaypointProtocol",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    }
   ],
   "source_directory": "/Users/vincentneo/Documents/GitHub/CoreGPX"
 }
