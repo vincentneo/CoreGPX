@@ -181,14 +181,14 @@ public final class GPXLegacyRoot: GPXElement, GPXRootElement {
     }
     
     override func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        let attribute = NSMutableString()
+        let attribute = NSMutableString(string: "")
         
-        attribute.appendFormat(" xmlns:xsi=\"%@\"", self.xsi)
-        attribute.appendFormat(" xmlns=\"%@\"", self.schema)
-        attribute.appendFormat(" xsi:schemaLocation=\"%@\"", self.schemaLocation)
+        attribute.append(" xmlns:xsi=\"\(self.xsi)\"")
+        attribute.append(" xmlns=\"\(self.schema)\"")
+        attribute.append(" xsi:schemaLocation=\"\(self.schemaLocation)\"")
         
-        attribute.appendFormat(" version=\"%@\"", version.rawValue)
-        attribute.appendFormat(" creator=\"%@\"", creator)
+        attribute.append(" version=\"\(version.rawValue)\"")
+        attribute.append(" creator=\"\(creator)\"")
         
         gpx.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n")
         
@@ -312,7 +312,7 @@ public class GPXLegacyWaypoint: GPXElement, GPXWaypointProtocol {
     }
     
     override func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        let attribute = NSMutableString()
+        let attribute = NSMutableString(string: "")
         
         if let latitude = latitude {
             attribute.append(" lat=\"\(latitude)\"")
