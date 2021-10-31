@@ -21,8 +21,6 @@ final class GPXDateParser {
     
     // MARK:- Supporting Variables
     
-    /// Caching Calendar such that it can be used repeatedly without reinitializing it.
-    private static var calendarCache = [Int : Calendar]()
     /// Components of Date stored together
     private static var components = DateComponents()
     
@@ -55,15 +53,8 @@ final class GPXDateParser {
         components.hour = hour.pointee
         components.month = month.pointee
         components.second = second.pointee
-        
-        if let calendar = calendarCache[0] {
-            return calendar.date(from: components)
-        }
-        
-        var calendar = Calendar(identifier: .gregorian)
-        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
-        calendarCache[0] = calendar
-        return calendar.date(from: components)
+        components.timeZone = TimeZone(secondsFromGMT: 0)!
+        return components.date
     }
     
     /// Parses a year string as native Date type.
@@ -78,14 +69,7 @@ final class GPXDateParser {
         })
         
         components.year = year.pointee
-        
-        if let calendar = calendarCache[1] {
-            return calendar.date(from: components)
-        }
-        
-        var calendar = Calendar(identifier: .gregorian)
-        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
-        calendarCache[1] = calendar
-        return calendar.date(from: components)
+        components.timeZone = TimeZone(secondsFromGMT: 0)
+        return components.date
     }
 }
