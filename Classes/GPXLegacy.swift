@@ -96,7 +96,7 @@ public final class GPXLegacyRoot: GPXElement, GPXRootElement {
             case "email":    self.email = child.text
             case "url":      if let text = child.text { self.url = URL(string: text) }
             case "urlname":  self.urlName = child.text
-            case "time":     self.time = GPXDateParser.parse(date: child.text)
+            case "time":     self.time = GPXDateParser().parse(date: child.text)
             case "keywords": self.keywords = child.text
             case "bounds":   self.bounds = GPXBounds(raw: child)
             case "wpt":      self.waypoints.append(GPXLegacyWaypoint(raw: child))
@@ -264,7 +264,7 @@ public class GPXLegacyWaypoint: GPXElement, GPXWaypointProtocol {
         
         for child in raw.children {
             switch child.name {
-            case "time":        self.time = GPXDateParser.parse(date: child.text)
+            case "time":        self.time = GPXDateParser().parse(date: child.text)
             case "ele":         self.elevation = Convert.toDouble(from: child.text)
             case "magvar":      self.magneticVariation = Convert.toDouble(from: child.text)
             case "geoidheight": self.geoidHeight = Convert.toDouble(from: child.text)
