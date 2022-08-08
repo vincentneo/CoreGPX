@@ -28,9 +28,9 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/ivincentneo'
 
   s.swift_versions = ['4.2', '5.0']
-  s.ios.deployment_target = '9.0'
-  s.osx.deployment_target = '10.9'
-  s.watchos.deployment_target = '2.0'
+  s.ios.deployment_target = '11.0'
+  s.osx.deployment_target = '10.13'
+  s.watchos.deployment_target = '4.0'
 
   s.source_files = 'Classes'
   
