@@ -46,7 +46,7 @@ open class GPXPoint: GPXElement, Codable {
         for child in raw.children {
             switch child.name {
             case "ele": self.elevation = Convert.toDouble(from: child.text)
-            case "time": self.time = GPXDateParser.parse(date: child.text)
+            case "time": self.time = GPXDateParser().parse(date: child.text)
             default: continue
             }
         }
