@@ -16,7 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build CoreGPX iOS
-      run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -workspace "Example/CoreGPX.xcworkspace" -scheme "CoreGPX" -destination "OS=14.3,name=iPhone 12 Pro" clean build | xcpretty
+      run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -workspace "Example/CoreGPX.xcworkspace" -scheme "CoreGPX" -destination "OS=15.5,name=iPhone 12 Pro" clean build | xcpretty
       
   macOS:
     name: macOS Build
@@ -37,7 +37,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build CoreGPX watchOS
-      run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -workspace "Example/CoreGPX.xcworkspace" -scheme "CoreGPX-watchOS" -destination "OS=7.2,name=Apple Watch Series 6 - 44mm" clean build | xcpretty
+      run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -workspace "Example/CoreGPX.xcworkspace" -scheme "CoreGPX-watchOS" -destination "OS=8.5,name=Apple Watch Series 6 - 44mm" clean build | xcpretty
   
   example:     
     name: Build Example & Test
@@ -45,7 +45,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build Example App
-      run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -workspace "Example/CoreGPX.xcworkspace" -scheme "CoreGPX-Example" -destination "OS=14.3,name=iPhone 12 Pro" clean build | xcpretty
+      run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -workspace "Example/CoreGPX.xcworkspace" -scheme "CoreGPX-Example" -destination "OS=15.5,name=iPhone 12 Pro" clean build | xcpretty
     - name: Run test cases
-      run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -workspace "Example/CoreGPX.xcworkspace" -scheme "CoreGPX Tests" -destination "OS=14.3,name=iPhone 12 Pro" test | xcpretty
+      run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -workspace "Example/CoreGPX.xcworkspace" -scheme "CoreGPX Tests" -destination "OS=15.5,name=iPhone 12 Pro" test | xcpretty
      
