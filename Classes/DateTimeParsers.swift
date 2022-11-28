@@ -84,7 +84,7 @@ final class GPXDateParser {
         })
         
         #if os(Linux)
-        return DateComponents(year: year).date
+        return DateComponents(year: year.pointee).date
         #else // os(Linux)
         components.year = year.pointee
         
