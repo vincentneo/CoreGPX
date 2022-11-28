@@ -10,6 +10,7 @@
 
 import Foundation
 
+
 /**
  Date Parser for use when parsing GPX files, containing elements with date attributions.
  
@@ -25,22 +26,31 @@ final class GPXDateParser {
     /// Caching Calendar such that it can be used repeatedly without reinitializing it.
     private static var calendarCache = [Int : Calendar]()
     /// Components of Date stored together
-    private static var components = DateComponents()
+    private var components = DateComponents()
     #endif // !os(Linux)
     
     // MARK:- Individual Date Components
     
-    private static let year = UnsafeMutablePointer<Int>.allocate(capacity: 1)
-    private static let month = UnsafeMutablePointer<Int>.allocate(capacity: 1)
-    private static let day = UnsafeMutablePointer<Int>.allocate(capacity: 1)
-    private static let hour = UnsafeMutablePointer<Int>.allocate(capacity: 1)
-    private static let minute = UnsafeMutablePointer<Int>.allocate(capacity: 1)
-    private static let second = UnsafeMutablePointer<Int>.allocate(capacity: 1)
+    private let year = UnsafeMutablePointer<Int>.allocate(capacity: 1)
+    private let month = UnsafeMutablePointer<Int>.allocate(capacity: 1)
+    private let day = UnsafeMutablePointer<Int>.allocate(capacity: 1)
+    private let hour = UnsafeMutablePointer<Int>.allocate(capacity: 1)
+    private let minute = UnsafeMutablePointer<Int>.allocate(capacity: 1)
+    private let second = UnsafeMutablePointer<Int>.allocate(capacity: 1)
+    
+    deinit {
+        year.deallocate()
+        month.deallocate()
+        day.deallocate()
+        hour.deallocate()
+        minute.deallocate()
+        second.deallocate()
+    }
     
     // MARK:- String To Date Parsers
     
     /// Parses an ISO8601 formatted date string as native Date type.
-    static func parse(date string: String?) -> Date? {
+    func parse(date string: String?) -> Date? {
         guard let NonNilString = string else {
             return nil
         }
@@ -54,6 +64,7 @@ final class GPXDateParser {
                             
         })
         
+
         components.year = year.pointee
         components.minute = minute.pointee
         components.day = day.pointee
@@ -61,19 +72,19 @@ final class GPXDateParser {
         components.month = month.pointee
         components.second = second.pointee
         
-        if let calendar = calendarCache[0] {
+        if let calendar = Self.calendarCache[0] {
             return calendar.date(from: components)
         }
         
         var calendar = Calendar(identifier: .gregorian)
         calendar.timeZone = TimeZone(secondsFromGMT: 0)!
-        calendarCache[0] = calendar
+        Self.calendarCache[0] = calendar
         return calendar.date(from: components)
         #endif
     }
     
     /// Parses a year string as native Date type.
-    static func parse(year string: String?) -> Date? {
+    func parse(year string: String?) -> Date? {
         guard let NonNilString = string else {
             return nil
         }
@@ -88,13 +99,13 @@ final class GPXDateParser {
         #else // os(Linux)
         components.year = year.pointee
         
-        if let calendar = calendarCache[1] {
+        if let calendar = Self.calendarCache[1] {
             return calendar.date(from: components)
         }
         
         var calendar = Calendar(identifier: .gregorian)
         calendar.timeZone = TimeZone(secondsFromGMT: 0)!
-        calendarCache[1] = calendar
+        Self.calendarCache[1] = calendar
         return calendar.date(from: components)
         #endif
     }
