@@ -26,6 +26,7 @@ final class GPXDateParser {
     private static var calendarCache = [Int : Calendar]()
     /// Components of Date stored together
     private static var components = DateComponents()
+    #endif // !os(Linux)
     
     // MARK:- Individual Date Components
     
@@ -35,7 +36,6 @@ final class GPXDateParser {
     private static let hour = UnsafeMutablePointer<Int>.allocate(capacity: 1)
     private static let minute = UnsafeMutablePointer<Int>.allocate(capacity: 1)
     private static let second = UnsafeMutablePointer<Int>.allocate(capacity: 1)
-    #endif // !os(Linux)
     
     // MARK:- String To Date Parsers
     
