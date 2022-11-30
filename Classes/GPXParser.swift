@@ -128,7 +128,7 @@ public final class GPXParser: NSObject {
     /// Starts parsing, returns parsed `GPXRoot` when done.
     ///
     public func parsedData() -> GPXRoot? {
-        self.parser.parse() // parse when requested
+        _ = self.parser.parse() // parse when requested
         guard let firstTag = stack.first else { return nil }
         guard let rawGPX = firstTag.children.first else { return nil }
         
@@ -190,7 +190,7 @@ public final class GPXParser: NSObject {
     public func fallibleParsedData(forceContinue: Bool) throws -> GPXRoot? {
         self.isErrorCheckEnabled = true
         self.shouldContinueAfterFirstError = forceContinue
-        self.parser.parse() // parse when requested
+        _ = self.parser.parse() // parse when requested
         
         guard let firstTag = stack.first else {
             throw GPXError.parser.fileIsNotXMLBased
@@ -244,7 +244,7 @@ public final class GPXParser: NSObject {
     /// Starts parsing, returns parsed `GPXRoot` when done.
     ///
     public func legacyParsingData() -> GPXLegacyRoot? {
-        self.parser.parse() // parse when requested
+        _ = self.parser.parse() // parse when requested
         guard let firstTag = stack.first, let rawGPX = firstTag.children.first else { return nil }
         
         let root = GPXLegacyRoot(raw: rawGPX)// includes attributes.
@@ -327,7 +327,7 @@ extension GPXParser {
     ///
     /// Great for basic direct compression needs.
     public func lossyParsing(type: GPXCompression.lossyTypes, affecting types: [GPXCompression.lossyOptions]) -> GPXRoot? {
-        self.parser.parse()
+        _ = self.parser.parse()
         
         guard let firstTag = stack.first else { return nil }
         guard let rawGPX = firstTag.children.first else { return nil }

@@ -22,10 +22,12 @@ final class GPXDateParser {
     
     // MARK:- Supporting Variables
     
+    #if !os(Linux)
     /// Caching Calendar such that it can be used repeatedly without reinitializing it.
     private static var calendarCache = [Int : Calendar]()
     /// Components of Date stored together
     private var components = DateComponents()
+    #endif // !os(Linux)
     
     // MARK:- Individual Date Components
     
@@ -53,6 +55,9 @@ final class GPXDateParser {
             return nil
         }
         
+        #if os(Linux)
+        return ISO8601DateFormatter().date(from: NonNilString)
+        #else // os(Linux)
         _ = withVaList([year, month, day, hour, minute,
                         second], { pointer in
                             vsscanf(NonNilString, "%d-%d-%dT%d:%d:%dZ", pointer)
@@ -75,6 +80,7 @@ final class GPXDateParser {
         calendar.timeZone = TimeZone(secondsFromGMT: 0)!
         Self.calendarCache[0] = calendar
         return calendar.date(from: components)
+        #endif
     }
     
     /// Parses a year string as native Date type.
@@ -88,6 +94,9 @@ final class GPXDateParser {
             
         })
         
+        #if os(Linux)
+        return DateComponents(year: year.pointee).date
+        #else // os(Linux)
         components.year = year.pointee
         
         if let calendar = Self.calendarCache[1] {
@@ -98,5 +107,6 @@ final class GPXDateParser {
         calendar.timeZone = TimeZone(secondsFromGMT: 0)!
         Self.calendarCache[1] = calendar
         return calendar.date(from: components)
+        #endif
     }
 }

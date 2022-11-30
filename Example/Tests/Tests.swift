@@ -105,6 +105,7 @@ class CoreGPX_Tests: XCTestCase {
         var count = Int()
         var firstLatitude = Double()
         var firstLongitude = Double()
+        var firstDate: Date?
         var links = [GPXLink]()
         
         for track in parsedData.tracks {
@@ -113,6 +114,7 @@ class CoreGPX_Tests: XCTestCase {
                 if let first = tracksegment.points.first {
                     firstLatitude = first.latitude!
                     firstLongitude = first.longitude!
+                    firstDate = first.time
                     links = first.links
                 }
             }
@@ -124,6 +126,10 @@ class CoreGPX_Tests: XCTestCase {
         XCTAssertEqual(links.count, 2, "testParseDualLinksWithURL: GPX Parse Links count is \(links.count), expected 2")
         XCTAssertEqual(links.last?.href, "https://sunlight.vincent-neo.com", "testParseDualLinksWithURL: GPX Parse Links 2nd href is \(links.last!.href!), expected https://sunlight.vincent-neo.com")
         XCTAssertEqual(links.first?.text, "Vincent Site", "testParseDualLinksWithURL: GPX Parse Links 1st text is \(links.first!.text!), expected Vincent Site")
+        
+        let testDate = Date(timeIntervalSinceReferenceDate: 565148938)
+        print("first date in parsed trackpoint, expected \(firstDate), reality \(testDate)")
+        XCTAssertEqual(firstDate, testDate, "first date in parsed trackpoint, expected \(firstDate), reality \(testDate)")
         
     }
     
