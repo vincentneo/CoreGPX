@@ -48,4 +48,15 @@ jobs:
       run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -workspace "Example/CoreGPX.xcworkspace" -scheme "CoreGPX-Example" -destination "OS=15.2,name=iPhone 12 Pro" clean build | xcpretty
     - name: Run test cases
       run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -workspace "Example/CoreGPX.xcworkspace" -scheme "CoreGPX Tests" -destination "OS=15.2,name=iPhone 12 Pro" test | xcpretty
-     
+  
+  linux:
+    name: Linux Build
+    runs-on: ubuntu-latest
+    container:
+      image: swift:latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        run: |
+          cd Classes
+          swift build
