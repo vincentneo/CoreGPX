@@ -37,7 +37,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build CoreGPX watchOS
-      run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -workspace "Example/CoreGPX.xcworkspace" -scheme "CoreGPX-watchOS" -destination "OS=8.3,name=Apple Watch Series 6 - 44mm" clean build | xcpretty
+      run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -workspace "Example/CoreGPX.xcworkspace" -scheme "CoreGPX-watchOS" -destination "OS=9.1,name=Apple Watch Series 7 (45mm)" clean build | xcpretty
   
   example:     
     name: Build Example & Test
