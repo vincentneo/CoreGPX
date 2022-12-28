@@ -40,6 +40,16 @@ public final class GPXTrackSegment: GPXElement, Codable {
         super.init()
     }
     
+    /// Inits segment from
+    ///
+    /// - Parameters:
+    ///     - points: Track points of the segment.
+    ///     - extensions: Custom Extensions, if needed.
+    public init(points: [GPXTrackPoint] = [], extensions: GPXExtensions? = nil) {
+        self.points = points
+        self.extensions = extensions
+    }
+    
     /// Inits native element from raw parser value
     ///
     /// - Parameters:

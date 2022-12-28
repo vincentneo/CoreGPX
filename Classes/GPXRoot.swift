@@ -95,6 +95,21 @@ public final class GPXRoot: GPXElement, Codable {
         self.creator = creator
     }
     
+    /// Initialize with values
+    ///
+    /// - Parameters:
+    ///     - version: GPX version that will be generated
+    ///     - creator: Name of the creator of the GPX content
+    ///     - metadata: Metadata to be included in your GPX content
+    ///     - waypoints:  Array of waypoints
+    ///     - routes: Array of routes
+    ///     - tracks: Array of tracks
+    ///     - extensions: Items for extensions to GPX schema (if any).
+    ///     Leave it as is, if used without modification to GPX schema
+    public init(version: String = "1.1", creator: String? = nil, metadata: GPXMetadata? = nil, waypoints: [GPXWaypoint] = [], routes: [GPXRoute] = [], tracks: [GPXTrack] = [], extensions: GPXExtensions? = nil) {
+        
+    }
+    
     /// Inits native element from raw parser value
     ///
     /// - Parameters:

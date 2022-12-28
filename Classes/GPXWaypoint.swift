@@ -218,6 +218,29 @@ public class GPXWaypoint: GPXElement, GPXWaypointProtocol, Codable {
         self.longitude = longitude
     }
     
+    /// Initialize with parameters.
+    ///
+    /// - Parameters:
+    ///     - latitude: latitude value of the waypoint, in `Double` or `CLLocationDegrees`, **WGS 84** datum only. Should be within the ranges of **-90.0 to 90.0**
+    ///     - longitude: longitude value of the waypoint, in `Double` or `CLLocationDegrees`, **WGS 84** datum only. Should be within the ranges of **-180.0 to 180.0**
+    ///
+    public init(links: [GPXLink] = [], elevation: Double? = nil, time: Date? = nil, magneticVariation: Double? = nil, geoidHeight: Double? = nil, source: String? = nil, type: String? = nil, satellites: Int? = nil, horizontalDilution: Double? = nil, verticalDilution: Double? = nil, positionDilution: Double? = nil, extensions: GPXExtensions? = nil, latitude: Double? = nil, longitude: Double? = nil) {
+        self.links = links
+        self.elevation = elevation
+        self.time = time
+        self.magneticVariation = magneticVariation
+        self.geoidHeight = geoidHeight
+        self.source = source
+        self.type = type
+        self.satellites = satellites
+        self.horizontalDilution = horizontalDilution
+        self.verticalDilution = verticalDilution
+        self.positionDilution = positionDilution
+        self.extensions = extensions
+        self.latitude = latitude
+        self.longitude = longitude
+    }
+    
     /// Initialize a point type, and verifies that point is within ranges of what latitude and longitude should be.
     ///
     /// - SeeAlso:

@@ -36,6 +36,15 @@ open class GPXPoint: GPXElement, Codable {
         self.longitude = longitude
     }
     
+    /// Initialize with elevation, time, latitude,  longitude
+    public init(elevation: Double? = nil, time: Date? = nil, latitude: Double? = nil, longitude: Double? = nil) {
+        super.init()
+        self.elevation = elevation
+        self.time = time
+        self.latitude = latitude
+        self.longitude = longitude
+    }
+    
     /// Inits native element from raw parser value
     ///
     /// - Parameters:
