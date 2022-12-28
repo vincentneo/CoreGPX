@@ -88,13 +88,6 @@ Simply drag and drop it into your project to use.
 Contributions to this project will be more than welcomed. Feel free to add a pull request or open an issue.
 If you require a feature that has yet to be available, do open an issue, describing why and what the feature could bring and how it would help you!
 
-## Previous Builds Logs
-History of older build logs can be found at Travis CI:
-[![Travis CI](https://travis-ci.com/vincentneo/CoreGPX.svg?branch=master)](https://travis-ci.com/vincentneo/CoreGPX)
-
-CoreGPX recently switched to GitHub Actions due to the loss of free tier Travis CI for open sourced Mac-based projects.
-
-
 ## Like the project? Check out these too!
 - [iOS-Open-GPX-Tracker](https://github.com/merlos/iOS-Open-GPX-Tracker), an awesome open-sourced GPS tracker for iOS and watchOS.
 - [Avenue GPX Viewer](https://github.com/vincentneo/Avenue-GPX-Viewer), a GPX file viewer, written for macOS 10.12 and above.
