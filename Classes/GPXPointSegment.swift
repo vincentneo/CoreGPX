@@ -37,6 +37,11 @@ open class GPXPointSegment: GPXElement, Codable {
         }
     }
     
+    /// Initialize with points
+    public init(points: [GPXPoint]) {
+        self.points = points
+    }
+    
     // MARK:- Public Methods
     
     /// Adds a new point to segment, and returns the added point.
