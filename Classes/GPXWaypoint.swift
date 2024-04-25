@@ -261,6 +261,7 @@ public class GPXWaypoint: GPXElement, GPXWaypointProtocol, Codable {
     init(raw: GPXRawElement) {
         self.latitude = Convert.toDouble(from: raw.attributes["lat"])
         self.longitude = Convert.toDouble(from: raw.attributes["lon"])
+        self.elevation = Convert.toDouble(from: raw.attributes["ele"])
         
         for child in raw.children {
             switch child.name {
