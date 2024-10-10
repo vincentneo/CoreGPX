@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "CoreGPX",
     platforms: [
-        .iOS(.v11), .macOS(.v10_13), .watchOS(.v4), .visionOS(.v1), .tvOS(.v11)
+        .iOS(.v12), .macOS(.v10_13), .watchOS(.v4), .visionOS(.v1), .tvOS(.v12)
     ],
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
