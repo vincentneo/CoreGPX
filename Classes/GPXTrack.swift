@@ -184,27 +184,27 @@ public final class GPXTrack: GPXElement, Codable {
     
     // MARK:- GPX
     
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
-        
+    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int, withFractionalSeconds: Bool = false) {
+        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
+
         self.addProperty(forValue: name, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
         self.addProperty(forValue: comment, gpx: gpx, tagName: "cmt", indentationLevel: indentationLevel)
         self.addProperty(forValue: desc, gpx: gpx, tagName: "desc", indentationLevel: indentationLevel)
         self.addProperty(forValue: source, gpx: gpx, tagName: "src", indentationLevel: indentationLevel)
-        
+
         for link in links {
-            link.gpx(gpx, indentationLevel: indentationLevel)
+            link.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
-        
+
         self.addProperty(forIntegerValue: number, gpx: gpx, tagName: "number", indentationLevel: indentationLevel)
         self.addProperty(forValue: type, gpx: gpx, tagName: "type", indentationLevel: indentationLevel)
-        
+
         if extensions != nil {
-            self.extensions?.gpx(gpx, indentationLevel: indentationLevel)
+            self.extensions?.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
-        
+
         for tracksegment in segments {
-            tracksegment.gpx(gpx, indentationLevel: indentationLevel)
+            tracksegment.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
         
     }

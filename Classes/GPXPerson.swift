@@ -49,18 +49,18 @@ public class GPXPerson: GPXElement, Codable {
     
     // MARK:- GPX
     
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
-        
+    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int, withFractionalSeconds: Bool = false) {
+        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
+
         self.addProperty(forValue: name, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
-        
+
         if email != nil {
-            self.email?.gpx(gpx, indentationLevel: indentationLevel)
+            self.email?.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
-        
+
         if link != nil {
-            self.link?.gpx(gpx, indentationLevel: indentationLevel)
+            self.link?.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
-        
+
     }
 }

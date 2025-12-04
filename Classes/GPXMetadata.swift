@@ -99,33 +99,33 @@ public final class GPXMetadata: GPXElement, Codable {
     
     // MARK:- GPX
     
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
-        
+    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int, withFractionalSeconds: Bool = false) {
+        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
+
         self.addProperty(forValue: name, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
         self.addProperty(forValue: desc, gpx: gpx, tagName: "desc", indentationLevel: indentationLevel)
-        
+
         if author != nil {
-            self.author?.gpx(gpx, indentationLevel: indentationLevel)
+            self.author?.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
-        
+
         if copyright != nil {
-            self.copyright?.gpx(gpx, indentationLevel: indentationLevel)
+            self.copyright?.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
-        
+
         for link in links {
-            link.gpx(gpx, indentationLevel: indentationLevel)
+            link.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
-        
-        self.addProperty(forValue: Convert.toString(from: time), gpx: gpx, tagName: "time", indentationLevel: indentationLevel)
+
+        self.addProperty(forValue: Convert.toString(from: time, withFractionalSeconds: withFractionalSeconds), gpx: gpx, tagName: "time", indentationLevel: indentationLevel)
         self.addProperty(forValue: keywords, gpx: gpx, tagName: "keywords", indentationLevel: indentationLevel)
-        
+
         if bounds != nil {
-            self.bounds?.gpx(gpx, indentationLevel: indentationLevel)
+            self.bounds?.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
-        
+
         if extensions != nil {
-            self.extensions?.gpx(gpx, indentationLevel: indentationLevel)
+            self.extensions?.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
     }
 }

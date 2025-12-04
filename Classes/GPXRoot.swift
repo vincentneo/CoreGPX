@@ -350,27 +350,27 @@ public final class GPXRoot: GPXElement, Codable {
         gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)
     }
     
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
-        
+    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int, withFractionalSeconds: Bool = false) {
+        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
+
         if self.metadata != nil {
-            self.metadata?.gpx(gpx, indentationLevel: indentationLevel)
+            self.metadata?.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
-        
+
         for waypoint in waypoints {
-            waypoint.gpx(gpx, indentationLevel: indentationLevel)
+            waypoint.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
-        
+
         for route in routes {
-            route.gpx(gpx, indentationLevel: indentationLevel)
+            route.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
-        
+
         for track in tracks {
-            track.gpx(gpx, indentationLevel: indentationLevel)
+            track.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
-        
+
         if self.extensions != nil {
-            self.extensions?.gpx(gpx, indentationLevel: indentationLevel)
+            self.extensions?.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
     }
 }
