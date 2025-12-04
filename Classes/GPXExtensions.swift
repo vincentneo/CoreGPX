@@ -143,10 +143,10 @@ public final class GPXExtensions: GPXElement, Codable {
     
     // MARK:- GPX
     
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
+    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int, withFractionalSeconds: Bool = false) {
+        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         for child in children {
-            child.gpx(gpx, indentationLevel: indentationLevel)
+            child.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
 
     }

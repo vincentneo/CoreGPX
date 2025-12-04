@@ -195,36 +195,36 @@ public final class GPXLegacyRoot: GPXElement, GPXRootElement {
         gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)
     }
     
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
-        
+    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int, withFractionalSeconds: Bool = false) {
+        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
+
         self.addProperty(forValue: name, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
         self.addProperty(forValue: desc, gpx: gpx, tagName: "desc", indentationLevel: indentationLevel)
         self.addProperty(forValue: author, gpx: gpx, tagName: "author", indentationLevel: indentationLevel)
         self.addProperty(forValue: email, gpx: gpx, tagName: "email", indentationLevel: indentationLevel)
-        
+
         if let url = url {
             self.addProperty(forValue: url.absoluteString, gpx: gpx, tagName: "url", indentationLevel: indentationLevel)
         }
-        
+
         self.addProperty(forValue: urlName, gpx: gpx, tagName: "urlname", indentationLevel:  indentationLevel)
-        self.addProperty(forValue: Convert.toString(from: time), gpx: gpx, tagName: "time", indentationLevel: indentationLevel)
+        self.addProperty(forValue: Convert.toString(from: time, withFractionalSeconds: withFractionalSeconds), gpx: gpx, tagName: "time", indentationLevel: indentationLevel)
         self.addProperty(forValue: keywords, gpx: gpx, tagName: "keywords", indentationLevel: indentationLevel)
-        
+
         if let bounds = bounds {
-            bounds.gpx(gpx, indentationLevel: indentationLevel)
+            bounds.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
         for waypoint in waypoints {
-            waypoint.gpx(gpx, indentationLevel: indentationLevel)
+            waypoint.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
         for track in tracks {
-            track.gpx(gpx, indentationLevel: indentationLevel)
+            track.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
         for route in routes {
             if version != .v1 { route.isVersion1 = false }
-            route.gpx(gpx, indentationLevel: indentationLevel)
+            route.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
-        
+
     }
     
 }
@@ -325,10 +325,10 @@ public class GPXLegacyWaypoint: GPXElement, GPXWaypointProtocol {
         gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)
     }
     
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
+    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int, withFractionalSeconds: Bool = false) {
+        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         self.addProperty(forDoubleValue: elevation, gpx: gpx, tagName: "ele", indentationLevel: indentationLevel)
-        self.addProperty(forValue: Convert.toString(from: time), gpx: gpx, tagName: "time", indentationLevel: indentationLevel)
+        self.addProperty(forValue: Convert.toString(from: time, withFractionalSeconds: withFractionalSeconds), gpx: gpx, tagName: "time", indentationLevel: indentationLevel)
         addSpeedCourseTags(toGPX: gpx, indLvl: indentationLevel)
         self.addProperty(forDoubleValue: magneticVariation, gpx: gpx, tagName: "magvar", indentationLevel: indentationLevel)
         self.addProperty(forDoubleValue: geoidHeight, gpx: gpx, tagName: "geoidheight", indentationLevel: indentationLevel)
@@ -430,28 +430,28 @@ public class GPXLegacyRoute: GPXElement, GPXRouteType {
         return rte
     }
     
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
+    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int, withFractionalSeconds: Bool = false) {
+        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         addProperty(forValue: name, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
         if isVersion1 {
             addProperty(forValue: comment, gpx: gpx, tagName: "cmt", indentationLevel: indentationLevel)
         }
         addProperty(forValue: desc, gpx: gpx, tagName: "desc", indentationLevel: indentationLevel)
         addProperty(forValue: source, gpx: gpx, tagName: "src", indentationLevel: indentationLevel)
-        
+
         if let url = url {
             addProperty(forValue: url.absoluteString, gpx: gpx, tagName: "url", indentationLevel: indentationLevel)
         }
         if let name = urlName {
             addProperty(forValue: name, gpx: gpx, tagName: "urlname", indentationLevel: indentationLevel)
         }
-        
+
         for point in points {
-            point.gpx(gpx, indentationLevel: indentationLevel)
+            point.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
-        
+
     }
-    
+
 }
 
 
@@ -579,26 +579,26 @@ public class GPXLegacyTrack: GPXElement {
     }
     
     
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
+    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int, withFractionalSeconds: Bool = false) {
+        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         addProperty(forValue: name, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
         if isVersion1 {
             addProperty(forValue: comment, gpx: gpx, tagName: "cmt", indentationLevel: indentationLevel)
         }
         addProperty(forValue: desc, gpx: gpx, tagName: "desc", indentationLevel: indentationLevel)
         addProperty(forValue: source, gpx: gpx, tagName: "src", indentationLevel: indentationLevel)
-        
+
         if let url = url {
             addProperty(forValue: url.absoluteString, gpx: gpx, tagName: "url", indentationLevel: indentationLevel)
         }
         if let name = urlName {
             addProperty(forValue: name, gpx: gpx, tagName: "urlname", indentationLevel: indentationLevel)
         }
-        
+
         for segment in segments {
-            segment.gpx(gpx, indentationLevel: indentationLevel)
+            segment.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
-        
+
     }
 }
 
@@ -627,11 +627,11 @@ public class GPXLegacyTrackSegment: GPXElement {
     }
     
     public required init() {}
-    
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
+
+    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int, withFractionalSeconds: Bool = false) {
+        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         for pt in points {
-            pt.gpx(gpx, indentationLevel: indentationLevel)
+            pt.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
     }
 }

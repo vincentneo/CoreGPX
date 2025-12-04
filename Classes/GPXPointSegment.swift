@@ -84,11 +84,11 @@ open class GPXPointSegment: GPXElement, Codable {
     
     // MARK:- GPX
     
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
-        
+    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int, withFractionalSeconds: Bool = false) {
+        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
+
         for point in points {
-            point.gpx(gpx, indentationLevel: indentationLevel)
+            point.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
     }
 }

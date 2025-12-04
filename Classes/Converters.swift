@@ -46,36 +46,39 @@ internal final class Convert {
     
     // MARK:- Date & Time Formatting
 
-    /// Immutable date formatter (UTC Time) for consistency within CoreGPX.
-    private static let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        
-        // Timezone should be 0 as GPX uses UTC time, not local time.
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        
-        // dateTime（YYYY-MM-DDThh:mm:ssZ）
-        formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
-        
+    /// Immutable ISO8601 date formatter (UTC Time) without fractional seconds.
+    private static let dateFormatter: ISO8601DateFormatter = {
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions = [.withInternetDateTime]
         return formatter
     }()
-    
+
+    /// Immutable ISO8601 date formatter (UTC Time) with fractional seconds.
+    private static let dateFormatterWithFractionalSeconds: ISO8601DateFormatter = {
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        return formatter
+    }()
+
     /// For conversion from optional `Date` to optional `String`
     ///
     /// - Parameters:
-    ///     - date: can be of any date and time, which will be converted to a formatted ISO8601 date and time string.
+    ///     - dateTime: can be of any date and time, which will be converted to a formatted ISO8601 date and time string.
+    ///     - withFractionalSeconds: if true, includes fractional seconds (milliseconds) in the output.
     ///
     /// - Returns:
-    ///     Formatted string according to ISO8601, which is of **"yyyy-MM-ddTHH:mm:ssZ"**
+    ///     Formatted string according to ISO8601, which is of **"yyyy-MM-ddTHH:mm:ssZ"** or **"yyyy-MM-ddTHH:mm:ss.SSSZ"** if fractional seconds enabled.
     ///
     /// This method is currently heavily used for generating of GPX files / formatted string, as the native `Date` type must be converted to a `String` first.
     ///
-    static func toString(from dateTime: Date?) -> String? {
-        
+    static func toString(from dateTime: Date?, withFractionalSeconds: Bool = false) -> String? {
         guard let validDate = dateTime else {
             return nil
         }
-        
+
+        if withFractionalSeconds {
+            return dateFormatterWithFractionalSeconds.string(from: validDate)
+        }
         return dateFormatter.string(from: validDate)
     }
     

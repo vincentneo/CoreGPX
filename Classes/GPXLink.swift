@@ -109,9 +109,9 @@ public final class GPXLink: GPXElement, Codable {
         gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)
     }
     
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
-        
+    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int, withFractionalSeconds: Bool = false) {
+        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
+
         self.addProperty(forValue: text, gpx: gpx, tagName: "text", indentationLevel: indentationLevel)
         self.addProperty(forValue: mimetype, gpx: gpx, tagName: "type", indentationLevel: indentationLevel)
     }

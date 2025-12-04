@@ -81,11 +81,11 @@ open class GPXPoint: GPXElement, Codable {
         gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)
     }
     
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
-        
+    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int, withFractionalSeconds: Bool = false) {
+        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
+
         self.addProperty(forDoubleValue: elevation, gpx: gpx, tagName: "ele", indentationLevel: indentationLevel)
-        self.addProperty(forValue: Convert.toString(from: time), gpx: gpx, tagName: "time", indentationLevel: indentationLevel)
+        self.addProperty(forValue: Convert.toString(from: time, withFractionalSeconds: withFractionalSeconds), gpx: gpx, tagName: "time", indentationLevel: indentationLevel)
     }
     
 }

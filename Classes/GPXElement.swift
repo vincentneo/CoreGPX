@@ -35,18 +35,29 @@ open class GPXElement: NSObject {
     }
 
     // MARK:- GPX
-   
+
     /// for generating newly tracked data straight into a formatted `String` that holds formatted data according to GPX syntax
     open func gpx() -> String {
+        return gpx(withFractionalSeconds: false)
+    }
+
+    /// For generating GPX formatted `String` with optional fractional seconds in timestamps.
+    ///
+    /// - Parameters:
+    ///     - withFractionalSeconds: if true, timestamps will include fractional seconds (milliseconds).
+    ///
+    /// - Returns:
+    ///     A formatted `String` that holds formatted data according to GPX syntax.
+    open func gpx(withFractionalSeconds: Bool) -> String {
         let gpx = NSMutableString(string: "")
-        self.gpx(gpx, indentationLevel: 0)
+        self.gpx(gpx, indentationLevel: 0, withFractionalSeconds: withFractionalSeconds)
         return gpx as String
     }
-    
+
     /// A method for invoking all tag-related methods
-    func gpx(_ gpx: NSMutableString, indentationLevel: Int) {
+    func gpx(_ gpx: NSMutableString, indentationLevel: Int, withFractionalSeconds: Bool = false) {
         self.addOpenTag(toGPX: gpx, indentationLevel: indentationLevel)
-        self.addChildTag(toGPX: gpx, indentationLevel: indentationLevel + 1)
+        self.addChildTag(toGPX: gpx, indentationLevel: indentationLevel + 1, withFractionalSeconds: withFractionalSeconds)
         self.addCloseTag(toGPX: gpx, indentationLevel: indentationLevel)
     }
     
@@ -72,12 +83,13 @@ open class GPXElement: NSObject {
     /// - Parameters:
     ///     - gpx: the GPX string
     ///     - indentationLevel: the amount of indentation required to add for the tag
+    ///     - withFractionalSeconds: if true, timestamps will include fractional seconds.
     /// - **Example**:
     ///
     ///         <trkpt lat=4.0 lon=3.0> // an open tag
     ///             <ele>20.19</ele>    // a child tag
     ///         </trkpt>                // a close tag
-    func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
+    func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int, withFractionalSeconds: Bool = false) {
         // Override to subclasses
     }
     

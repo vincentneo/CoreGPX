@@ -326,38 +326,38 @@ public class GPXWaypoint: GPXElement, GPXWaypointProtocol, Codable {
         gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)
     }
     
-    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
-        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel)
-        
+    override func addChildTag(toGPX gpx: NSMutableString, indentationLevel: Int, withFractionalSeconds: Bool = false) {
+        super.addChildTag(toGPX: gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
+
         self.addProperty(forDoubleValue: elevation, gpx: gpx, tagName: "ele", indentationLevel: indentationLevel)
-        self.addProperty(forValue: Convert.toString(from: time), gpx: gpx, tagName: "time", indentationLevel: indentationLevel)
+        self.addProperty(forValue: Convert.toString(from: time, withFractionalSeconds: withFractionalSeconds), gpx: gpx, tagName: "time", indentationLevel: indentationLevel)
         self.addProperty(forDoubleValue: magneticVariation, gpx: gpx, tagName: "magvar", indentationLevel: indentationLevel)
         self.addProperty(forDoubleValue: geoidHeight, gpx: gpx, tagName: "geoidheight", indentationLevel: indentationLevel)
         self.addProperty(forValue: name, gpx: gpx, tagName: "name", indentationLevel: indentationLevel)
         self.addProperty(forValue: comment, gpx: gpx, tagName: "cmt", indentationLevel: indentationLevel)
         self.addProperty(forValue: desc, gpx: gpx, tagName: "desc", indentationLevel: indentationLevel)
         self.addProperty(forValue: source, gpx: gpx, tagName: "src", indentationLevel: indentationLevel)
-        
+
         for link in links {
-            link.gpx(gpx, indentationLevel: indentationLevel)
+            link.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
- 
+
         self.addProperty(forValue: symbol, gpx: gpx, tagName: "sym", indentationLevel: indentationLevel)
         self.addProperty(forValue: type, gpx: gpx, tagName: "type", indentationLevel: indentationLevel)
-        
+
         if let fix = self.fix?.rawValue {
             self.addProperty(forValue: fix, gpx: gpx, tagName: "fix", indentationLevel: indentationLevel)
         }
-        
+
         self.addProperty(forIntegerValue: satellites, gpx: gpx, tagName: "sat", indentationLevel: indentationLevel)
         self.addProperty(forDoubleValue: horizontalDilution, gpx: gpx, tagName: "hdop", indentationLevel: indentationLevel)
         self.addProperty(forDoubleValue: verticalDilution, gpx: gpx, tagName: "vdop", indentationLevel: indentationLevel)
         self.addProperty(forDoubleValue: positionDilution, gpx: gpx, tagName: "pdop", indentationLevel: indentationLevel)
         self.addProperty(forDoubleValue: ageofDGPSData, gpx: gpx, tagName: "ageofdgpsdata", indentationLevel: indentationLevel)
         self.addProperty(forIntegerValue: DGPSid, gpx: gpx, tagName: "dgpsid", indentationLevel: indentationLevel)
-        
+
         if self.extensions != nil {
-            self.extensions?.gpx(gpx, indentationLevel: indentationLevel)
+            self.extensions?.gpx(gpx, indentationLevel: indentationLevel, withFractionalSeconds: withFractionalSeconds)
         }
     }
 }
