@@ -24,7 +24,11 @@ final class GPXDateParser {
     
     #if !os(Linux)
     /// Caching Calendar such that it can be used repeatedly without reinitializing it.
-    private static var calendarCache = [Int : Calendar]()
+    private static let utcCalendar: Calendar = {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
+        return calendar
+    }()
     /// Components of Date stored together
     private var components = DateComponents()
     #endif // !os(Linux)
@@ -72,17 +76,10 @@ final class GPXDateParser {
         components.month = month.pointee
         components.second = second.pointee
         
-        if let calendar = Self.calendarCache[0] {
-            return calendar.date(from: components)
-        }
-        
-        var calendar = Calendar(identifier: .gregorian)
-        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
-        Self.calendarCache[0] = calendar
-        return calendar.date(from: components)
+        return Self.utcCalendar.date(from: components)
         #endif
     }
-    
+
     /// Parses a year string as native Date type.
     func parse(year string: String?) -> Date? {
         guard let NonNilString = string else {
@@ -99,14 +96,7 @@ final class GPXDateParser {
         #else // os(Linux)
         components.year = year.pointee
         
-        if let calendar = Self.calendarCache[1] {
-            return calendar.date(from: components)
-        }
-        
-        var calendar = Calendar(identifier: .gregorian)
-        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
-        Self.calendarCache[1] = calendar
-        return calendar.date(from: components)
+        return Self.utcCalendar.date(from: components)
         #endif
     }
 }
