@@ -104,7 +104,13 @@ public final class GPXLink: GPXElement, Codable {
         let attribute = NSMutableString(string: "")
         
         if let href = href {
-            attribute.append(" href=\"\(href)\"")
+            let escapedHref = href
+                .replacingOccurrences(of: "&", with: "&amp;")
+                .replacingOccurrences(of: "<", with: "&lt;")
+                .replacingOccurrences(of: ">", with: "&gt;")
+                .replacingOccurrences(of: "\"", with: "&quot;")
+                .replacingOccurrences(of: "'", with: "&apos;")
+            attribute.append(" href=\"\(escapedHref)\"")
         }
         gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)
     }
