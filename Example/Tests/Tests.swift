@@ -1,4 +1,7 @@
 import XCTest
+#if canImport(FoundationXML)
+import FoundationXML
+#endif
 @testable import CoreGPX
 
 class CoreGPX_Tests: XCTestCase {
@@ -337,4 +340,57 @@ class CoreGPX_Tests: XCTestCase {
         }
     }
     
+}
+
+class GPXLink_Tests: XCTestCase {
+
+    func testQueryParametersRoundTrip() throws {
+        let url = URL(string: "https://example.url?utm_source=app&adj_t=xxxx")!
+        try assertRoundTrip(GPXLink(withURL: url), expectedHref: url.absoluteString)
+    }
+
+    func testXMLCharactersRoundTrip() throws {
+        let hrefs = [
+            "https://example.com/?value=\"quoted\"",
+            "https://example.com/?value=<tag>",
+            "https://example.com/?value='quoted'&other=<>\"",
+            "https://example.com/?value=&amp;",
+            "https://example.com/?value=&#38;",
+            "https://example.com/?value=%26%22%3C",
+            "https://example.com/plain"
+        ]
+        for href in hrefs {
+            try assertRoundTrip(GPXLink(withHref: href), expectedHref: href)
+        }
+    }
+
+    func testMissingHrefRemainsAbsent() throws {
+        try assertRoundTrip(GPXLink(), expectedHref: nil)
+    }
+
+    private func assertRoundTrip(_ link: GPXLink, expectedHref: String?,
+                                 file: StaticString = #file, line: UInt = #line) throws {
+        let root = GPXRoot(creator: "CoreGPX tests")
+        let metadata = GPXMetadata()
+        link.text = "Link description"
+        link.mimetype = "text/html"
+        metadata.links = [link]
+        root.metadata = metadata
+
+        for _ in 0..<2 {
+            let gpx = root.gpx()
+            let xmlParser = XMLParser(data: Data(gpx.utf8))
+            XCTAssertTrue(xmlParser.parse(), "Invalid XML for \(expectedHref ?? "nil")",
+                          file: file, line: line)
+            let parsed = try XCTUnwrap(GPXParser(withRawString: gpx)?.parsedData(),
+                                      file: file, line: line)
+            let parsedLink = try XCTUnwrap(parsed.metadata?.links.first, file: file, line: line)
+            XCTAssertEqual(parsed.metadata?.links.count, 1, file: file, line: line)
+            XCTAssertEqual(parsedLink.href, expectedHref, file: file, line: line)
+            XCTAssertEqual(parsedLink.text, link.text, file: file, line: line)
+            XCTAssertEqual(parsedLink.mimetype, link.mimetype, file: file, line: line)
+            XCTAssertEqual(link.href, expectedHref, file: file, line: line)
+            metadata.links = [parsedLink]
+        }
+    }
 }
